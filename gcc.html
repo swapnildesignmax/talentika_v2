@@ -1019,6 +1019,15 @@ main{position:relative;z-index:1}
   }
 }
 
+
+/* Navigation routing update: CTA behaves as a link while keeping button styling */
+.site-header__talk{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+}
+
 </style>
 </head>
 <body class="gcc-page">
@@ -1030,10 +1039,16 @@ main{position:relative;z-index:1}
 </div>
 <header class="site-header">
   <div class="site-header__inner">
-    <a href="#" aria-label="Talentika home"><img class="site-header__logo" src="https://www.figma.com/api/mcp/asset/1ce4e403-b815-478e-98d9-497282565682/a26d6.png" alt="Talentika"></a>
+    <a href="index.html" aria-label="Talentika home"><img class="site-header__logo" src="https://www.figma.com/api/mcp/asset/1ce4e403-b815-478e-98d9-497282565682/a26d6.png" alt="Talentika"></a>
     <button class="site-header__toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><span></span></button>
     <nav class="site-header__nav" id="main-nav" aria-label="Primary navigation">
-      <a class="site-header__link is-active" href="#gcc-overview" aria-current="page">GCC services</a><a class="site-header__link" href="#">RPO</a><a class="site-header__link" href="#">Digital</a><a class="site-header__link" href="#gcc-case-study">Case studies</a><a class="site-header__link" href="#about">About</a><a class="site-header__link" href="#contact">Contact</a><button class="site-header__talk">Talk to us</button>
+      <a class="site-header__link is-active" href="gcc.html" aria-current="page">GCC services</a>
+      <a class="site-header__link" href="rpo.html">RPO</a>
+      <a class="site-header__link" href="aidigital.html">Digital</a>
+      <a class="site-header__link" href="index.html#work">Case studies</a>
+      <a class="site-header__link" href="aboutus.html">About</a>
+      <a class="site-header__link" href="contactus.html">Contact</a>
+      <a class="site-header__talk" href="contactus.html">Talk to us</a>
     </nav>
   </div>
 </header>
