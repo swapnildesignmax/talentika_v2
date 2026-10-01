@@ -143,6 +143,194 @@ main{position:relative;z-index:1}
 .footer__ecosystem-row:hover .footer__arrow--in,
 .footer__ecosystem-row:focus-visible .footer__arrow--in{transform:translate(0,0)}
 
+
+/* =========================================================
+   MOBILE FOOTER VISIBILITY FIX
+   Prevent the fixed desktop footer height / absolute legal row
+   from clipping Services, Company, EcoSystem & Platforms,
+   and Cities We Work in on mobile.
+   ========================================================= */
+@media (max-width:768px){
+  .footer{
+    overflow:hidden!important;
+  }
+
+  .footer__main{
+    height:auto!important;
+    min-height:0!important;
+    padding:60px 20px 30px!important;
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    gap:52px!important;
+    overflow:visible!important;
+  }
+
+  .footer__links{
+    width:100%!important;
+    display:grid!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    column-gap:28px!important;
+    row-gap:42px!important;
+    align-items:start!important;
+    color:#e7e8ea!important;
+    opacity:1!important;
+    visibility:visible!important;
+  }
+
+  .footer__col{
+    min-width:0!important;
+    display:block!important;
+    opacity:1!important;
+    visibility:visible!important;
+  }
+
+  .footer__col h3{
+    display:block!important;
+    margin:0 0 14px!important;
+    color:#b3b8bf!important;
+    opacity:1!important;
+    visibility:visible!important;
+  }
+
+  .footer__link{
+    display:block!important;
+    width:auto!important;
+    max-width:100%!important;
+    margin:0 0 14px!important;
+    color:#e7e8ea!important;
+    opacity:1!important;
+    visibility:visible!important;
+    white-space:normal!important;
+  }
+
+  .footer__ecosystem{
+    width:100%!important;
+    display:flex!important;
+    flex-direction:column!important;
+    opacity:1!important;
+    visibility:visible!important;
+  }
+
+  .footer__ecosystem-row{
+    width:100%!important;
+    min-width:0!important;
+    color:#e7e8ea!important;
+    opacity:1!important;
+    visibility:visible!important;
+  }
+
+  .footer__bottom{
+    position:static!important;
+    left:auto!important;
+    right:auto!important;
+    top:auto!important;
+    width:100%!important;
+    height:auto!important;
+    min-height:0!important;
+    padding:20px 0 0!important;
+    margin:0!important;
+    background:transparent!important;
+    color:#b3b8bf!important;
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:flex-start!important;
+    gap:16px!important;
+  }
+}
+
+@media (max-width:480px){
+  .footer__links{
+    grid-template-columns:1fr!important;
+    row-gap:36px!important;
+  }
+}
+
+
+/* MOBILE LINK HOVER WIDTH FIX */
+@media (max-width:768px){
+  .footer__link{
+    display:inline-block!important;
+    width:max-content!important;
+    max-width:100%!important;
+  }
+
+  .footer__link::after{
+    width:100%!important;
+  }
+
+  .footer__legal-link{
+    position:relative;
+    display:inline-block!important;
+    width:max-content!important;
+    max-width:100%!important;
+  }
+
+  .footer__legal-link::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-4px;
+    width:100%;
+    height:1px;
+    background:currentColor;
+    transform:scaleX(0);
+    transform-origin:left center;
+    opacity:0;
+    transition:transform .45s var(--ease),opacity .2s ease;
+  }
+
+  .footer__legal-link:hover::after,
+  .footer__legal-link:focus-visible::after{
+    transform:scaleX(1);
+    opacity:1;
+  }
+}
+
+
+/* MOBILE FOOTER LINK FLOW FIX */
+@media (max-width:768px){
+  .footer__col{
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:flex-start!important;
+    min-width:0!important;
+  }
+
+  .footer__col h3{
+    width:auto!important;
+    max-width:100%!important;
+    flex:0 0 auto!important;
+  }
+
+  .footer__link{
+    display:block!important;
+    width:fit-content!important;
+    max-width:100%!important;
+    flex:0 0 auto!important;
+    margin:0 0 14px!important;
+    line-height:16px!important;
+    white-space:normal!important;
+  }
+
+  .footer__link::after{
+    width:100%!important;
+  }
+
+  .footer__legal{
+    display:flex!important;
+    flex-wrap:wrap!important;
+    gap:12px 24px!important;
+  }
+
+  .footer__legal-link{
+    display:block!important;
+    width:fit-content!important;
+    max-width:100%!important;
+    flex:0 0 auto!important;
+    line-height:16px!important;
+  }
+}
+
 </style>
 </head>
 <body>
