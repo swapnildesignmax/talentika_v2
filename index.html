@@ -16,7 +16,7 @@
 }
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--navy);background:#fff;font-family:"Noto Sans",sans-serif;overflow-x:hidden}
 img{display:block;max-width:100%}a{color:inherit;text-decoration:none}button{font:inherit}
-.site-header{height:105px;padding:14px 16px 0;position:relative;z-index:20;background:#fff}
+.site-header{height:105px;padding:14px 16px 0;position:relative;z-index:20;background:transparent}
 .site-header__inner{height:91px;border-radius:16px;background:#fff;padding:25px 48px 25px 44px;display:flex;align-items:center;justify-content:space-between}
 .site-header__logo{width:126px;height:26px;object-fit:contain;transition:transform .55s var(--ease),opacity .55s var(--ease)}
 .site-header__logo:hover{transform:translateY(-2px);opacity:.82}
@@ -32,7 +32,7 @@ img{display:block;max-width:100%}a{color:inherit;text-decoration:none}button{fon
 .site-header__toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
 .site-header__toggle[aria-expanded="true"] span:nth-child(2){opacity:0}
 .site-header__toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-.hero{min-height:588px;padding:0 60px 0;display:flex;flex-direction:column;justify-content:flex-end;gap:40px}
+.hero{min-height:588px;padding:0 60px 0;display:flex;flex-direction:column;justify-content:flex-end;gap:40px;position:relative;z-index:2;overflow:visible}
 .hero__copy{width:598px}.hero__title{margin:0;font:600 60px/60px "Geist",sans-serif}.accent{color:var(--blue)}
 .hero__description{width:506px;margin:10px 0 0;color:var(--text);font-size:16px;font-style:italic;line-height:normal}
 .hero__actions{display:flex;gap:24px}.button{display:inline-flex;align-items:center;justify-content:center;padding:20px;border-radius:10px;font-size:16px;line-height:20px;font-weight:700;transition:transform .45s var(--ease)}
@@ -62,7 +62,7 @@ img{display:block;max-width:100%}a{color:inherit;text-decoration:none}button{fon
 .case-card__tag{border:.5px solid var(--text);border-radius:10px;padding:10px;width:max-content;font-size:14px;color:var(--text)}.case-card__logo{height:24px;width:109px;object-fit:contain}.case-card__metric{font:600 60px/60px "Geist";color:var(--blue);margin:0}.case-card__metric-sub{font-size:14px;font-style:italic}.case-card__title{font:600 28px/1 "Geist";margin:0}.case-card__desc{font-size:14px;max-width:291px}
 .footer{background:#09172a;color:#e7e8ea;border-radius:42px 42px 0 0;padding-top:80px;overflow:hidden}.footer__cta{padding:0 60px 42px}.footer__cta .section-heading{font-size:60px;line-height:60px;color:var(--blue);max-width:674px}.footer__advisor{margin-top:42px;background:var(--blue);color:#fff;width:max-content}.footer__advisor:hover{transform:translateY(-3px)}
 .city-tickers{display:grid;gap:0;margin-top:42px;width:calc(100% + 120px);margin-left:-60px}.city-tickers .ticker__track{animation-duration:28s}.city-tickers .ticker--reverse .ticker__track{animation-name:ticker-right}.city-tickers .ticker__item{font:italic 16px/1.3 "Noto Sans";color:var(--blue-active);padding:20px;margin:0 11px}
-.footer__main{background:var(--navy);padding:80px 60px 40px;display:grid;grid-template-columns:330px 820px;gap:170px}.footer__brand-logo{width:164px;height:33px;object-fit:contain}.footer__tagline{color:var(--blue);font-size:16px}.footer__mini-icons{display:grid;gap:18px;margin:28px 0}.footer__mini-icons img{max-width:92px;max-height:32px}.footer__contact{color:var(--footer-muted);font-size:12px}.footer__social{display:flex;gap:22px;margin-top:40px}.footer__social img{width:46px;height:46px}.footer__links{display:grid;grid-template-columns:124px 124px 178px 124px;column-gap:90px;align-items:start}.footer__col h3{font-size:14px;line-height:20px;font-weight:700;color:var(--footer-muted);margin:0 0 12px}.footer__link{font-size:12px;line-height:16px;font-weight:400;display:block;margin:0 0 17px}.footer__bottom{background:#0a192f;padding:0 60px 40px 560px;color:#b3b8bf;font-size:12px;line-height:16px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.footer__main{background:var(--navy);padding:80px 60px 0;display:grid;grid-template-columns:330px 820px;gap:170px;position:relative;height:506px;box-sizing:border-box}.footer__brand-logo{width:164px;height:33px;object-fit:contain}.footer__tagline{color:var(--blue);font-size:16px}.footer__mini-icons{display:grid;gap:18px;margin:28px 0}.footer__mini-icons img{max-width:92px;max-height:32px}.footer__contact{color:var(--footer-muted);font-size:12px}.footer__social{display:flex;gap:22px;margin-top:40px;height:46px;align-items:center}.footer__social img{width:46px;height:46px}.footer__links{display:grid;grid-template-columns:124px 124px 178px 124px;column-gap:90px;align-items:start}.footer__col h3{font-size:14px;line-height:20px;font-weight:700;color:var(--footer-muted);margin:0 0 12px}.footer__link{font-size:12px;line-height:16px;font-weight:400;display:block;margin:0 0 17px}.footer__bottom{position:absolute;left:560px;right:60px;top:472px;height:19px;background:transparent;color:#b3b8bf;font-size:12px;line-height:16px;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:0;margin:0}
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s var(--ease),transform .8s var(--ease);transition-delay:var(--delay,0ms)}.reveal.is-visible{opacity:1;transform:none}
 @media(max-width:1024px){
  .site-header__nav{position:absolute;left:16px;right:16px;top:96px;background:#fff;border-radius:16px;padding:0 28px;display:flex;flex-direction:column;align-items:flex-start;gap:0;max-height:0;overflow:hidden;opacity:0;transition:max-height .6s var(--ease),opacity .35s ease,padding .6s var(--ease)}
@@ -75,16 +75,16 @@ img{display:block;max-width:100%}a{color:inherit;text-decoration:none}button{fon
  .features{padding:40px 20px;grid-template-columns:1fr}.feature-card{height:190px}.partners{padding:30px 20px 0}.partners>.ticker{width:calc(100% + 40px);margin-left:-20px}.partners>.ticker .ticker__track{padding-left:20px}.city-tickers{width:calc(100% + 40px);margin-left:-20px}
  .stats,.services,.ai-core{padding:60px 20px}.section-heading{font-size:34px;line-height:36px}.stats__grid{grid-template-columns:1fr 1fr;gap:36px 24px}.services__intro{width:100%}.services__number{font-size:320px;right:-50px}.services__grid{grid-template-columns:1fr;gap:48px;margin-top:60px}.service{width:100%}
  .ai-core__visual{height:420px;border-radius:28px}.ai-core__desc{width:100%}.work__watermark{font-family:"Geist",sans-serif;font-weight:700;font-size:clamp(60px,12.5vw,180px);line-height:.905;color:#edf1ff;white-space:nowrap;margin:0 0 -5.5vw -3.26vw;width:106.52vw;max-width:none}.work__more{padding:0 20px 20px}.cases{grid-template-columns:1fr;padding:0 20px}.case-card:first-child{grid-column:auto}.case-card{min-height:420px;border-radius:28px;gap:38px}
- .footer{border-radius:28px 28px 0 0;padding-top:60px}.footer__cta{padding:0 20px 30px}.footer__cta .section-heading{font-size:42px;line-height:44px}.footer__main{padding:60px 20px 30px;grid-template-columns:1fr;gap:60px}.footer__links{grid-template-columns:1fr 1fr;gap:40px}.footer__bottom{padding:20px;background:#0a192f;gap:16px;flex-direction:column;align-items:flex-start}.footer__legal{flex-wrap:wrap;gap:18px 28px}
+ .footer{border-radius:28px 28px 0 0;padding-top:60px}.footer__cta{padding:0 20px 30px}.footer__cta .section-heading{font-size:42px;line-height:44px}.footer__main{padding:60px 20px 30px;grid-template-columns:1fr;gap:60px}.footer__links{grid-template-columns:1fr 1fr;gap:40px}.footer__bottom{padding:20px;background:#0a192f;gap:16px;flex-direction:column;align-items:flex-start}.footer__legal{display:flex;align-items:center;gap:28px;flex-wrap:nowrap;margin:0;padding:0}
 }
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
 
-.footer__ecosystem{display:flex;flex-direction:column;gap:16px}
-.footer__ecosystem-row{height:64px;border-top:1px solid rgba(179,184,191,.32);display:flex;align-items:center;justify-content:space-between}
+.footer__ecosystem{display:flex;flex-direction:column;gap:0}
+.footer__ecosystem-row{height:64px;border-top:1px solid rgba(179,184,191,.32);display:flex;align-items:center;justify-content:space-between;transform:none!important}
 .footer__ecosystem-row:last-child{border-bottom:1px solid rgba(179,184,191,.32)}
 .footer__ecosystem-logo{display:block;max-width:136px;height:24px;object-fit:contain;object-position:left center}
 .footer__ecosystem-logo--deebug{width:85px}
-.footer__ecosystem-arrow{width:24px;height:24px;object-fit:contain;display:block}
+.footer__ecosystem-arrow{position:relative;width:24px;height:24px;overflow:hidden;flex:0 0 24px;background:transparent;display:block}
 
 .ai-core__visual img{width:100%;height:100%;object-fit:cover;display:block}
 
@@ -101,7 +101,7 @@ img{display:block;max-width:100%}a{color:inherit;text-decoration:none}button{fon
 
 
 .hero{position:relative;isolation:isolate;overflow:hidden}
-.hero__media{position:absolute;inset:0 0 auto 0;width:100%;height:850px;z-index:-2;overflow:hidden;background:#eef1f5}
+.hero__media{position:absolute;top:0;left:0;width:100vw;height:850px;z-index:0;overflow:hidden;background:#eef1f5;pointer-events:none}
 .hero__media video,.hero__media img{width:100%;height:100%;object-fit:cover;display:block}
 .hero__media img{position:absolute;inset:0}
 .hero__media video.is-ready + img{opacity:0;transition:opacity .35s ease}
@@ -114,8 +114,7 @@ img{display:block;max-width:100%}a{color:inherit;text-decoration:none}button{fon
 .feature-card,
 .case-card,
 .service,
-.stat,
-.footer__ecosystem-row {
+.stat {
   will-change: transform;
   transform: translateY(0);
   transition: transform .5s var(--ease);
@@ -127,15 +126,32 @@ img{display:block;max-width:100%}a{color:inherit;text-decoration:none}button{fon
 .service:hover,
 .service:focus-within,
 .stat:hover,
-.stat:focus-within,
-.footer__ecosystem-row:hover,
-.footer__ecosystem-row:focus-visible {
+.stat:focus-within {
   transform: translateY(-10px);
 }
+
+
+main{position:relative;z-index:1}
+.features{position:relative;z-index:2}
+
+
+.footer__ecosystem-arrow svg{position:absolute;width:13px;height:13px;transition:transform .6s ease-in-out,color .6s ease-in-out;will-change:transform}
+.footer__ecosystem-arrow .footer__arrow--out{left:5px;top:6px;color:#233673;transform:translate(0,0)}
+.footer__ecosystem-arrow .footer__arrow--in{left:5px;top:6px;color:#4d77ff;transform:translate(-19px,19px)}
+.footer__ecosystem-row:hover .footer__arrow--out,
+.footer__ecosystem-row:focus-visible .footer__arrow--out{transform:translate(20px,-20px)}
+.footer__ecosystem-row:hover .footer__arrow--in,
+.footer__ecosystem-row:focus-visible .footer__arrow--in{transform:translate(0,0)}
 
 </style>
 </head>
 <body>
+<div class="hero__media" aria-hidden="true">
+  <video autoplay muted loop playsinline preload="metadata" poster="https://www.figma.com/api/mcp/asset/2b19a63a-f990-4ecc-a5a5-385a4d12c8a4.png" id="heroVideo">
+    <source src="hero-video.mp4" type="video/mp4">
+  </video>
+  <img src="https://www.figma.com/api/mcp/asset/2b19a63a-f990-4ecc-a5a5-385a4d12c8a4.png" alt="">
+</div>
 <header class="site-header">
   <div class="site-header__inner">
     <a href="#" aria-label="Talentika home"><img class="site-header__logo" src="https://www.figma.com/api/mcp/asset/1ce4e403-b815-478e-98d9-497282565682/a26d6.png" alt="Talentika"></a>
@@ -147,13 +163,7 @@ img{display:block;max-width:100%}a{color:inherit;text-decoration:none}button{fon
 </header>
 <main>
 <section class="hero">
-<div class="hero__media" aria-hidden="true">
-  <video autoplay muted loop playsinline preload="metadata" poster="https://www.figma.com/api/mcp/asset/2b19a63a-f990-4ecc-a5a5-385a4d12c8a4.png" id="heroVideo">
-    <source src="hero-video.mp4" type="video/mp4">
-  </video>
-  <img src="https://www.figma.com/api/mcp/asset/2b19a63a-f990-4ecc-a5a5-385a4d12c8a4.png" alt="">
-</div>
- <div class="hero__copy reveal"><h1 class="hero__title">We <span class="accent">build &amp; scale</span><br>Global Capability<br>Centers</h1><p class="hero__description">From location strategy and talent acquisition to digital transformation, a single partner for your entire GCC journey.</p></div>
+<div class="hero__copy reveal"><h1 class="hero__title">We <span class="accent">build &amp; scale</span><br>Global Capability<br>Centers</h1><p class="hero__description">From location strategy and talent acquisition to digital transformation, a single partner for your entire GCC journey.</p></div>
  <div class="hero__actions reveal" style="--delay:80ms"><a class="button button--primary" href="#contact">Start Your GCC Journey</a><a class="button button--secondary" href="#work">See Our Work</a></div>
 </section>
 <section class="features">
@@ -192,12 +202,21 @@ img{display:block;max-width:100%}a{color:inherit;text-decoration:none}button{fon
 <div class="footer__col"><h3>Services</h3><a class="footer__link" href="#">GCC Setup &amp; Advisory</a><a class="footer__link" href="#">Location Strategy</a><a class="footer__link" href="#">Entity &amp; Compliance</a><a class="footer__link" href="#">Tech &amp; Infrastructure</a><a class="footer__link" href="#">Tech RPO</a><a class="footer__link" href="#">Healthcare RPO</a><a class="footer__link" href="#">Executive Search</a><a class="footer__link" href="#">Platform Integration</a></div>
 <div class="footer__col"><h3>Company</h3><a class="footer__link" href="#">About Talentika</a><a class="footer__link" href="#">Careers/Hiring</a><a class="footer__link" href="#">Case Studies</a><a class="footer__link" href="#">Contact</a><a class="footer__link" href="#">Insights &amp; Resources</a></div>
 <div class="footer__col"><h3>EcoSystem &amp; Platforms</h3><div class="footer__ecosystem">
-<a class="footer__ecosystem-row" href="#"><img class="footer__ecosystem-logo footer__ecosystem-logo--deebug" src="https://www.figma.com/api/mcp/asset/24509ebf-4027-4fcd-8de3-679f8aecfe58/fcd1c.png" alt="Deebug"><img class="footer__ecosystem-arrow" src="https://www.figma.com/api/mcp/asset/24509ebf-4027-4fcd-8de3-679f8aecfe58/aac08.svg" alt=""></a>
-<a class="footer__ecosystem-row" href="#"><img class="footer__ecosystem-logo" src="https://www.figma.com/api/mcp/asset/24509ebf-4027-4fcd-8de3-679f8aecfe58/ff2fa.png" alt="GCC Mixer"><img class="footer__ecosystem-arrow" src="https://www.figma.com/api/mcp/asset/24509ebf-4027-4fcd-8de3-679f8aecfe58/aac08.svg" alt=""></a>
-<a class="footer__ecosystem-row" href="#"><img class="footer__ecosystem-logo" src="https://www.figma.com/api/mcp/asset/24509ebf-4027-4fcd-8de3-679f8aecfe58/181f2.png" alt="AI Basecamp"><img class="footer__ecosystem-arrow" src="https://www.figma.com/api/mcp/asset/24509ebf-4027-4fcd-8de3-679f8aecfe58/aac08.svg" alt=""></a>
+<a class="footer__ecosystem-row" href="#"><img class="footer__ecosystem-logo footer__ecosystem-logo--deebug" src="https://www.figma.com/api/mcp/asset/24509ebf-4027-4fcd-8de3-679f8aecfe58/fcd1c.png" alt="Deebug"><span class="footer__ecosystem-arrow" aria-hidden="true">
+<svg class="footer__arrow--out" viewBox="0 0 24 24" fill="none"><path d="M6.4 18 5 16.6 14.6 7H6V5h12v12h-2V8.4L6.4 18Z" fill="currentColor"/></svg>
+<svg class="footer__arrow--in" viewBox="0 0 24 24" fill="none"><path d="M6.4 18 5 16.6 14.6 7H6V5h12v12h-2V8.4L6.4 18Z" fill="currentColor"/></svg>
+</span></a>
+<a class="footer__ecosystem-row" href="#"><img class="footer__ecosystem-logo" src="https://www.figma.com/api/mcp/asset/24509ebf-4027-4fcd-8de3-679f8aecfe58/ff2fa.png" alt="GCC Mixer"><span class="footer__ecosystem-arrow" aria-hidden="true">
+<svg class="footer__arrow--out" viewBox="0 0 24 24" fill="none"><path d="M6.4 18 5 16.6 14.6 7H6V5h12v12h-2V8.4L6.4 18Z" fill="currentColor"/></svg>
+<svg class="footer__arrow--in" viewBox="0 0 24 24" fill="none"><path d="M6.4 18 5 16.6 14.6 7H6V5h12v12h-2V8.4L6.4 18Z" fill="currentColor"/></svg>
+</span></a>
+<a class="footer__ecosystem-row" href="#"><img class="footer__ecosystem-logo" src="https://www.figma.com/api/mcp/asset/24509ebf-4027-4fcd-8de3-679f8aecfe58/181f2.png" alt="AI Basecamp"><span class="footer__ecosystem-arrow" aria-hidden="true">
+<svg class="footer__arrow--out" viewBox="0 0 24 24" fill="none"><path d="M6.4 18 5 16.6 14.6 7H6V5h12v12h-2V8.4L6.4 18Z" fill="currentColor"/></svg>
+<svg class="footer__arrow--in" viewBox="0 0 24 24" fill="none"><path d="M6.4 18 5 16.6 14.6 7H6V5h12v12h-2V8.4L6.4 18Z" fill="currentColor"/></svg>
+</span></a>
 </div></div>
 <div class="footer__col"><h3>Cities We Work in</h3><a class="footer__link" href="#">Pune</a><a class="footer__link" href="#">London</a><a class="footer__link" href="#">Dublin</a><a class="footer__link" href="#">Madrid</a><a class="footer__link" href="#">Sydney</a></div>
-</div></div></div>
+</div>
 <div class="footer__bottom">
 <span>© 2026 Talentika.</span>
 <nav class="footer__legal" aria-label="Legal">
@@ -206,7 +225,9 @@ img{display:block;max-width:100%}a{color:inherit;text-decoration:none}button{fon
 <a class="footer__legal-link" href="#">Cookie Preferences</a>
 <a class="footer__legal-link" href="#">Sitemap</a>
 </nav>
-</div><div class="footer__skyline" aria-hidden="true"><img src="https://www.figma.com/api/mcp/asset/0af92dde-8c8e-4909-8571-75b9240046a2/1010b.svg" alt=""></div></footer>
+</div>
+</div></div>
+<div class="footer__skyline" aria-hidden="true"><img src="https://www.figma.com/api/mcp/asset/0af92dde-8c8e-4909-8571-75b9240046a2/1010b.svg" alt=""></div></footer>
 <script>
 (() => {
  const toggle=document.querySelector('.site-header__toggle'),nav=document.querySelector('.site-header__nav');
