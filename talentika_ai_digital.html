@@ -1,0 +1,1775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Talentika — AI & Digital</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@600;700&family=Noto+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+:root{
+  --navy:#0a192f;--navy-active:#081426;--blue:#4d77ff;--blue-light:#edf1ff;--blue-active:#c8d5ff;
+  --white:#fff;--text:#545556;--muted:#909193;--neutral:#f0f2f5;--footer-muted:#b3b8bf;--gcc:#00d4aa;--gcc-light:#e6fbf7;
+  --rpo:#31c0ff;--rpo-light:#eaf9ff;--ai:#ff6080;--ai-light:#ffeff2;
+  --s10:10px;--s14:14px;--s16:16px;--s20:20px;--s24:24px;--s40:40px;--s42:42px;--s60:60px;--s80:80px;
+  --h1:60px;--h2:42px;--body:16px;--small:14px;--radius:20px;--radius-lg:42px;
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--navy);background:#fff;font-family:"Noto Sans",sans-serif;overflow-x:hidden}
+img{display:block;max-width:100%}a{color:inherit;text-decoration:none}button{font:inherit}
+.site-header{height:105px;padding:14px 16px 0;position:relative;z-index:20;background:transparent}
+.site-header__inner{height:91px;border-radius:16px;background:#fff;padding:25px 48px 25px 44px;display:flex;align-items:center;justify-content:space-between}
+.site-header__logo{width:126px;height:26px;object-fit:contain;transition:transform .55s var(--ease),opacity .55s var(--ease)}
+.site-header__logo:hover{transform:translateY(-2px);opacity:.82}
+.site-header__nav{display:flex;align-items:center;gap:60px}
+.site-header__link,.footer__link,.text-cta{position:relative;display:inline-block;font-size:14px;font-weight:600;line-height:20px;width:max-content}
+.site-header__link::after,.footer__link::after,.text-cta::after{content:"";position:absolute;left:0;bottom:-4px;width:100%;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left center;opacity:0;transition:transform .45s var(--ease),opacity .2s ease}
+.site-header__link:hover::after,.site-header__link:focus-visible::after,.footer__link:hover::after,.text-cta:hover::after{transform:scaleX(1);opacity:1}
+.site-header__talk{width:138px;height:54px;border:0;border-radius:10px;background:var(--navy);color:#e7e8ea;font-size:14px;font-weight:600;cursor:pointer;overflow:hidden;position:relative}
+.site-header__talk:before{content:"";position:absolute;inset:-10px auto -10px -80px;width:55px;background:linear-gradient(110deg,transparent,rgba(255,255,255,.38),transparent);transform:skewX(-18deg);transition:left .65s var(--ease)}
+.site-header__talk:hover:before{left:170px}
+.site-header__toggle{display:none;width:32px;height:32px;border:0;background:transparent;border-radius:0;padding:5px 2px;cursor:pointer}
+.site-header__toggle span{display:block;width:28px;height:2px;background:var(--navy);margin:5px 0;transition:transform .35s var(--ease),opacity .25s ease}
+.site-header__toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.site-header__toggle[aria-expanded="true"] span:nth-child(2){opacity:0}
+.site-header__toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.hero{min-height:588px;padding:0 60px 0;display:flex;flex-direction:column;justify-content:flex-end;gap:40px;position:relative;z-index:2;overflow:visible}
+.hero__copy{width:598px}.hero__title{margin:0;font:600 60px/60px "Geist",sans-serif}.accent{color:var(--blue)}
+.hero__description{width:506px;margin:10px 0 0;color:var(--text);font-size:16px;font-style:italic;line-height:normal}
+.hero__actions{display:flex;gap:24px}.button{display:inline-flex;align-items:center;justify-content:center;padding:20px;border-radius:10px;font-size:16px;line-height:20px;font-weight:700;transition:transform .45s var(--ease)}
+.button:hover{transform:translateY(-3px)}.button--primary{background:var(--navy);color:#fff}.button--secondary{border:1px solid var(--navy)}
+.features{padding:80px 60px 60px;display:grid;grid-template-columns:repeat(3,1fr);gap:51px}
+.feature-card{height:209px;padding:20px;border-radius:20px;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;transition:transform .55s var(--ease)}
+.feature-card,.case-card{will-change:transform;transform:translateY(0);transition:transform .5s var(--ease)}.feature-card:hover,.feature-card:focus-within,.case-card:hover,.case-card:focus-within{transform:translateY(-12px)}
+.feature-card--gcc{background:var(--gcc-light)}.feature-card--rpo{background:var(--rpo-light)}.feature-card--ai{background:var(--ai-light)}
+.feature-card__icon{width:64px;height:64px;object-fit:contain}.feature-card__eyebrow{font:700 16px/30px "Geist";text-transform:uppercase}.feature-card__title{font:600 24px/30px "Geist";margin:0}
+.partners{padding:60px 60px 0}.section-label{margin:0 0 10px;font-size:16px;font-weight:700;line-height:20px}
+.ticker{overflow:hidden;width:100%}.partners>.ticker{width:calc(100% + 120px);margin-left:-60px}.partners>.ticker .ticker__track{padding-left:60px}
+.ticker__track{display:flex;width:max-content;align-items:center;animation:ticker-left 24s linear infinite;will-change:transform}.ticker__item{font:600 24px/30px "Geist";color:var(--muted);white-space:nowrap;margin-right:60px}.ticker__item--bmc{font-size:20px;line-height:26px}
+@keyframes ticker-left{to{transform:translateX(-50%)}}@keyframes ticker-right{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+.stats{padding:80px 60px}.section-heading{margin:0;font:600 42px/42px "Geist";max-width:647px}.stats__grid{display:grid;grid-template-columns:repeat(4,203px);gap:132px;margin-top:40px}
+.stat__number{font:600 42px/42px "Geist";color:var(--blue);margin:0 0 8px}.stat__text{font-size:16px;line-height:1.38;margin:0;min-height:44px}.stat__source{font-size:12px;line-height:16px;margin-top:16px;text-decoration:underline}
+.services{position:relative;background:var(--navy);color:var(--blue-light);padding:80px 60px;overflow:hidden}
+.services__number{position:absolute;right:0;top:-70px;font:600 542px/1 "Geist";color:var(--navy-active);margin:0}
+.services__intro{position:relative;z-index:1;width:579px}.services__intro p:last-child{width:281px;color:#e7e8ea;font-size:14px;font-style:italic}
+.services__grid{position:relative;z-index:1;display:grid;grid-template-columns:repeat(3,349px);gap:128px;margin-top:90px}
+.service__icon{object-fit:contain;margin-bottom:16px}.service__icon--gcc{width:65px;height:55px}.service__icon--rpo{width:63px;height:52px}.service__icon--ai{width:64px;height:64px}.service__title{font:600 20px/26px "Geist";width:203px;margin:0 0 12px}.service:nth-child(1) .service__title{color:var(--gcc)}.service:nth-child(2) .service__title{color:var(--rpo)}.service:nth-child(3) .service__title{color:var(--ai)}
+.service__desc{font-size:14px;font-style:italic;color:var(--neutral);line-height:normal;margin:0 0 12px}.service .text-cta{color:#e7e8ea}
+.ai-core{padding:80px 60px}.ai-core__visual{height:655px;border-radius:42px;margin:20px 0;position:relative;overflow:hidden;background:#0a192f}
+
+.ai-core__desc{width:511px;font-size:14px;font-style:italic;line-height:normal}
+.work{padding-bottom:80px;overflow:hidden}.work__watermark{font-family:"Geist",sans-serif;font-weight:700;font-size:clamp(60px,12.5vw,180px);line-height:.905;color:#edf1ff;white-space:nowrap;margin:0 0 -5.5vw -3.26vw;width:106.52vw;max-width:none}.work__more{display:flex;justify-content:flex-end;padding:0 60px 24px}.cases{display:grid;grid-template-columns:504px 390px 390px;gap:20px;padding:0 60px}
+.case-card{min-height:463px;background:var(--blue-light);border-radius:42px;padding:24px;display:flex;flex-direction:column;gap:52px;cursor:pointer;transition:transform .55s var(--ease)}
+.case-card__tag{border:.5px solid var(--text);border-radius:10px;padding:10px;width:max-content;font-size:14px;color:var(--text)}.case-card__logo{height:24px;width:109px;object-fit:contain}.case-card__metric{font:600 60px/60px "Geist";color:var(--blue);margin:0}.case-card__metric-sub{font-size:14px;font-style:italic}.case-card__title{font:600 28px/1 "Geist";margin:0}.case-card__desc{font-size:14px;max-width:291px}
+.footer{background:#09172a;color:#e7e8ea;border-radius:42px 42px 0 0;padding-top:80px;overflow:hidden}.footer__cta{padding:0 60px 42px}.footer__cta .section-heading{font-size:60px;line-height:60px;color:var(--blue);max-width:674px}.footer__advisor{margin-top:42px;background:var(--blue);color:#fff;width:max-content}.footer__advisor:hover{transform:translateY(-3px)}
+.city-tickers{display:grid;gap:0;margin-top:42px;width:calc(100% + 120px);margin-left:-60px}.city-tickers .ticker__track{animation-duration:28s}.city-tickers .ticker--reverse .ticker__track{animation-name:ticker-right}.city-tickers .ticker__item{font:italic 16px/1.3 "Noto Sans";color:var(--blue-active);padding:20px;margin:0 11px}
+.footer__main{background:var(--navy);padding:80px 60px 0;display:grid;grid-template-columns:330px 820px;gap:170px;position:relative;height:506px;box-sizing:border-box}.footer__brand-logo{width:164px;height:33px;object-fit:contain}.footer__tagline{color:var(--blue);font-size:16px}.footer__mini-icons{display:grid;gap:18px;margin:28px 0}.footer__mini-icons img{max-width:92px;max-height:32px}.footer__contact{color:var(--footer-muted);font-size:12px}.footer__social{display:flex;gap:22px;margin-top:40px;height:46px;align-items:center}.footer__social img{width:46px;height:46px}.footer__links{display:grid;grid-template-columns:124px 124px 178px 124px;column-gap:90px;align-items:start}.footer__col h3{font-size:14px;line-height:20px;font-weight:700;color:var(--footer-muted);margin:0 0 12px}.footer__link{font-size:12px;line-height:16px;font-weight:400;display:block;margin:0 0 17px}.footer__bottom{position:absolute;left:560px;right:60px;top:472px;height:19px;background:transparent;color:#b3b8bf;font-size:12px;line-height:16px;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:0;margin:0}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s var(--ease),transform .8s var(--ease);transition-delay:var(--delay,0ms)}.reveal.is-visible{opacity:1;transform:none}
+@media(max-width:1024px){
+ .site-header__nav{position:absolute;left:16px;right:16px;top:96px;background:#fff;border-radius:16px;padding:0 28px;display:flex;flex-direction:column;align-items:flex-start;gap:0;max-height:0;overflow:hidden;opacity:0;transition:max-height .6s var(--ease),opacity .35s ease,padding .6s var(--ease)}
+ .site-header__nav.is-open{max-height:520px;opacity:1;padding:28px}.site-header__link{margin:10px 0}.site-header__talk{margin-top:12px}.site-header__toggle{display:block}
+ .hero{padding-left:40px;padding-right:40px}.features,.partners,.stats,.services,.ai-core{padding-left:40px;padding-right:40px}.partners>.ticker{width:calc(100% + 80px);margin-left:-40px}.partners>.ticker .ticker__track{padding-left:40px}.city-tickers{width:calc(100% + 80px);margin-left:-40px}.features{gap:20px}.stats__grid{grid-template-columns:repeat(2,1fr);gap:40px}.services__grid{grid-template-columns:repeat(3,1fr);gap:40px}.cases{grid-template-columns:1fr 1fr;padding:0 40px}.case-card:first-child{grid-column:1/-1}.footer__cta,.footer__main,.footer__bottom{padding-left:40px;padding-right:40px}.footer__main{gap:70px;grid-template-columns:330px 1fr}.footer__links{grid-template-columns:repeat(2,minmax(0,1fr));gap:48px}.footer__bottom{padding-left:40px;background:#0a192f}
+}
+@media(max-width:768px){
+ .site-header{height:88px;padding:10px}.site-header__inner{height:68px;padding:10px 14px}.site-header__logo{width:112px;height:auto}.site-header__nav{left:10px;right:10px;top:78px}
+ .hero{min-height:560px;padding:0 20px 40px;gap:30px}.hero__copy{width:100%}.hero__title{font-size:42px;line-height:44px}.hero__description{width:100%}.hero__actions{flex-direction:column;align-items:stretch;gap:12px}.button{padding:17px}
+ .features{padding:40px 20px;grid-template-columns:1fr}.feature-card{height:190px}.partners{padding:30px 20px 0}.partners>.ticker{width:calc(100% + 40px);margin-left:-20px}.partners>.ticker .ticker__track{padding-left:20px}.city-tickers{width:calc(100% + 40px);margin-left:-20px}
+ .stats,.services,.ai-core{padding:60px 20px}.section-heading{font-size:34px;line-height:36px}.stats__grid{grid-template-columns:1fr 1fr;gap:36px 24px}.services__intro{width:100%}.services__number{font-size:320px;right:-50px}.services__grid{grid-template-columns:1fr;gap:48px;margin-top:60px}.service{width:100%}
+ .ai-core__visual{height:420px;border-radius:28px}.ai-core__desc{width:100%}.work__watermark{font-family:"Geist",sans-serif;font-weight:700;font-size:clamp(60px,12.5vw,180px);line-height:.905;color:#edf1ff;white-space:nowrap;margin:0 0 -5.5vw -3.26vw;width:106.52vw;max-width:none}.work__more{padding:0 20px 20px}.cases{grid-template-columns:1fr;padding:0 20px}.case-card:first-child{grid-column:auto}.case-card{min-height:420px;border-radius:28px;gap:38px}
+ .footer{border-radius:28px 28px 0 0;padding-top:60px}.footer__cta{padding:0 20px 30px}.footer__cta .section-heading{font-size:42px;line-height:44px}.footer__main{padding:60px 20px 30px;grid-template-columns:1fr;gap:60px}.footer__links{grid-template-columns:1fr 1fr;gap:40px}.footer__bottom{padding:20px;background:#0a192f;gap:16px;flex-direction:column;align-items:flex-start}.footer__legal{display:flex;align-items:center;gap:28px;flex-wrap:nowrap;margin:0;padding:0}
+}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
+
+.footer__ecosystem{display:flex;flex-direction:column;gap:0}
+.footer__ecosystem-row{height:64px;border-top:1px solid rgba(179,184,191,.32);display:flex;align-items:center;justify-content:space-between;transform:none!important}
+.footer__ecosystem-row:last-child{border-bottom:1px solid rgba(179,184,191,.32)}
+.footer__ecosystem-logo{display:block;max-width:136px;height:24px;object-fit:contain;object-position:left center}
+.footer__ecosystem-logo--deebug{width:85px}
+.footer__ecosystem-arrow{position:relative;width:24px;height:24px;overflow:hidden;flex:0 0 24px;background:transparent;display:block}
+
+.ai-core__visual img{width:100%;height:100%;object-fit:cover;display:block}
+
+.footer__skyline{position:relative;height:150px;width:100%;overflow:visible;background:#0a192f}
+.footer__skyline img{position:absolute;left:50%;bottom:-.8px;transform:translateX(-50%);width:1448px;height:150px;max-width:none;display:block}
+@media (max-width:1024px){.footer__skyline{height:110px}.footer__skyline img{width:1062px;height:auto}}
+@media (max-width:768px){.footer__skyline{height:72px}.footer__skyline img{width:695px;height:auto}}
+
+
+.footer__legal{display:flex;align-items:center;gap:28px}
+.footer__legal-link{position:relative;display:inline-flex;flex-direction:column;gap:3px;color:#e7e8ea;font:400 12px/normal "Noto Sans",sans-serif;white-space:nowrap}
+.footer__legal-link::after{content:"";display:block;width:26px;height:1px;background:#e7e8ea;transform:scaleX(0);transform-origin:left center;opacity:0;transition:transform .45s var(--ease),opacity .2s ease}
+.footer__legal-link:hover::after,.footer__legal-link:focus-visible::after{transform:scaleX(1);opacity:1}
+
+
+.hero{position:relative;isolation:isolate;overflow:hidden}
+.hero__media{position:absolute;top:0;left:0;width:100vw;height:850px;z-index:0;overflow:hidden;background:#eef1f5;pointer-events:none}
+.hero__media video,.hero__media img{width:100%;height:100%;object-fit:cover;display:block}
+.hero__media img{position:absolute;inset:0}
+.hero__media video.is-ready + img{opacity:0;transition:opacity .35s ease}
+.hero__media::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,.08),rgba(255,255,255,0) 52%);pointer-events:none}
+@media (max-width:1024px){.hero__media{height:760px}}
+@media (max-width:768px){.hero__media{height:680px}}
+
+
+/* Consistent card lift interaction */
+.feature-card,
+.case-card,
+.service,
+.stat {
+  will-change: transform;
+  transform: translateY(0);
+  transition: transform .5s var(--ease);
+}
+.feature-card:hover,
+.feature-card:focus-within,
+.case-card:hover,
+.case-card:focus-within,
+.service:hover,
+.service:focus-within,
+.stat:hover,
+.stat:focus-within {
+  transform: translateY(-10px);
+}
+
+
+main{position:relative;z-index:1}
+.features{position:relative;z-index:2}
+
+
+.footer__ecosystem-arrow svg{position:absolute;width:13px;height:13px;transition:transform .6s ease-in-out,color .6s ease-in-out;will-change:transform}
+.footer__ecosystem-arrow .footer__arrow--out{left:5px;top:6px;color:#233673;transform:translate(0,0)}
+.footer__ecosystem-arrow .footer__arrow--in{left:5px;top:6px;color:#4d77ff;transform:translate(-19px,19px)}
+.footer__ecosystem-row:hover .footer__arrow--out,
+.footer__ecosystem-row:focus-visible .footer__arrow--out{transform:translate(20px,-20px)}
+.footer__ecosystem-row:hover .footer__arrow--in,
+.footer__ecosystem-row:focus-visible .footer__arrow--in{transform:translate(0,0)}
+
+
+/* =========================================================
+   AI & DIGITAL PAGE — FIGMA NODE 23:4575
+   Header/footer reuse the approved Talentika Home version.
+   ========================================================= */
+:root{
+  --digital:#cc4d66;
+  --digital-light:#ffeff2;
+  --digital-light-hover:#ffe7ec;
+  --digital-light-active:#ffced8;
+}
+.site-header__link.is-active{color:#3a59bf}
+.site-header__link.is-active::after{transform:scaleX(1);opacity:1}
+
+.ai-page .hero__media{height:750px}
+.ai-page .hero__media::after{
+  background:linear-gradient(90deg,rgba(255,255,255,.08),rgba(255,255,255,0) 56%)
+}
+
+.ai-breadcrumb{
+  position:relative;z-index:2;height:36px;padding:10px 60px;
+  display:flex;align-items:flex-start;gap:6px;
+  color:#545556;font-size:12px;line-height:16px
+}
+.ai-breadcrumb strong{color:#0a192f;font-weight:700}
+
+.ai-hero{
+  position:relative;z-index:2;height:600px;padding:90px 60px;
+  display:flex;flex-direction:column;justify-content:flex-end;align-items:flex-start;gap:40px
+}
+.ai-hero__copy{width:598px;display:flex;flex-direction:column;gap:20px}
+.ai-badge{display:flex;align-items:center;gap:9.741px}
+.ai-badge img{width:30.11px;height:30.11px;object-fit:contain}
+.ai-badge span{width:41px;font-size:12px;line-height:16px;font-weight:700}
+.ai-hero__title{margin:0;font:600 60px/60px "Geist",sans-serif;color:#0a192f}
+.ai-hero__desc{width:538px;margin:0;color:#545556;font:italic 400 16px/normal "Noto Sans",sans-serif}
+.ai-hero__actions{display:flex;gap:24px}
+.ai-button{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-height:60px;padding:20px;border-radius:10px;
+  font-size:16px;line-height:20px;font-weight:700;
+  transition:transform .45s var(--ease);cursor:pointer
+}
+.ai-button:hover,.ai-button:focus-visible{transform:translateY(-3px)}
+.ai-button--primary{background:var(--digital);color:#fff}
+.ai-button--secondary{border:1px solid var(--digital);color:var(--digital);background:transparent}
+
+/* Smarter Hiring */
+.ai-hiring{
+  position:relative;min-height:663px;padding:90px 60px;
+  background:var(--digital-light);overflow:hidden
+}
+.ai-hiring__charger{
+  position:absolute;left:876px;top:67px;width:410px;height:410px;z-index:0;
+  transition:transform .6s var(--ease)
+}
+.ai-hiring:hover .ai-hiring__charger{transform:rotate(7deg) scale(1.02)}
+.ai-hiring__content{position:relative;z-index:1;width:1303px;display:flex;flex-direction:column;gap:100px}
+.ai-hiring__copy{width:579px;display:flex;flex-direction:column;gap:18px}
+.ai-section-heading{margin:0;font:600 42px/42px "Geist",sans-serif;color:#0a192f}
+.ai-section-heading .accent{color:var(--digital)}
+.ai-hiring__copy p{width:538px;margin:0;color:#545556;font:italic 400 16px/normal "Noto Sans",sans-serif}
+.ai-metrics{display:grid;grid-template-columns:repeat(3,300px);gap:132px}
+.ai-metric{display:flex;flex-direction:column;gap:8px;transition:transform .5s var(--ease);will-change:transform}
+.ai-metric:hover,.ai-metric:focus-within{transform:translateY(-10px)}
+.ai-metric__number{margin:0;color:var(--digital);font:600 120px/120px "Geist",sans-serif;white-space:nowrap}
+.ai-metric__number small{font-size:90px}
+.ai-metric__label{margin:0;color:#0a192f;font-size:14px;font-weight:700;letter-spacing:.84px;text-transform:uppercase}
+.ai-metric__desc{margin:0;color:#0a192f;font-size:14px;line-height:normal;letter-spacing:.84px}
+
+/* Core capabilities stacked cards */
+.ai-capabilities{padding:90px 80px;min-height:905px;background:#fff}
+.ai-capabilities__head{width:647px;display:flex;flex-direction:column;gap:21px;margin-bottom:24px}
+.ai-kicker{margin:0;font-size:16px;font-weight:700;text-transform:uppercase}
+.ai-cap-stack{position:relative;width:100%;height:616px}
+.ai-cap-card{
+  position:absolute;left:0;width:100%;height:392px;
+  border:1px solid var(--digital-light);
+  transition:transform .55s var(--ease),filter .55s var(--ease);
+  will-change:transform
+}
+.ai-cap-card:nth-child(1){top:0;border-color:var(--digital-light-active);z-index:3}
+.ai-cap-card:nth-child(2){top:112px;z-index:2}
+.ai-cap-card:nth-child(3){top:224px;z-index:1}
+.ai-cap-card:hover,.ai-cap-card:focus-within{transform:translateY(-10px);z-index:8}
+.ai-cap-card__inner{
+  height:392px;border-radius:42px;border:1px solid #fff;padding:16px;
+  display:grid;grid-template-columns:612px 612px;gap:24px;overflow:hidden
+}
+.ai-cap-card:nth-child(1) .ai-cap-card__inner{background:var(--digital-light-active)}
+.ai-cap-card:nth-child(2) .ai-cap-card__inner{background:var(--digital-light-hover)}
+.ai-cap-card:nth-child(3) .ai-cap-card__inner{background:var(--digital-light)}
+.ai-cap-card__media{
+  width:612px;height:360px;border-radius:42px;overflow:hidden;background:#fff
+}
+.ai-cap-card__media video,.ai-cap-card__media img{width:100%;height:100%;object-fit:cover;display:block}
+.ai-cap-card__media img{position:absolute;inset:0}
+.ai-cap-card__media{position:relative}
+.ai-cap-card__media video.is-ready + img{opacity:0;transition:opacity .35s ease}
+.ai-cap-card__copy{
+  height:360px;padding:20px 0;display:flex;flex-direction:column;justify-content:space-between
+}
+.ai-cap-card__copy h3{margin:0;font-size:24px;font-weight:700;line-height:normal}
+.ai-cap-card__text{display:flex;flex-direction:column;gap:20px}
+.ai-cap-card__text p{margin:0;color:#545556;font-size:16px;line-height:1.6}
+.ai-cap-card__bullet{font-size:14px!important}
+
+/* Domain expertise */
+.ai-domains{padding:90px 80px;background:#edf1ff}
+.ai-domains__top{display:grid;grid-template-columns:452px 1fr;gap:24px;height:192px}
+.ai-domains__copy{display:flex;flex-direction:column;gap:21px}
+.ai-domains__copy p:last-child{margin:0;width:440px;color:#545556;font:italic 400 16px/normal "Noto Sans",sans-serif}
+.ai-domains__giant{margin:0;text-align:right;color:var(--digital-light);font:600 200px/200px "Geist",sans-serif}
+.ai-domains__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:24px}
+.domain-card{
+  min-height:130px;padding:24px;border-radius:16px;background:#fff;
+  display:flex;flex-direction:column;gap:12px;
+  transition:transform .5s var(--ease);will-change:transform
+}
+.domain-card:hover,.domain-card:focus-within{transform:translateY(-10px)}
+.domain-card h3{margin:0;font:700 20px/normal "Geist",sans-serif}
+.domain-card p{margin:0;color:#545556;font-size:14px;line-height:1.6}
+.ai-domain-metrics{
+  display:grid;grid-template-columns:229px 225px 319px 202px;justify-content:space-between;
+  margin-top:60px
+}
+.ai-domain-metric{display:flex;flex-direction:column;gap:8px;transition:transform .5s var(--ease)}
+.ai-domain-metric:hover{transform:translateY(-10px)}
+.ai-domain-metric__number{margin:0;color:var(--digital);font:600 120px/120px "Geist",sans-serif;white-space:nowrap}
+.ai-domain-metric__number small{font-size:90px}
+.ai-domain-metric__label{margin:0;font-size:14px;font-weight:700;letter-spacing:.84px;text-transform:uppercase}
+.ai-domain-metric__desc{margin:0;font-size:14px;letter-spacing:.84px}
+
+/* odometer */
+.odo-digit{display:inline-block;position:relative;height:1em;overflow:hidden;vertical-align:top;min-width:.58em}
+.odo-reel{display:block;transform:translateY(0);transition:transform 1.45s cubic-bezier(.16,1,.3,1);will-change:transform}
+.odo-reel span{display:block;height:1em;line-height:1em}
+.is-odometer-running .odo-reel{transform:translateY(calc(var(--digit) * -1em))}
+
+@media(max-width:1024px){
+  .ai-breadcrumb,.ai-hero,.ai-hiring{padding-left:40px;padding-right:40px}
+  .ai-hero__copy{width:min(598px,72vw)}
+  .ai-hiring__content{width:100%}
+  .ai-hiring__charger{left:auto;right:-40px;opacity:.55}
+  .ai-metrics{grid-template-columns:repeat(3,1fr);gap:40px}
+  .ai-metric__number,.ai-domain-metric__number{font-size:88px;line-height:94px}
+  .ai-capabilities,.ai-domains{padding-left:40px;padding-right:40px}
+  .ai-cap-card__inner{grid-template-columns:1fr 1fr}
+  .ai-cap-card__media{width:100%}
+  .ai-domain-metrics{grid-template-columns:repeat(4,1fr);gap:28px}
+}
+@media(max-width:768px){
+  .ai-breadcrumb{padding-left:20px;padding-right:20px}
+  .ai-hero{height:auto;min-height:610px;padding:60px 20px 40px}
+  .ai-hero__copy,.ai-hero__desc{width:100%}
+  .ai-hero__title{font-size:42px;line-height:44px}
+  .ai-hero__actions{width:100%;flex-direction:column;gap:12px}
+  .ai-hiring{padding:60px 20px}
+  .ai-hiring__copy,.ai-hiring__copy p{width:100%}
+  .ai-section-heading{font-size:34px;line-height:36px}
+  .ai-hiring__charger{width:240px;height:240px;right:-90px;top:80px;opacity:.25}
+  .ai-metrics{grid-template-columns:1fr;gap:36px}
+  .ai-metric__number,.ai-domain-metric__number{font-size:72px;line-height:78px}
+  .ai-capabilities{padding:60px 20px;min-height:auto}
+  .ai-capabilities__head{width:100%}
+  .ai-cap-stack{height:auto;display:flex;flex-direction:column;gap:24px}
+  .ai-cap-card{position:relative!important;top:auto!important;height:auto}
+  .ai-cap-card__inner{height:auto;grid-template-columns:1fr;padding:14px;border-radius:28px}
+  .ai-cap-card__media{height:260px;border-radius:24px}
+  .ai-cap-card__copy{height:auto;min-height:260px;gap:28px;padding:12px 4px}
+  .ai-domains{padding:60px 20px}
+  .ai-domains__top{height:auto;grid-template-columns:1fr}
+  .ai-domains__copy p:last-child{width:100%}
+  .ai-domains__giant{text-align:left;font-size:110px;line-height:110px}
+  .ai-domains__grid{grid-template-columns:1fr}
+  .ai-domain-metrics{grid-template-columns:1fr 1fr;gap:36px 20px}
+}
+
+/* DOMAIN EXPERTISE — Figma white-on-white treatment */
+.ai-domains{background:#fff}
+.domain-card{
+  background:transparent;
+  border:0;
+  box-shadow:none;
+  border-radius:0;
+  min-height:130px;
+  padding:24px;
+}
+.domain-card:hover,.domain-card:focus-within{transform:translateY(-6px)}
+
+
+/* CORE CAPABILITIES — reversible scroll-driven stacked reveal */
+.ai-capabilities{
+  position:relative;
+  min-height:1780px;
+  padding:90px 80px 0;
+  background:#fff
+}
+.ai-capabilities__sticky{
+  position:sticky;
+  top:24px;
+  min-height:815px;
+}
+.ai-capabilities__head{
+  width:647px;
+  display:flex;
+  flex-direction:column;
+  gap:21px;
+  margin-bottom:24px
+}
+.ai-cap-stack{
+  position:relative;
+  width:100%;
+  height:616px;
+  overflow:visible
+}
+.ai-cap-card{
+  position:absolute;
+  left:0;
+  width:100%;
+  height:392px;
+  border:1px solid var(--digital-light);
+  transition:
+    transform .18s linear,
+    opacity .18s linear,
+    filter .18s linear;
+  will-change:transform,opacity;
+  pointer-events:auto
+}
+.ai-cap-card:nth-child(1){top:0;border-color:var(--digital-light-active);z-index:3}
+.ai-cap-card:nth-child(2){top:112px;z-index:2}
+.ai-cap-card:nth-child(3){top:224px;z-index:1}
+
+/* Hover should not control reveal anymore. */
+.ai-cap-card:hover,.ai-cap-card:focus-within{transform:var(--cap-transform,translateY(0))}
+
+/* JS updates these transforms from scroll position, and reverses naturally on scroll up. */
+.ai-cap-card{transform:var(--cap-transform,translateY(0))}
+.ai-cap-card.is-past{opacity:.16;filter:saturate(.7)}
+.ai-cap-card.is-current{opacity:1;filter:none}
+
+@media(max-width:1024px){
+  .ai-capabilities{min-height:1600px;padding-left:40px;padding-right:40px}
+  .ai-capabilities__sticky{top:18px}
+}
+@media(max-width:768px){
+  .ai-capabilities{
+    min-height:auto;
+    padding:60px 20px;
+  }
+  .ai-capabilities__sticky{position:relative;top:auto;min-height:0}
+  .ai-cap-stack{
+    height:auto;
+    display:flex;
+    flex-direction:column;
+    gap:24px
+  }
+  .ai-cap-card{
+    position:relative!important;
+    top:auto!important;
+    height:auto;
+    transform:none!important;
+    opacity:1!important;
+    filter:none!important
+  }
+}
+
+
+/* Odometer optical spacing */
+.ai-metric__number,
+.ai-domain-metric__number{
+  display:flex;
+  align-items:flex-start;
+  gap:0;
+  letter-spacing:-.055em;
+}
+.ai-metric__number .odo-digit,
+.ai-domain-metric__number .odo-digit{
+  min-width:.52em;
+}
+.ai-metric__number small,
+.ai-domain-metric__number small{
+  display:inline-block;
+  margin-left:-.045em;
+  letter-spacing:0;
+  line-height:1.15;
+}
+
+
+/* CORE CAPABILITIES — exact Figma styling + scroll-linked reversible stack */
+.ai-capabilities{
+  position:relative;
+  height:1880px;
+  min-height:1880px;
+  padding:0 80px;
+  background:#fff;
+}
+.ai-capabilities__sticky{
+  position:sticky;
+  top:0;
+  height:905px;
+  padding-top:90px;
+  overflow:hidden;
+}
+.ai-capabilities__head{
+  width:647px;
+  display:flex;
+  flex-direction:column;
+  gap:21px;
+  margin-bottom:24px;
+}
+.ai-cap-stack{
+  position:relative;
+  width:100%;
+  height:616px;
+  overflow:visible;
+}
+.ai-cap-card{
+  position:absolute;
+  left:0;
+  width:100%;
+  height:392px;
+  border:0!important;
+  background:transparent;
+  opacity:1!important;
+  filter:none!important;
+  transform:translate3d(0,var(--card-y,0px),0);
+  transition:none;
+  will-change:transform;
+  pointer-events:auto;
+}
+.ai-cap-card:nth-child(1){top:0;z-index:3}
+.ai-cap-card:nth-child(2){top:112px;z-index:2}
+.ai-cap-card:nth-child(3){top:224px;z-index:1}
+.ai-cap-card:hover,
+.ai-cap-card:focus-within{
+  transform:translate3d(0,var(--card-y,0px),0);
+}
+.ai-cap-card__inner{
+  width:100%;
+  height:392px;
+  border:0;
+  border-radius:42px;
+  padding:16px;
+  display:grid;
+  grid-template-columns:minmax(0,612px) minmax(0,612px);
+  gap:24px;
+  overflow:hidden;
+}
+.ai-cap-card:nth-child(1) .ai-cap-card__inner{background:#ffced8}
+.ai-cap-card:nth-child(2) .ai-cap-card__inner{background:#ffe7ec}
+.ai-cap-card:nth-child(3) .ai-cap-card__inner{background:#ffeff2}
+.ai-cap-card__media{
+  position:relative;
+  width:100%;
+  height:360px;
+  border-radius:42px;
+  overflow:hidden;
+  background:rgba(255,255,255,.35);
+}
+.ai-cap-card__media video,
+.ai-cap-card__media img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+.ai-cap-card__media video.is-ready + img{opacity:0;transition:opacity .3s ease}
+.ai-cap-card__copy{
+  height:360px;
+  padding:20px 0;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  justify-content:space-between;
+}
+.ai-cap-card__copy h3{
+  margin:0;
+  width:100%;
+  font:700 24px/normal "Noto Sans",sans-serif;
+  color:#0a192f;
+}
+.ai-cap-card__text{
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+.ai-cap-card__text p{
+  margin:0;
+  width:100%;
+  color:#545556;
+  font:400 16px/1.6 "Noto Sans",sans-serif;
+}
+.ai-cap-card__text .ai-cap-card__bullet{
+  font-size:14px!important;
+}
+@media(max-width:1024px){
+  .ai-capabilities{
+    height:1660px;
+    min-height:1660px;
+    padding:0 40px;
+  }
+  .ai-capabilities__sticky{height:860px;padding-top:70px}
+  .ai-cap-card__inner{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  .ai-capabilities{
+    height:auto;
+    min-height:0;
+    padding:60px 20px;
+  }
+  .ai-capabilities__sticky{
+    position:relative;
+    top:auto;
+    height:auto;
+    padding:0;
+    overflow:visible;
+  }
+  .ai-cap-stack{
+    height:auto;
+    display:flex;
+    flex-direction:column;
+    gap:24px;
+  }
+  .ai-cap-card{
+    position:relative!important;
+    top:auto!important;
+    height:auto;
+    transform:none!important;
+  }
+  .ai-cap-card__inner{
+    height:auto;
+    grid-template-columns:1fr;
+    gap:16px;
+    padding:14px;
+    border-radius:28px;
+  }
+  .ai-cap-card__media{height:250px;border-radius:24px}
+  .ai-cap-card__copy{
+    height:auto;
+    min-height:250px;
+    padding:10px 4px 14px;
+    gap:32px;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  .ai-capabilities{
+    height:auto;
+    min-height:0;
+    padding:90px 80px;
+  }
+  .ai-capabilities__sticky{
+    position:relative;
+    height:auto;
+    padding:0;
+    overflow:visible;
+  }
+  .ai-cap-stack{
+    height:auto;
+    display:flex;
+    flex-direction:column;
+    gap:24px;
+  }
+  .ai-cap-card{
+    position:relative!important;
+    top:auto!important;
+    transform:none!important;
+  }
+}
+
+
+/* CORE CAPABILITIES — Figma node 23:4666 exact visual structure */
+.ai-capabilities{
+  position:relative;
+  height:1620px;
+  min-height:1620px;
+  padding:0 80px;
+  background:#fff;
+}
+.ai-capabilities__sticky{
+  position:sticky;
+  top:0;
+  height:905px;
+  padding-top:90px;
+  overflow:hidden;
+  background:#fff;
+}
+.ai-capabilities__head{
+  width:647px;
+  display:flex;
+  flex-direction:column;
+  gap:21px;
+  margin:0 0 24px;
+}
+.ai-capabilities__head .ai-kicker{
+  margin:0;
+  font-size:16px;
+  line-height:22px;
+  font-weight:700;
+  color:#0a192f;
+  text-transform:uppercase;
+}
+.ai-capabilities__head .ai-section-heading{
+  margin:0;
+  font:600 42px/42px "Geist",sans-serif;
+  color:#0a192f;
+}
+.ai-cap-stack{
+  position:relative;
+  width:100%;
+  height:616px;
+}
+.ai-cap-card{
+  position:absolute;
+  left:0;
+  width:100%;
+  height:392px;
+  border:0!important;
+  background:transparent!important;
+  opacity:1!important;
+  filter:none!important;
+  transform:translate3d(0,var(--card-y,0px),0)!important;
+  transition:none!important;
+  will-change:transform;
+}
+.ai-cap-card:nth-child(1){top:0;z-index:3}
+.ai-cap-card:nth-child(2){top:112px;z-index:2}
+.ai-cap-card:nth-child(3){top:224px;z-index:1}
+.ai-cap-card:hover,
+.ai-cap-card:focus-within{
+  transform:translate3d(0,var(--card-y,0px),0)!important;
+}
+.ai-cap-card__inner{
+  width:100%;
+  height:392px;
+  display:grid;
+  grid-template-columns:minmax(0,612px) minmax(0,612px);
+  gap:24px;
+  padding:16px;
+  border:0!important;
+  border-radius:42px;
+  overflow:hidden;
+  box-shadow:none;
+}
+.ai-cap-card:nth-child(1) .ai-cap-card__inner{background:#ffced8}
+.ai-cap-card:nth-child(2) .ai-cap-card__inner{background:#ffe7ec}
+.ai-cap-card:nth-child(3) .ai-cap-card__inner{background:#ffeff2}
+.ai-cap-card__media{
+  position:relative;
+  width:612px;
+  height:360px;
+  min-width:0;
+  border-radius:42px;
+  overflow:hidden;
+  background:transparent;
+}
+.ai-cap-card__media video,
+.ai-cap-card__media img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+  border-radius:42px;
+}
+.ai-cap-card__copy{
+  width:612px;
+  height:360px;
+  padding:20px 0;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  justify-content:space-between;
+}
+.ai-cap-card__copy h3{
+  margin:0;
+  width:100%;
+  color:#0a192f;
+  font:700 24px/normal "Noto Sans",sans-serif;
+}
+.ai-cap-card__text{
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+.ai-cap-card__text p{
+  margin:0;
+  width:100%;
+  color:#545556;
+  font:400 16px/1.6 "Noto Sans",sans-serif;
+}
+.ai-cap-card__text .ai-cap-card__bullet{
+  font-size:14px!important;
+}
+
+@media(max-width:1280px) and (min-width:769px){
+  .ai-capabilities{padding-left:40px;padding-right:40px}
+  .ai-cap-card__inner{
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  }
+  .ai-cap-card__media,
+  .ai-cap-card__copy{width:100%}
+}
+@media(max-width:768px){
+  .ai-capabilities{
+    height:auto;
+    min-height:0;
+    padding:60px 20px;
+  }
+  .ai-capabilities__sticky{
+    position:relative;
+    top:auto;
+    height:auto;
+    padding-top:0;
+    overflow:visible;
+  }
+  .ai-capabilities__head{width:100%}
+  .ai-cap-stack{
+    height:auto;
+    display:flex;
+    flex-direction:column;
+    gap:24px;
+  }
+  .ai-cap-card{
+    position:relative!important;
+    top:auto!important;
+    height:auto;
+    transform:none!important;
+  }
+  .ai-cap-card__inner{
+    height:auto;
+    grid-template-columns:1fr;
+    gap:16px;
+    padding:14px;
+    border-radius:28px;
+  }
+  .ai-cap-card__media{
+    width:100%;
+    height:250px;
+    border-radius:24px;
+  }
+  .ai-cap-card__media video,
+  .ai-cap-card__media img{border-radius:24px}
+  .ai-cap-card__copy{
+    width:100%;
+    height:auto;
+    min-height:250px;
+    padding:10px 4px 14px;
+    gap:32px;
+  }
+}
+
+
+/* CORE CAPABILITIES — Figma accordion interaction */
+.ai-capabilities{
+  position:relative!important;
+  height:905px!important;
+  min-height:905px!important;
+  padding:90px 80px!important;
+  background:#fff!important;
+}
+.ai-capabilities__sticky{
+  position:relative!important;
+  top:auto!important;
+  height:auto!important;
+  min-height:0!important;
+  padding:0!important;
+  overflow:visible!important;
+  background:transparent!important;
+}
+.ai-capabilities__head{
+  width:647px!important;
+  display:flex!important;
+  flex-direction:column!important;
+  gap:21px!important;
+  margin:0 0 24px!important;
+}
+.ai-cap-stack{
+  position:relative!important;
+  width:100%!important;
+  height:616px!important;
+  overflow:hidden!important;
+}
+.ai-cap-card{
+  position:absolute!important;
+  left:0!important;
+  top:var(--cap-top,0px)!important;
+  width:100%!important;
+  height:var(--cap-height,112px)!important;
+  overflow:hidden!important;
+  border:0!important;
+  background:transparent!important;
+  opacity:1!important;
+  filter:none!important;
+  transform:none!important;
+  transition:
+    top .58s cubic-bezier(.16,1,.3,1),
+    height .58s cubic-bezier(.16,1,.3,1),
+    box-shadow .28s ease!important;
+  will-change:top,height;
+  cursor:pointer;
+  outline:none;
+}
+.ai-cap-card:nth-child(1){z-index:1!important}
+.ai-cap-card:nth-child(2){z-index:2!important}
+.ai-cap-card:nth-child(3){z-index:3!important}
+.ai-cap-card.is-active{
+  height:392px!important;
+  cursor:default;
+}
+.ai-cap-card:not(.is-active):hover,
+.ai-cap-card:not(.is-active):focus-visible{
+  box-shadow:0 12px 30px rgba(10,25,47,.08);
+}
+.ai-cap-card__inner{
+  width:100%!important;
+  height:392px!important;
+  display:grid!important;
+  grid-template-columns:minmax(0,612px) minmax(0,612px)!important;
+  gap:24px!important;
+  padding:16px!important;
+  border:0!important;
+  border-radius:42px!important;
+  overflow:hidden!important;
+  box-shadow:none!important;
+}
+.ai-cap-card:nth-child(1) .ai-cap-card__inner{background:#ffced8!important}
+.ai-cap-card:nth-child(2) .ai-cap-card__inner{background:#ffe7ec!important}
+.ai-cap-card:nth-child(3) .ai-cap-card__inner{background:#ffeff2!important}
+.ai-cap-card__media{
+  position:relative!important;
+  width:100%!important;
+  height:360px!important;
+  border-radius:42px!important;
+  overflow:hidden!important;
+  background:transparent!important;
+}
+.ai-cap-card__copy{
+  width:100%!important;
+  height:360px!important;
+  padding:20px 0!important;
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:space-between!important;
+}
+.ai-cap-card__copy h3{
+  margin:0!important;
+  color:#0a192f!important;
+  font:700 24px/normal "Noto Sans",sans-serif!important;
+}
+.ai-cap-card__text{
+  width:100%!important;
+  display:flex!important;
+  flex-direction:column!important;
+  gap:20px!important;
+}
+.ai-cap-card__text p{
+  margin:0!important;
+  color:#545556!important;
+  font:400 16px/1.6 "Noto Sans",sans-serif!important;
+}
+.ai-cap-card__bullet{font-size:14px!important}
+
+/* Mobile: standard accessible accordion in document flow */
+@media(max-width:768px){
+  .ai-capabilities{
+    height:auto!important;
+    min-height:0!important;
+    padding:60px 20px!important;
+  }
+  .ai-capabilities__head{width:100%!important}
+  .ai-cap-stack{
+    height:auto!important;
+    overflow:visible!important;
+    display:flex!important;
+    flex-direction:column!important;
+    gap:12px!important;
+  }
+  .ai-cap-card{
+    position:relative!important;
+    top:auto!important;
+    height:86px!important;
+    border-radius:28px!important;
+  }
+  .ai-cap-card.is-active{height:auto!important}
+  .ai-cap-card__inner{
+    height:auto!important;
+    min-height:86px!important;
+    grid-template-columns:1fr!important;
+    gap:16px!important;
+    padding:14px!important;
+    border-radius:28px!important;
+  }
+  .ai-cap-card:not(.is-active) .ai-cap-card__media,
+  .ai-cap-card:not(.is-active) .ai-cap-card__text{
+    display:none!important;
+  }
+  .ai-cap-card:not(.is-active) .ai-cap-card__copy{
+    height:58px!important;
+    min-height:58px!important;
+    padding:12px 8px!important;
+    justify-content:center!important;
+  }
+  .ai-cap-card__media{
+    height:240px!important;
+    border-radius:22px!important;
+  }
+  .ai-cap-card__copy{
+    height:auto!important;
+    min-height:240px!important;
+    padding:10px 4px 14px!important;
+    gap:28px!important;
+  }
+}
+
+
+/* CORE CAPABILITIES — scroll-driven accordion behavior */
+.ai-cap-card{cursor:default!important}
+.ai-cap-card:not(.is-active):hover,
+.ai-cap-card:not(.is-active):focus-visible{
+  box-shadow:none!important;
+}
+
+
+/* =========================================================
+   MOBILE FOOTER VISIBILITY FIX
+   Prevent the fixed desktop footer height / absolute legal row
+   from clipping Services, Company, EcoSystem & Platforms,
+   and Cities We Work in on mobile.
+   ========================================================= */
+@media (max-width:768px){
+  .footer{
+    overflow:hidden!important;
+  }
+
+  .footer__main{
+    height:auto!important;
+    min-height:0!important;
+    padding:60px 20px 30px!important;
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    gap:52px!important;
+    overflow:visible!important;
+  }
+
+  .footer__links{
+    width:100%!important;
+    display:grid!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    column-gap:28px!important;
+    row-gap:42px!important;
+    align-items:start!important;
+    color:#e7e8ea!important;
+    opacity:1!important;
+    visibility:visible!important;
+  }
+
+  .footer__col{
+    min-width:0!important;
+    display:block!important;
+    opacity:1!important;
+    visibility:visible!important;
+  }
+
+  .footer__col h3{
+    display:block!important;
+    margin:0 0 14px!important;
+    color:#b3b8bf!important;
+    opacity:1!important;
+    visibility:visible!important;
+  }
+
+  .footer__link{
+    display:block!important;
+    width:auto!important;
+    max-width:100%!important;
+    margin:0 0 14px!important;
+    color:#e7e8ea!important;
+    opacity:1!important;
+    visibility:visible!important;
+    white-space:normal!important;
+  }
+
+  .footer__ecosystem{
+    width:100%!important;
+    display:flex!important;
+    flex-direction:column!important;
+    opacity:1!important;
+    visibility:visible!important;
+  }
+
+  .footer__ecosystem-row{
+    width:100%!important;
+    min-width:0!important;
+    color:#e7e8ea!important;
+    opacity:1!important;
+    visibility:visible!important;
+  }
+
+  .footer__bottom{
+    position:static!important;
+    left:auto!important;
+    right:auto!important;
+    top:auto!important;
+    width:100%!important;
+    height:auto!important;
+    min-height:0!important;
+    padding:20px 0 0!important;
+    margin:0!important;
+    background:transparent!important;
+    color:#b3b8bf!important;
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:flex-start!important;
+    gap:16px!important;
+  }
+}
+
+@media (max-width:480px){
+  .footer__links{
+    grid-template-columns:1fr!important;
+    row-gap:36px!important;
+  }
+}
+
+
+/* MOBILE LINK HOVER WIDTH FIX */
+@media (max-width:768px){
+  .footer__link{
+    display:inline-block!important;
+    width:max-content!important;
+    max-width:100%!important;
+  }
+
+  .footer__link::after{
+    width:100%!important;
+  }
+
+  .footer__legal-link{
+    position:relative;
+    display:inline-block!important;
+    width:max-content!important;
+    max-width:100%!important;
+  }
+
+  .footer__legal-link::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-4px;
+    width:100%;
+    height:1px;
+    background:currentColor;
+    transform:scaleX(0);
+    transform-origin:left center;
+    opacity:0;
+    transition:transform .45s var(--ease),opacity .2s ease;
+  }
+
+  .footer__legal-link:hover::after,
+  .footer__legal-link:focus-visible::after{
+    transform:scaleX(1);
+    opacity:1;
+  }
+}
+
+
+/* MOBILE FOOTER LINK FLOW FIX */
+@media (max-width:768px){
+  .footer__col{
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:flex-start!important;
+    min-width:0!important;
+  }
+
+  .footer__col h3{
+    width:auto!important;
+    max-width:100%!important;
+    flex:0 0 auto!important;
+  }
+
+  .footer__link{
+    display:block!important;
+    width:fit-content!important;
+    max-width:100%!important;
+    flex:0 0 auto!important;
+    margin:0 0 14px!important;
+    line-height:16px!important;
+    white-space:normal!important;
+  }
+
+  .footer__link::after{
+    width:100%!important;
+  }
+
+  .footer__legal{
+    display:flex!important;
+    flex-wrap:wrap!important;
+    gap:12px 24px!important;
+  }
+
+  .footer__legal-link{
+    display:block!important;
+    width:fit-content!important;
+    max-width:100%!important;
+    flex:0 0 auto!important;
+    line-height:16px!important;
+  }
+}
+
+
+/* =========================================================
+   AI & DIGITAL — MOBILE RESPONSIVE FIXES
+   1) Metrics fit the viewport without overflow.
+   2) Core Capabilities becomes a tap-driven mobile accordion.
+   ========================================================= */
+@media (max-width:768px){
+
+  /* --- Hiring metrics --- */
+  .ai-hiring__content{
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+  }
+
+  .ai-metrics{
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    grid-template-columns:minmax(0,1fr)!important;
+    gap:32px!important;
+  }
+
+  .ai-metric{
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    overflow:hidden;
+  }
+
+  .ai-metric__number{
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    font-size:clamp(56px,18vw,72px)!important;
+    line-height:1!important;
+    letter-spacing:-.055em!important;
+  }
+
+  .ai-metric__number small{
+    font-size:clamp(40px,12vw,56px)!important;
+    line-height:1.08!important;
+  }
+
+  .ai-metric__label,
+  .ai-metric__desc{
+    width:100%!important;
+    max-width:100%!important;
+    overflow-wrap:anywhere;
+  }
+
+  /* --- Domain metrics --- */
+  .ai-domain-metrics{
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    justify-content:stretch!important;
+    gap:32px 20px!important;
+  }
+
+  .ai-domain-metric{
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    overflow:hidden;
+  }
+
+  .ai-domain-metric__number{
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    font-size:clamp(48px,15vw,66px)!important;
+    line-height:1!important;
+    letter-spacing:-.055em!important;
+  }
+
+  .ai-domain-metric__number small{
+    font-size:clamp(34px,10vw,50px)!important;
+    line-height:1.08!important;
+  }
+
+  .ai-domain-metric__label,
+  .ai-domain-metric__desc{
+    width:100%!important;
+    max-width:100%!important;
+    overflow-wrap:anywhere;
+  }
+
+  /* --- Core Capabilities mobile accordion --- */
+  .ai-cap-card{
+    cursor:pointer!important;
+    touch-action:manipulation;
+    transition:
+      height .48s cubic-bezier(.16,1,.3,1),
+      border-radius .32s ease!important;
+  }
+
+  .ai-cap-card:not(.is-active){
+    height:86px!important;
+    overflow:hidden!important;
+  }
+
+  .ai-cap-card.is-active{
+    height:auto!important;
+    overflow:visible!important;
+  }
+
+  .ai-cap-card:not(.is-active) .ai-cap-card__inner{
+    min-height:86px!important;
+    height:86px!important;
+    display:block!important;
+    padding:14px!important;
+  }
+
+  .ai-cap-card:not(.is-active) .ai-cap-card__copy{
+    min-height:58px!important;
+    height:58px!important;
+    padding:12px 8px!important;
+    display:flex!important;
+    justify-content:center!important;
+  }
+
+  .ai-cap-card:not(.is-active) .ai-cap-card__copy h3{
+    display:block!important;
+    width:100%!important;
+    padding-right:34px;
+    position:relative;
+  }
+
+  .ai-cap-card:not(.is-active) .ai-cap-card__copy h3::after{
+    content:"+";
+    position:absolute;
+    right:2px;
+    top:50%;
+    transform:translateY(-50%);
+    color:#cc4d66;
+    font:600 26px/1 "Geist",sans-serif;
+  }
+
+  .ai-cap-card.is-active .ai-cap-card__copy h3{
+    position:relative;
+    padding-right:34px;
+  }
+
+  .ai-cap-card.is-active .ai-cap-card__copy h3::after{
+    content:"–";
+    position:absolute;
+    right:2px;
+    top:0;
+    color:#cc4d66;
+    font:600 26px/1 "Geist",sans-serif;
+  }
+
+  .ai-cap-card:not(.is-active) .ai-cap-card__media,
+  .ai-cap-card:not(.is-active) .ai-cap-card__text{
+    display:none!important;
+  }
+}
+
+@media (max-width:420px){
+  .ai-domain-metrics{
+    grid-template-columns:minmax(0,1fr)!important;
+    gap:28px!important;
+  }
+}
+
+
+/* DOMAIN EXPERTISE — mobile 2 x 2 card grid */
+@media (max-width:768px){
+  .ai-domains__grid{
+    width:100%!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:16px!important;
+  }
+
+  .domain-card{
+    width:100%!important;
+    min-width:0!important;
+    min-height:160px!important;
+    padding:18px!important;
+    border-radius:16px!important;
+  }
+
+  .domain-card h3{
+    font-size:18px!important;
+    line-height:1.2!important;
+  }
+
+  .domain-card p{
+    font-size:13px!important;
+    line-height:1.5!important;
+  }
+}
+
+@media (max-width:420px){
+  .ai-domains__grid{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:12px!important;
+  }
+
+  .domain-card{
+    min-height:150px!important;
+    padding:14px!important;
+  }
+
+  .domain-card h3{
+    font-size:16px!important;
+  }
+
+  .domain-card p{
+    font-size:12px!important;
+  }
+}
+
+</style>
+</head>
+<body class="ai-page">
+<div class="hero__media" aria-hidden="true">
+  <video autoplay muted loop playsinline preload="metadata" poster="https://www.figma.com/api/mcp/asset/fe207623-fb06-48d8-bdcd-38e59dd385e3.png" id="heroVideo">
+    <source src="ai-digital-hero-video.mp4" type="video/mp4">
+  </video>
+  <img src="https://www.figma.com/api/mcp/asset/fe207623-fb06-48d8-bdcd-38e59dd385e3.png" alt="">
+</div>
+<header class="site-header">
+  <div class="site-header__inner">
+    <a href="#" aria-label="Talentika home"><img class="site-header__logo" src="https://www.figma.com/api/mcp/asset/1ce4e403-b815-478e-98d9-497282565682/a26d6.png" alt="Talentika"></a>
+    <button class="site-header__toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><span></span></button>
+    <nav class="site-header__nav" id="main-nav" aria-label="Primary navigation">
+      <a class="site-header__link" href="#">GCC services</a><a class="site-header__link" href="#">RPO</a><a class="site-header__link is-active" href="#ai-overview" aria-current="page">Digital</a><a class="site-header__link" href="#">Case studies</a><a class="site-header__link" href="#">About</a><a class="site-header__link" href="#contact">Contact</a><button class="site-header__talk">Talk to us</button>
+    </nav>
+  </div>
+</header>
+<main id="ai-overview">
+  <nav class="ai-breadcrumb" aria-label="Breadcrumb">
+    <span>Home</span><span>/</span><strong>AI &amp; Digital</strong>
+  </nav>
+
+  <section class="ai-hero">
+    <div class="ai-hero__copy reveal">
+      <div class="ai-badge">
+        <img src="https://www.figma.com/api/mcp/asset/6c65fd9a-f674-46f3-b13e-06141ff1d58b/0fc49.svg" alt="">
+        <span>AI and Digital</span>
+      </div>
+      <h1 class="ai-hero__title">Intelligence Core: AI-Powered Talent Architecture</h1>
+      <p class="ai-hero__desc">Accelerating technical talent acquisition via proactive sourcing pipelines, unified coding platforms, and data-driven market insights that discover the talent others miss.</p>
+    </div>
+    <div class="ai-hero__actions reveal" style="--delay:80ms">
+      <a class="ai-button ai-button--primary" href="#ai-capabilities">Explore AI Solutions</a>
+      <a class="ai-button ai-button--secondary" href="#contact">Request a Demo</a>
+    </div>
+  </section>
+
+  <section class="ai-hiring">
+    <img class="ai-hiring__charger" src="https://www.figma.com/api/mcp/asset/9b835634-3581-4d2e-be4e-5eaf71544163.svg" alt="">
+    <div class="ai-hiring__content">
+      <div class="ai-hiring__copy reveal">
+        <h2 class="ai-section-heading">Smarter Hiring, <span class="accent">Faster Results</span></h2>
+        <p>Traditional recruitment is reactive. We use generative semantic indexing to catalog and map candidate pools months before the demand arises. Our proprietary AI, People GPT, identifies hard-to-find developers by analyzing code contributions and public engineering footprints.</p>
+      </div>
+
+      <div class="ai-metrics">
+        <article class="ai-metric reveal">
+          <p class="ai-metric__number" data-odometer="97" data-suffix="%">97<small>%</small></p>
+          <p class="ai-metric__label">Time-to-Fill (TAT)</p>
+          <p class="ai-metric__desc">Faster than market benchmarks with AI-led sourcing.</p>
+        </article>
+        <article class="ai-metric reveal" style="--delay:80ms">
+          <p class="ai-metric__number" data-odometer="300" data-suffix="+">300<small>+</small></p>
+          <p class="ai-metric__label">Digital Employees</p>
+          <p class="ai-metric__desc">Placed across tech domains</p>
+        </article>
+        <article class="ai-metric reveal" style="--delay:160ms">
+          <p class="ai-metric__number" data-odometer="2" data-suffix="%">2<small>%</small></p>
+          <p class="ai-metric__label">Top Talent Found</p>
+          <p class="ai-metric__desc">Hidden top-tier candidates surfaced</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="ai-capabilities" id="ai-capabilities">
+    <div class="ai-capabilities__sticky">
+    <div class="ai-capabilities__head reveal">
+      <p class="ai-kicker">CORE CAPABILITIES</p>
+      <h2 class="ai-section-heading">How <span class="accent">We Deliver</span></h2>
+    </div>
+
+    <div class="ai-cap-stack">
+      <article class="ai-cap-card reveal">
+        <div class="ai-cap-card__inner">
+          <div class="ai-cap-card__media">
+            <video autoplay muted loop playsinline preload="metadata" poster="https://www.figma.com/api/mcp/asset/29464368-f3cd-43d3-9320-507944363b64.png">
+              <source src="proactive-talent-pools.mp4" type="video/mp4">
+            </video>
+            <img src="https://www.figma.com/api/mcp/asset/29464368-f3cd-43d3-9320-507944363b64.png" alt="">
+          </div>
+          <div class="ai-cap-card__copy">
+            <h3>Proactive Talent Pools</h3>
+            <div class="ai-cap-card__text">
+              <p>People GPT: Generative semantic indexing for discovering the 2% of top-tier talent hidden in plain sight. We map talent pools months before your demand arises, giving you a decisive competitive edge.</p>
+              <p class="ai-cap-card__bullet">• Semantic candidate discovery</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="ai-cap-card reveal" style="--delay:80ms">
+        <div class="ai-cap-card__inner">
+          <div class="ai-cap-card__media">
+            <video autoplay muted loop playsinline preload="metadata" poster="https://www.figma.com/api/mcp/asset/174dc19e-38d2-4018-b104-121e8fd1853b.png">
+              <source src="integrated-coding-environments.mp4" type="video/mp4">
+            </video>
+            <img src="https://www.figma.com/api/mcp/asset/174dc19e-38d2-4018-b104-121e8fd1853b.png" alt="">
+          </div>
+          <div class="ai-cap-card__copy">
+            <h3>Integrated Coding Environments</h3>
+            <div class="ai-cap-card__text">
+              <p>Automated technical validation embedded directly within our ATS infrastructure for zero-delay screening. Real-time coding assessments eliminate guesswork and reduce time-to-hire by 60%.</p>
+              <p class="ai-cap-card__bullet">• Zero-delay technical screening</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="ai-cap-card reveal" style="--delay:160ms">
+        <div class="ai-cap-card__inner">
+          <div class="ai-cap-card__media">
+            <video autoplay muted loop playsinline preload="metadata" poster="https://www.figma.com/api/mcp/asset/881142e8-ca18-4b07-8e5b-1d4fc7967fbb.png">
+              <source src="domain-focus-areas.mp4" type="video/mp4">
+            </video>
+            <img src="https://www.figma.com/api/mcp/asset/881142e8-ca18-4b07-8e5b-1d4fc7967fbb.png" alt="">
+          </div>
+          <div class="ai-cap-card__copy">
+            <h3>Domain Focus Areas</h3>
+            <div class="ai-cap-card__text">
+              <p>Deep specialization in AI/ML Ops, Cloud Infrastructure, Cybersecurity, and Data Engineering. Our vertical domain expertise means faster sourcing and smarter matching for critical roles.</p>
+              <p class="ai-cap-card__bullet">• 6 specialized domain verticals</p>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  
+    </div>
+  </section>
+
+  <section class="ai-domains">
+    <div class="ai-domains__top reveal">
+      <div class="ai-domains__copy">
+        <p class="ai-kicker">DOMAIN EXPERTISE</p>
+        <h2 class="ai-section-heading">Six <span class="accent">Specialized Verticals</span></h2>
+        <p>Deep technical knowledge across the domains that matter most in modern digital transformation programs.</p>
+      </div>
+      <p class="ai-domains__giant" aria-hidden="true">06</p>
+    </div>
+
+    <div class="ai-domains__grid">
+      <article class="domain-card reveal"><h3>AI / ML Ops</h3><p>End-to-end MLOps pipelines, model deployment, and AI infrastructure at scale.</p></article>
+      <article class="domain-card reveal" style="--delay:80ms"><h3>Cloud Infrastructure</h3><p>AWS, GCP, and Azure architects and SREs for large-scale cloud-native migrations.</p></article>
+      <article class="domain-card reveal" style="--delay:160ms"><h3>Cybersecurity</h3><p>Threat intelligence, red teams, compliance engineers, and CISO-level security advisory.</p></article>
+      <article class="domain-card reveal"><h3>Data Engineering</h3><p>Data platform engineers, lakehouse architects, and real-time streaming specialists.</p></article>
+      <article class="domain-card reveal" style="--delay:80ms"><h3>Enterprise SaaS</h3><p>Salesforce, ServiceNow, and Workday specialists for enterprise platform transformation.</p></article>
+      <article class="domain-card reveal" style="--delay:160ms"><h3>DevOps</h3><p>CI/CD, Kubernetes, Terraform, and platform engineering for continuous delivery excellence.</p></article>
+    </div>
+
+    <div class="ai-domain-metrics">
+      <article class="ai-domain-metric reveal">
+        <p class="ai-domain-metric__number" data-odometer="2" data-suffix="%">2<small>%</small></p>
+        <p class="ai-domain-metric__label">Top-Tier Talent</p>
+        <p class="ai-domain-metric__desc">Discovered from hidden pools</p>
+      </article>
+      <article class="ai-domain-metric reveal" style="--delay:80ms">
+        <p class="ai-domain-metric__number" data-odometer="97" data-suffix="%">97<small>%</small></p>
+        <p class="ai-domain-metric__label">Client Retention</p>
+        <p class="ai-domain-metric__desc">Industry-leading satisfaction</p>
+      </article>
+      <article class="ai-domain-metric reveal" style="--delay:160ms">
+        <p class="ai-domain-metric__number" data-odometer="300" data-suffix="%">300<small>%</small></p>
+        <p class="ai-domain-metric__label">Digital Employees</p>
+        <p class="ai-domain-metric__desc">Placed across tech domains</p>
+      </article>
+      <article class="ai-domain-metric reveal" style="--delay:240ms">
+        <p class="ai-domain-metric__number" data-odometer="10" data-suffix="+">10<small>+</small></p>
+        <p class="ai-domain-metric__label">Countries Covered</p>
+        <p class="ai-domain-metric__desc">Global Talent Reach</p>
+      </article>
+    </div>
+  </section>
+</main>
+<footer class="footer" id="contact"><div class="footer__cta reveal"><p class="section-label">READY TO BEGIN?</p><h2 class="section-heading">Let’s Build Something Great Together</h2><a class="button footer__advisor" href="#">Speak to an Advisor</a><div class="city-tickers"><div class="ticker"><div class="ticker__track city-track"></div></div><div class="ticker ticker--reverse"><div class="ticker__track city-track"></div></div></div></div>
+<div class="footer__main"><div><img class="footer__brand-logo" src="https://www.figma.com/api/mcp/asset/24509ebf-4027-4fcd-8de3-679f8aecfe58/560ae.png" alt="Talentika"><p class="footer__tagline">Engineering the Workforce<br>Behind Global Innovation.</p><div class="footer__mini-icons"><img src="https://www.figma.com/api/mcp/asset/24509ebf-4027-4fcd-8de3-679f8aecfe58/eabc9.png" alt="GCC"><img src="https://www.figma.com/api/mcp/asset/24509ebf-4027-4fcd-8de3-679f8aecfe58/0788c.png" alt="RPO"><img src="https://www.figma.com/api/mcp/asset/24509ebf-4027-4fcd-8de3-679f8aecfe58/ac0ad.png" alt="AI"></div><div class="footer__contact"><strong>Contact</strong><p>hello@talentika.in &nbsp;&nbsp; +91 123 456 7890</p></div><div class="footer__social"><img src="https://www.figma.com/api/mcp/asset/24509ebf-4027-4fcd-8de3-679f8aecfe58/33153.png" alt="Instagram"><img src="https://www.figma.com/api/mcp/asset/24509ebf-4027-4fcd-8de3-679f8aecfe58/5235e.png" alt="LinkedIn"><img src="https://www.figma.com/api/mcp/asset/24509ebf-4027-4fcd-8de3-679f8aecfe58/511ec.png" alt="Facebook"><img src="https://www.figma.com/api/mcp/asset/24509ebf-4027-4fcd-8de3-679f8aecfe58/5b93a.png" alt="X"></div></div>
+<div class="footer__links">
+<div class="footer__col"><h3>Services</h3><a class="footer__link" href="#">GCC Setup &amp; Advisory</a><a class="footer__link" href="#">Location Strategy</a><a class="footer__link" href="#">Entity &amp; Compliance</a><a class="footer__link" href="#">Tech &amp; Infrastructure</a><a class="footer__link" href="#">Tech RPO</a><a class="footer__link" href="#">Healthcare RPO</a><a class="footer__link" href="#">Executive Search</a><a class="footer__link" href="#">Platform Integration</a></div>
+<div class="footer__col"><h3>Company</h3><a class="footer__link" href="#">About Talentika</a><a class="footer__link" href="#">Careers/Hiring</a><a class="footer__link" href="#">Case Studies</a><a class="footer__link" href="#">Contact</a><a class="footer__link" href="#">Insights &amp; Resources</a></div>
+<div class="footer__col"><h3>EcoSystem &amp; Platforms</h3><div class="footer__ecosystem">
+<a class="footer__ecosystem-row" href="#"><img class="footer__ecosystem-logo footer__ecosystem-logo--deebug" src="https://www.figma.com/api/mcp/asset/24509ebf-4027-4fcd-8de3-679f8aecfe58/fcd1c.png" alt="Deebug"><span class="footer__ecosystem-arrow" aria-hidden="true">
+<svg class="footer__arrow--out" viewBox="0 0 24 24" fill="none"><path d="M6.4 18 5 16.6 14.6 7H6V5h12v12h-2V8.4L6.4 18Z" fill="currentColor"/></svg>
+<svg class="footer__arrow--in" viewBox="0 0 24 24" fill="none"><path d="M6.4 18 5 16.6 14.6 7H6V5h12v12h-2V8.4L6.4 18Z" fill="currentColor"/></svg>
+</span></a>
+<a class="footer__ecosystem-row" href="#"><img class="footer__ecosystem-logo" src="https://www.figma.com/api/mcp/asset/24509ebf-4027-4fcd-8de3-679f8aecfe58/ff2fa.png" alt="GCC Mixer"><span class="footer__ecosystem-arrow" aria-hidden="true">
+<svg class="footer__arrow--out" viewBox="0 0 24 24" fill="none"><path d="M6.4 18 5 16.6 14.6 7H6V5h12v12h-2V8.4L6.4 18Z" fill="currentColor"/></svg>
+<svg class="footer__arrow--in" viewBox="0 0 24 24" fill="none"><path d="M6.4 18 5 16.6 14.6 7H6V5h12v12h-2V8.4L6.4 18Z" fill="currentColor"/></svg>
+</span></a>
+<a class="footer__ecosystem-row" href="#"><img class="footer__ecosystem-logo" src="https://www.figma.com/api/mcp/asset/24509ebf-4027-4fcd-8de3-679f8aecfe58/181f2.png" alt="AI Basecamp"><span class="footer__ecosystem-arrow" aria-hidden="true">
+<svg class="footer__arrow--out" viewBox="0 0 24 24" fill="none"><path d="M6.4 18 5 16.6 14.6 7H6V5h12v12h-2V8.4L6.4 18Z" fill="currentColor"/></svg>
+<svg class="footer__arrow--in" viewBox="0 0 24 24" fill="none"><path d="M6.4 18 5 16.6 14.6 7H6V5h12v12h-2V8.4L6.4 18Z" fill="currentColor"/></svg>
+</span></a>
+</div></div>
+<div class="footer__col"><h3>Cities We Work in</h3><a class="footer__link" href="#">Pune</a><a class="footer__link" href="#">London</a><a class="footer__link" href="#">Dublin</a><a class="footer__link" href="#">Madrid</a><a class="footer__link" href="#">Sydney</a></div>
+</div>
+<div class="footer__bottom">
+<span>© 2026 Talentika.</span>
+<nav class="footer__legal" aria-label="Legal">
+<a class="footer__legal-link" href="#">Privacy Policy</a>
+<a class="footer__legal-link" href="#">Terms of Use</a>
+<a class="footer__legal-link" href="#">Cookie Preferences</a>
+<a class="footer__legal-link" href="#">Sitemap</a>
+</nav>
+</div>
+</div></div>
+<div class="footer__skyline" aria-hidden="true"><img src="https://www.figma.com/api/mcp/asset/0af92dde-8c8e-4909-8571-75b9240046a2/1010b.svg" alt=""></div></footer>
+<script>
+(() => {
+ const toggle=document.querySelector('.site-header__toggle'),nav=document.querySelector('.site-header__nav');
+ toggle.addEventListener('click',()=>{const open=toggle.getAttribute('aria-expanded')==='true';toggle.setAttribute('aria-expanded',String(!open));nav.classList.toggle('is-open',!open)});
+ const revealObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');revealObserver.unobserve(entry.target)}}),{threshold:.12});
+ document.querySelectorAll('.reveal').forEach(el=>revealObserver.observe(el));
+ const partners=['BMC SOFTWARE','Cummins','Mastercard','PWC','Booking.com','Medline Industries','Cummins'];
+ const cities=['California, USA','London, UK','Dublin, Ireland','Madrid, Sweden','Copenhagen, Denmark','Bratislava, Slovakia','Pune, India','Jurong, Singapore','Sydney, Australia'];
+ const fill=(el,items,cls)=>{if(!el)return;const doubled=[...items,...items];el.innerHTML=doubled.map(x=>`<span class="${cls}${x==='BMC SOFTWARE'?' ticker__item--bmc':''}">${x}</span>`).join('')};
+ fill(document.getElementById('partners-track'),partners,'ticker__item');
+ document.querySelectorAll('.city-track').forEach(el=>fill(el,cities,'ticker__item'));
+})();
+const heroVideo=document.getElementById('heroVideo');
+if(heroVideo){
+  heroVideo.addEventListener('canplay',()=>heroVideo.classList.add('is-ready'),{once:true});
+}
+
+
+  const odometerNumbers=[...document.querySelectorAll('[data-odometer]')];
+
+  const buildOdometer=(el)=>{
+    if(el.dataset.odometerBuilt==='true') return;
+    const value=String(el.dataset.odometer || '');
+    const suffix=el.dataset.suffix || '';
+    el.innerHTML='';
+
+    [...value].forEach((char,index)=>{
+      if(/\d/.test(char)){
+        const digit=Number(char);
+        const digitWrap=document.createElement('span');
+        digitWrap.className='odo-digit';
+
+        const reel=document.createElement('span');
+        reel.className='odo-reel';
+        reel.style.setProperty('--digit',digit);
+        reel.style.transitionDelay=`${index*90}ms`;
+
+        for(let n=0;n<=9;n++){
+          const row=document.createElement('span');
+          row.textContent=n;
+          reel.appendChild(row);
+        }
+
+        digitWrap.appendChild(reel);
+        el.appendChild(digitWrap);
+      }else{
+        el.append(char);
+      }
+    });
+
+    if(suffix){
+      const suffixEl=document.createElement('small');
+      suffixEl.textContent=suffix;
+      el.appendChild(suffixEl);
+    }
+
+    el.dataset.odometerBuilt='true';
+  };
+
+  odometerNumbers.forEach(buildOdometer);
+
+  const odometerObserver=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        requestAnimationFrame(()=>entry.target.classList.add('is-odometer-running'));
+        odometerObserver.unobserve(entry.target);
+      }
+    });
+  },{threshold:.3});
+
+  document.querySelectorAll('.ai-metric,.ai-domain-metric').forEach(metric=>{
+    odometerObserver.observe(metric);
+  });
+
+  const capCards=[...document.querySelectorAll('.ai-cap-card')];
+  const capSection=document.querySelector('.ai-capabilities');
+  let activeCapability=2; // Figma resting state: third card is fully visible, first two remain as stacked headers.
+  let lastScrollY=window.scrollY;
+  let scrollAccumulator=0;
+  let scrollLock=false;
+
+  const layoutCapabilities=()=>{
+    if(!capCards.length) return;
+
+    if(window.innerWidth<=768){
+      capCards.forEach((card,index)=>{
+        const active=index===activeCapability;
+        card.classList.toggle('is-active',active);
+        card.setAttribute('aria-expanded',String(active));
+        card.style.removeProperty('--cap-top');
+        card.style.removeProperty('--cap-height');
+      });
+      return;
+    }
+
+    let y=0;
+    capCards.forEach((card,index)=>{
+      const active=index===activeCapability;
+      card.classList.toggle('is-active',active);
+      card.setAttribute('aria-expanded',String(active));
+      card.style.setProperty('--cap-top',`${y}px`);
+      card.style.setProperty('--cap-height',`${active?392:112}px`);
+      y += active ? 392 : 112;
+    });
+  };
+
+  const sectionIsActive=()=>{
+    if(!capSection) return false;
+    const r=capSection.getBoundingClientRect();
+    return r.top < window.innerHeight*.82 && r.bottom > window.innerHeight*.18;
+  };
+
+  const stepCapability=(direction)=>{
+    if(scrollLock || !sectionIsActive() || window.innerWidth<=768) return;
+
+    if(direction==='up' && activeCapability>0){
+      activeCapability-=1;
+    }else if(direction==='down' && activeCapability<2){
+      activeCapability+=1;
+    }else{
+      return;
+    }
+
+    scrollLock=true;
+    layoutCapabilities();
+    window.setTimeout(()=>{scrollLock=false},420);
+  };
+
+  const onCapabilityScroll=()=>{
+    const current=window.scrollY;
+    const delta=current-lastScrollY;
+    lastScrollY=current;
+
+    if(!sectionIsActive()){
+      scrollAccumulator=0;
+      return;
+    }
+
+    scrollAccumulator+=delta;
+
+    if(scrollAccumulator<=-72){
+      stepCapability('up');
+      scrollAccumulator=0;
+    }else if(scrollAccumulator>=72){
+      stepCapability('down');
+      scrollAccumulator=0;
+    }
+  };
+
+  capCards.forEach((card,index)=>{
+    card.setAttribute('role','button');
+    card.setAttribute('tabindex','0');
+    card.setAttribute('aria-expanded',String(index===activeCapability));
+
+    const activateCapability=()=>{
+      if(window.innerWidth>768) return;
+      activeCapability=index;
+      layoutCapabilities();
+
+      window.requestAnimationFrame(()=>{
+        const top=card.getBoundingClientRect().top + window.scrollY - 88;
+        window.scrollTo({top,behavior:'smooth'});
+      });
+    };
+
+    card.addEventListener('click',activateCapability);
+    card.addEventListener('keydown',event=>{
+      if(window.innerWidth>768) return;
+      if(event.key==='Enter' || event.key===' '){
+        event.preventDefault();
+        activateCapability();
+      }
+    });
+  });
+
+  const syncCapabilityMode=()=>{
+    if(window.innerWidth<=768 && activeCapability>2) activeCapability=0;
+    layoutCapabilities();
+  };
+
+  if(capCards.length===3 && capSection){
+    if(window.innerWidth<=768 && activeCapability===2){
+      activeCapability=0;
+    }
+    syncCapabilityMode();
+    window.addEventListener('scroll',onCapabilityScroll,{passive:true});
+    window.addEventListener('resize',syncCapabilityMode);
+  }
+
+</script>
+</body>
+</html>

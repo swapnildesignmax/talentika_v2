@@ -1,0 +1,1705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Talentika — About Us</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@600;700&family=Noto+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+:root{
+  --navy:#0a192f;--navy-active:#081426;--blue:#4d77ff;--blue-light:#edf1ff;--blue-active:#c8d5ff;
+  --white:#fff;--text:#545556;--muted:#909193;--neutral:#f0f2f5;--footer-muted:#b3b8bf;--gcc:#00d4aa;--gcc-light:#e6fbf7;
+  --rpo:#31c0ff;--rpo-light:#eaf9ff;--ai:#ff6080;--ai-light:#ffeff2;
+  --s10:10px;--s14:14px;--s16:16px;--s20:20px;--s24:24px;--s40:40px;--s42:42px;--s60:60px;--s80:80px;
+  --h1:60px;--h2:42px;--body:16px;--small:14px;--radius:20px;--radius-lg:42px;
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--navy);background:#fff;font-family:"Noto Sans",sans-serif;overflow-x:hidden}
+img{display:block;max-width:100%}a{color:inherit;text-decoration:none}button{font:inherit}
+.site-header{height:105px;padding:14px 16px 0;position:relative;z-index:20;background:transparent}
+.site-header__inner{height:91px;border-radius:16px;background:#fff;padding:25px 48px 25px 44px;display:flex;align-items:center;justify-content:space-between}
+.site-header__logo{width:126px;height:26px;object-fit:contain;transition:transform .55s var(--ease),opacity .55s var(--ease)}
+.site-header__logo:hover{transform:translateY(-2px);opacity:.82}
+.site-header__nav{display:flex;align-items:center;gap:60px}
+.site-header__link,.footer__link,.text-cta{position:relative;display:inline-block;font-size:14px;font-weight:600;line-height:20px;width:max-content}
+.site-header__link::after,.footer__link::after,.text-cta::after{content:"";position:absolute;left:0;bottom:-4px;width:100%;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left center;opacity:0;transition:transform .45s var(--ease),opacity .2s ease}
+.site-header__link:hover::after,.site-header__link:focus-visible::after,.footer__link:hover::after,.text-cta:hover::after{transform:scaleX(1);opacity:1}
+.site-header__talk{width:138px;height:54px;border:0;border-radius:10px;background:var(--navy);color:#e7e8ea;font-size:14px;font-weight:600;cursor:pointer;overflow:hidden;position:relative}
+.site-header__talk:before{content:"";position:absolute;inset:-10px auto -10px -80px;width:55px;background:linear-gradient(110deg,transparent,rgba(255,255,255,.38),transparent);transform:skewX(-18deg);transition:left .65s var(--ease)}
+.site-header__talk:hover:before{left:170px}
+.site-header__toggle{display:none;width:32px;height:32px;border:0;background:transparent;border-radius:0;padding:5px 2px;cursor:pointer}
+.site-header__toggle span{display:block;width:28px;height:2px;background:var(--navy);margin:5px 0;transition:transform .35s var(--ease),opacity .25s ease}
+.site-header__toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.site-header__toggle[aria-expanded="true"] span:nth-child(2){opacity:0}
+.site-header__toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.hero{min-height:588px;padding:0 60px 0;display:flex;flex-direction:column;justify-content:flex-end;gap:40px;position:relative;z-index:2;overflow:visible}
+.hero__copy{width:598px}.hero__title{margin:0;font:600 60px/60px "Geist",sans-serif}.accent{color:var(--blue)}
+.hero__description{width:506px;margin:10px 0 0;color:var(--text);font-size:16px;font-style:italic;line-height:normal}
+.hero__actions{display:flex;gap:24px}.button{display:inline-flex;align-items:center;justify-content:center;padding:20px;border-radius:10px;font-size:16px;line-height:20px;font-weight:700;transition:transform .45s var(--ease)}
+.button:hover{transform:translateY(-3px)}.button--primary{background:var(--navy);color:#fff}.button--secondary{border:1px solid var(--navy)}
+.features{padding:80px 60px 60px;display:grid;grid-template-columns:repeat(3,1fr);gap:51px}
+.feature-card{height:209px;padding:20px;border-radius:20px;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;transition:transform .55s var(--ease)}
+.feature-card,.case-card{will-change:transform;transform:translateY(0);transition:transform .5s var(--ease)}.feature-card:hover,.feature-card:focus-within,.case-card:hover,.case-card:focus-within{transform:translateY(-12px)}
+.feature-card--gcc{background:var(--gcc-light)}.feature-card--rpo{background:var(--rpo-light)}.feature-card--ai{background:var(--ai-light)}
+.feature-card__icon{width:64px;height:64px;object-fit:contain}.feature-card__eyebrow{font:700 16px/30px "Geist";text-transform:uppercase}.feature-card__title{font:600 24px/30px "Geist";margin:0}
+.partners{padding:60px 60px 0}.section-label{margin:0 0 10px;font-size:16px;font-weight:700;line-height:20px}
+.ticker{overflow:hidden;width:100%}.partners>.ticker{width:calc(100% + 120px);margin-left:-60px}.partners>.ticker .ticker__track{padding-left:60px}
+.ticker__track{display:flex;width:max-content;align-items:center;animation:ticker-left 24s linear infinite;will-change:transform}.ticker__item{font:600 24px/30px "Geist";color:var(--muted);white-space:nowrap;margin-right:60px}.ticker__item--bmc{font-size:20px;line-height:26px}
+@keyframes ticker-left{to{transform:translateX(-50%)}}@keyframes ticker-right{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+.stats{padding:80px 60px}.section-heading{margin:0;font:600 42px/42px "Geist";max-width:647px}.stats__grid{display:grid;grid-template-columns:repeat(4,203px);gap:132px;margin-top:40px}
+.stat__number{font:600 42px/42px "Geist";color:var(--blue);margin:0 0 8px}.stat__text{font-size:16px;line-height:1.38;margin:0;min-height:44px}.stat__source{font-size:12px;line-height:16px;margin-top:16px;text-decoration:underline}
+.services{position:relative;background:var(--navy);color:var(--blue-light);padding:80px 60px;overflow:hidden}
+.services__number{position:absolute;right:0;top:-70px;font:600 542px/1 "Geist";color:var(--navy-active);margin:0}
+.services__intro{position:relative;z-index:1;width:579px}.services__intro p:last-child{width:281px;color:#e7e8ea;font-size:14px;font-style:italic}
+.services__grid{position:relative;z-index:1;display:grid;grid-template-columns:repeat(3,349px);gap:128px;margin-top:90px}
+.service__icon{object-fit:contain;margin-bottom:16px}.service__icon--gcc{width:65px;height:55px}.service__icon--rpo{width:63px;height:52px}.service__icon--ai{width:64px;height:64px}.service__title{font:600 20px/26px "Geist";width:203px;margin:0 0 12px}.service:nth-child(1) .service__title{color:var(--gcc)}.service:nth-child(2) .service__title{color:var(--rpo)}.service:nth-child(3) .service__title{color:var(--ai)}
+.service__desc{font-size:14px;font-style:italic;color:var(--neutral);line-height:normal;margin:0 0 12px}.service .text-cta{color:#e7e8ea}
+.ai-core{padding:80px 60px}.ai-core__visual{height:655px;border-radius:42px;margin:20px 0;position:relative;overflow:hidden;background:#0a192f}
+
+.ai-core__desc{width:511px;font-size:14px;font-style:italic;line-height:normal}
+.work{padding-bottom:80px;overflow:hidden}.work__watermark{font-family:"Geist",sans-serif;font-weight:700;font-size:clamp(60px,12.5vw,180px);line-height:.905;color:#edf1ff;white-space:nowrap;margin:0 0 -5.5vw -3.26vw;width:106.52vw;max-width:none}.work__more{display:flex;justify-content:flex-end;padding:0 60px 24px}.cases{display:grid;grid-template-columns:504px 390px 390px;gap:20px;padding:0 60px}
+.case-card{min-height:463px;background:var(--blue-light);border-radius:42px;padding:24px;display:flex;flex-direction:column;gap:52px;cursor:pointer;transition:transform .55s var(--ease)}
+.case-card__tag{border:.5px solid var(--text);border-radius:10px;padding:10px;width:max-content;font-size:14px;color:var(--text)}.case-card__logo{height:24px;width:109px;object-fit:contain}.case-card__metric{font:600 60px/60px "Geist";color:var(--blue);margin:0}.case-card__metric-sub{font-size:14px;font-style:italic}.case-card__title{font:600 28px/1 "Geist";margin:0}.case-card__desc{font-size:14px;max-width:291px}
+.footer{background:#09172a;color:#e7e8ea;border-radius:42px 42px 0 0;padding-top:80px;overflow:hidden}.footer__cta{padding:0 60px 42px}.footer__cta .section-heading{font-size:60px;line-height:60px;color:var(--blue);max-width:674px}.footer__advisor{margin-top:42px;background:var(--blue);color:#fff;width:max-content}.footer__advisor:hover{transform:translateY(-3px)}
+.city-tickers{display:grid;gap:0;margin-top:42px;width:calc(100% + 120px);margin-left:-60px}.city-tickers .ticker__track{animation-duration:28s}.city-tickers .ticker--reverse .ticker__track{animation-name:ticker-right}.city-tickers .ticker__item{font:italic 16px/1.3 "Noto Sans";color:var(--blue-active);padding:20px;margin:0 11px}
+.footer__main{background:var(--navy);padding:80px 60px 0;display:grid;grid-template-columns:330px 820px;gap:170px;position:relative;height:506px;box-sizing:border-box}.footer__brand-logo{width:164px;height:33px;object-fit:contain}.footer__tagline{color:var(--blue);font-size:16px}.footer__mini-icons{display:grid;gap:18px;margin:28px 0}.footer__mini-icons img{max-width:92px;max-height:32px}.footer__contact{color:var(--footer-muted);font-size:12px}.footer__social{display:flex;gap:22px;margin-top:40px;height:46px;align-items:center}.footer__social img{width:46px;height:46px}.footer__links{display:grid;grid-template-columns:124px 124px 178px 124px;column-gap:90px;align-items:start}.footer__col h3{font-size:14px;line-height:20px;font-weight:700;color:var(--footer-muted);margin:0 0 12px}.footer__link{font-size:12px;line-height:16px;font-weight:400;display:block;margin:0 0 17px}.footer__bottom{position:absolute;left:560px;right:60px;top:472px;height:19px;background:transparent;color:#b3b8bf;font-size:12px;line-height:16px;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:0;margin:0}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s var(--ease),transform .8s var(--ease);transition-delay:var(--delay,0ms)}.reveal.is-visible{opacity:1;transform:none}
+@media(max-width:1024px){
+ .site-header__nav{position:absolute;left:16px;right:16px;top:96px;background:#fff;border-radius:16px;padding:0 28px;display:flex;flex-direction:column;align-items:flex-start;gap:0;max-height:0;overflow:hidden;opacity:0;transition:max-height .6s var(--ease),opacity .35s ease,padding .6s var(--ease)}
+ .site-header__nav.is-open{max-height:520px;opacity:1;padding:28px}.site-header__link{margin:10px 0}.site-header__talk{margin-top:12px}.site-header__toggle{display:block}
+ .hero{padding-left:40px;padding-right:40px}.features,.partners,.stats,.services,.ai-core{padding-left:40px;padding-right:40px}.partners>.ticker{width:calc(100% + 80px);margin-left:-40px}.partners>.ticker .ticker__track{padding-left:40px}.city-tickers{width:calc(100% + 80px);margin-left:-40px}.features{gap:20px}.stats__grid{grid-template-columns:repeat(2,1fr);gap:40px}.services__grid{grid-template-columns:repeat(3,1fr);gap:40px}.cases{grid-template-columns:1fr 1fr;padding:0 40px}.case-card:first-child{grid-column:1/-1}.footer__cta,.footer__main,.footer__bottom{padding-left:40px;padding-right:40px}.footer__main{gap:70px;grid-template-columns:330px 1fr}.footer__links{grid-template-columns:repeat(2,minmax(0,1fr));gap:48px}.footer__bottom{padding-left:40px;background:#0a192f}
+}
+@media(max-width:768px){
+ .site-header{height:88px;padding:10px}.site-header__inner{height:68px;padding:10px 14px}.site-header__logo{width:112px;height:auto}.site-header__nav{left:10px;right:10px;top:78px}
+ .hero{min-height:560px;padding:0 20px 40px;gap:30px}.hero__copy{width:100%}.hero__title{font-size:42px;line-height:44px}.hero__description{width:100%}.hero__actions{flex-direction:column;align-items:stretch;gap:12px}.button{padding:17px}
+ .features{padding:40px 20px;grid-template-columns:1fr}.feature-card{height:190px}.partners{padding:30px 20px 0}.partners>.ticker{width:calc(100% + 40px);margin-left:-20px}.partners>.ticker .ticker__track{padding-left:20px}.city-tickers{width:calc(100% + 40px);margin-left:-20px}
+ .stats,.services,.ai-core{padding:60px 20px}.section-heading{font-size:34px;line-height:36px}.stats__grid{grid-template-columns:1fr 1fr;gap:36px 24px}.services__intro{width:100%}.services__number{font-size:320px;right:-50px}.services__grid{grid-template-columns:1fr;gap:48px;margin-top:60px}.service{width:100%}
+ .ai-core__visual{height:420px;border-radius:28px}.ai-core__desc{width:100%}.work__watermark{font-family:"Geist",sans-serif;font-weight:700;font-size:clamp(60px,12.5vw,180px);line-height:.905;color:#edf1ff;white-space:nowrap;margin:0 0 -5.5vw -3.26vw;width:106.52vw;max-width:none}.work__more{padding:0 20px 20px}.cases{grid-template-columns:1fr;padding:0 20px}.case-card:first-child{grid-column:auto}.case-card{min-height:420px;border-radius:28px;gap:38px}
+ .footer{border-radius:28px 28px 0 0;padding-top:60px}.footer__cta{padding:0 20px 30px}.footer__cta .section-heading{font-size:42px;line-height:44px}.footer__main{padding:60px 20px 30px;grid-template-columns:1fr;gap:60px}.footer__links{grid-template-columns:1fr 1fr;gap:40px}.footer__bottom{padding:20px;background:#0a192f;gap:16px;flex-direction:column;align-items:flex-start}.footer__legal{display:flex;align-items:center;gap:28px;flex-wrap:nowrap;margin:0;padding:0}
+}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
+
+.footer__ecosystem{display:flex;flex-direction:column;gap:0}
+.footer__ecosystem-row{height:64px;border-top:1px solid rgba(179,184,191,.32);display:flex;align-items:center;justify-content:space-between;transform:none!important}
+.footer__ecosystem-row:last-child{border-bottom:1px solid rgba(179,184,191,.32)}
+.footer__ecosystem-logo{display:block;max-width:136px;height:24px;object-fit:contain;object-position:left center}
+.footer__ecosystem-logo--deebug{width:85px}
+.footer__ecosystem-arrow{position:relative;width:24px;height:24px;overflow:hidden;flex:0 0 24px;background:transparent;display:block}
+
+.ai-core__visual img{width:100%;height:100%;object-fit:cover;display:block}
+
+.footer__skyline{position:relative;height:150px;width:100%;overflow:visible;background:#0a192f}
+.footer__skyline img{position:absolute;left:50%;bottom:-.8px;transform:translateX(-50%);width:1448px;height:150px;max-width:none;display:block}
+@media (max-width:1024px){.footer__skyline{height:110px}.footer__skyline img{width:1062px;height:auto}}
+@media (max-width:768px){.footer__skyline{height:72px}.footer__skyline img{width:695px;height:auto}}
+
+
+.footer__legal{display:flex;align-items:center;gap:28px}
+.footer__legal-link{position:relative;display:inline-flex;flex-direction:column;gap:3px;color:#e7e8ea;font:400 12px/normal "Noto Sans",sans-serif;white-space:nowrap}
+.footer__legal-link::after{content:"";display:block;width:26px;height:1px;background:#e7e8ea;transform:scaleX(0);transform-origin:left center;opacity:0;transition:transform .45s var(--ease),opacity .2s ease}
+.footer__legal-link:hover::after,.footer__legal-link:focus-visible::after{transform:scaleX(1);opacity:1}
+
+
+.hero{position:relative;isolation:isolate;overflow:hidden}
+.hero__media{position:absolute;top:0;left:0;width:100vw;height:850px;z-index:0;overflow:hidden;background:#eef1f5;pointer-events:none}
+.hero__media video,.hero__media img{width:100%;height:100%;object-fit:cover;display:block}
+.hero__media img{position:absolute;inset:0}
+.hero__media video.is-ready + img{opacity:0;transition:opacity .35s ease}
+.hero__media::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,.08),rgba(255,255,255,0) 52%);pointer-events:none}
+@media (max-width:1024px){.hero__media{height:760px}}
+@media (max-width:768px){.hero__media{height:680px}}
+
+
+/* Consistent card lift interaction */
+.feature-card,
+.case-card,
+.service,
+.stat {
+  will-change: transform;
+  transform: translateY(0);
+  transition: transform .5s var(--ease);
+}
+.feature-card:hover,
+.feature-card:focus-within,
+.case-card:hover,
+.case-card:focus-within,
+.service:hover,
+.service:focus-within,
+.stat:hover,
+.stat:focus-within {
+  transform: translateY(-10px);
+}
+
+
+main{position:relative;z-index:1}
+.features{position:relative;z-index:2}
+
+
+.footer__ecosystem-arrow svg{position:absolute;width:13px;height:13px;transition:transform .6s ease-in-out,color .6s ease-in-out;will-change:transform}
+.footer__ecosystem-arrow .footer__arrow--out{left:5px;top:6px;color:#233673;transform:translate(0,0)}
+.footer__ecosystem-arrow .footer__arrow--in{left:5px;top:6px;color:#4d77ff;transform:translate(-19px,19px)}
+.footer__ecosystem-row:hover .footer__arrow--out,
+.footer__ecosystem-row:focus-visible .footer__arrow--out{transform:translate(20px,-20px)}
+.footer__ecosystem-row:hover .footer__arrow--in,
+.footer__ecosystem-row:focus-visible .footer__arrow--in{transform:translate(0,0)}
+
+
+/* =========================================================
+   ABOUT US PAGE — FIGMA NODE 23:2632
+   Reuses approved Home header/footer + interaction logic.
+   ========================================================= */
+.site-header__link.is-active{color:#3a59bf}
+.site-header__link.is-active::after{transform:scaleX(1);opacity:1}
+
+.about-breadcrumb{
+  position:relative;z-index:2;height:36px;padding:10px 60px;
+  display:flex;gap:6px;align-items:flex-start;
+  font-size:12px;line-height:16px;color:#545556
+}
+.about-breadcrumb strong{color:var(--navy);font-weight:700}
+
+.about-hero{
+  position:relative;z-index:2;height:609px;padding:0 60px 60px;
+  display:flex;flex-direction:column;justify-content:flex-end;gap:40px
+}
+.about-hero__copy{width:726px;display:flex;flex-direction:column;gap:10px}
+.about-hero__title{margin:0;font:600 60px/60px "Geist",sans-serif;color:var(--navy)}
+.about-hero__title .accent{color:var(--blue)}
+.about-hero__desc{width:506px;margin:0;color:#545556;font:italic 400 16px/normal "Noto Sans",sans-serif}
+.about-hero__actions{display:flex;gap:24px}
+
+.about-page .hero__media{height:750px}
+.about-page .hero__media::after{background:linear-gradient(90deg,rgba(255,255,255,.08),rgba(255,255,255,0) 55%)}
+
+/* Timeline */
+.about-timeline{
+  position:relative;height:756px;background:#0a192f;color:#e7e8ea;overflow:hidden
+}
+.about-timeline__intro{position:absolute;left:60px;top:90px;width:383px;display:flex;flex-direction:column;gap:18px}
+.about-timeline__intro h2{margin:0;color:#4d77ff;font:600 42px/42px "Geist",sans-serif}
+.about-timeline__intro p{margin:0;font:italic 400 16px/normal "Noto Sans",sans-serif}
+
+
+
+
+
+
+.about-timeline__line{position:absolute;left:0;top:5px;width:382px;height:15px}
+.about-timeline__giant{
+  position:absolute;right:-117px;top:82px;color:#081426;
+  font:600 360px/300px "Geist",sans-serif;white-space:pre-line
+}
+
+
+
+
+
+
+
+/* Metrics */
+.about-metrics{position:relative;width:100%;height:353px;padding:0}
+.about-metric{position:absolute;top:80px;display:flex;flex-direction:column;gap:8px;transition:transform .5s var(--ease);will-change:transform}
+.about-metric:hover,.about-metric:focus-within{transform:translateY(-10px)}
+.about-metric:nth-child(1){left:80px;width:259px}
+.about-metric:nth-child(2){left:577.5px;width:225px}
+.about-metric:nth-child(3){left:1041px;width:319px}
+.about-metric__number{margin:0;color:#4d77ff;font:600 120px/120px "Geist",sans-serif;white-space:nowrap}
+.about-metric__number small{font-size:90px}
+.about-metric__label{margin:0;color:#0a192f;font-size:14px;font-weight:700;letter-spacing:.84px;text-transform:uppercase}
+.about-metric__desc{margin:0;color:#0a192f;font-size:14px;line-height:normal;letter-spacing:.84px}
+
+/* Leadership */
+.about-leaders{padding-bottom:90px;overflow:hidden}
+.about-leaders__watermark{margin:0 0 -5.486vw 0;width:104.167vw;max-width:none;height:auto;font-family:"Geist",sans-serif;font-weight:700;font-size:11.944vw;line-height:.95;color:#edf1ff;white-space:nowrap}
+.about-leaders__inner{padding:0 60px;display:flex;flex-direction:column;gap:42px}
+.about-leaders__intro{display:flex;flex-direction:column;gap:10px}
+.about-leaders__intro .eyebrow{margin:0;font-size:16px;font-weight:700;text-transform:uppercase}
+.about-leaders__intro h2{margin:0;width:757px;font:600 42px/42px "Geist",sans-serif}
+.about-leaders__grid{display:grid;grid-template-columns:repeat(3,385px);gap:48px 82.5px}
+.leader-card{display:flex;flex-direction:column;gap:24px;transition:transform .5s var(--ease);will-change:transform}
+.leader-card:hover,.leader-card:focus-within{transform:translateY(-10px)}
+.leader-card__image{width:385px;height:453px;border-radius:42px;overflow:hidden;background:#edf1ff}
+.leader-card__image img{width:100%;height:100%;object-fit:cover}
+.leader-card__meta{display:grid;grid-template-columns:1fr 118px;gap:5px;align-items:start;width:385px}
+.leader-card__name{margin:0;font:600 20px/normal "Geist",sans-serif}
+.leader-card__role{margin:5px 0 0;color:#545556;font-size:14px;line-height:normal}
+.leader-card__social{display:flex;gap:26px}
+.leader-card__social img{width:46px;height:46px}
+.leader-card__social a{transition:transform .4s var(--ease)}
+.leader-card__social a:hover{transform:translateY(-3px)}
+
+/* Global Reach */
+
+.about-reach__head{height:200px;display:grid;grid-template-columns:452px 1fr;gap:24px;align-items:start}
+.about-reach__copy{display:flex;flex-direction:column;gap:10px}
+.about-reach__copy .eyebrow{margin:0;font-size:16px;font-weight:700;text-transform:uppercase}
+.about-reach__copy h2{margin:0;font:600 42px/42px "Geist",sans-serif}
+.about-reach__copy p:last-child{margin:0;width:440px;color:#545556;font:italic 400 16px/normal "Noto Sans",sans-serif}
+.about-reach__number{margin:0;text-align:right;color:#c8d5ff;font:600 200px/200px "Geist",sans-serif}
+
+
+
+
+
+
+
+
+@media(max-width:1024px){
+  .about-breadcrumb,.about-hero{padding-left:40px;padding-right:40px}
+  .about-hero__copy{width:70vw}
+  
+  
+  .about-metric__number{font-size:90px;line-height:96px}
+  .about-leaders__inner{padding:0 40px}
+  .about-leaders__grid{grid-template-columns:repeat(2,1fr);gap:48px 40px}
+  .leader-card,.leader-card__image,.leader-card__meta{width:100%}
+  
+  
+}
+@media(max-width:768px){
+  .about-breadcrumb{padding-left:20px;padding-right:20px}
+  .about-hero{height:auto;min-height:620px;padding:60px 20px 40px}
+  .about-hero__copy,.about-hero__desc{width:100%}
+  .about-hero__title{font-size:42px;line-height:44px}
+  .about-hero__actions{width:100%;flex-direction:column}
+  .about-timeline{height:auto;padding:60px 20px;display:flex;flex-direction:column;gap:36px}
+  .about-timeline__giant{display:none}
+  .about-metric,.about-metric:nth-child(n){width:100%}
+  .about-metric__number{font-size:72px;line-height:78px}
+  
+  .about-leaders__inner{padding:0 20px}
+  .about-leaders__intro h2{width:100%;font-size:34px;line-height:36px}
+  .about-leaders__grid{grid-template-columns:1fr;gap:40px}
+  .leader-card__image{height:420px}
+  
+  .about-reach__head{height:auto;grid-template-columns:1fr;gap:16px}
+  .about-reach__copy p:last-child{width:100%}
+  .about-reach__number{text-align:left;font-size:120px;line-height:120px}
+  
+  
+  
+}
+
+
+/* Journey carousel — four milestone states synced to 2001 / 2015 / 2020 / Today */
+.about-timeline__years{position:absolute;left:0;top:494px;width:444px}
+.about-timeline__year{
+  position:absolute;left:392px;font-size:18px;line-height:normal;white-space:nowrap;
+  color:#e7e8ea;opacity:.58;transition:opacity .35s ease,color .35s ease,font-weight .35s ease;
+  cursor:pointer
+}
+.about-timeline__year.is-active{opacity:1;font-weight:700;color:#fff}
+.about-timeline__year--2001{top:0}
+.about-timeline__year--2015{top:49px}
+.about-timeline__year--2020{top:98px}
+.about-timeline__year--today{top:147px}
+
+.about-timeline__cards{
+  position:absolute;left:586px;top:228px;width:1280px;height:458px;overflow:visible
+}
+.about-timeline__slide{
+  position:absolute;left:0;top:0;width:619px;
+  display:flex;flex-direction:column;gap:24px;
+  opacity:0;transform:translateX(84px) scale(.985);
+  pointer-events:none;
+  transition:opacity .55s var(--ease),transform .65s var(--ease);
+  will-change:transform,opacity
+}
+.about-timeline__slide.is-active{
+  opacity:1;transform:translateX(0) scale(1);pointer-events:auto;z-index:2
+}
+.about-timeline__slide.is-next{
+  opacity:.36;transform:translateX(661px) scale(1);z-index:1
+}
+.about-timeline__slide.is-prev{
+  opacity:0;transform:translateX(-120px) scale(.98);z-index:0
+}
+.about-timeline__image{height:360px;border-radius:36px;overflow:hidden}
+.about-timeline__image img{width:100%;height:100%;object-fit:cover}
+.about-timeline__slide:first-child .about-timeline__image img{
+  height:229.26%;object-fit:cover;object-position:center 3%
+}
+.about-timeline__slide h3{margin:0;font:600 20px/normal "Geist",sans-serif;color:#e7e8ea}
+.about-timeline__slide p{margin:6px 0 0;width:292px;color:#c8d5ff;font-size:14px;line-height:1.5}
+.about-timeline__arrow-button{
+  position:absolute;left:598px;top:148px;width:122px;height:81px;
+  border:0;background:transparent;padding:0;cursor:pointer;z-index:4
+}
+.about-timeline__arrow-button img{width:122px;height:81px;display:block}
+.about-timeline__arrow-button:hover img{transform:translateX(8px)}
+.about-timeline__arrow-button img{transition:transform .45s var(--ease)}
+
+
+/* Global Reach — dual continuous tickers */
+.about-reach{min-height:auto;padding:80px;background:#edf1ff;overflow:hidden}
+.about-reach__head{height:200px;display:grid;grid-template-columns:452px 1fr;gap:24px;align-items:start}
+.about-reach__ticker-wrap{
+  width:calc(100% + 160px);margin-left:-80px;overflow:hidden;margin-top:24px
+}
+.about-reach__ticker{overflow:hidden;width:100%}
+.about-reach__ticker + .about-reach__ticker{margin-top:70px}
+.about-reach__track{
+  display:flex;align-items:flex-start;gap:24px;width:max-content;
+  will-change:transform;animation:about-reach-left 34s linear infinite
+}
+.about-reach__ticker--reverse .about-reach__track{animation-name:about-reach-right}
+@keyframes about-reach-left{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes about-reach-right{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+
+.reach-card{
+  position:relative;flex:0 0 auto;display:flex;flex-direction:column;gap:24px;
+  transition:transform .5s var(--ease);will-change:transform
+}
+.reach-card:hover,.reach-card:focus-within{transform:translateY(-10px)}
+.reach-card--wide{width:521px}
+.reach-card--square{width:389px}
+.reach-card--wide .reach-card__image{height:291px}
+.reach-card--square .reach-card__image{height:389px}
+.reach-card__image{border-radius:36px;overflow:hidden}
+.reach-card__image img{width:100%;height:100%;object-fit:cover}
+.reach-card h3{margin:0;font:600 20px/normal "Geist",sans-serif}
+.reach-card p{margin:6px 0 0;color:#545556;font-size:14px;line-height:1.5}
+
+
+@media(max-width:1024px){
+  
+  .about-reach__ticker-wrap{width:calc(100% + 80px);margin-left:-40px}
+}
+@media(max-width:768px){
+  
+  .about-timeline__slide,.about-timeline__slide.is-active,.about-timeline__slide.is-next,.about-timeline__slide.is-prev{
+    position:absolute;left:0;top:0;width:100%;transform:none
+  }
+  .about-timeline__slide{opacity:0}
+  .about-timeline__slide.is-active{opacity:1;pointer-events:auto}
+  .about-timeline__slide.is-next{opacity:0;pointer-events:none}
+  .about-timeline__cards{position:relative;width:100%;height:390px}
+  .about-timeline__arrow-button{left:auto;right:0;top:140px}
+  .about-reach__ticker-wrap{width:calc(100% + 40px);margin-left:-20px}
+  .about-reach__track{gap:16px;animation-duration:28s}
+  .reach-card--wide,.reach-card--square{width:300px}
+  .reach-card--wide .reach-card__image,.reach-card--square .reach-card__image{height:230px}
+}
+
+
+.about-metric:nth-child(2) .about-metric__number,
+.about-metric:nth-child(2) .about-metric__label,
+.about-metric:nth-child(2) .about-metric__desc{width:300px}
+.about-metric__number{display:flex;align-items:baseline;height:120px;overflow:visible}
+.about-metric__unit{font:600 120px/120px "Geist",sans-serif}
+.about-metric__suffix{font:600 90px/120px "Geist",sans-serif}
+.odo-digit{display:inline-block;position:relative;height:1em;overflow:hidden;vertical-align:top;min-width:.58em}
+.odo-reel{display:block;transform:translateY(0);transition:transform 1.45s cubic-bezier(.16,1,.3,1);will-change:transform}
+.odo-reel span{display:block;height:1em;line-height:1em}
+.about-metric.is-odometer-running .odo-reel{transform:translateY(calc(var(--digit) * -1em))}
+
+
+.about-timeline__years{z-index:6}
+.about-timeline__year{
+  appearance:none;-webkit-appearance:none;border:0;background:transparent;padding:0;margin:0;
+  font-family:"Noto Sans",sans-serif;font-size:18px;line-height:25px;text-align:left;
+  color:#e7e8ea;opacity:.72;z-index:7;cursor:pointer;
+  transition:color .35s ease,opacity .35s ease,font-weight .35s ease
+}
+.about-timeline__year:hover,.about-timeline__year:focus-visible{opacity:1}
+.about-timeline__year.is-active{color:#4d77ff;opacity:1;font-weight:700}
+.about-timeline__line{
+  z-index:5;transition:transform .55s cubic-bezier(.16,1,.3,1);
+  transform:translateY(var(--history-line-y,0px));will-change:transform
+}
+
+
+@media(max-width:768px){
+  .about-timeline__years{position:relative!important;display:block!important;height:172px!important;width:100%!important}
+  .about-timeline__line{display:block!important;left:-20px!important;width:calc(100% - 22px)!important}
+  .about-timeline__year{position:absolute!important;left:auto!important;right:0!important}
+  .about-timeline__year--2001{top:0!important}
+  .about-timeline__year--2015{top:49px!important}
+  .about-timeline__year--2020{top:98px!important}
+  .about-timeline__year--today{top:147px!important}
+}
+
+
+@media(max-width:1024px){
+  .about-metrics{height:auto;min-height:353px;padding:60px 40px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:36px}
+  .about-metric,
+  .about-metric:nth-child(1),
+  .about-metric:nth-child(2),
+  .about-metric:nth-child(3){position:relative;left:auto;top:auto;width:auto}
+  .about-metric:nth-child(2) .about-metric__number,
+  .about-metric:nth-child(2) .about-metric__label,
+  .about-metric:nth-child(2) .about-metric__desc{width:auto}
+  .about-metric__number{font-size:90px;line-height:96px;height:96px}
+  .about-metric__unit{font-size:90px;line-height:96px}
+  .about-metric__suffix{font-size:68px;line-height:96px}
+}
+@media(max-width:768px){
+  .about-metrics{padding:50px 20px;grid-template-columns:1fr;gap:36px}
+  .about-metric__number{font-size:72px;line-height:78px;height:78px}
+  .about-metric__unit{font-size:72px;line-height:78px}
+  .about-metric__suffix{font-size:54px;line-height:78px}
+}
+
+
+/* Figma section flow correction */
+.about-timeline{position:relative;display:block;height:756px;clear:both}
+.about-metrics{
+  position:relative!important;
+  display:block!important;
+  width:100%!important;
+  height:353px!important;
+  min-height:353px!important;
+  padding:0!important;
+  margin:0!important;
+  clear:both;
+  overflow:visible
+}
+.about-leaders{
+  position:relative;
+  display:block;
+  clear:both;
+  margin:0;
+  padding-top:0;
+  padding-bottom:90px
+}
+@media(max-width:1024px){
+  .about-metrics{
+    height:auto!important;
+    min-height:353px!important;
+    padding:60px 40px!important;
+    display:grid!important;
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    gap:36px!important
+  }
+}
+@media(max-width:768px){
+  .about-timeline{height:auto}
+  .about-metrics{
+    min-height:0!important;
+    padding:50px 20px!important;
+    grid-template-columns:1fr!important;
+    gap:36px!important
+  }
+}
+
+
+/* =========================================================
+   MOBILE FOOTER VISIBILITY FIX
+   Prevent the fixed desktop footer height / absolute legal row
+   from clipping Services, Company, EcoSystem & Platforms,
+   and Cities We Work in on mobile.
+   ========================================================= */
+@media (max-width:768px){
+  .footer{
+    overflow:hidden!important;
+  }
+
+  .footer__main{
+    height:auto!important;
+    min-height:0!important;
+    padding:60px 20px 30px!important;
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    gap:52px!important;
+    overflow:visible!important;
+  }
+
+  .footer__links{
+    width:100%!important;
+    display:grid!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    column-gap:28px!important;
+    row-gap:42px!important;
+    align-items:start!important;
+    color:#e7e8ea!important;
+    opacity:1!important;
+    visibility:visible!important;
+  }
+
+  .footer__col{
+    min-width:0!important;
+    display:block!important;
+    opacity:1!important;
+    visibility:visible!important;
+  }
+
+  .footer__col h3{
+    display:block!important;
+    margin:0 0 14px!important;
+    color:#b3b8bf!important;
+    opacity:1!important;
+    visibility:visible!important;
+  }
+
+  .footer__link{
+    display:block!important;
+    width:auto!important;
+    max-width:100%!important;
+    margin:0 0 14px!important;
+    color:#e7e8ea!important;
+    opacity:1!important;
+    visibility:visible!important;
+    white-space:normal!important;
+  }
+
+  .footer__ecosystem{
+    width:100%!important;
+    display:flex!important;
+    flex-direction:column!important;
+    opacity:1!important;
+    visibility:visible!important;
+  }
+
+  .footer__ecosystem-row{
+    width:100%!important;
+    min-width:0!important;
+    color:#e7e8ea!important;
+    opacity:1!important;
+    visibility:visible!important;
+  }
+
+  .footer__bottom{
+    position:static!important;
+    left:auto!important;
+    right:auto!important;
+    top:auto!important;
+    width:100%!important;
+    height:auto!important;
+    min-height:0!important;
+    padding:20px 0 0!important;
+    margin:0!important;
+    background:transparent!important;
+    color:#b3b8bf!important;
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:flex-start!important;
+    gap:16px!important;
+  }
+}
+
+@media (max-width:480px){
+  .footer__links{
+    grid-template-columns:1fr!important;
+    row-gap:36px!important;
+  }
+}
+
+
+/* MOBILE LINK HOVER WIDTH FIX */
+@media (max-width:768px){
+  .footer__link{
+    display:inline-block!important;
+    width:max-content!important;
+    max-width:100%!important;
+  }
+
+  .footer__link::after{
+    width:100%!important;
+  }
+
+  .footer__legal-link{
+    position:relative;
+    display:inline-block!important;
+    width:max-content!important;
+    max-width:100%!important;
+  }
+
+  .footer__legal-link::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-4px;
+    width:100%;
+    height:1px;
+    background:currentColor;
+    transform:scaleX(0);
+    transform-origin:left center;
+    opacity:0;
+    transition:transform .45s var(--ease),opacity .2s ease;
+  }
+
+  .footer__legal-link:hover::after,
+  .footer__legal-link:focus-visible::after{
+    transform:scaleX(1);
+    opacity:1;
+  }
+}
+
+
+/* MOBILE FOOTER LINK FLOW FIX */
+@media (max-width:768px){
+  .footer__col{
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:flex-start!important;
+    min-width:0!important;
+  }
+
+  .footer__col h3{
+    width:auto!important;
+    max-width:100%!important;
+    flex:0 0 auto!important;
+  }
+
+  .footer__link{
+    display:block!important;
+    width:fit-content!important;
+    max-width:100%!important;
+    flex:0 0 auto!important;
+    margin:0 0 14px!important;
+    line-height:16px!important;
+    white-space:normal!important;
+  }
+
+  .footer__link::after{
+    width:100%!important;
+  }
+
+  .footer__legal{
+    display:flex!important;
+    flex-wrap:wrap!important;
+    gap:12px 24px!important;
+  }
+
+  .footer__legal-link{
+    display:block!important;
+    width:fit-content!important;
+    max-width:100%!important;
+    flex:0 0 auto!important;
+    line-height:16px!important;
+  }
+}
+
+
+/* =========================================================
+   ABOUT US — MOBILE RESPONSIVE REFINEMENTS
+   - Our Journey and Scale: mobile timeline / carousel pattern
+   - People: 2-column grid
+   - Global Reach: swipeable snap cards
+   ========================================================= */
+@media (max-width:768px){
+
+  /* ---------- Our Journey and Scale ---------- */
+  .about-timeline{
+    height:auto!important;
+    min-height:0!important;
+    padding:60px 20px!important;
+    display:flex!important;
+    flex-direction:column!important;
+    gap:28px!important;
+    overflow:hidden!important;
+  }
+
+  .about-timeline__intro{
+    position:relative!important;
+    left:auto!important;
+    top:auto!important;
+    width:100%!important;
+    max-width:100%!important;
+    gap:14px!important;
+  }
+
+  .about-timeline__intro h2{
+    width:100%!important;
+    font-size:34px!important;
+    line-height:36px!important;
+  }
+
+  .about-timeline__intro p{
+    width:100%!important;
+    max-width:100%!important;
+    font-size:14px!important;
+    line-height:1.6!important;
+  }
+
+  .about-timeline__giant{
+    display:none!important;
+  }
+
+  /* compact, touch-friendly milestone selector */
+  .about-timeline__years{
+    position:relative!important;
+    left:auto!important;
+    top:auto!important;
+    width:100%!important;
+    height:auto!important;
+    display:grid!important;
+    grid-template-columns:repeat(4,minmax(0,1fr))!important;
+    gap:8px!important;
+    z-index:6!important;
+  }
+
+  .about-timeline__line{
+    display:none!important;
+  }
+
+  .about-timeline__year,
+  .about-timeline__year--2001,
+  .about-timeline__year--2015,
+  .about-timeline__year--2020,
+  .about-timeline__year--today{
+    position:relative!important;
+    left:auto!important;
+    right:auto!important;
+    top:auto!important;
+    width:100%!important;
+    min-height:44px!important;
+    padding:10px 6px!important;
+    border:1px solid rgba(200,213,255,.28)!important;
+    border-radius:999px!important;
+    background:rgba(255,255,255,.04)!important;
+    color:#e7e8ea!important;
+    opacity:.72!important;
+    font-size:13px!important;
+    line-height:18px!important;
+    text-align:center!important;
+    white-space:nowrap!important;
+  }
+
+  .about-timeline__year.is-active{
+    color:#fff!important;
+    background:#4d77ff!important;
+    border-color:#4d77ff!important;
+    opacity:1!important;
+  }
+
+  .about-timeline__cards{
+    position:relative!important;
+    left:auto!important;
+    top:auto!important;
+    width:100%!important;
+    height:auto!important;
+    min-height:0!important;
+    overflow:hidden!important;
+  }
+
+  .about-timeline__slide,
+  .about-timeline__slide.is-active,
+  .about-timeline__slide.is-next,
+  .about-timeline__slide.is-prev{
+    position:relative!important;
+    left:auto!important;
+    top:auto!important;
+    width:100%!important;
+    transform:none!important;
+  }
+
+  .about-timeline__slide{
+    display:none!important;
+    opacity:0!important;
+    pointer-events:none!important;
+  }
+
+  .about-timeline__slide.is-active{
+    display:flex!important;
+    opacity:1!important;
+    pointer-events:auto!important;
+    gap:18px!important;
+  }
+
+  .about-timeline__image{
+    width:100%!important;
+    height:auto!important;
+    aspect-ratio:16/10!important;
+    border-radius:24px!important;
+    overflow:hidden!important;
+  }
+
+  .about-timeline__image img,
+  .about-timeline__slide:first-child .about-timeline__image img{
+    width:100%!important;
+    height:100%!important;
+    object-fit:cover!important;
+    object-position:center center!important;
+  }
+
+  .about-timeline__slide h3{
+    font-size:20px!important;
+    line-height:26px!important;
+  }
+
+  .about-timeline__slide p{
+    width:100%!important;
+    max-width:100%!important;
+    margin-top:6px!important;
+    font-size:14px!important;
+    line-height:1.5!important;
+  }
+
+  .about-timeline__arrow-button{
+    position:relative!important;
+    left:auto!important;
+    right:auto!important;
+    top:auto!important;
+    width:72px!important;
+    height:48px!important;
+    margin:18px 0 0 auto!important;
+    display:block!important;
+  }
+
+  .about-timeline__arrow-button img{
+    width:72px!important;
+    height:48px!important;
+    object-fit:contain!important;
+  }
+
+  /* ---------- People: 2 x N grid ---------- */
+  .about-leaders{
+    padding-bottom:60px!important;
+  }
+
+  .about-leaders__inner{
+    padding:0 20px!important;
+    gap:32px!important;
+  }
+
+  .about-leaders__intro h2{
+    width:100%!important;
+    font-size:32px!important;
+    line-height:35px!important;
+  }
+
+  .about-leaders__grid{
+    width:100%!important;
+    display:grid!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:28px 14px!important;
+  }
+
+  .leader-card{
+    width:100%!important;
+    min-width:0!important;
+    gap:14px!important;
+    transform:none!important;
+  }
+
+  .leader-card__image{
+    width:100%!important;
+    height:auto!important;
+    aspect-ratio:.85!important;
+    border-radius:20px!important;
+  }
+
+  .leader-card__meta{
+    width:100%!important;
+    display:flex!important;
+    flex-direction:column!important;
+    gap:10px!important;
+  }
+
+  .leader-card__name{
+    font-size:16px!important;
+    line-height:20px!important;
+  }
+
+  .leader-card__role{
+    margin-top:3px!important;
+    font-size:12px!important;
+    line-height:1.45!important;
+  }
+
+  .leader-card__social{
+    gap:10px!important;
+  }
+
+  .leader-card__social img{
+    width:32px!important;
+    height:32px!important;
+  }
+
+  /* ---------- Global Reach ---------- */
+  .about-reach{
+    width:100%!important;
+    min-height:0!important;
+    padding:60px 20px!important;
+    overflow:hidden!important;
+  }
+
+  .about-reach__head{
+    width:100%!important;
+    height:auto!important;
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr) auto!important;
+    gap:20px!important;
+    align-items:end!important;
+  }
+
+  .about-reach__copy{
+    min-width:0!important;
+    gap:8px!important;
+  }
+
+  .about-reach__copy h2{
+    font-size:34px!important;
+    line-height:36px!important;
+  }
+
+  .about-reach__copy p:last-child{
+    width:100%!important;
+    max-width:100%!important;
+    font-size:14px!important;
+    line-height:1.55!important;
+  }
+
+  .about-reach__number{
+    margin:0!important;
+    text-align:right!important;
+    font-size:64px!important;
+    line-height:1!important;
+    align-self:start!important;
+  }
+
+  /* On touch screens use direct horizontal swipe rather than
+     an always-moving ticker, so cards are readable and controllable. */
+  .about-reach__ticker-wrap{
+    width:calc(100% + 40px)!important;
+    margin-left:-20px!important;
+    margin-top:32px!important;
+    overflow:visible!important;
+  }
+
+  .about-reach__ticker{
+    width:100%!important;
+    overflow-x:auto!important;
+    overflow-y:hidden!important;
+    padding:0 20px 10px!important;
+    scroll-snap-type:x mandatory!important;
+    overscroll-behavior-inline:contain!important;
+    -webkit-overflow-scrolling:touch!important;
+    scrollbar-width:none!important;
+  }
+
+  .about-reach__ticker::-webkit-scrollbar{
+    display:none!important;
+  }
+
+  .about-reach__ticker + .about-reach__ticker{
+    margin-top:28px!important;
+  }
+
+  .about-reach__track{
+    width:max-content!important;
+    display:flex!important;
+    gap:14px!important;
+    animation:none!important;
+  }
+
+  .reach-card,
+  .reach-card--wide,
+  .reach-card--square{
+    width:min(78vw,300px)!important;
+    flex:0 0 min(78vw,300px)!important;
+    gap:14px!important;
+    scroll-snap-align:start!important;
+    transform:none!important;
+  }
+
+  .reach-card--wide .reach-card__image,
+  .reach-card--square .reach-card__image{
+    width:100%!important;
+    height:auto!important;
+    aspect-ratio:4/3!important;
+    border-radius:22px!important;
+  }
+
+  .reach-card h3{
+    font-size:18px!important;
+    line-height:24px!important;
+  }
+
+  .reach-card p{
+    font-size:13px!important;
+    line-height:1.45!important;
+  }
+}
+
+@media (max-width:420px){
+  .about-timeline__years{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  }
+
+  .about-leaders__grid{
+    gap:24px 12px!important;
+  }
+
+  .leader-card__name{
+    font-size:15px!important;
+  }
+
+  .leader-card__role{
+    font-size:11px!important;
+  }
+
+  .about-reach__head{
+    grid-template-columns:1fr!important;
+  }
+
+  .about-reach__number{
+    text-align:left!important;
+    font-size:58px!important;
+  }
+}
+
+
+/* =========================================================
+   ABOUT US — MOBILE REFINEMENTS v4
+   - Journey year indicator keeps the desktop visual language,
+     but runs horizontally.
+   - Journey arrow remains fully visible.
+   - Global Reach restores the continuous desktop-style ticker.
+   ========================================================= */
+@media (max-width:768px){
+
+  /* ---------- Journey: horizontal desktop-style indicator ---------- */
+  .about-timeline__years{
+    position:relative!important;
+    width:100%!important;
+    height:58px!important;
+    display:grid!important;
+    grid-template-columns:repeat(4,minmax(0,1fr))!important;
+    align-items:start!important;
+    gap:0!important;
+    padding-top:22px!important;
+    overflow:visible!important;
+  }
+
+  /* Horizontal baseline, analogous to the desktop indicator line */
+  .about-timeline__years::before{
+    content:"";
+    position:absolute;
+    left:0;
+    right:0;
+    top:12px;
+    height:1px;
+    background:rgba(200,213,255,.42);
+  }
+
+  .about-timeline__year,
+  .about-timeline__year--2001,
+  .about-timeline__year--2015,
+  .about-timeline__year--2020,
+  .about-timeline__year--today{
+    position:relative!important;
+    left:auto!important;
+    right:auto!important;
+    top:auto!important;
+    min-height:0!important;
+    width:auto!important;
+    padding:0!important;
+    border:0!important;
+    border-radius:0!important;
+    background:transparent!important;
+    color:#e7e8ea!important;
+    opacity:.58!important;
+    font:400 14px/20px "Noto Sans",sans-serif!important;
+    text-align:center!important;
+    white-space:nowrap!important;
+    overflow:visible!important;
+  }
+
+  .about-timeline__year::before{
+    content:"";
+    position:absolute;
+    left:50%;
+    top:-15px;
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:#e7e8ea;
+    transform:translateX(-50%);
+    opacity:.55;
+    box-shadow:0 0 0 4px #0a192f;
+  }
+
+  .about-timeline__year.is-active{
+    color:#4d77ff!important;
+    background:transparent!important;
+    opacity:1!important;
+    font-weight:700!important;
+  }
+
+  .about-timeline__year.is-active::before{
+    background:#4d77ff;
+    opacity:1;
+  }
+
+  .about-timeline__line{
+    display:none!important;
+  }
+
+  /* ---------- Journey CTA arrow: prevent crop ---------- */
+  .about-timeline__cards{
+    overflow:visible!important;
+    padding-bottom:66px!important;
+  }
+
+  .about-timeline__arrow-button{
+    position:absolute!important;
+    left:auto!important;
+    right:0!important;
+    top:auto!important;
+    bottom:0!important;
+    width:76px!important;
+    height:50px!important;
+    margin:0!important;
+    overflow:visible!important;
+    z-index:8!important;
+  }
+
+  .about-timeline__arrow-button img{
+    width:76px!important;
+    height:50px!important;
+    max-width:none!important;
+    display:block!important;
+    object-fit:contain!important;
+  }
+
+  /* ---------- Global Reach: restore desktop ticker behavior ---------- */
+  .about-reach{
+    overflow:hidden!important;
+  }
+
+  .about-reach__ticker-wrap{
+    width:calc(100% + 40px)!important;
+    margin-left:-20px!important;
+    margin-top:32px!important;
+    overflow:hidden!important;
+  }
+
+  .about-reach__ticker{
+    width:100%!important;
+    overflow:hidden!important;
+    padding:0!important;
+    scroll-snap-type:none!important;
+    overscroll-behavior:auto!important;
+  }
+
+  .about-reach__ticker + .about-reach__ticker{
+    margin-top:42px!important;
+  }
+
+  .about-reach__track{
+    display:flex!important;
+    align-items:flex-start!important;
+    gap:16px!important;
+    width:max-content!important;
+    transform:none;
+    will-change:transform!important;
+    animation:about-reach-left 28s linear infinite!important;
+  }
+
+  .about-reach__ticker--reverse .about-reach__track{
+    animation-name:about-reach-right!important;
+  }
+
+  .reach-card,
+  .reach-card--wide,
+  .reach-card--square{
+    flex:0 0 auto!important;
+    width:280px!important;
+    scroll-snap-align:none!important;
+    gap:16px!important;
+  }
+
+  .reach-card--wide .reach-card__image,
+  .reach-card--square .reach-card__image{
+    width:100%!important;
+    height:220px!important;
+    aspect-ratio:auto!important;
+    border-radius:24px!important;
+  }
+}
+
+@media (max-width:420px){
+  .about-timeline__years{
+    grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  }
+
+  .about-timeline__year,
+  .about-timeline__year--2001,
+  .about-timeline__year--2015,
+  .about-timeline__year--2020,
+  .about-timeline__year--today{
+    font-size:12px!important;
+  }
+
+  .reach-card,
+  .reach-card--wide,
+  .reach-card--square{
+    width:250px!important;
+  }
+
+  .reach-card--wide .reach-card__image,
+  .reach-card--square .reach-card__image{
+    height:200px!important;
+  }
+}
+
+
+/* GLOBAL REACH — mobile ticker animation fix
+   The previous mobile swipe override forced transform:none!important,
+   which prevented CSS keyframes from updating transform. */
+@media (max-width:768px){
+  .about-reach__ticker{
+    overflow:hidden!important;
+    touch-action:pan-y!important;
+  }
+
+  .about-reach__track{
+    width:max-content!important;
+    display:flex!important;
+    align-items:flex-start!important;
+    gap:16px!important;
+    will-change:transform!important;
+    animation-duration:28s!important;
+    animation-timing-function:linear!important;
+    animation-iteration-count:infinite!important;
+    animation-play-state:running!important;
+  }
+
+  .about-reach__ticker:not(.about-reach__ticker--reverse) .about-reach__track{
+    animation-name:about-reach-left!important;
+  }
+
+  .about-reach__ticker--reverse .about-reach__track{
+    animation-name:about-reach-right!important;
+  }
+}
+
+</style>
+</head>
+<body class="about-page">
+<div class="hero__media" aria-hidden="true">
+  <video autoplay muted loop playsinline preload="metadata" poster="https://www.figma.com/api/mcp/asset/ae1ff006-6089-4730-a701-88b2394c255f.png" id="heroVideo">
+    <source src="about-hero-video.mp4" type="video/mp4">
+  </video>
+  <img src="https://www.figma.com/api/mcp/asset/ae1ff006-6089-4730-a701-88b2394c255f.png" alt="">
+</div>
+<header class="site-header">
+  <div class="site-header__inner">
+    <a href="#" aria-label="Talentika home"><img class="site-header__logo" src="https://www.figma.com/api/mcp/asset/1ce4e403-b815-478e-98d9-497282565682/a26d6.png" alt="Talentika"></a>
+    <button class="site-header__toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><span></span></button>
+    <nav class="site-header__nav" id="main-nav" aria-label="Primary navigation">
+      <a class="site-header__link" href="#">GCC services</a><a class="site-header__link" href="#">RPO</a><a class="site-header__link" href="#">Digital</a><a class="site-header__link" href="#">Case studies</a><a class="site-header__link is-active" href="#about-overview" aria-current="page">About</a><a class="site-header__link" href="#contact">Contact</a><button class="site-header__talk">Talk to us</button>
+    </nav>
+  </div>
+</header>
+<main id="about-overview">
+  <nav class="about-breadcrumb" aria-label="Breadcrumb">
+    <span>Home</span><span>/</span><strong>About Us</strong>
+  </nav>
+
+  <section class="about-hero">
+    <div class="about-hero__copy reveal">
+      <h1 class="about-hero__title"><span class="accent">Building the Digital Workforce</span> Behind Global Enterprise Growth</h1>
+      <p class="about-hero__desc">A global talent management network combining deep advisory intelligence with high-speed operational execution.</p>
+    </div>
+    <div class="about-hero__actions reveal" style="--delay:80ms">
+      <a class="button button--primary" href="#contact">Partner With Us</a>
+      <a class="button button--secondary" href="#leaders">Join Our Team</a>
+    </div>
+  </section>
+
+  <section class="about-timeline">
+    <div class="about-timeline__intro reveal">
+      <h2>Our Journey<br>and Scale</h2>
+      <p>Founded in 2001, Talentika pioneered enterprise-scale RPO and managed services frameworks. Our global delivery network now spans 100+ countries through direct offices and regional partner hubs.<br><br>We maintain long-term advisory partnerships with the world's most innovative product and technology enterprises, delivering excellence with an industry-leading 88% NPS.</p>
+    </div>
+    <div class="about-timeline__giant" aria-hidden="true">20<br>01</div>
+
+    <div class="about-timeline__years reveal" aria-label="Company history milestones">
+      <img class="about-timeline__line" src="https://www.figma.com/api/mcp/asset/bcbd3d4c-ff0c-475c-9473-1cf3a9fcc597/5c47c.svg" alt="">
+      <button class="about-timeline__year about-timeline__year--2001 is-active" type="button" data-history-index="0">2001</button>
+      <button class="about-timeline__year about-timeline__year--2015" type="button" data-history-index="1">2015</button>
+      <button class="about-timeline__year about-timeline__year--2020" type="button" data-history-index="2">2020</button>
+      <button class="about-timeline__year about-timeline__year--today" type="button" data-history-index="3">Today</button>
+    </div>
+
+    <div class="about-timeline__cards" aria-live="polite">
+      <article class="about-timeline__slide is-active" data-history-card="0">
+        <div class="about-timeline__image">
+          <img src="https://www.figma.com/api/mcp/asset/bcbd3d4c-ff0c-475c-9473-1cf3a9fcc597/43b52.png" alt="Talentika early journey">
+        </div>
+        <div><h3>Founded in 2001</h3><p>Built the first advisory-led RPO frameworks for global enterprise clients.</p></div>
+      </article>
+
+      <article class="about-timeline__slide is-next" data-history-card="1">
+        <div class="about-timeline__image">
+          <img src="https://www.figma.com/api/mcp/asset/bcbd3d4c-ff0c-475c-9473-1cf3a9fcc597/d90c9.png" alt="Talentika global expansion">
+        </div>
+        <div><h3>2015 - Global Expansion</h3><p>Expanded delivery into 10+ countries and established regional partner hubs.</p></div>
+      </article>
+
+      <article class="about-timeline__slide" data-history-card="2">
+        <div class="about-timeline__image">
+          <img src="https://www.figma.com/api/mcp/asset/bcbd3d4c-ff0c-475c-9473-1cf3a9fcc597/43b52.png" alt="Talentika enterprise delivery milestone">
+        </div>
+        <div><h3>2020</h3><p>Expanded managed services, GCC advisory, and digital transformation delivery for global enterprise programs.</p></div>
+      </article>
+
+      <article class="about-timeline__slide" data-history-card="3">
+        <div class="about-timeline__image">
+          <img src="https://www.figma.com/api/mcp/asset/bcbd3d4c-ff0c-475c-9473-1cf3a9fcc597/d90c9.png" alt="Talentika global delivery network today">
+        </div>
+        <div><h3>Today</h3><p>A global delivery network spanning 100+ countries through direct offices and regional partner hubs, with an industry-leading 88% NPS.</p></div>
+      </article>
+
+      <button class="about-timeline__arrow-button" type="button" aria-label="Show next milestone">
+        <img src="https://www.figma.com/api/mcp/asset/bcbd3d4c-ff0c-475c-9473-1cf3a9fcc597/a2a6d.svg" alt="">
+      </button>
+    </div>
+  </section>
+
+  <section class="about-metrics" aria-label="Talentika scale metrics">
+  <article class="about-metric reveal">
+    <p class="about-metric__number" data-odometer="13" data-unit="K" data-suffix="+">13K<small>+</small></p>
+    <p class="about-metric__label">FTEs Onboarded</p>
+    <p class="about-metric__desc">Across GCC, RPO, and digital transformation programs globally.</p>
+  </article>
+  <article class="about-metric reveal" style="--delay:80ms">
+    <p class="about-metric__number" data-odometer="40" data-unit="" data-suffix="+">40<small>+</small></p>
+    <p class="about-metric__label">Enterprise Environments</p>
+    <p class="about-metric__desc">Managed services and advisory partnerships at scale.</p>
+  </article>
+  <article class="about-metric reveal" style="--delay:160ms">
+    <p class="about-metric__number" data-odometer="60" data-unit="" data-suffix="+">60<small>+</small></p>
+    <p class="about-metric__label">Global GCC Setups</p>
+    <p class="about-metric__desc">From location strategy to operational ramp-up across India and beyond.</p>
+  </article>
+</section>
+
+  <section class="about-leaders" id="leaders">
+    <h2 class="about-leaders__watermark reveal">Meet our Leaders</h2>
+    <div class="about-leaders__inner">
+      <div class="about-leaders__intro reveal">
+        <p class="eyebrow">People</p>
+        <h2>A team of <span class="accent">tech-forward problem solvers</span> dedicated to driving your business into <span class="accent">high-growth future</span>.</h2>
+      </div>
+      <div class="about-leaders__grid">
+        
+      <article class="leader-card reveal" style="--delay:0ms">
+        <div class="leader-card__image"><img src="https://www.figma.com/api/mcp/asset/d781243d-53de-493c-a963-9d5785332379/e7243.png" alt="Lalit J"></div>
+        <div class="leader-card__meta">
+          <div><h3 class="leader-card__name">Lalit J</h3><p class="leader-card__role">Founder & Global Head<br>Talentika</p></div>
+          <div class="leader-card__social">
+            <a href="#" aria-label="Lalit J on LinkedIn"><img src="https://www.figma.com/api/mcp/asset/d781243d-53de-493c-a963-9d5785332379/f25f9.svg" alt=""></a>
+            <a href="#" aria-label="Lalit J on X"><img src="https://www.figma.com/api/mcp/asset/d781243d-53de-493c-a963-9d5785332379/d43b1.svg" alt=""></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="leader-card reveal" style="--delay:80ms">
+        <div class="leader-card__image"><img src="https://www.figma.com/api/mcp/asset/d781243d-53de-493c-a963-9d5785332379/9a163.png" alt="Pranjali Pol"></div>
+        <div class="leader-card__meta">
+          <div><h3 class="leader-card__name">Pranjali Pol</h3><p class="leader-card__role">Co-Founder & Global Delivery Head<br>Ex. RMG Head, WIPRO</p></div>
+          <div class="leader-card__social">
+            <a href="#" aria-label="Pranjali Pol on LinkedIn"><img src="https://www.figma.com/api/mcp/asset/d781243d-53de-493c-a963-9d5785332379/f25f9.svg" alt=""></a>
+            <a href="#" aria-label="Pranjali Pol on X"><img src="https://www.figma.com/api/mcp/asset/d781243d-53de-493c-a963-9d5785332379/d43b1.svg" alt=""></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="leader-card reveal" style="--delay:160ms">
+        <div class="leader-card__image"><img src="https://www.figma.com/api/mcp/asset/d781243d-53de-493c-a963-9d5785332379/31353.png" alt="Stanley George"></div>
+        <div class="leader-card__meta">
+          <div><h3 class="leader-card__name">Stanley George</h3><p class="leader-card__role">COO & Managing Partner India (South)<br>Ex CHRO, Hexaware Technologies</p></div>
+          <div class="leader-card__social">
+            <a href="#" aria-label="Stanley George on LinkedIn"><img src="https://www.figma.com/api/mcp/asset/d781243d-53de-493c-a963-9d5785332379/f25f9.svg" alt=""></a>
+            <a href="#" aria-label="Stanley George on X"><img src="https://www.figma.com/api/mcp/asset/d781243d-53de-493c-a963-9d5785332379/d43b1.svg" alt=""></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="leader-card reveal" style="--delay:0ms">
+        <div class="leader-card__image"><img src="https://www.figma.com/api/mcp/asset/ac19d161-c752-4037-a336-8b9d8831f84d/8faa2.png" alt="Abhishek Jain"></div>
+        <div class="leader-card__meta">
+          <div><h3 class="leader-card__name">Abhishek Jain</h3><p class="leader-card__role">GCC Transformation Leader<br>(Ex SVP, Medline)</p></div>
+          <div class="leader-card__social">
+            <a href="#" aria-label="Abhishek Jain on LinkedIn"><img src="https://www.figma.com/api/mcp/asset/d781243d-53de-493c-a963-9d5785332379/f25f9.svg" alt=""></a>
+            <a href="#" aria-label="Abhishek Jain on X"><img src="https://www.figma.com/api/mcp/asset/d781243d-53de-493c-a963-9d5785332379/d43b1.svg" alt=""></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="leader-card reveal" style="--delay:80ms">
+        <div class="leader-card__image"><img src="https://www.figma.com/api/mcp/asset/ac19d161-c752-4037-a336-8b9d8831f84d/d7847.png" alt="Jayaditya Giri"></div>
+        <div class="leader-card__meta">
+          <div><h3 class="leader-card__name">Jayaditya Giri</h3><p class="leader-card__role">Partner,<br>Eastern Europe</p></div>
+          <div class="leader-card__social">
+            <a href="#" aria-label="Jayaditya Giri on LinkedIn"><img src="https://www.figma.com/api/mcp/asset/d781243d-53de-493c-a963-9d5785332379/f25f9.svg" alt=""></a>
+            <a href="#" aria-label="Jayaditya Giri on X"><img src="https://www.figma.com/api/mcp/asset/d781243d-53de-493c-a963-9d5785332379/d43b1.svg" alt=""></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="leader-card reveal" style="--delay:160ms">
+        <div class="leader-card__image"><img src="https://www.figma.com/api/mcp/asset/ac19d161-c752-4037-a336-8b9d8831f84d/786cb.png" alt="Gaurav Verma"></div>
+        <div class="leader-card__meta">
+          <div><h3 class="leader-card__name">Gaurav Verma</h3><p class="leader-card__role">Technology Leader<br>AI & Data, HCM Platforms</p></div>
+          <div class="leader-card__social">
+            <a href="#" aria-label="Gaurav Verma on LinkedIn"><img src="https://www.figma.com/api/mcp/asset/d781243d-53de-493c-a963-9d5785332379/f25f9.svg" alt=""></a>
+            <a href="#" aria-label="Gaurav Verma on X"><img src="https://www.figma.com/api/mcp/asset/d781243d-53de-493c-a963-9d5785332379/d43b1.svg" alt=""></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="leader-card reveal" style="--delay:0ms">
+        <div class="leader-card__image"><img src="https://www.figma.com/api/mcp/asset/9edb98dc-ae48-477c-b604-bc323d30bcc5/d8b4a.png" alt="Sucheta Joglekar Phatak"></div>
+        <div class="leader-card__meta">
+          <div><h3 class="leader-card__name">Sucheta Joglekar Phatak</h3><p class="leader-card__role">Partner, London</p></div>
+          <div class="leader-card__social">
+            <a href="#" aria-label="Sucheta Joglekar Phatak on LinkedIn"><img src="https://www.figma.com/api/mcp/asset/d781243d-53de-493c-a963-9d5785332379/f25f9.svg" alt=""></a>
+            <a href="#" aria-label="Sucheta Joglekar Phatak on X"><img src="https://www.figma.com/api/mcp/asset/d781243d-53de-493c-a963-9d5785332379/d43b1.svg" alt=""></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="leader-card reveal" style="--delay:80ms">
+        <div class="leader-card__image"><img src="https://www.figma.com/api/mcp/asset/9edb98dc-ae48-477c-b604-bc323d30bcc5/c2f73.png" alt="Akash Surekha"></div>
+        <div class="leader-card__meta">
+          <div><h3 class="leader-card__name">Akash Surekha</h3><p class="leader-card__role">Board Member<br>Ex MD, JPMC</p></div>
+          <div class="leader-card__social">
+            <a href="#" aria-label="Akash Surekha on LinkedIn"><img src="https://www.figma.com/api/mcp/asset/d781243d-53de-493c-a963-9d5785332379/f25f9.svg" alt=""></a>
+            <a href="#" aria-label="Akash Surekha on X"><img src="https://www.figma.com/api/mcp/asset/d781243d-53de-493c-a963-9d5785332379/d43b1.svg" alt=""></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="leader-card reveal" style="--delay:160ms">
+        <div class="leader-card__image"><img src="https://www.figma.com/api/mcp/asset/9edb98dc-ae48-477c-b604-bc323d30bcc5/93e44.png" alt="Rajat Rana"></div>
+        <div class="leader-card__meta">
+          <div><h3 class="leader-card__name">Rajat Rana</h3><p class="leader-card__role">Managing Partner,<br>USA</p></div>
+          <div class="leader-card__social">
+            <a href="#" aria-label="Rajat Rana on LinkedIn"><img src="https://www.figma.com/api/mcp/asset/d781243d-53de-493c-a963-9d5785332379/f25f9.svg" alt=""></a>
+            <a href="#" aria-label="Rajat Rana on X"><img src="https://www.figma.com/api/mcp/asset/d781243d-53de-493c-a963-9d5785332379/d43b1.svg" alt=""></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="leader-card reveal" style="--delay:0ms">
+        <div class="leader-card__image"><img src="https://www.figma.com/api/mcp/asset/3eea078f-3052-4fc8-9432-397384cef11b/e5622.png" alt="Pratyush Nandkeolyaar"></div>
+        <div class="leader-card__meta">
+          <div><h3 class="leader-card__name">Pratyush Nandkeolyaar</h3><p class="leader-card__role">Partner & Head of Design<br>Market Research & Analytics – HCM/RPO Practice</p></div>
+          <div class="leader-card__social">
+            <a href="#" aria-label="Pratyush Nandkeolyaar on LinkedIn"><img src="https://www.figma.com/api/mcp/asset/d781243d-53de-493c-a963-9d5785332379/f25f9.svg" alt=""></a>
+            <a href="#" aria-label="Pratyush Nandkeolyaar on X"><img src="https://www.figma.com/api/mcp/asset/d781243d-53de-493c-a963-9d5785332379/d43b1.svg" alt=""></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="leader-card reveal" style="--delay:80ms">
+        <div class="leader-card__image"><img src="https://www.figma.com/api/mcp/asset/3eea078f-3052-4fc8-9432-397384cef11b/172fd.png" alt="Shashank Bhushan"></div>
+        <div class="leader-card__meta">
+          <div><h3 class="leader-card__name">Shashank Bhushan</h3><p class="leader-card__role">Board Member, USA<br>Ex MD BMC Software</p></div>
+          <div class="leader-card__social">
+            <a href="#" aria-label="Shashank Bhushan on LinkedIn"><img src="https://www.figma.com/api/mcp/asset/d781243d-53de-493c-a963-9d5785332379/f25f9.svg" alt=""></a>
+            <a href="#" aria-label="Shashank Bhushan on X"><img src="https://www.figma.com/api/mcp/asset/d781243d-53de-493c-a963-9d5785332379/d43b1.svg" alt=""></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="leader-card reveal" style="--delay:160ms">
+        <div class="leader-card__image"><img src="https://www.figma.com/api/mcp/asset/3eea078f-3052-4fc8-9432-397384cef11b/33f04.png" alt="Mario Biscocho"></div>
+        <div class="leader-card__meta">
+          <div><h3 class="leader-card__name">Mario Biscocho</h3><p class="leader-card__role">Country Head,<br>Philippines</p></div>
+          <div class="leader-card__social">
+            <a href="#" aria-label="Mario Biscocho on LinkedIn"><img src="https://www.figma.com/api/mcp/asset/d781243d-53de-493c-a963-9d5785332379/f25f9.svg" alt=""></a>
+            <a href="#" aria-label="Mario Biscocho on X"><img src="https://www.figma.com/api/mcp/asset/d781243d-53de-493c-a963-9d5785332379/d43b1.svg" alt=""></a>
+          </div>
+        </div>
+      </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-reach">
+    <div class="about-reach__head reveal">
+      <div class="about-reach__copy">
+        <p class="eyebrow">GLOBAL REACH</p>
+        <h2>Delivery <span class="accent">across 10+ countries</span></h2>
+        <p>Deep technical knowledge across the domains that matter most in modern digital transformation programs.</p>
+      </div>
+      <p class="about-reach__number">10+</p>
+    </div>
+
+    <div class="about-reach__ticker-wrap">
+      <div class="about-reach__ticker">
+        <div class="about-reach__track" data-reach-track="forward">
+          <article class="reach-card reach-card--wide">
+            <div class="reach-card__image"><img src="https://www.figma.com/api/mcp/asset/0c2c88b4-17a0-41a6-80d7-4ae786ffcf4d/43b52.png" alt="Pune, India"></div>
+            <div><h3>Pune, India</h3><p>HQ and India Operations</p></div>
+          </article>
+          <article class="reach-card reach-card--square">
+            <div class="reach-card__image"><img src="https://www.figma.com/api/mcp/asset/0c2c88b4-17a0-41a6-80d7-4ae786ffcf4d/1f624.png" alt="California, USA"></div>
+            <div><h3>California, USA</h3><p>USA Operations</p></div>
+          </article>
+          <article class="reach-card reach-card--wide">
+            <div class="reach-card__image"><img src="https://www.figma.com/api/mcp/asset/0c2c88b4-17a0-41a6-80d7-4ae786ffcf4d/b08b8.png" alt="Bratislava, Slovakia"></div>
+            <div><h3>Bratislava, Slovakia</h3><p>Slovakia Operations</p></div>
+          </article>
+        </div>
+      </div>
+
+      <div class="about-reach__ticker about-reach__ticker--reverse">
+        <div class="about-reach__track" data-reach-track="reverse">
+          <article class="reach-card reach-card--square">
+            <div class="reach-card__image"><img src="https://www.figma.com/api/mcp/asset/0c2c88b4-17a0-41a6-80d7-4ae786ffcf4d/d2a6b.png" alt="Dublin, Ireland"></div>
+            <div><h3>Dublin, Ireland</h3><p>USA Operations</p></div>
+          </article>
+          <article class="reach-card reach-card--wide">
+            <div class="reach-card__image"><img src="https://www.figma.com/api/mcp/asset/0c2c88b4-17a0-41a6-80d7-4ae786ffcf4d/fc0a8.png" alt="Manchester, United Kingdom"></div>
+            <div><h3>Manchester, United Kingdom</h3><p>HQ and India Operations</p></div>
+          </article>
+          <article class="reach-card reach-card--wide">
+            <div class="reach-card__image"><img src="https://www.figma.com/api/mcp/asset/0c2c88b4-17a0-41a6-80d7-4ae786ffcf4d/906d5.png" alt="Madrid, Sweden"></div>
+            <div><h3>Madrid, Sweden</h3><p>Slovakia Operations</p></div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="footer" id="contact"><div class="footer__cta reveal"><p class="section-label">READY TO BEGIN?</p><h2 class="section-heading">Let’s Build Something Great Together</h2><a class="button footer__advisor" href="#">Speak to an Advisor</a><div class="city-tickers"><div class="ticker"><div class="ticker__track city-track"></div></div><div class="ticker ticker--reverse"><div class="ticker__track city-track"></div></div></div></div>
+<div class="footer__main"><div><img class="footer__brand-logo" src="https://www.figma.com/api/mcp/asset/24509ebf-4027-4fcd-8de3-679f8aecfe58/560ae.png" alt="Talentika"><p class="footer__tagline">Engineering the Workforce<br>Behind Global Innovation.</p><div class="footer__mini-icons"><img src="https://www.figma.com/api/mcp/asset/24509ebf-4027-4fcd-8de3-679f8aecfe58/eabc9.png" alt="GCC"><img src="https://www.figma.com/api/mcp/asset/24509ebf-4027-4fcd-8de3-679f8aecfe58/0788c.png" alt="RPO"><img src="https://www.figma.com/api/mcp/asset/24509ebf-4027-4fcd-8de3-679f8aecfe58/ac0ad.png" alt="AI"></div><div class="footer__contact"><strong>Contact</strong><p>hello@talentika.in &nbsp;&nbsp; +91 123 456 7890</p></div><div class="footer__social"><img src="https://www.figma.com/api/mcp/asset/24509ebf-4027-4fcd-8de3-679f8aecfe58/33153.png" alt="Instagram"><img src="https://www.figma.com/api/mcp/asset/24509ebf-4027-4fcd-8de3-679f8aecfe58/5235e.png" alt="LinkedIn"><img src="https://www.figma.com/api/mcp/asset/24509ebf-4027-4fcd-8de3-679f8aecfe58/511ec.png" alt="Facebook"><img src="https://www.figma.com/api/mcp/asset/24509ebf-4027-4fcd-8de3-679f8aecfe58/5b93a.png" alt="X"></div></div>
+<div class="footer__links">
+<div class="footer__col"><h3>Services</h3><a class="footer__link" href="#">GCC Setup &amp; Advisory</a><a class="footer__link" href="#">Location Strategy</a><a class="footer__link" href="#">Entity &amp; Compliance</a><a class="footer__link" href="#">Tech &amp; Infrastructure</a><a class="footer__link" href="#">Tech RPO</a><a class="footer__link" href="#">Healthcare RPO</a><a class="footer__link" href="#">Executive Search</a><a class="footer__link" href="#">Platform Integration</a></div>
+<div class="footer__col"><h3>Company</h3><a class="footer__link" href="#">About Talentika</a><a class="footer__link" href="#">Careers/Hiring</a><a class="footer__link" href="#">Case Studies</a><a class="footer__link" href="#">Contact</a><a class="footer__link" href="#">Insights &amp; Resources</a></div>
+<div class="footer__col"><h3>EcoSystem &amp; Platforms</h3><div class="footer__ecosystem">
+<a class="footer__ecosystem-row" href="#"><img class="footer__ecosystem-logo footer__ecosystem-logo--deebug" src="https://www.figma.com/api/mcp/asset/24509ebf-4027-4fcd-8de3-679f8aecfe58/fcd1c.png" alt="Deebug"><span class="footer__ecosystem-arrow" aria-hidden="true">
+<svg class="footer__arrow--out" viewBox="0 0 24 24" fill="none"><path d="M6.4 18 5 16.6 14.6 7H6V5h12v12h-2V8.4L6.4 18Z" fill="currentColor"/></svg>
+<svg class="footer__arrow--in" viewBox="0 0 24 24" fill="none"><path d="M6.4 18 5 16.6 14.6 7H6V5h12v12h-2V8.4L6.4 18Z" fill="currentColor"/></svg>
+</span></a>
+<a class="footer__ecosystem-row" href="#"><img class="footer__ecosystem-logo" src="https://www.figma.com/api/mcp/asset/24509ebf-4027-4fcd-8de3-679f8aecfe58/ff2fa.png" alt="GCC Mixer"><span class="footer__ecosystem-arrow" aria-hidden="true">
+<svg class="footer__arrow--out" viewBox="0 0 24 24" fill="none"><path d="M6.4 18 5 16.6 14.6 7H6V5h12v12h-2V8.4L6.4 18Z" fill="currentColor"/></svg>
+<svg class="footer__arrow--in" viewBox="0 0 24 24" fill="none"><path d="M6.4 18 5 16.6 14.6 7H6V5h12v12h-2V8.4L6.4 18Z" fill="currentColor"/></svg>
+</span></a>
+<a class="footer__ecosystem-row" href="#"><img class="footer__ecosystem-logo" src="https://www.figma.com/api/mcp/asset/24509ebf-4027-4fcd-8de3-679f8aecfe58/181f2.png" alt="AI Basecamp"><span class="footer__ecosystem-arrow" aria-hidden="true">
+<svg class="footer__arrow--out" viewBox="0 0 24 24" fill="none"><path d="M6.4 18 5 16.6 14.6 7H6V5h12v12h-2V8.4L6.4 18Z" fill="currentColor"/></svg>
+<svg class="footer__arrow--in" viewBox="0 0 24 24" fill="none"><path d="M6.4 18 5 16.6 14.6 7H6V5h12v12h-2V8.4L6.4 18Z" fill="currentColor"/></svg>
+</span></a>
+</div></div>
+<div class="footer__col"><h3>Cities We Work in</h3><a class="footer__link" href="#">Pune</a><a class="footer__link" href="#">London</a><a class="footer__link" href="#">Dublin</a><a class="footer__link" href="#">Madrid</a><a class="footer__link" href="#">Sydney</a></div>
+</div>
+<div class="footer__bottom">
+<span>© 2026 Talentika.</span>
+<nav class="footer__legal" aria-label="Legal">
+<a class="footer__legal-link" href="#">Privacy Policy</a>
+<a class="footer__legal-link" href="#">Terms of Use</a>
+<a class="footer__legal-link" href="#">Cookie Preferences</a>
+<a class="footer__legal-link" href="#">Sitemap</a>
+</nav>
+</div>
+</div></div>
+<div class="footer__skyline" aria-hidden="true"><img src="https://www.figma.com/api/mcp/asset/0af92dde-8c8e-4909-8571-75b9240046a2/1010b.svg" alt=""></div></footer>
+<script>
+(() => {
+ const toggle=document.querySelector('.site-header__toggle'),nav=document.querySelector('.site-header__nav');
+ toggle.addEventListener('click',()=>{const open=toggle.getAttribute('aria-expanded')==='true';toggle.setAttribute('aria-expanded',String(!open));nav.classList.toggle('is-open',!open)});
+ const revealObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');revealObserver.unobserve(entry.target)}}),{threshold:.12});
+ document.querySelectorAll('.reveal').forEach(el=>revealObserver.observe(el));
+ const partners=['BMC SOFTWARE','Cummins','Mastercard','PWC','Booking.com','Medline Industries','Cummins'];
+ const cities=['California, USA','London, UK','Dublin, Ireland','Madrid, Sweden','Copenhagen, Denmark','Bratislava, Slovakia','Pune, India','Jurong, Singapore','Sydney, Australia'];
+ const fill=(el,items,cls)=>{if(!el)return;const doubled=[...items,...items];el.innerHTML=doubled.map(x=>`<span class="${cls}${x==='BMC SOFTWARE'?' ticker__item--bmc':''}">${x}</span>`).join('')};
+ fill(document.getElementById('partners-track'),partners,'ticker__item');
+ document.querySelectorAll('.city-track').forEach(el=>fill(el,cities,'ticker__item'));
+})();
+const heroVideo=document.getElementById('heroVideo');
+if(heroVideo){
+  heroVideo.addEventListener('canplay',()=>heroVideo.classList.add('is-ready'),{once:true});
+}
+
+  const historyCards=[...document.querySelectorAll('[data-history-card]')];
+  const historyYears=[...document.querySelectorAll('[data-history-index]')];
+  const historyNext=document.querySelector('.about-timeline__arrow-button');
+  let historyIndex=0;
+
+  const renderHistory=()=>{
+    historyCards.forEach((card,i)=>{
+      card.classList.remove('is-active','is-next','is-prev');
+      if(i===historyIndex) card.classList.add('is-active');
+      else if(i===(historyIndex+1)%historyCards.length) card.classList.add('is-next');
+      else if(i===(historyIndex-1+historyCards.length)%historyCards.length) card.classList.add('is-prev');
+    });
+    historyYears.forEach((year,i)=>year.classList.toggle('is-active',i===historyIndex));
+    const historyYearsWrap=document.querySelector('.about-timeline__years');
+    if(historyYearsWrap){
+      historyYearsWrap.style.setProperty('--history-line-y',`${historyIndex*49}px`);
+    }
+  };
+  if(historyNext){
+    historyNext.addEventListener('click',()=>{
+      historyIndex=(historyIndex+1)%historyCards.length;
+      renderHistory();
+    });
+  }
+  historyYears.forEach((year,i)=>year.addEventListener('click',()=>{
+    historyIndex=i;
+    renderHistory();
+  }));
+  renderHistory();
+
+
+  const odometerNumbers=[...document.querySelectorAll('[data-odometer]')];
+
+  const buildOdometer=(el)=>{
+    const value=String(el.dataset.odometer || '');
+    const unit=el.dataset.unit || '';
+    const suffix=el.dataset.suffix || '';
+    el.innerHTML='';
+    [...value].forEach((char,index)=>{
+      if(/\d/.test(char)){
+        const digit=Number(char);
+        const digitWrap=document.createElement('span');
+        digitWrap.className='odo-digit';
+        const reel=document.createElement('span');
+        reel.className='odo-reel';
+        reel.style.setProperty('--digit',digit);
+        reel.style.transitionDelay=`${index*90}ms`;
+        for(let n=0;n<=9;n++){
+          const s=document.createElement('span');
+          s.textContent=n;
+          reel.appendChild(s);
+        }
+        digitWrap.appendChild(reel);
+        el.appendChild(digitWrap);
+      }else{
+        el.append(char);
+      }
+    });
+    if(unit){
+      const unitEl=document.createElement('span');
+      unitEl.className='about-metric__unit';
+      unitEl.textContent=unit;
+      el.appendChild(unitEl);
+    }
+    if(suffix){
+      const suffixEl=document.createElement('span');
+      suffixEl.className='about-metric__suffix';
+      suffixEl.textContent=suffix;
+      el.appendChild(suffixEl);
+    }
+  };
+
+  odometerNumbers.forEach(buildOdometer);
+
+  const odometerObserver=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        requestAnimationFrame(()=>entry.target.classList.add('is-odometer-running'));
+        odometerObserver.unobserve(entry.target);
+      }
+    });
+  },{threshold:.35});
+
+  document.querySelectorAll('.about-metric').forEach(metric=>odometerObserver.observe(metric));
+
+    document.querySelectorAll('[data-reach-track]').forEach(track=>{
+    if(!track.dataset.loopReady){
+      track.innerHTML += track.innerHTML;
+      track.dataset.loopReady='true';
+    }
+  });
+
+</script>
+</body>
+</html>
