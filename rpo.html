@@ -2145,6 +2145,32 @@ main{position:relative;z-index:1}
   text-decoration:none;
 }
 
+
+/* Sticky mobile/tablet header: keep logo + hamburger visible while scrolling */
+@media (max-width:1024px){
+  .site-header{
+    position:sticky!important;
+    top:0!important;
+    z-index:9999!important;
+    width:100%!important;
+  }
+
+  .site-header__inner{
+    position:relative!important;
+    z-index:2!important;
+  }
+
+  .site-header__logo,
+  .site-header__toggle{
+    position:relative!important;
+    z-index:3!important;
+  }
+
+  .site-header__nav{
+    z-index:1!important;
+  }
+}
+
 </style>
 </head>
 <body class="rpo-page">
