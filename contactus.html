@@ -1,8 +1,9 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
 <title>Talentika — Contact Us</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Geist:wght@600;700&family=Noto+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
@@ -722,226 +723,1382 @@ textarea.form-control{height:160px;padding:16px;resize:vertical}
   }
 }
 
+
+/* =========================================================
+   FLUID RESPONSIVE SYSTEM — FINAL CASCADE
+   Keeps the original art direction while removing fixed desktop
+   assumptions on large / ultra-wide / unusual aspect-ratio screens.
+   ========================================================= */
+:root{
+  --fluid-pad:clamp(20px,4.167vw,88px);
+  --fluid-pad-wide:clamp(24px,5vw,112px);
+  --fluid-max:1920px;
+  --fluid-copy:68ch;
+  --fluid-h1:clamp(42px,4.15vw,76px);
+  --fluid-h2:clamp(34px,2.92vw,54px);
+  --fluid-h3:clamp(20px,1.67vw,30px);
+  --fluid-body:clamp(14px,1.05vw,18px);
+}
+
+html,body{max-width:100%;overflow-x:hidden}
+body{font-size:var(--fluid-body)}
+main{width:100%;min-width:0}
+section,header,footer,nav,div,article{min-width:0}
+img,video{max-width:100%}
+
+/* Header remains proportional instead of visually shrinking on large screens. */
+@media (min-width:769px){
+  .site-header{
+    height:auto;
+    padding:14px clamp(16px,1.1vw,24px) 0;
+  }
+  .site-header__inner{
+    width:min(100%,var(--fluid-max));
+    min-height:91px;
+    height:auto;
+    margin-inline:auto;
+    padding:clamp(22px,1.75vw,34px) var(--fluid-pad);
+  }
+  .site-header__logo{
+    width:clamp(126px,9vw,164px);
+    height:auto;
+  }
+  .site-header__nav{
+    gap:clamp(28px,4.15vw,72px);
+  }
+  .site-header__link{
+    font-size:clamp(14px,.98vw,17px);
+    line-height:1.35;
+  }
+  .site-header__talk{
+    width:auto;
+    min-width:clamp(138px,9.6vw,170px);
+    min-height:clamp(54px,3.75vw,64px);
+    padding:0 clamp(18px,1.5vw,28px);
+    font-size:clamp(14px,.98vw,17px);
+  }
+}
+
+/* Shared typography */
+@media (min-width:769px){
+  .hero__title,.about-hero__title,.gcc-hero__title,.rpo-hero__title,.ai-hero__title{
+    font-size:var(--fluid-h1)!important;
+    line-height:1!important;
+    letter-spacing:-.025em;
+  }
+  .section-heading,.about-timeline__intro h2,.about-leaders__intro h2,
+  .about-reach__copy h2,.gcc-section-title,.rpo-section-title,
+  .rpo-execution__copy h2,.ai-section-heading{
+    font-size:var(--fluid-h2)!important;
+    line-height:1.04!important;
+  }
+}
+
+/* Common full-width sections use fluid gutters. */
+@media (min-width:769px){
+  .hero,.features,.partners,.stats,.services,.ai-core,
+  .about-breadcrumb,.about-hero,
+  .gcc-breadcrumb,.gcc-hero,.gcc-stats,.gcc-shift,.gcc-corridor,.gcc-framework,.gcc-case,
+  .rpo-breadcrumb,.rpo-hero,.rpo-execution,.rpo-difference,.rpo-performance,
+  .ai-breadcrumb,.ai-hero,.ai-hiring,.ai-capabilities,.ai-domains{
+    padding-left:var(--fluid-pad)!important;
+    padding-right:var(--fluid-pad)!important;
+  }
+
+  .footer__cta,.footer__main{
+    padding-left:var(--fluid-pad)!important;
+    padding-right:var(--fluid-pad)!important;
+  }
+}
+
+/* Prevent text columns from becoming either tiny or excessively long. */
+@media (min-width:769px){
+  .hero__copy,.about-hero__copy,.gcc-hero__copy,.rpo-hero__copy,.ai-hero__copy{
+    width:min(48vw,760px)!important;
+    max-width:760px!important;
+  }
+  .hero__description,.about-hero__desc,.gcc-hero__desc,.rpo-hero__desc,.ai-hero__desc{
+    width:min(100%,var(--fluid-copy))!important;
+    max-width:var(--fluid-copy)!important;
+    font-size:clamp(15px,1.05vw,18px)!important;
+    line-height:1.5!important;
+  }
+}
+
+/* Ultra-wide displays: increase breathing room and cap readable line lengths. */
+@media (min-width:1800px){
+  :root{
+    --fluid-pad:clamp(88px,5vw,128px);
+  }
+  .site-header__inner{max-width:2200px}
+  .footer__cta .section-heading{max-width:820px!important}
+}
+
+/* Short landscape / extreme aspect ratios */
+@media (min-width:769px) and (max-height:760px){
+  .hero,.about-hero,.gcc-hero,.rpo-hero,.ai-hero{
+    min-height:calc(100svh - 105px)!important;
+    height:auto!important;
+    padding-top:48px!important;
+    padding-bottom:48px!important;
+  }
+  .hero__media,.about-page .hero__media,.gcc-page .hero__media,
+  .rpo-page .hero__media,.ai-page .hero__media{
+    height:100%!important;
+    min-height:100%!important;
+  }
+}
+
+/* Mobile: retain compact type without under-scaling on very narrow screens. */
+@media (max-width:768px){
+  :root{
+    --fluid-h1:clamp(36px,10.7vw,44px);
+    --fluid-h2:clamp(30px,8.5vw,36px);
+    --fluid-body:15px;
+  }
+  body{font-size:15px}
+  .hero__title,.about-hero__title,.gcc-hero__title,.rpo-hero__title,.ai-hero__title{
+    font-size:var(--fluid-h1)!important;
+    line-height:1.04!important;
+    overflow-wrap:anywhere;
+  }
+  .section-heading,.about-timeline__intro h2,.about-leaders__intro h2,
+  .about-reach__copy h2,.gcc-section-title,.rpo-section-title,
+  .rpo-execution__copy h2,.ai-section-heading{
+    font-size:var(--fluid-h2)!important;
+    line-height:1.08!important;
+  }
+}
+
+
+@media (min-width:769px){
+  .contact-hero,.contact-page .hero{
+    height:auto!important;
+    min-height:clamp(600px,44vw,760px)!important;
+  }
+  .contact-grid,.contact-main,.contact-layout{
+    width:100%!important;
+    max-width:none!important;
+  }
+  .contact-form,.contact-copy{
+    min-width:0!important;
+  }
+  .contact-form input,.contact-form textarea,.contact-form select{
+    max-width:100%!important;
+  }
+}
+
+
+/* =========================================================
+   4K CONTENT SHELL
+   Fluid to 3840px, then centered with equal outer margins.
+   ========================================================= */
+:root{
+  --site-max-width:3840px;
+}
+
+body{
+  width:100%;
+  margin:0;
+  overflow-x:hidden;
+}
+
+/* Treat the site as one fluid canvas that caps at 4K. */
+.site-header,
+main,
+.footer{
+  width:min(100%, var(--site-max-width));
+  max-width:var(--site-max-width);
+  margin-left:auto;
+  margin-right:auto;
+}
+
+/* Keep full-width visual/media layers constrained to the same canvas. */
+.hero__media{
+  width:min(100vw, var(--site-max-width))!important;
+  max-width:var(--site-max-width)!important;
+  left:50%!important;
+  transform:translateX(-50%)!important;
+}
+
+/* Any intentionally edge-to-edge ticker/overflow section should stop at 4K too. */
+.partners,
+.city-tickers,
+.about-reach,
+.about-reach__ticker-wrap{
+  max-width:var(--site-max-width);
+}
+
+/* Beyond 4K, outer whitespace is automatic and equal on both sides. */
+@media (min-width:3841px){
+  html{
+    background:#fff;
+  }
+
+  body{
+    width:100%;
+  }
+
+  .site-header,
+  main,
+  .footer{
+    width:3840px;
+    max-width:3840px;
+    margin-left:auto!important;
+    margin-right:auto!important;
+  }
+
+  .hero__media{
+    width:3840px!important;
+    max-width:3840px!important;
+    left:50%!important;
+    transform:translateX(-50%)!important;
+  }
+}
+
+
+/* =========================================================
+   LARGE-SCREEN / 4K PROPORTIONAL SCALE SYSTEM
+   1440px is the design reference. From 1441px to 3840px,
+   spacing, type, controls and media scale proportionally.
+   Above 3840px the entire canvas stops growing and stays centered.
+   ========================================================= */
+:root{
+  --site-max-width:3840px;
+}
+
+.site-header,
+main,
+.footer{
+  width:min(100%,var(--site-max-width))!important;
+  max-width:var(--site-max-width)!important;
+  margin-inline:auto!important;
+}
+
+@media (min-width:1600px){
+  :root{
+    --lg-gutter:clamp(60px,4.1667vw,160px);
+    --lg-gutter-sm:clamp(40px,2.7778vw,107px);
+    --lg-h1:clamp(60px,4.1667vw,160px);
+    --lg-h2:clamp(42px,2.9167vw,112px);
+    --lg-h3:clamp(24px,1.6667vw,64px);
+    --lg-body:clamp(16px,1.1111vw,43px);
+    --lg-small:clamp(12px,.8333vw,32px);
+    --lg-radius:clamp(20px,1.3889vw,53px);
+    --lg-radius-lg:clamp(42px,2.9167vw,112px);
+  }
+
+  body{
+    font-size:var(--lg-body)!important;
+  }
+
+  /* Header */
+  .site-header{
+    height:auto!important;
+    padding:clamp(14px,.9722vw,37px) clamp(16px,1.1111vw,43px) 0!important;
+  }
+
+  .site-header__inner{
+    width:100%!important;
+    max-width:none!important;
+    min-height:clamp(91px,6.3194vw,243px)!important;
+    height:auto!important;
+    padding:
+      clamp(25px,1.7361vw,67px)
+      clamp(48px,3.3333vw,128px)
+      clamp(25px,1.7361vw,67px)
+      clamp(44px,3.0556vw,117px)!important;
+    border-radius:clamp(16px,1.1111vw,43px)!important;
+  }
+
+  .site-header__logo{
+    width:clamp(126px,8.75vw,336px)!important;
+    height:auto!important;
+  }
+
+  .site-header__nav{
+    gap:clamp(60px,4.1667vw,160px)!important;
+  }
+
+  .site-header__link{
+    font-size:clamp(14px,.9722vw,37px)!important;
+    line-height:1.35!important;
+  }
+
+  .site-header__talk{
+    width:clamp(138px,9.5833vw,368px)!important;
+    min-width:0!important;
+    height:clamp(54px,3.75vw,144px)!important;
+    min-height:0!important;
+    padding:0!important;
+    border-radius:clamp(10px,.6944vw,27px)!important;
+    font-size:clamp(14px,.9722vw,37px)!important;
+  }
+
+  /* Shared hero/media */
+  .hero,
+  .about-hero,
+  .gcc-hero,
+  .rpo-hero,
+  .ai-hero,
+  .contact-hero{
+    padding-left:var(--lg-gutter)!important;
+    padding-right:var(--lg-gutter)!important;
+  }
+
+  .hero__media{
+    width:min(100vw,3840px)!important;
+    max-width:3840px!important;
+  }
+
+  .hero__title,
+  .about-hero__title,
+  .gcc-hero__title,
+  .rpo-hero__title,
+  .ai-hero__title,
+  .contact-hero__title{
+    font-size:var(--lg-h1)!important;
+    line-height:1!important;
+    letter-spacing:-.025em!important;
+  }
+
+  .hero__copy,
+  .about-hero__copy,
+  .gcc-hero__copy,
+  .rpo-hero__copy,
+  .ai-hero__copy,
+  .contact-hero__copy{
+    width:clamp(598px,41.5278vw,1595px)!important;
+    max-width:none!important;
+  }
+
+  .hero__description,
+  .about-hero__desc,
+  .gcc-hero__desc,
+  .rpo-hero__desc,
+  .ai-hero__desc,
+  .contact-hero__sub{
+    width:clamp(506px,35.1389vw,1349px)!important;
+    max-width:none!important;
+    font-size:var(--lg-body)!important;
+    line-height:1.45!important;
+  }
+
+  /* Shared section headings/body */
+  .section-heading,
+  .about-timeline__intro h2,
+  .about-leaders__intro h2,
+  .about-reach__copy h2,
+  .gcc-section-title,
+  .rpo-section-title,
+  .rpo-execution__copy h2,
+  .ai-section-heading,
+  .contact-process__title,
+  .contact-form__heading{
+    font-size:var(--lg-h2)!important;
+    line-height:1.02!important;
+  }
+
+  .button,
+  .ai-button,
+  .rpo-btn,
+  .gcc-button{
+    min-height:clamp(60px,4.1667vw,160px)!important;
+    padding:clamp(20px,1.3889vw,53px)!important;
+    border-radius:clamp(10px,.6944vw,27px)!important;
+    font-size:clamp(16px,1.1111vw,43px)!important;
+    line-height:1.2!important;
+  }
+
+  /* Shared footer scaling */
+  .footer{
+    border-radius:clamp(42px,2.9167vw,112px) clamp(42px,2.9167vw,112px) 0 0!important;
+    padding-top:clamp(80px,5.5556vw,213px)!important;
+  }
+
+  .footer__cta{
+    padding-left:var(--lg-gutter)!important;
+    padding-right:var(--lg-gutter)!important;
+    padding-bottom:clamp(42px,2.9167vw,112px)!important;
+  }
+
+  .footer__cta .section-heading{
+    font-size:var(--lg-h1)!important;
+    line-height:1!important;
+    max-width:clamp(674px,46.8056vw,1797px)!important;
+  }
+
+  .footer__main{
+    padding:
+      clamp(80px,5.5556vw,213px)
+      var(--lg-gutter)
+      clamp(30px,2.0833vw,80px)!important;
+    grid-template-columns:
+      clamp(330px,22.9167vw,880px)
+      minmax(0,1fr)!important;
+    gap:clamp(170px,11.8056vw,453px)!important;
+    min-height:clamp(506px,35.1389vw,1349px)!important;
+  }
+
+  .footer__brand-logo{
+    width:clamp(164px,11.3889vw,437px)!important;
+    height:auto!important;
+  }
+
+  .footer__tagline{
+    font-size:clamp(16px,1.1111vw,43px)!important;
+  }
+
+  .footer__links{
+    grid-template-columns:repeat(4,minmax(0,1fr))!important;
+    column-gap:clamp(90px,6.25vw,240px)!important;
+  }
+
+  .footer__col h3{
+    font-size:clamp(14px,.9722vw,37px)!important;
+    line-height:1.4!important;
+    margin-bottom:clamp(12px,.8333vw,32px)!important;
+  }
+
+  .footer__link,
+  .footer__contact,
+  .footer__bottom,
+  .footer__legal-link{
+    font-size:clamp(12px,.8333vw,32px)!important;
+    line-height:1.35!important;
+  }
+
+  .footer__social{
+    gap:clamp(22px,1.5278vw,59px)!important;
+    margin-top:clamp(40px,2.7778vw,107px)!important;
+    height:auto!important;
+  }
+
+  .footer__social img{
+    width:clamp(46px,3.1944vw,123px)!important;
+    height:clamp(46px,3.1944vw,123px)!important;
+  }
+
+  .footer__ecosystem-row{
+    height:clamp(64px,4.4444vw,171px)!important;
+  }
+
+  .footer__ecosystem-logo{
+    max-width:clamp(136px,9.4444vw,363px)!important;
+    height:clamp(24px,1.6667vw,64px)!important;
+  }
+
+  .footer__skyline{
+    height:clamp(150px,10.4167vw,400px)!important;
+  }
+
+  .footer__skyline img{
+    width:clamp(1448px,100.5556vw,3861px)!important;
+    height:auto!important;
+  }
+
+  .city-tickers .ticker__item{
+    font-size:clamp(16px,1.1111vw,43px)!important;
+    padding:clamp(20px,1.3889vw,53px)!important;
+    margin-inline:clamp(11px,.7639vw,29px)!important;
+  }
+}
+
+@media (min-width:3841px){
+  .site-header,
+  main,
+  .footer{
+    width:3840px!important;
+    max-width:3840px!important;
+    margin-inline:auto!important;
+  }
+}
+
+
+@media (min-width:1600px){
+  .contact-page .hero__media{height:clamp(750px,52.0833vw,2000px)!important}
+  .contact-breadcrumb{height:auto!important;padding:clamp(10px,.6944vw,27px) var(--lg-gutter)!important;gap:clamp(6px,.4167vw,16px)!important;font-size:var(--lg-small)!important}
+  .contact-hero{min-height:clamp(420px,29.1667vw,1120px)!important;height:auto!important;padding-bottom:clamp(60px,4.1667vw,160px)!important}
+  .contact-hero__copy{width:clamp(629px,43.6806vw,1677px)!important;gap:clamp(10px,.6944vw,27px)!important}
+
+  .contact-process{padding:clamp(90px,6.25vw,240px) var(--lg-gutter)!important}
+  .contact-process__title{margin-bottom:clamp(20px,1.3889vw,53px)!important}
+  .contact-process__flow{grid-template-columns:1fr clamp(32px,2.2222vw,85px) 1fr clamp(32px,2.2222vw,85px) 1fr!important;gap:clamp(24px,1.6667vw,64px)!important}
+  .process-card{min-height:clamp(214px,14.8611vw,571px)!important;padding:clamp(32px,2.2222vw,85px)!important;border-radius:var(--lg-radius)!important;gap:clamp(16px,1.1111vw,43px)!important}
+  .process-card:nth-of-type(2){min-height:clamp(236px,16.3889vw,629px)!important}
+  .process-card__num{width:clamp(48px,3.3333vw,128px)!important;height:clamp(48px,3.3333vw,128px)!important;border-radius:50%!important;font-size:clamp(18px,1.25vw,48px)!important}
+  .process-card h3{font-size:clamp(20px,1.3889vw,53px)!important}
+  .process-card p{font-size:clamp(14px,.9722vw,37px)!important}
+  .contact-process__arrow{width:clamp(32px,2.2222vw,85px)!important;height:clamp(32px,2.2222vw,85px)!important}
+
+  .contact-form-section{padding:clamp(90px,6.25vw,240px) var(--lg-gutter)!important;grid-template-columns:minmax(0,1.9fr) minmax(0,1fr)!important;gap:clamp(100px,6.9444vw,267px)!important}
+  .contact-form__left{gap:clamp(40px,2.7778vw,107px)!important}
+  .contact-form__heading{width:clamp(761px,52.8472vw,2029px)!important}
+  .contact-form{gap:clamp(24px,1.6667vw,64px)!important}
+  .form-field{gap:clamp(8px,.5556vw,21px)!important}
+  .form-field label{font-size:clamp(14px,.9722vw,37px)!important}
+  .form-control{height:clamp(56px,3.8889vw,149px)!important;padding:0 clamp(16px,1.1111vw,43px)!important;border-radius:clamp(12px,.8333vw,32px)!important;font-size:var(--lg-body)!important}
+  textarea.form-control{height:clamp(160px,11.1111vw,427px)!important;padding:clamp(16px,1.1111vw,43px)!important}
+  .contact-submit{height:clamp(54px,3.75vw,144px)!important;border-radius:clamp(10px,.6944vw,27px)!important;font-size:clamp(14px,.9722vw,37px)!important}
+  .contact-form__aside{height:auto!important;min-height:clamp(774px,53.75vw,2064px)!important;gap:clamp(36px,2.5vw,96px)!important}
+  .contact-form__photo{width:100%!important;height:auto!important;aspect-ratio:420/360!important;border-radius:clamp(36px,2.5vw,96px)!important}
+  .contact-hours{padding:clamp(24px,1.6667vw,64px)!important;border-radius:clamp(16px,1.1111vw,43px)!important;gap:clamp(12px,.8333vw,32px)!important}
+  .contact-label{font-size:clamp(14px,.9722vw,37px)!important}
+  .contact-hours strong,.contact-direct__item a{font-size:clamp(20px,1.3889vw,53px)!important}
+  .contact-direct{gap:clamp(36px,2.5vw,96px)!important}
+
+  .contact-faq{padding:clamp(90px,6.25vw,240px) var(--lg-gutter)!important}
+  .contact-faq__head{gap:clamp(10px,.6944vw,27px)!important;margin-bottom:clamp(40px,2.7778vw,107px)!important}
+  .contact-faq__eyebrow{font-size:clamp(14px,.9722vw,37px)!important}
+  .contact-faq__title{width:clamp(761px,52.8472vw,2029px)!important;font-size:var(--lg-h1)!important;line-height:1!important}
+  .faq-list{gap:clamp(16px,1.1111vw,43px)!important}
+  .faq-item{border-radius:clamp(16px,1.1111vw,43px)!important}
+  .faq-question{min-height:clamp(70px,4.8611vw,187px)!important;padding:clamp(24px,1.6667vw,64px)!important;gap:clamp(24px,1.6667vw,64px)!important;font-size:clamp(18px,1.25vw,48px)!important}
+  .faq-icon{width:clamp(20px,1.3889vw,53px)!important;height:clamp(20px,1.3889vw,53px)!important;flex-basis:clamp(20px,1.3889vw,53px)!important}
+  .faq-answer p{padding:0 clamp(24px,1.6667vw,64px) clamp(24px,1.6667vw,64px)!important;font-size:var(--lg-body)!important}
+}
+
+
+/* =========================================================
+   4K CONSISTENCY PASS
+   Fixes remaining 1440px-era fixed widths that caused narrow
+   headings, tiny logos/tags, excessive wrapping and uneven scale.
+   ========================================================= */
+@media (min-width:1600px){
+
+  /* Shared heading width must scale with the large-screen type. */
+  .section-heading{
+    max-width:clamp(647px,44.9306vw,1725px)!important;
+  }
+
+  /* Shared text links / labels */
+  .text-cta{
+    font-size:clamp(14px,.9722vw,37px)!important;
+    line-height:1.35!important;
+  }
+
+  /* Large watermarks should scale too, otherwise they look detached. */
+  .work__watermark{
+    font-size:clamp(180px,12.5vw,480px)!important;
+    line-height:.905!important;
+    width:100%!important;
+    margin-left:calc(var(--lg-gutter) * -1)!important;
+    padding-left:var(--lg-gutter)!important;
+  }
+
+  /* Case-study content: remove narrow 1440px text constraints. */
+  .case-card__tag{
+    padding:clamp(10px,.6944vw,27px)!important;
+    border-radius:clamp(10px,.6944vw,27px)!important;
+    font-size:clamp(14px,.9722vw,37px)!important;
+  }
+
+  .case-card__logo{
+    width:clamp(109px,7.5694vw,291px)!important;
+    height:clamp(24px,1.6667vw,64px)!important;
+    object-fit:contain!important;
+  }
+
+  .case-card__desc{
+    max-width:clamp(291px,20.2083vw,776px)!important;
+    font-size:clamp(14px,.9722vw,37px)!important;
+    line-height:1.45!important;
+  }
+
+  .case-card__metric-sub{
+    font-size:clamp(14px,.9722vw,37px)!important;
+    line-height:1.4!important;
+  }
+
+  /* Footer assets that were still fixed at small desktop sizes. */
+  .footer__mini-icons img{
+    max-width:clamp(92px,6.3889vw,245px)!important;
+    max-height:clamp(32px,2.2222vw,85px)!important;
+  }
+
+  .footer__contact{
+    font-size:clamp(12px,.8333vw,32px)!important;
+  }
+
+  /* Keep content widths proportional without creating excessively long lines. */
+  p{
+    text-wrap:pretty;
+  }
+}
+
+
+@media (min-width:1600px){
+  .contact-hero__copy,
+  .contact-form__left,
+  .contact-form__aside,
+  .contact-form{
+    min-width:0!important;
+  }
+
+  .contact-form__heading,
+  .contact-faq__title{
+    max-width:clamp(761px,52.8472vw,2029px)!important;
+  }
+
+  .process-card p,
+  .faq-answer p{
+    line-height:1.5!important;
+  }
+}
+
+
+/* =========================================================
+   LARGE-SCREEN FOOTER NORMALIZATION
+   Preserve the 1440px footer composition instead of vertically
+   stretching it on 4K displays.
+   ========================================================= */
+@media (min-width:1600px){
+
+  .footer{
+    padding-top:clamp(80px,3.2vw,120px)!important;
+    border-radius:clamp(42px,1.8vw,68px) clamp(42px,1.8vw,68px) 0 0!important;
+  }
+
+  .footer__cta{
+    padding-left:var(--lg-gutter)!important;
+    padding-right:var(--lg-gutter)!important;
+    padding-bottom:clamp(42px,2vw,72px)!important;
+  }
+
+  .footer__cta .section-heading{
+    font-size:clamp(60px,2.6vw,92px)!important;
+    line-height:1!important;
+    max-width:clamp(674px,30vw,1080px)!important;
+  }
+
+  .footer__advisor{
+    margin-top:clamp(42px,1.8vw,64px)!important;
+  }
+
+  .city-tickers{
+    margin-top:clamp(42px,1.8vw,64px)!important;
+  }
+
+  .city-tickers .ticker__item{
+    font-size:clamp(16px,.72vw,24px)!important;
+    padding:clamp(20px,.9vw,32px)!important;
+    margin-inline:clamp(11px,.5vw,18px)!important;
+  }
+
+  .footer__main{
+    height:auto!important;
+    min-height:0!important;
+    padding:
+      clamp(80px,3.2vw,120px)
+      var(--lg-gutter)
+      clamp(42px,2vw,72px)!important;
+    grid-template-columns:
+      clamp(330px,18vw,460px)
+      minmax(0,1fr)!important;
+    gap:clamp(90px,5vw,150px)!important;
+    align-items:start!important;
+  }
+
+  .footer__brand-logo{
+    width:clamp(164px,8vw,230px)!important;
+    height:auto!important;
+  }
+
+  .footer__tagline{
+    font-size:clamp(16px,.78vw,24px)!important;
+    line-height:1.35!important;
+  }
+
+  .footer__mini-icons{
+    gap:clamp(18px,.8vw,28px)!important;
+    margin:clamp(28px,1.2vw,40px) 0!important;
+  }
+
+  .footer__mini-icons img{
+    max-width:clamp(92px,4.2vw,132px)!important;
+    max-height:clamp(32px,1.5vw,46px)!important;
+  }
+
+  .footer__contact{
+    font-size:clamp(12px,.62vw,18px)!important;
+    line-height:1.4!important;
+  }
+
+  .footer__social{
+    gap:clamp(22px,1vw,32px)!important;
+    margin-top:clamp(40px,1.6vw,56px)!important;
+    height:auto!important;
+  }
+
+  .footer__social img{
+    width:clamp(46px,2.1vw,64px)!important;
+    height:clamp(46px,2.1vw,64px)!important;
+  }
+
+  .footer__links{
+    grid-template-columns:
+      minmax(0,.95fr)
+      minmax(0,.95fr)
+      minmax(0,1.18fr)
+      minmax(0,.95fr)!important;
+    column-gap:clamp(64px,3.5vw,110px)!important;
+    row-gap:0!important;
+    align-items:start!important;
+  }
+
+  .footer__col h3{
+    font-size:clamp(14px,.68vw,20px)!important;
+    line-height:1.35!important;
+    margin-bottom:clamp(12px,.55vw,18px)!important;
+  }
+
+  .footer__link{
+    font-size:clamp(12px,.62vw,18px)!important;
+    line-height:1.35!important;
+    margin-bottom:clamp(17px,.72vw,24px)!important;
+  }
+
+  .footer__ecosystem-row{
+    height:clamp(64px,2.8vw,88px)!important;
+  }
+
+  .footer__ecosystem-logo{
+    max-width:clamp(136px,6.5vw,190px)!important;
+    height:clamp(24px,1.1vw,34px)!important;
+  }
+
+  .footer__ecosystem-logo--deebug{
+    width:clamp(85px,4vw,120px)!important;
+  }
+
+  .footer__ecosystem-arrow{
+    width:clamp(24px,1.1vw,34px)!important;
+    height:clamp(24px,1.1vw,34px)!important;
+    flex-basis:clamp(24px,1.1vw,34px)!important;
+  }
+
+  .footer__bottom{
+    position:static!important;
+    left:auto!important;
+    right:auto!important;
+    top:auto!important;
+    grid-column:2 / -1!important;
+    width:100%!important;
+    height:auto!important;
+    min-height:0!important;
+    margin:clamp(28px,1.4vw,44px) 0 0!important;
+    padding:0!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:space-between!important;
+    gap:24px!important;
+    background:transparent!important;
+    font-size:clamp(12px,.62vw,18px)!important;
+    line-height:1.35!important;
+  }
+
+  .footer__legal{
+    gap:clamp(20px,1.2vw,36px)!important;
+    flex-wrap:wrap!important;
+  }
+
+  .footer__legal-link{
+    font-size:clamp(12px,.62vw,18px)!important;
+    line-height:1.35!important;
+  }
+
+  .footer__skyline{
+    height:clamp(150px,6.5vw,220px)!important;
+  }
+
+  .footer__skyline img{
+    width:min(100%,3840px)!important;
+    height:100%!important;
+    object-fit:cover!important;
+    object-position:center bottom!important;
+  }
+}
+
+@media (min-width:2200px){
+  .footer__main{
+    grid-template-columns:420px minmax(0,1fr)!important;
+    gap:140px!important;
+  }
+
+  .footer__links{
+    column-gap:96px!important;
+  }
+}
+
+
+/* =========================================================
+   FIGMA FOOTER COPYRIGHT ROW
+   Reference: Footer / Frame 114 at 1440px
+   © 2026 Talentika. + legal links on one horizontal row.
+   ========================================================= */
+@media (min-width:769px){
+  .footer__bottom{
+    grid-column:2 / -1!important;
+    width:100%!important;
+    max-width:none!important;
+    display:flex!important;
+    flex-direction:row!important;
+    align-items:center!important;
+    justify-content:space-between!important;
+    gap:32px!important;
+    white-space:nowrap!important;
+  }
+
+  .footer__bottom > span{
+    display:block!important;
+    flex:0 0 auto!important;
+    white-space:nowrap!important;
+    color:#b3b8bf!important;
+    font-family:"Noto Sans",sans-serif!important;
+    font-weight:400!important;
+  }
+
+  .footer__legal{
+    display:flex!important;
+    flex-direction:row!important;
+    align-items:center!important;
+    justify-content:flex-end!important;
+    flex-wrap:nowrap!important;
+    white-space:nowrap!important;
+  }
+
+  .footer__legal-link{
+    flex:0 0 auto!important;
+    white-space:nowrap!important;
+  }
+}
+
+/* Match the Figma footer row typography and relative spacing on desktop. */
+@media (min-width:769px) and (max-width:1440px){
+  .footer__bottom,
+  .footer__legal-link{
+    font-size:12px!important;
+    line-height:16px!important;
+  }
+
+  .footer__legal{
+    gap:28px!important;
+  }
+}
+
+/* On large screens scale gently, while preserving the exact single-row composition. */
+@media (min-width:1600px){
+  .footer__bottom,
+  .footer__legal-link{
+    font-size:clamp(12px,.62vw,18px)!important;
+    line-height:1.35!important;
+  }
+
+  .footer__legal{
+    gap:clamp(28px,1.2vw,42px)!important;
+  }
+}
+
+
+/* =========================================================
+   FIGMA-EXACT FOOTER LEGAL ROW ALIGNMENT
+   1440 reference:
+   - footer inner content: 1320px, centered
+   - brand column: 330px
+   - gap to link block: 170px
+   - link block: 820px
+   - copyright starts exactly under Services
+   - legal group starts exactly under EcoSystem & Platforms
+   ========================================================= */
+
+/* Standard desktop: preserve the 1440 Figma geometry while centering
+   the 1320px inner footer canvas on slightly wider screens. */
+@media (min-width:1200px) and (max-width:1599px){
+  .footer__main{
+    position:relative!important;
+    width:100%!important;
+    height:506px!important;
+    min-height:506px!important;
+    padding-top:80px!important;
+    padding-bottom:0!important;
+    padding-left:max(60px, calc((100% - 1320px) / 2))!important;
+    padding-right:max(60px, calc((100% - 1320px) / 2))!important;
+    grid-template-columns:330px 820px!important;
+    column-gap:170px!important;
+    row-gap:0!important;
+  }
+
+  .footer__links{
+    width:820px!important;
+    grid-template-columns:124px 124px 178px 124px!important;
+    column-gap:90px!important;
+    row-gap:0!important;
+  }
+
+  .footer__bottom{
+    position:absolute!important;
+    top:472px!important;
+    left:calc(max(60px, (100% - 1320px) / 2) + 500px)!important;
+    right:auto!important;
+    width:820px!important;
+    height:19px!important;
+    margin:0!important;
+    padding:0!important;
+
+    display:grid!important;
+    grid-template-columns:124px 124px 178px 124px!important;
+    column-gap:90px!important;
+    align-items:center!important;
+    justify-content:stretch!important;
+
+    color:#b3b8bf!important;
+    font:400 12px/16px "Noto Sans",sans-serif!important;
+    white-space:nowrap!important;
+  }
+
+  .footer__bottom > span{
+    grid-column:1!important;
+    justify-self:start!important;
+    white-space:nowrap!important;
+  }
+
+  .footer__legal{
+    grid-column:3 / 5!important;
+    justify-self:start!important;
+    width:390px!important;
+    margin:0!important;
+
+    display:flex!important;
+    flex-direction:row!important;
+    align-items:center!important;
+    justify-content:flex-start!important;
+    gap:28px!important;
+    flex-wrap:nowrap!important;
+    white-space:nowrap!important;
+  }
+
+  .footer__legal-link{
+    font:400 12px/16px "Noto Sans",sans-serif!important;
+    white-space:nowrap!important;
+  }
+}
+
+/* Large screens: retain the same column relationships.
+   Copyright stays aligned to Services; legal links stay aligned
+   to the EcoSystem & Platforms column. */
+@media (min-width:1600px){
+  .footer__main{
+    position:relative!important;
+  }
+
+  .footer__bottom{
+    position:absolute!important;
+    left:calc(
+      var(--lg-gutter) +
+      clamp(330px,18vw,460px) +
+      clamp(90px,5vw,150px)
+    )!important;
+    right:var(--lg-gutter)!important;
+    top:auto!important;
+    bottom:clamp(42px,2vw,72px)!important;
+    width:auto!important;
+    height:auto!important;
+    margin:0!important;
+    padding:0!important;
+
+    display:grid!important;
+    grid-template-columns:
+      minmax(0,.95fr)
+      minmax(0,.95fr)
+      minmax(0,1.18fr)
+      minmax(0,.95fr)!important;
+    column-gap:clamp(64px,3.5vw,110px)!important;
+    align-items:center!important;
+    justify-content:stretch!important;
+  }
+
+  .footer__bottom > span{
+    grid-column:1!important;
+    justify-self:start!important;
+    white-space:nowrap!important;
+  }
+
+  .footer__legal{
+    grid-column:3 / 5!important;
+    justify-self:start!important;
+    width:auto!important;
+    margin:0!important;
+    display:flex!important;
+    flex-wrap:nowrap!important;
+    justify-content:flex-start!important;
+    gap:clamp(28px,1.2vw,42px)!important;
+    white-space:nowrap!important;
+  }
+}
+
+
+/* =========================================================
+   FOOTER GRID ALIGNMENT — MATCH FIGMA COLUMN GEOMETRY
+   Reference at 1440:
+   right content block = 820px
+   tracks = 124 / 90 / 124 / 90 / 178 / 90 / 124
+   Copyright aligns to Services.
+   Legal group aligns to EcoSystem & Platforms.
+   ========================================================= */
+@media (min-width:1200px){
+
+  .footer__main{
+    --footer-pad:clamp(60px,4.1667vw,160px);
+
+    position:relative!important;
+    width:100%!important;
+    height:auto!important;
+    min-height:clamp(506px,35.1389vw,760px)!important;
+    padding:
+      clamp(80px,5.5556vw,120px)
+      var(--footer-pad)
+      clamp(15px,1.0417vw,20px)!important;
+
+    display:grid!important;
+    grid-template-columns:
+      25%
+      12.8787879%
+      62.1212121%!important;
+    grid-template-rows:
+      clamp(332px,23.0556vw,500px)
+      clamp(79px,5.4861vw,120px)!important;
+    column-gap:0!important;
+    row-gap:0!important;
+    align-items:start!important;
+  }
+
+  /* Brand column */
+  .footer__main > div:first-child{
+    grid-column:1!important;
+    grid-row:1 / 3!important;
+    width:100%!important;
+    min-width:0!important;
+  }
+
+  /* Use the exact seven-track Figma geometry for the four link columns. */
+  .footer__links{
+    grid-column:3!important;
+    grid-row:1!important;
+
+    width:100%!important;
+    min-width:0!important;
+    display:grid!important;
+    grid-template-columns:
+      124fr 90fr 124fr 90fr 178fr 90fr 124fr!important;
+    column-gap:0!important;
+    row-gap:0!important;
+    align-items:start!important;
+  }
+
+  .footer__links > .footer__col:nth-child(1){grid-column:1!important}
+  .footer__links > .footer__col:nth-child(2){grid-column:3!important}
+  .footer__links > .footer__col:nth-child(3){grid-column:5!important}
+  .footer__links > .footer__col:nth-child(4){grid-column:7!important}
+
+  /* Copyright/legal row belongs to the same 820px block as the links. */
+  .footer__bottom{
+    position:static!important;
+    left:auto!important;
+    right:auto!important;
+    top:auto!important;
+    bottom:auto!important;
+
+    grid-column:3!important;
+    grid-row:2!important;
+    align-self:end!important;
+
+    width:100%!important;
+    height:auto!important;
+    min-height:19px!important;
+    margin:0!important;
+    padding:0!important;
+
+    display:grid!important;
+    grid-template-columns:
+      124fr 90fr 124fr 90fr 178fr 90fr 124fr!important;
+    column-gap:0!important;
+    align-items:center!important;
+    justify-content:stretch!important;
+
+    background:transparent!important;
+    color:#b3b8bf!important;
+    font-family:"Noto Sans",sans-serif!important;
+    font-weight:400!important;
+    white-space:nowrap!important;
+  }
+
+  .footer__bottom > span{
+    grid-column:1!important;
+    justify-self:start!important;
+    align-self:center!important;
+    display:block!important;
+    width:max-content!important;
+    margin:0!important;
+    padding:0!important;
+    white-space:nowrap!important;
+  }
+
+  /* Figma: legal group begins at x=430 inside the 820px block,
+     exactly beneath the EcoSystem & Platforms column. */
+  .footer__legal{
+    grid-column:5 / 8!important;
+    justify-self:stretch!important;
+    align-self:center!important;
+
+    width:100%!important;
+    min-width:0!important;
+    margin:0!important;
+    padding:0!important;
+
+    display:flex!important;
+    flex-direction:row!important;
+    align-items:center!important;
+    justify-content:space-between!important;
+    gap:0!important;
+    flex-wrap:nowrap!important;
+    white-space:nowrap!important;
+  }
+
+  .footer__legal-link{
+    flex:0 0 auto!important;
+    margin:0!important;
+    white-space:nowrap!important;
+  }
+}
+
+/* 1440 Figma typography values and nearby desktop widths. */
+@media (min-width:1200px) and (max-width:1599px){
+  .footer__bottom,
+  .footer__legal-link{
+    font-size:12px!important;
+    line-height:16px!important;
+  }
+}
+
+/* Gentle large-screen scaling without changing alignment relationships. */
+@media (min-width:1600px){
+  .footer__bottom,
+  .footer__legal-link{
+    font-size:clamp(12px,.62vw,18px)!important;
+    line-height:1.35!important;
+  }
+}
+
 </style>
 </head>
 <body class="contact-page">
-<div class="hero__media" aria-hidden="true">
-  <video autoplay muted loop playsinline preload="metadata" poster="https://www.figma.com/api/mcp/asset/01752683-5766-4c6c-bc7d-70c022eb7b21.png" id="heroVideo">
-    <source src="contact-hero-video.mp4" type="video/mp4">
-  </video>
-  <img src="https://www.figma.com/api/mcp/asset/01752683-5766-4c6c-bc7d-70c022eb7b21.png" alt="">
+<div aria-hidden="true" class="hero__media">
+<video autoplay="" id="heroVideo" loop="" muted="" playsinline="" preload="metadata">
+<source src="assets/videos/contactus-hero-1440x750.mp4" type="video/mp4"/>
+</video>
 </div>
 <header class="site-header">
-  <div class="site-header__inner">
-    <a href="index.html" aria-label="Talentika home"><img class="site-header__logo" src="https://www.figma.com/api/mcp/asset/1ce4e403-b815-478e-98d9-497282565682/a26d6.png" alt="Talentika"></a>
-    <button class="site-header__toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><span></span></button>
-    <nav class="site-header__nav" id="main-nav" aria-label="Primary navigation">
-      <a class="site-header__link" href="gcc.html">GCC services</a>
-      <a class="site-header__link" href="rpo.html">RPO</a>
-      <a class="site-header__link" href="aidigital.html">Digital</a>
-      <a class="site-header__link" href="index.html#work">Case studies</a>
-      <a class="site-header__link" href="aboutus.html">About</a>
-      <a class="site-header__link is-active" href="contactus.html" aria-current="page">Contact</a>
-      <a class="site-header__talk" href="contactus.html">Talk to us</a>
-    </nav>
-  </div>
+<div class="site-header__inner">
+<a aria-label="Talentika home" href="index.html"><img alt="Talentika" class="site-header__logo" src="assets/images/contactus/T_Logo_Dark 1.png"/></a>
+<button aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation" class="site-header__toggle" type="button"><span></span><span></span><span></span></button>
+<nav aria-label="Primary navigation" class="site-header__nav" id="main-nav">
+<a class="site-header__link" href="gcc.html">GCC services</a>
+<a class="site-header__link" href="rpo.html">RPO</a>
+<a class="site-header__link" href="aidigital.html">Digital</a>
+<a class="site-header__link" href="index.html#work">Case studies</a>
+<a class="site-header__link" href="aboutus.html">About</a>
+<a aria-current="page" class="site-header__link is-active" href="contactus.html">Contact</a>
+<a class="site-header__talk" href="contactus.html">Talk to us</a>
+</nav>
+</div>
 </header>
 <main id="contact-overview">
-  <nav class="contact-breadcrumb" aria-label="Breadcrumb">
-    <span>Home</span><span>/</span><strong>Contact</strong>
-  </nav>
-
-  <section class="contact-hero">
-    <div class="contact-hero__copy reveal">
-      <h1 class="contact-hero__title">Get in touch<br>with <span>Talentika</span>.</h1>
-      <p class="contact-hero__sub">Global Contacts</p>
-    </div>
-  </section>
-
-  <section class="contact-process">
-    <h2 class="contact-process__title reveal">Our Process</h2>
-    <div class="contact-process__flow">
-      <article class="process-card reveal">
-        <div class="process-card__num">01</div>
-        <h3>Discovery Call</h3>
-        <p>30-min strategic alignment to define your GCC goals, talent gaps, and operational readiness.</p>
-      </article>
-      <img class="contact-process__arrow reveal" src="https://www.figma.com/api/mcp/asset/558b76ed-6777-4816-bacd-fb4db5d695c4/1a17d.svg" alt="">
-      <article class="process-card reveal" style="--delay:80ms">
-        <div class="process-card__num">02</div>
-        <h3>Custom Proposal</h3>
-        <p>Tailored solution architecture delivered within 5 days, including location strategy and ROI projection.</p>
-      </article>
-      <img class="contact-process__arrow reveal" src="https://www.figma.com/api/mcp/asset/558b76ed-6777-4816-bacd-fb4db5d695c4/1a17d.svg" alt="">
-      <article class="process-card reveal" style="--delay:160ms">
-        <div class="process-card__num">03</div>
-        <h3>Kickoff</h3>
-        <p>Dedicated team mobilized within 2 weeks, with clear milestones and weekly delivery cadence.</p>
-      </article>
-    </div>
-  </section>
-
-  <section class="contact-form-section">
-    <div class="contact-form__left">
-      <h2 class="contact-form__heading reveal">Schedule a session with our principal architects to <span>blueprint your next-gen engineering center.</span></h2>
-      <form class="contact-form reveal" action="#" method="post">
-        <div class="form-field">
-          <label for="full-name">Full Name</label>
-          <input class="form-control" id="full-name" name="full-name" type="text" placeholder="Your Name">
-        </div>
-        <div class="form-field">
-          <label for="work-email">Work Email</label>
-          <input class="form-control" id="work-email" name="work-email" type="email" placeholder="email@companyname.com">
-        </div>
-        <div class="form-field">
-          <label for="company-name">Company Name</label>
-          <input class="form-control" id="company-name" name="company-name" type="text" placeholder="Company Name">
-        </div>
-        <div class="form-field">
-          <label for="brief-message">Brief Message</label>
-          <textarea class="form-control" id="brief-message" name="brief-message" placeholder="Write here"></textarea>
-        </div>
-        <button class="contact-submit" type="submit">Submit Enquiry</button>
-      </form>
-    </div>
-
-    <aside class="contact-form__aside reveal" style="--delay:80ms">
-      <div class="contact-form__photo">
-        <img src="https://www.figma.com/api/mcp/asset/050e0120-8f55-468c-82fc-c9e0219d2bed.png" alt="Talentika office">
-      </div>
-      <div class="contact-hours">
-        <p class="contact-label">OFFICE HOURS</p>
-        <strong>Mon-Fri: 9:00 AM - 6:00 PM IST</strong>
-      </div>
-      <div class="contact-direct">
-        <div class="contact-direct__item">
-          <p class="contact-label">EMAIL</p>
-          <a href="mailto:contact@talentika.in">contact@talentika.in</a>
-        </div>
-        <div class="contact-direct__item">
-          <p class="contact-label">PHONE</p>
-          <a href="tel:+919823323373">+91 98233 23373</a>
-        </div>
-      </div>
-    </aside>
-  </section>
-
-  <section class="contact-network">
-  <div class="contact-network__intro reveal">
-    <p class="contact-network__eyebrow">NETWORK</p>
-    <h2 class="contact-network__title">Global Presence</h2>
-    <p class="contact-network__desc">Please select any location to check more details.</p>
-    <p class="contact-network__mobile-hint">Swipe horizontally to explore the map →</p>
-  </div>
-  <p class="contact-network__number" aria-hidden="true">10+</p>
-<div class="contact-network__viewport" tabindex="0" aria-label="Scrollable global presence map">
-    <div class="contact-network__stage">
-      <div class="contact-network__canvas">
-        <img class="contact-network__world" src="https://www.figma.com/api/mcp/asset/658d3716-88ae-4702-8953-25aa5d73fcb1/21f51.svg" alt="World map showing Talentika locations">
-
-        <button class="map-country map-country--usa" type="button" data-location="USA"><strong>USA</strong><span>Atlanta</span><span>Boston</span><span>Chicago</span><span>California</span><span>San Francisco</span></button>
-        <button class="map-country map-country--ireland" type="button" data-location="Ireland"><strong>Ireland</strong><span>Dublin</span></button>
-        <button class="map-country map-country--uk" type="button" data-location="United Kingdom"><strong>United Kingdom</strong><span>London</span><span>Manchester</span><span>Oxford</span></button>
-        <button class="map-country map-country--india" type="button" data-location="India"><strong>India</strong><span>Mumbai</span><span>Delhi</span><span>Bengaluru</span><span>Pune</span><span>Hyderabad</span><span>Chennai</span></button>
-        <button class="map-country map-country--singapore" type="button" data-location="Singapore"><strong>Singapore</strong><span>Jurong</span></button>
-        <button class="map-country map-country--australia" type="button" data-location="Australia"><strong>Australia</strong><span>Sydney</span><span>Melbourne</span><span>Brisbane</span><span>Perth</span><span>Adelaide</span></button>
-        <button class="map-country map-country--denmark" type="button" data-location="Denmark"><strong>Denmark</strong><span>Copenhagen</span></button>
-        <button class="map-country map-country--slovakia" type="button" data-location="Slovakia"><strong>Slovakia</strong><span>Bratislava</span></button>
-        <button class="map-country map-country--spain" type="button" data-location="Spain"><strong>Spain</strong><span>Madrid</span></button>
-        <button class="map-country map-country--sweden" type="button" data-location="Sweden"><strong>Sweden</strong><span>Madrid</span></button>
-
-        <img class="map-indicator map-indicator--1" src="https://www.figma.com/api/mcp/asset/658d3716-88ae-4702-8953-25aa5d73fcb1/31c86.svg" alt="">
-        <img class="map-indicator map-indicator--2" src="https://www.figma.com/api/mcp/asset/658d3716-88ae-4702-8953-25aa5d73fcb1/13c58.svg" alt="">
-        <img class="map-indicator map-indicator--3" src="https://www.figma.com/api/mcp/asset/658d3716-88ae-4702-8953-25aa5d73fcb1/84923.svg" alt="">
-        <img class="map-indicator map-indicator--4" src="https://www.figma.com/api/mcp/asset/658d3716-88ae-4702-8953-25aa5d73fcb1/6c6b1.svg" alt="">
-        <img class="map-indicator map-indicator--5" src="https://www.figma.com/api/mcp/asset/658d3716-88ae-4702-8953-25aa5d73fcb1/5fd26.svg" alt="">
-        <img class="map-indicator map-indicator--6" src="https://www.figma.com/api/mcp/asset/658d3716-88ae-4702-8953-25aa5d73fcb1/dc195.svg" alt="">
-        <img class="map-indicator map-indicator--7" src="https://www.figma.com/api/mcp/asset/658d3716-88ae-4702-8953-25aa5d73fcb1/792b8.svg" alt="">
-        <img class="map-indicator map-indicator--8" src="https://www.figma.com/api/mcp/asset/658d3716-88ae-4702-8953-25aa5d73fcb1/68825.svg" alt="">
-        <img class="map-indicator map-indicator--9" src="https://www.figma.com/api/mcp/asset/658d3716-88ae-4702-8953-25aa5d73fcb1/a7c03.svg" alt="">
-        <img class="map-indicator map-indicator--10" src="https://www.figma.com/api/mcp/asset/658d3716-88ae-4702-8953-25aa5d73fcb1/dde97.svg" alt="">
-      </div>
-    </div>
-  </div>
-
-  <aside class="contact-network__detail" id="location-detail" aria-live="polite">
-    <h3 id="location-detail-title">Location</h3>
-    <p><strong>Email</strong><br><a href="mailto:contact@talentika.in">contact@talentika.in</a></p>
-    <p><strong>Phone</strong><br><a href="tel:+919823323373">+91 98233 23373</a></p>
-  </aside>
+<nav aria-label="Breadcrumb" class="contact-breadcrumb">
+<span>Home</span><span>/</span><strong>Contact</strong>
+</nav>
+<section class="contact-hero">
+<div class="contact-hero__copy reveal">
+<h1 class="contact-hero__title">Get in touch<br/>with <span>Talentika</span>.</h1>
+<p class="contact-hero__sub">Global Contacts</p>
+</div>
 </section>
-
-  <section class="contact-faq">
-    <div class="contact-faq__head reveal">
-      <p class="contact-faq__eyebrow">FAQs</p>
-      <h2 class="contact-faq__title">Frequently Asked Questions</h2>
-    </div>
-    <div class="faq-list">
-      <article class="faq-item is-open reveal">
-        <button class="faq-question" type="button" aria-expanded="true">
-          <span>What is a GCC?</span><span class="faq-icon" aria-hidden="true"></span>
-        </button>
-        <div class="faq-answer"><p>A Global Capability Center is a strategic hub that delivers specialized services, engineering, and innovation for a global enterprise from a single location.</p></div>
-      </article>
-      <article class="faq-item reveal" style="--delay:60ms">
-        <button class="faq-question" type="button" aria-expanded="false">
-          <span>How long does GCC setup take?</span><span class="faq-icon" aria-hidden="true"></span>
-        </button>
-        <div class="faq-answer"><p>Talentika’s end-to-end GCC setup covers location strategy, legal entity, talent acquisition, and operational ramp-up, with delivery targeted in under 90 days.</p></div>
-      </article>
-      <article class="faq-item reveal" style="--delay:120ms">
-        <button class="faq-question" type="button" aria-expanded="false">
-          <span>What industries do you serve?</span><span class="faq-icon" aria-hidden="true"></span>
-        </button>
-        <div class="faq-answer"><p>Talentika’s design examples span fintech, healthcare, and manufacturing, supported by technology hiring and digital transformation capabilities.</p></div>
-      </article>
-      <article class="faq-item reveal" style="--delay:180ms">
-        <button class="faq-question" type="button" aria-expanded="false">
-          <span>What is your pricing model?</span><span class="faq-icon" aria-hidden="true"></span>
-        </button>
-        <div class="faq-answer"><p>Pricing is shaped through a custom proposal after the discovery call, based on the solution architecture, location strategy, and program scope.</p></div>
-      </article>
-      <article class="faq-item reveal" style="--delay:240ms">
-        <button class="faq-question" type="button" aria-expanded="false">
-          <span>Do you offer pilot programs?</span><span class="faq-icon" aria-hidden="true"></span>
-        </button>
-        <div class="faq-answer"><p>Pilot-program availability is not specified in the current design content. It can be discussed during the discovery call and reflected in the custom proposal.</p></div>
-      </article>
-    </div>
-  </section>
+<section class="contact-process">
+<h2 class="contact-process__title reveal">Our Process</h2>
+<div class="contact-process__flow">
+<article class="process-card reveal">
+<div class="process-card__num">01</div>
+<h3>Discovery Call</h3>
+<p>30-min strategic alignment to define your GCC goals, talent gaps, and operational readiness.</p>
+</article>
+<img alt="" class="contact-process__arrow reveal" src="assets/images/contactus/arrow-right-01.svg"/>
+<article class="process-card reveal" style="--delay:80ms">
+<div class="process-card__num">02</div>
+<h3>Custom Proposal</h3>
+<p>Tailored solution architecture delivered within 5 days, including location strategy and ROI projection.</p>
+</article>
+<img alt="" class="contact-process__arrow reveal" src="assets/images/contactus/arrow-right-02.svg"/>
+<article class="process-card reveal" style="--delay:160ms">
+<div class="process-card__num">03</div>
+<h3>Kickoff</h3>
+<p>Dedicated team mobilized within 2 weeks, with clear milestones and weekly delivery cadence.</p>
+</article>
+</div>
+</section>
+<section class="contact-form-section">
+<div class="contact-form__left">
+<h2 class="contact-form__heading reveal">Schedule a session with our principal architects to <span>blueprint your next-gen engineering center.</span></h2>
+<form action="#" class="contact-form reveal" method="post">
+<div class="form-field">
+<label for="full-name">Full Name</label>
+<input class="form-control" id="full-name" name="full-name" placeholder="Your Name" type="text"/>
+</div>
+<div class="form-field">
+<label for="work-email">Work Email</label>
+<input class="form-control" id="work-email" name="work-email" placeholder="email@companyname.com" type="email"/>
+</div>
+<div class="form-field">
+<label for="company-name">Company Name</label>
+<input class="form-control" id="company-name" name="company-name" placeholder="Company Name" type="text"/>
+</div>
+<div class="form-field">
+<label for="brief-message">Brief Message</label>
+<textarea class="form-control" id="brief-message" name="brief-message" placeholder="Write here"></textarea>
+</div>
+<button class="contact-submit" type="submit">Submit Enquiry</button>
+</form>
+</div>
+<aside class="contact-form__aside reveal" style="--delay:80ms">
+<div class="contact-form__photo">
+<img alt="Talentika office" src="assets/images/contactus/Office_Photo.png"/>
+</div>
+<div class="contact-hours">
+<p class="contact-label">OFFICE HOURS</p>
+<strong>Mon-Fri: 9:00 AM - 6:00 PM IST</strong>
+</div>
+<div class="contact-direct">
+<div class="contact-direct__item">
+<p class="contact-label">EMAIL</p>
+<a href="mailto:contact@talentika.in">contact@talentika.in</a>
+</div>
+<div class="contact-direct__item">
+<p class="contact-label">PHONE</p>
+<a href="tel:+919823323373">+91 98233 23373</a>
+</div>
+</div>
+</aside>
+</section>
+<section class="contact-network">
+<div class="contact-network__intro reveal">
+<p class="contact-network__eyebrow">NETWORK</p>
+<h2 class="contact-network__title">Global Presence</h2>
+<p class="contact-network__desc">Please select any location to check more details.</p>
+<p class="contact-network__mobile-hint">Swipe horizontally to explore the map →</p>
+</div>
+<p aria-hidden="true" class="contact-network__number">10+</p>
+<div aria-label="Scrollable global presence map" class="contact-network__viewport" tabindex="0">
+<div class="contact-network__stage">
+<div class="contact-network__canvas">
+<img alt="World map showing Talentika locations" class="contact-network__world" src="assets/images/contactus/Map.svg"/>
+<button class="map-country map-country--usa" data-location="USA" type="button"><strong>USA</strong><span>Atlanta</span><span>Boston</span><span>Chicago</span><span>California</span><span>San Francisco</span></button>
+<button class="map-country map-country--ireland" data-location="Ireland" type="button"><strong>Ireland</strong><span>Dublin</span></button>
+<button class="map-country map-country--uk" data-location="United Kingdom" type="button"><strong>United Kingdom</strong><span>London</span><span>Manchester</span><span>Oxford</span></button>
+<button class="map-country map-country--india" data-location="India" type="button"><strong>India</strong><span>Mumbai</span><span>Delhi</span><span>Bengaluru</span><span>Pune</span><span>Hyderabad</span><span>Chennai</span></button>
+<button class="map-country map-country--singapore" data-location="Singapore" type="button"><strong>Singapore</strong><span>Jurong</span></button>
+<button class="map-country map-country--australia" data-location="Australia" type="button"><strong>Australia</strong><span>Sydney</span><span>Melbourne</span><span>Brisbane</span><span>Perth</span><span>Adelaide</span></button>
+<button class="map-country map-country--denmark" data-location="Denmark" type="button"><strong>Denmark</strong><span>Copenhagen</span></button>
+<button class="map-country map-country--slovakia" data-location="Slovakia" type="button"><strong>Slovakia</strong><span>Bratislava</span></button>
+<button class="map-country map-country--spain" data-location="Spain" type="button"><strong>Spain</strong><span>Madrid</span></button>
+<button class="map-country map-country--sweden" data-location="Sweden" type="button"><strong>Sweden</strong><span>Madrid</span></button>
+<img alt="" class="map-indicator map-indicator--1" src="assets/images/contactus/Indicator-01.svg"/>
+<img alt="" class="map-indicator map-indicator--2" src="assets/images/contactus/Indicator-02.svg"/>
+<img alt="" class="map-indicator map-indicator--3" src="assets/images/contactus/Indicator-03.svg"/>
+<img alt="" class="map-indicator map-indicator--4" src="assets/images/contactus/Indicator-04.svg"/>
+<img alt="" class="map-indicator map-indicator--5" src="assets/images/contactus/Indicator-05.svg"/>
+<img alt="" class="map-indicator map-indicator--6" src="assets/images/contactus/Indicator-06.svg"/>
+<img alt="" class="map-indicator map-indicator--7" src="assets/images/contactus/Indicator-07.svg"/>
+<img alt="" class="map-indicator map-indicator--8" src="assets/images/contactus/Indicator-08.svg"/>
+<img alt="" class="map-indicator map-indicator--9" src="assets/images/contactus/Indicator-09.svg"/>
+<img alt="" class="map-indicator map-indicator--10" src="assets/images/contactus/Indicator-10.svg"/>
+</div>
+</div>
+</div>
+<aside aria-live="polite" class="contact-network__detail" id="location-detail">
+<h3 id="location-detail-title">Location</h3>
+<p><strong>Email</strong><br/><a href="mailto:contact@talentika.in">contact@talentika.in</a></p>
+<p><strong>Phone</strong><br/><a href="tel:+919823323373">+91 98233 23373</a></p>
+</aside>
+</section>
+<section class="contact-faq">
+<div class="contact-faq__head reveal">
+<p class="contact-faq__eyebrow">FAQs</p>
+<h2 class="contact-faq__title">Frequently Asked Questions</h2>
+</div>
+<div class="faq-list">
+<article class="faq-item is-open reveal">
+<button aria-expanded="true" class="faq-question" type="button">
+<span>What is a GCC?</span><span aria-hidden="true" class="faq-icon"></span>
+</button>
+<div class="faq-answer"><p>A Global Capability Center is a strategic hub that delivers specialized services, engineering, and innovation for a global enterprise from a single location.</p></div>
+</article>
+<article class="faq-item reveal" style="--delay:60ms">
+<button aria-expanded="false" class="faq-question" type="button">
+<span>How long does GCC setup take?</span><span aria-hidden="true" class="faq-icon"></span>
+</button>
+<div class="faq-answer"><p>Talentika’s end-to-end GCC setup covers location strategy, legal entity, talent acquisition, and operational ramp-up, with delivery targeted in under 90 days.</p></div>
+</article>
+<article class="faq-item reveal" style="--delay:120ms">
+<button aria-expanded="false" class="faq-question" type="button">
+<span>What industries do you serve?</span><span aria-hidden="true" class="faq-icon"></span>
+</button>
+<div class="faq-answer"><p>Talentika’s design examples span fintech, healthcare, and manufacturing, supported by technology hiring and digital transformation capabilities.</p></div>
+</article>
+<article class="faq-item reveal" style="--delay:180ms">
+<button aria-expanded="false" class="faq-question" type="button">
+<span>What is your pricing model?</span><span aria-hidden="true" class="faq-icon"></span>
+</button>
+<div class="faq-answer"><p>Pricing is shaped through a custom proposal after the discovery call, based on the solution architecture, location strategy, and program scope.</p></div>
+</article>
+<article class="faq-item reveal" style="--delay:240ms">
+<button aria-expanded="false" class="faq-question" type="button">
+<span>Do you offer pilot programs?</span><span aria-hidden="true" class="faq-icon"></span>
+</button>
+<div class="faq-answer"><p>Pilot-program availability is not specified in the current design content. It can be discussed during the discovery call and reflected in the custom proposal.</p></div>
+</article>
+</div>
+</section>
 </main>
 <footer class="footer" id="contact"><div class="footer__cta reveal"><p class="section-label">READY TO BEGIN?</p><h2 class="section-heading">Let’s Build Something Great Together</h2><a class="button footer__advisor" href="#">Speak to an Advisor</a><div class="city-tickers"><div class="ticker"><div class="ticker__track city-track"></div></div><div class="ticker ticker--reverse"><div class="ticker__track city-track"></div></div></div></div>
-<div class="footer__main"><div><img class="footer__brand-logo" src="https://www.figma.com/api/mcp/asset/24509ebf-4027-4fcd-8de3-679f8aecfe58/560ae.png" alt="Talentika"><p class="footer__tagline">Engineering the Workforce<br>Behind Global Innovation.</p><div class="footer__mini-icons"><img src="https://www.figma.com/api/mcp/asset/24509ebf-4027-4fcd-8de3-679f8aecfe58/eabc9.png" alt="GCC"><img src="https://www.figma.com/api/mcp/asset/24509ebf-4027-4fcd-8de3-679f8aecfe58/0788c.png" alt="RPO"><img src="https://www.figma.com/api/mcp/asset/24509ebf-4027-4fcd-8de3-679f8aecfe58/ac0ad.png" alt="AI"></div><div class="footer__contact"><strong>Contact</strong><p>hello@talentika.in &nbsp;&nbsp; +91 123 456 7890</p></div><div class="footer__social"><img src="https://www.figma.com/api/mcp/asset/24509ebf-4027-4fcd-8de3-679f8aecfe58/33153.png" alt="Instagram"><img src="https://www.figma.com/api/mcp/asset/24509ebf-4027-4fcd-8de3-679f8aecfe58/5235e.png" alt="LinkedIn"><img src="https://www.figma.com/api/mcp/asset/24509ebf-4027-4fcd-8de3-679f8aecfe58/511ec.png" alt="Facebook"><img src="https://www.figma.com/api/mcp/asset/24509ebf-4027-4fcd-8de3-679f8aecfe58/5b93a.png" alt="X"></div></div>
+<div class="footer__main"><div><img alt="Talentika" class="footer__brand-logo" src="assets/images/contactus/T_Logo_Light 1.png"/><p class="footer__tagline">Engineering the Workforce<br/>Behind Global Innovation.</p><div class="footer__mini-icons"><img alt="GCC" src="assets/images/contactus/GCC_Icon_1 1.png"/><img alt="RPO" src="assets/images/contactus/RPO_Icon_1 1.png"/><img alt="AI" src="assets/images/contactus/AI_Icon_1 1.png"/></div><div class="footer__contact"><strong>Contact</strong><p>hello@talentika.in    +91 123 456 7890</p></div><div class="footer__social"><img alt="Instagram" src="assets/images/contactus/instagram 1.png"/><img alt="LinkedIn" src="assets/images/contactus/LinkedIn 1.png"/><img alt="Facebook" src="assets/images/contactus/Facebook 1.png"/><img alt="X" src="assets/images/contactus/X 1.png"/></div></div>
 <div class="footer__links">
 <div class="footer__col"><h3>Services</h3><a class="footer__link" href="#">GCC Setup &amp; Advisory</a><a class="footer__link" href="#">Location Strategy</a><a class="footer__link" href="#">Entity &amp; Compliance</a><a class="footer__link" href="#">Tech &amp; Infrastructure</a><a class="footer__link" href="#">Tech RPO</a><a class="footer__link" href="#">Healthcare RPO</a><a class="footer__link" href="#">Executive Search</a><a class="footer__link" href="#">Platform Integration</a></div>
 <div class="footer__col"><h3>Company</h3><a class="footer__link" href="#">About Talentika</a><a class="footer__link" href="#">Careers/Hiring</a><a class="footer__link" href="#">Case Studies</a><a class="footer__link" href="#">Contact</a><a class="footer__link" href="#">Insights &amp; Resources</a></div>
 <div class="footer__col"><h3>EcoSystem &amp; Platforms</h3><div class="footer__ecosystem">
-<a class="footer__ecosystem-row" href="#"><img class="footer__ecosystem-logo footer__ecosystem-logo--deebug" src="https://www.figma.com/api/mcp/asset/24509ebf-4027-4fcd-8de3-679f8aecfe58/fcd1c.png" alt="Deebug"><span class="footer__ecosystem-arrow" aria-hidden="true">
-<svg class="footer__arrow--out" viewBox="0 0 24 24" fill="none"><path d="M6.4 18 5 16.6 14.6 7H6V5h12v12h-2V8.4L6.4 18Z" fill="currentColor"/></svg>
-<svg class="footer__arrow--in" viewBox="0 0 24 24" fill="none"><path d="M6.4 18 5 16.6 14.6 7H6V5h12v12h-2V8.4L6.4 18Z" fill="currentColor"/></svg>
+<a class="footer__ecosystem-row" href="#"><img alt="Deebug" class="footer__ecosystem-logo footer__ecosystem-logo--deebug" src="assets/images/contactus/Deebug_Logo 1.png"/><span aria-hidden="true" class="footer__ecosystem-arrow">
+<svg class="footer__arrow--out" fill="none" viewbox="0 0 24 24"><path d="M6.4 18 5 16.6 14.6 7H6V5h12v12h-2V8.4L6.4 18Z" fill="currentColor"></path></svg>
+<svg class="footer__arrow--in" fill="none" viewbox="0 0 24 24"><path d="M6.4 18 5 16.6 14.6 7H6V5h12v12h-2V8.4L6.4 18Z" fill="currentColor"></path></svg>
 </span></a>
-<a class="footer__ecosystem-row" href="#"><img class="footer__ecosystem-logo" src="https://www.figma.com/api/mcp/asset/24509ebf-4027-4fcd-8de3-679f8aecfe58/ff2fa.png" alt="GCC Mixer"><span class="footer__ecosystem-arrow" aria-hidden="true">
-<svg class="footer__arrow--out" viewBox="0 0 24 24" fill="none"><path d="M6.4 18 5 16.6 14.6 7H6V5h12v12h-2V8.4L6.4 18Z" fill="currentColor"/></svg>
-<svg class="footer__arrow--in" viewBox="0 0 24 24" fill="none"><path d="M6.4 18 5 16.6 14.6 7H6V5h12v12h-2V8.4L6.4 18Z" fill="currentColor"/></svg>
+<a class="footer__ecosystem-row" href="#"><img alt="GCC Mixer" class="footer__ecosystem-logo" src="assets/images/contactus/GCC_Mixer_Logo 2.png"/><span aria-hidden="true" class="footer__ecosystem-arrow">
+<svg class="footer__arrow--out" fill="none" viewbox="0 0 24 24"><path d="M6.4 18 5 16.6 14.6 7H6V5h12v12h-2V8.4L6.4 18Z" fill="currentColor"></path></svg>
+<svg class="footer__arrow--in" fill="none" viewbox="0 0 24 24"><path d="M6.4 18 5 16.6 14.6 7H6V5h12v12h-2V8.4L6.4 18Z" fill="currentColor"></path></svg>
 </span></a>
-<a class="footer__ecosystem-row" href="#"><img class="footer__ecosystem-logo" src="https://www.figma.com/api/mcp/asset/24509ebf-4027-4fcd-8de3-679f8aecfe58/181f2.png" alt="AI Basecamp"><span class="footer__ecosystem-arrow" aria-hidden="true">
-<svg class="footer__arrow--out" viewBox="0 0 24 24" fill="none"><path d="M6.4 18 5 16.6 14.6 7H6V5h12v12h-2V8.4L6.4 18Z" fill="currentColor"/></svg>
-<svg class="footer__arrow--in" viewBox="0 0 24 24" fill="none"><path d="M6.4 18 5 16.6 14.6 7H6V5h12v12h-2V8.4L6.4 18Z" fill="currentColor"/></svg>
+<a class="footer__ecosystem-row" href="#"><img alt="AI Basecamp" class="footer__ecosystem-logo" src="assets/images/contactus/AI_Base_Camp_Logo 2.png"/><span aria-hidden="true" class="footer__ecosystem-arrow">
+<svg class="footer__arrow--out" fill="none" viewbox="0 0 24 24"><path d="M6.4 18 5 16.6 14.6 7H6V5h12v12h-2V8.4L6.4 18Z" fill="currentColor"></path></svg>
+<svg class="footer__arrow--in" fill="none" viewbox="0 0 24 24"><path d="M6.4 18 5 16.6 14.6 7H6V5h12v12h-2V8.4L6.4 18Z" fill="currentColor"></path></svg>
 </span></a>
 </div></div>
 <div class="footer__col"><h3>Cities We Work in</h3><a class="footer__link" href="#">Pune</a><a class="footer__link" href="#">London</a><a class="footer__link" href="#">Dublin</a><a class="footer__link" href="#">Madrid</a><a class="footer__link" href="#">Sydney</a></div>
 </div>
 <div class="footer__bottom">
 <span>© 2026 Talentika.</span>
-<nav class="footer__legal" aria-label="Legal">
+<nav aria-label="Legal" class="footer__legal">
 <a class="footer__legal-link" href="#">Privacy Policy</a>
 <a class="footer__legal-link" href="#">Terms of Use</a>
 <a class="footer__legal-link" href="#">Cookie Preferences</a>
 <a class="footer__legal-link" href="#">Sitemap</a>
 </nav>
 </div>
-</div></div>
-<div class="footer__skyline" aria-hidden="true"><img src="https://www.figma.com/api/mcp/asset/0af92dde-8c8e-4909-8571-75b9240046a2/1010b.svg" alt=""></div></footer>
+</div>
+<div aria-hidden="true" class="footer__skyline"><img alt="" src="assets/images/contactus/Layer_3.svg"/></div></footer>
 <script>
 (() => {
  const toggle=document.querySelector('.site-header__toggle'),nav=document.querySelector('.site-header__nav');
