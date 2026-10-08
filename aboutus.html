@@ -1,8 +1,9 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
 <title>Talentika — About Us</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Geist:wght@600;700&family=Noto+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
@@ -1301,337 +1302,1568 @@ main{position:relative;z-index:1}
   }
 }
 
+
+/* =========================================================
+   FLUID RESPONSIVE SYSTEM — FINAL CASCADE
+   Keeps the original art direction while removing fixed desktop
+   assumptions on large / ultra-wide / unusual aspect-ratio screens.
+   ========================================================= */
+:root{
+  --fluid-pad:clamp(20px,4.167vw,88px);
+  --fluid-pad-wide:clamp(24px,5vw,112px);
+  --fluid-max:1920px;
+  --fluid-copy:68ch;
+  --fluid-h1:clamp(42px,4.15vw,76px);
+  --fluid-h2:clamp(34px,2.92vw,54px);
+  --fluid-h3:clamp(20px,1.67vw,30px);
+  --fluid-body:clamp(14px,1.05vw,18px);
+}
+
+html,body{max-width:100%;overflow-x:hidden}
+body{font-size:var(--fluid-body)}
+main{width:100%;min-width:0}
+section,header,footer,nav,div,article{min-width:0}
+img,video{max-width:100%}
+
+/* Header remains proportional instead of visually shrinking on large screens. */
+@media (min-width:769px){
+  .site-header{
+    height:auto;
+    padding:14px clamp(16px,1.1vw,24px) 0;
+  }
+  .site-header__inner{
+    width:min(100%,var(--fluid-max));
+    min-height:91px;
+    height:auto;
+    margin-inline:auto;
+    padding:clamp(22px,1.75vw,34px) var(--fluid-pad);
+  }
+  .site-header__logo{
+    width:clamp(126px,9vw,164px);
+    height:auto;
+  }
+  .site-header__nav{
+    gap:clamp(28px,4.15vw,72px);
+  }
+  .site-header__link{
+    font-size:clamp(14px,.98vw,17px);
+    line-height:1.35;
+  }
+  .site-header__talk{
+    width:auto;
+    min-width:clamp(138px,9.6vw,170px);
+    min-height:clamp(54px,3.75vw,64px);
+    padding:0 clamp(18px,1.5vw,28px);
+    font-size:clamp(14px,.98vw,17px);
+  }
+}
+
+/* Shared typography */
+@media (min-width:769px){
+  .hero__title,.about-hero__title,.gcc-hero__title,.rpo-hero__title,.ai-hero__title{
+    font-size:var(--fluid-h1)!important;
+    line-height:1!important;
+    letter-spacing:-.025em;
+  }
+  .section-heading,.about-timeline__intro h2,.about-leaders__intro h2,
+  .about-reach__copy h2,.gcc-section-title,.rpo-section-title,
+  .rpo-execution__copy h2,.ai-section-heading{
+    font-size:var(--fluid-h2)!important;
+    line-height:1.04!important;
+  }
+}
+
+/* Common full-width sections use fluid gutters. */
+@media (min-width:769px){
+  .hero,.features,.partners,.stats,.services,.ai-core,
+  .about-breadcrumb,.about-hero,
+  .gcc-breadcrumb,.gcc-hero,.gcc-stats,.gcc-shift,.gcc-corridor,.gcc-framework,.gcc-case,
+  .rpo-breadcrumb,.rpo-hero,.rpo-execution,.rpo-difference,.rpo-performance,
+  .ai-breadcrumb,.ai-hero,.ai-hiring,.ai-capabilities,.ai-domains{
+    padding-left:var(--fluid-pad)!important;
+    padding-right:var(--fluid-pad)!important;
+  }
+
+  .footer__cta,.footer__main{
+    padding-left:var(--fluid-pad)!important;
+    padding-right:var(--fluid-pad)!important;
+  }
+}
+
+/* Prevent text columns from becoming either tiny or excessively long. */
+@media (min-width:769px){
+  .hero__copy,.about-hero__copy,.gcc-hero__copy,.rpo-hero__copy,.ai-hero__copy{
+    width:min(48vw,760px)!important;
+    max-width:760px!important;
+  }
+  .hero__description,.about-hero__desc,.gcc-hero__desc,.rpo-hero__desc,.ai-hero__desc{
+    width:min(100%,var(--fluid-copy))!important;
+    max-width:var(--fluid-copy)!important;
+    font-size:clamp(15px,1.05vw,18px)!important;
+    line-height:1.5!important;
+  }
+}
+
+/* Ultra-wide displays: increase breathing room and cap readable line lengths. */
+@media (min-width:1800px){
+  :root{
+    --fluid-pad:clamp(88px,5vw,128px);
+  }
+  .site-header__inner{max-width:2200px}
+  .footer__cta .section-heading{max-width:820px!important}
+}
+
+/* Short landscape / extreme aspect ratios */
+@media (min-width:769px) and (max-height:760px){
+  .hero,.about-hero,.gcc-hero,.rpo-hero,.ai-hero{
+    min-height:calc(100svh - 105px)!important;
+    height:auto!important;
+    padding-top:48px!important;
+    padding-bottom:48px!important;
+  }
+  .hero__media,.about-page .hero__media,.gcc-page .hero__media,
+  .rpo-page .hero__media,.ai-page .hero__media{
+    height:100%!important;
+    min-height:100%!important;
+  }
+}
+
+/* Mobile: retain compact type without under-scaling on very narrow screens. */
+@media (max-width:768px){
+  :root{
+    --fluid-h1:clamp(36px,10.7vw,44px);
+    --fluid-h2:clamp(30px,8.5vw,36px);
+    --fluid-body:15px;
+  }
+  body{font-size:15px}
+  .hero__title,.about-hero__title,.gcc-hero__title,.rpo-hero__title,.ai-hero__title{
+    font-size:var(--fluid-h1)!important;
+    line-height:1.04!important;
+    overflow-wrap:anywhere;
+  }
+  .section-heading,.about-timeline__intro h2,.about-leaders__intro h2,
+  .about-reach__copy h2,.gcc-section-title,.rpo-section-title,
+  .rpo-execution__copy h2,.ai-section-heading{
+    font-size:var(--fluid-h2)!important;
+    line-height:1.08!important;
+  }
+}
+
+
+@media (min-width:769px){
+  .about-hero{height:auto;min-height:clamp(609px,46vw,780px)}
+  .about-timeline{
+    height:clamp(756px,52vw,940px);
+  }
+  .about-timeline__intro{
+    left:var(--fluid-pad);
+    width:min(32vw,470px);
+  }
+  .about-timeline__cards{
+    left:clamp(500px,40.7vw,760px);
+    width:calc(100vw - clamp(500px,40.7vw,760px));
+  }
+  .about-timeline__slide{width:min(43vw,700px)}
+  .about-timeline__slide.is-next{transform:translateX(clamp(560px,46vw,760px)) scale(1)}
+  .about-timeline__image{height:clamp(330px,25vw,460px)}
+  .about-metrics{
+    display:grid!important;
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    gap:clamp(40px,9vw,150px)!important;
+    height:auto!important;
+    min-height:353px!important;
+    padding:80px var(--fluid-pad)!important;
+  }
+  .about-metric,.about-metric:nth-child(n){
+    position:relative!important;left:auto!important;top:auto!important;width:auto!important;
+  }
+  .about-leaders__inner{padding-left:var(--fluid-pad);padding-right:var(--fluid-pad)}
+  .about-leaders__grid{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:clamp(36px,5.5vw,82px);
+  }
+  .leader-card,.leader-card__image,.leader-card__meta{width:100%}
+  .leader-card__image{height:auto;aspect-ratio:385/453}
+  .about-reach{padding-left:var(--fluid-pad);padding-right:var(--fluid-pad)}
+  .about-reach__head{
+    grid-template-columns:minmax(360px,452px) minmax(0,1fr);
+    height:auto;min-height:200px;
+  }
+  .about-reach__copy p:last-child{width:min(100%,520px)}
+  .about-reach__number{font-size:clamp(150px,13.9vw,240px);line-height:1}
+  .about-reach__ticker-wrap{
+    width:calc(100% + (var(--fluid-pad) * 2));
+    margin-left:calc(var(--fluid-pad) * -1);
+  }
+}
+
+
+/* =========================================================
+   4K CONTENT SHELL
+   Fluid to 3840px, then centered with equal outer margins.
+   ========================================================= */
+:root{
+  --site-max-width:3840px;
+}
+
+body{
+  width:100%;
+  margin:0;
+  overflow-x:hidden;
+}
+
+/* Treat the site as one fluid canvas that caps at 4K. */
+.site-header,
+main,
+.footer{
+  width:min(100%, var(--site-max-width));
+  max-width:var(--site-max-width);
+  margin-left:auto;
+  margin-right:auto;
+}
+
+/* Keep full-width visual/media layers constrained to the same canvas. */
+.hero__media{
+  width:min(100vw, var(--site-max-width))!important;
+  max-width:var(--site-max-width)!important;
+  left:50%!important;
+  transform:translateX(-50%)!important;
+}
+
+/* Any intentionally edge-to-edge ticker/overflow section should stop at 4K too. */
+.partners,
+.city-tickers,
+.about-reach,
+.about-reach__ticker-wrap{
+  max-width:var(--site-max-width);
+}
+
+/* Beyond 4K, outer whitespace is automatic and equal on both sides. */
+@media (min-width:3841px){
+  html{
+    background:#fff;
+  }
+
+  body{
+    width:100%;
+  }
+
+  .site-header,
+  main,
+  .footer{
+    width:3840px;
+    max-width:3840px;
+    margin-left:auto!important;
+    margin-right:auto!important;
+  }
+
+  .hero__media{
+    width:3840px!important;
+    max-width:3840px!important;
+    left:50%!important;
+    transform:translateX(-50%)!important;
+  }
+}
+
+
+/* =========================================================
+   LARGE-SCREEN / 4K PROPORTIONAL SCALE SYSTEM
+   1440px is the design reference. From 1441px to 3840px,
+   spacing, type, controls and media scale proportionally.
+   Above 3840px the entire canvas stops growing and stays centered.
+   ========================================================= */
+:root{
+  --site-max-width:3840px;
+}
+
+.site-header,
+main,
+.footer{
+  width:min(100%,var(--site-max-width))!important;
+  max-width:var(--site-max-width)!important;
+  margin-inline:auto!important;
+}
+
+@media (min-width:1600px){
+  :root{
+    --lg-gutter:clamp(60px,4.1667vw,160px);
+    --lg-gutter-sm:clamp(40px,2.7778vw,107px);
+    --lg-h1:clamp(60px,4.1667vw,160px);
+    --lg-h2:clamp(42px,2.9167vw,112px);
+    --lg-h3:clamp(24px,1.6667vw,64px);
+    --lg-body:clamp(16px,1.1111vw,43px);
+    --lg-small:clamp(12px,.8333vw,32px);
+    --lg-radius:clamp(20px,1.3889vw,53px);
+    --lg-radius-lg:clamp(42px,2.9167vw,112px);
+  }
+
+  body{
+    font-size:var(--lg-body)!important;
+  }
+
+  /* Header */
+  .site-header{
+    height:auto!important;
+    padding:clamp(14px,.9722vw,37px) clamp(16px,1.1111vw,43px) 0!important;
+  }
+
+  .site-header__inner{
+    width:100%!important;
+    max-width:none!important;
+    min-height:clamp(91px,6.3194vw,243px)!important;
+    height:auto!important;
+    padding:
+      clamp(25px,1.7361vw,67px)
+      clamp(48px,3.3333vw,128px)
+      clamp(25px,1.7361vw,67px)
+      clamp(44px,3.0556vw,117px)!important;
+    border-radius:clamp(16px,1.1111vw,43px)!important;
+  }
+
+  .site-header__logo{
+    width:clamp(126px,8.75vw,336px)!important;
+    height:auto!important;
+  }
+
+  .site-header__nav{
+    gap:clamp(60px,4.1667vw,160px)!important;
+  }
+
+  .site-header__link{
+    font-size:clamp(14px,.9722vw,37px)!important;
+    line-height:1.35!important;
+  }
+
+  .site-header__talk{
+    width:clamp(138px,9.5833vw,368px)!important;
+    min-width:0!important;
+    height:clamp(54px,3.75vw,144px)!important;
+    min-height:0!important;
+    padding:0!important;
+    border-radius:clamp(10px,.6944vw,27px)!important;
+    font-size:clamp(14px,.9722vw,37px)!important;
+  }
+
+  /* Shared hero/media */
+  .hero,
+  .about-hero,
+  .gcc-hero,
+  .rpo-hero,
+  .ai-hero,
+  .contact-hero{
+    padding-left:var(--lg-gutter)!important;
+    padding-right:var(--lg-gutter)!important;
+  }
+
+  .hero__media{
+    width:min(100vw,3840px)!important;
+    max-width:3840px!important;
+  }
+
+  .hero__title,
+  .about-hero__title,
+  .gcc-hero__title,
+  .rpo-hero__title,
+  .ai-hero__title,
+  .contact-hero__title{
+    font-size:var(--lg-h1)!important;
+    line-height:1!important;
+    letter-spacing:-.025em!important;
+  }
+
+  .hero__copy,
+  .about-hero__copy,
+  .gcc-hero__copy,
+  .rpo-hero__copy,
+  .ai-hero__copy,
+  .contact-hero__copy{
+    width:clamp(598px,41.5278vw,1595px)!important;
+    max-width:none!important;
+  }
+
+  .hero__description,
+  .about-hero__desc,
+  .gcc-hero__desc,
+  .rpo-hero__desc,
+  .ai-hero__desc,
+  .contact-hero__sub{
+    width:clamp(506px,35.1389vw,1349px)!important;
+    max-width:none!important;
+    font-size:var(--lg-body)!important;
+    line-height:1.45!important;
+  }
+
+  /* Shared section headings/body */
+  .section-heading,
+  .about-timeline__intro h2,
+  .about-leaders__intro h2,
+  .about-reach__copy h2,
+  .gcc-section-title,
+  .rpo-section-title,
+  .rpo-execution__copy h2,
+  .ai-section-heading,
+  .contact-process__title,
+  .contact-form__heading{
+    font-size:var(--lg-h2)!important;
+    line-height:1.02!important;
+  }
+
+  .button,
+  .ai-button,
+  .rpo-btn,
+  .gcc-button{
+    min-height:clamp(60px,4.1667vw,160px)!important;
+    padding:clamp(20px,1.3889vw,53px)!important;
+    border-radius:clamp(10px,.6944vw,27px)!important;
+    font-size:clamp(16px,1.1111vw,43px)!important;
+    line-height:1.2!important;
+  }
+
+  /* Shared footer scaling */
+  .footer{
+    border-radius:clamp(42px,2.9167vw,112px) clamp(42px,2.9167vw,112px) 0 0!important;
+    padding-top:clamp(80px,5.5556vw,213px)!important;
+  }
+
+  .footer__cta{
+    padding-left:var(--lg-gutter)!important;
+    padding-right:var(--lg-gutter)!important;
+    padding-bottom:clamp(42px,2.9167vw,112px)!important;
+  }
+
+  .footer__cta .section-heading{
+    font-size:var(--lg-h1)!important;
+    line-height:1!important;
+    max-width:clamp(674px,46.8056vw,1797px)!important;
+  }
+
+  .footer__main{
+    padding:
+      clamp(80px,5.5556vw,213px)
+      var(--lg-gutter)
+      clamp(30px,2.0833vw,80px)!important;
+    grid-template-columns:
+      clamp(330px,22.9167vw,880px)
+      minmax(0,1fr)!important;
+    gap:clamp(170px,11.8056vw,453px)!important;
+    min-height:clamp(506px,35.1389vw,1349px)!important;
+  }
+
+  .footer__brand-logo{
+    width:clamp(164px,11.3889vw,437px)!important;
+    height:auto!important;
+  }
+
+  .footer__tagline{
+    font-size:clamp(16px,1.1111vw,43px)!important;
+  }
+
+  .footer__links{
+    grid-template-columns:repeat(4,minmax(0,1fr))!important;
+    column-gap:clamp(90px,6.25vw,240px)!important;
+  }
+
+  .footer__col h3{
+    font-size:clamp(14px,.9722vw,37px)!important;
+    line-height:1.4!important;
+    margin-bottom:clamp(12px,.8333vw,32px)!important;
+  }
+
+  .footer__link,
+  .footer__contact,
+  .footer__bottom,
+  .footer__legal-link{
+    font-size:clamp(12px,.8333vw,32px)!important;
+    line-height:1.35!important;
+  }
+
+  .footer__social{
+    gap:clamp(22px,1.5278vw,59px)!important;
+    margin-top:clamp(40px,2.7778vw,107px)!important;
+    height:auto!important;
+  }
+
+  .footer__social img{
+    width:clamp(46px,3.1944vw,123px)!important;
+    height:clamp(46px,3.1944vw,123px)!important;
+  }
+
+  .footer__ecosystem-row{
+    height:clamp(64px,4.4444vw,171px)!important;
+  }
+
+  .footer__ecosystem-logo{
+    max-width:clamp(136px,9.4444vw,363px)!important;
+    height:clamp(24px,1.6667vw,64px)!important;
+  }
+
+  .footer__skyline{
+    height:clamp(150px,10.4167vw,400px)!important;
+  }
+
+  .footer__skyline img{
+    width:clamp(1448px,100.5556vw,3861px)!important;
+    height:auto!important;
+  }
+
+  .city-tickers .ticker__item{
+    font-size:clamp(16px,1.1111vw,43px)!important;
+    padding:clamp(20px,1.3889vw,53px)!important;
+    margin-inline:clamp(11px,.7639vw,29px)!important;
+  }
+}
+
+@media (min-width:3841px){
+  .site-header,
+  main,
+  .footer{
+    width:3840px!important;
+    max-width:3840px!important;
+    margin-inline:auto!important;
+  }
+}
+
+
+@media (min-width:1600px){
+  .about-page .hero__media{height:clamp(750px,52.0833vw,2000px)!important}
+  .about-breadcrumb{
+    height:auto!important;
+    padding:clamp(10px,.6944vw,27px) var(--lg-gutter)!important;
+    gap:clamp(6px,.4167vw,16px)!important;
+    font-size:var(--lg-small)!important;
+    line-height:1.35!important;
+  }
+  .about-hero{
+    min-height:clamp(609px,42.2917vw,1624px)!important;
+    height:auto!important;
+    padding-bottom:clamp(60px,4.1667vw,160px)!important;
+    gap:clamp(40px,2.7778vw,107px)!important;
+  }
+
+  .about-timeline{
+    height:clamp(756px,52.5vw,2016px)!important;
+  }
+  .about-timeline__intro{
+    left:var(--lg-gutter)!important;
+    top:clamp(90px,6.25vw,240px)!important;
+    width:clamp(383px,26.5972vw,1021px)!important;
+    gap:clamp(18px,1.25vw,48px)!important;
+  }
+  .about-timeline__intro p{
+    font-size:var(--lg-body)!important;
+    line-height:1.5!important;
+  }
+  .about-timeline__giant{
+    right:clamp(-312px,-8.125vw,-117px)!important;
+    top:clamp(82px,5.6944vw,219px)!important;
+    font-size:clamp(360px,25vw,960px)!important;
+    line-height:.8333!important;
+  }
+  .about-timeline__years{
+    top:clamp(494px,34.3056vw,1317px)!important;
+    width:clamp(444px,30.8333vw,1184px)!important;
+  }
+  .about-timeline__year{
+    left:clamp(392px,27.2222vw,1045px)!important;
+    font-size:clamp(18px,1.25vw,48px)!important;
+    line-height:1.4!important;
+  }
+  .about-timeline__cards{
+    left:clamp(586px,40.6944vw,1563px)!important;
+    top:clamp(228px,15.8333vw,608px)!important;
+    width:calc(100% - clamp(586px,40.6944vw,1563px))!important;
+    height:clamp(458px,31.8056vw,1221px)!important;
+  }
+  .about-timeline__slide{width:clamp(619px,42.9861vw,1651px)!important;gap:clamp(24px,1.6667vw,64px)!important}
+  .about-timeline__slide.is-next{transform:translateX(clamp(661px,45.9028vw,1763px)) scale(1)!important}
+  .about-timeline__image{height:clamp(360px,25vw,960px)!important;border-radius:clamp(36px,2.5vw,96px)!important}
+  .about-timeline__slide h3{font-size:clamp(20px,1.3889vw,53px)!important}
+  .about-timeline__slide p{width:clamp(292px,20.2778vw,779px)!important;font-size:clamp(14px,.9722vw,37px)!important}
+  .about-timeline__arrow-button{
+    left:clamp(598px,41.5278vw,1595px)!important;
+    top:clamp(148px,10.2778vw,395px)!important;
+    width:clamp(122px,8.4722vw,325px)!important;
+    height:clamp(81px,5.625vw,216px)!important;
+  }
+  .about-timeline__arrow-button img{width:100%!important;height:100%!important}
+
+  .about-metrics{
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    gap:clamp(100px,9.1667vw,352px)!important;
+    padding:clamp(80px,5.5556vw,213px) var(--lg-gutter)!important;
+    min-height:clamp(353px,24.5139vw,941px)!important;
+  }
+  .about-metric__number,
+  .about-metric__unit{
+    font-size:clamp(120px,8.3333vw,320px)!important;
+    line-height:1!important;
+    height:auto!important;
+  }
+  .about-metric__suffix{font-size:clamp(90px,6.25vw,240px)!important;line-height:1!important}
+  .about-metric__label,.about-metric__desc{font-size:clamp(14px,.9722vw,37px)!important}
+
+  .about-leaders{padding-bottom:clamp(90px,6.25vw,240px)!important}
+  .about-leaders__inner{padding:0 var(--lg-gutter)!important;gap:clamp(42px,2.9167vw,112px)!important}
+  .about-leaders__intro{gap:clamp(10px,.6944vw,27px)!important}
+  .about-leaders__intro .eyebrow{font-size:clamp(16px,1.1111vw,43px)!important}
+  .about-leaders__intro h2{width:clamp(757px,52.5694vw,2019px)!important}
+  .about-leaders__grid{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:clamp(48px,3.3333vw,128px) clamp(82px,5.7292vw,220px)!important}
+  .leader-card{gap:clamp(24px,1.6667vw,64px)!important}
+  .leader-card__image{height:auto!important;aspect-ratio:385/453!important;border-radius:var(--lg-radius-lg)!important}
+  .leader-card__meta{grid-template-columns:minmax(0,1fr) clamp(118px,8.1944vw,315px)!important;gap:clamp(5px,.3472vw,13px)!important}
+  .leader-card__name{font-size:clamp(20px,1.3889vw,53px)!important}
+  .leader-card__role{font-size:clamp(14px,.9722vw,37px)!important}
+  .leader-card__social{gap:clamp(26px,1.8056vw,69px)!important}
+  .leader-card__social img{width:clamp(46px,3.1944vw,123px)!important;height:clamp(46px,3.1944vw,123px)!important}
+
+  .about-reach{padding:clamp(80px,5.5556vw,213px) var(--lg-gutter)!important}
+  .about-reach__head{grid-template-columns:clamp(452px,31.3889vw,1205px) 1fr!important;gap:clamp(24px,1.6667vw,64px)!important;min-height:clamp(200px,13.8889vw,533px)!important}
+  .about-reach__copy{gap:clamp(10px,.6944vw,27px)!important}
+  .about-reach__copy .eyebrow{font-size:clamp(16px,1.1111vw,43px)!important}
+  .about-reach__copy p:last-child{width:clamp(440px,30.5556vw,1173px)!important;font-size:var(--lg-body)!important}
+  .about-reach__number{font-size:clamp(200px,13.8889vw,533px)!important;line-height:1!important}
+  .about-reach__ticker + .about-reach__ticker{margin-top:clamp(70px,4.8611vw,187px)!important}
+  .about-reach__track{gap:clamp(24px,1.6667vw,64px)!important}
+  .reach-card--wide{width:clamp(521px,36.1806vw,1389px)!important}
+  .reach-card--square{width:clamp(389px,27.0139vw,1037px)!important}
+  .reach-card--wide .reach-card__image{height:clamp(291px,20.2083vw,776px)!important}
+  .reach-card--square .reach-card__image{height:clamp(389px,27.0139vw,1037px)!important}
+  .reach-card__image{border-radius:clamp(36px,2.5vw,96px)!important}
+  .reach-card h3{font-size:clamp(20px,1.3889vw,53px)!important}
+  .reach-card p{font-size:clamp(14px,.9722vw,37px)!important}
+}
+
+
+/* =========================================================
+   4K CONSISTENCY PASS
+   Fixes remaining 1440px-era fixed widths that caused narrow
+   headings, tiny logos/tags, excessive wrapping and uneven scale.
+   ========================================================= */
+@media (min-width:1600px){
+
+  /* Shared heading width must scale with the large-screen type. */
+  .section-heading{
+    max-width:clamp(647px,44.9306vw,1725px)!important;
+  }
+
+  /* Shared text links / labels */
+  .text-cta{
+    font-size:clamp(14px,.9722vw,37px)!important;
+    line-height:1.35!important;
+  }
+
+  /* Large watermarks should scale too, otherwise they look detached. */
+  .work__watermark{
+    font-size:clamp(180px,12.5vw,480px)!important;
+    line-height:.905!important;
+    width:100%!important;
+    margin-left:calc(var(--lg-gutter) * -1)!important;
+    padding-left:var(--lg-gutter)!important;
+  }
+
+  /* Case-study content: remove narrow 1440px text constraints. */
+  .case-card__tag{
+    padding:clamp(10px,.6944vw,27px)!important;
+    border-radius:clamp(10px,.6944vw,27px)!important;
+    font-size:clamp(14px,.9722vw,37px)!important;
+  }
+
+  .case-card__logo{
+    width:clamp(109px,7.5694vw,291px)!important;
+    height:clamp(24px,1.6667vw,64px)!important;
+    object-fit:contain!important;
+  }
+
+  .case-card__desc{
+    max-width:clamp(291px,20.2083vw,776px)!important;
+    font-size:clamp(14px,.9722vw,37px)!important;
+    line-height:1.45!important;
+  }
+
+  .case-card__metric-sub{
+    font-size:clamp(14px,.9722vw,37px)!important;
+    line-height:1.4!important;
+  }
+
+  /* Footer assets that were still fixed at small desktop sizes. */
+  .footer__mini-icons img{
+    max-width:clamp(92px,6.3889vw,245px)!important;
+    max-height:clamp(32px,2.2222vw,85px)!important;
+  }
+
+  .footer__contact{
+    font-size:clamp(12px,.8333vw,32px)!important;
+  }
+
+  /* Keep content widths proportional without creating excessively long lines. */
+  p{
+    text-wrap:pretty;
+  }
+}
+
+
+@media (min-width:1600px){
+  .about-leaders__watermark{
+    font-size:clamp(172px,11.944vw,459px)!important;
+    line-height:.95!important;
+  }
+
+  .about-timeline__intro p,
+  .about-reach__copy p:last-child,
+  .reach-card p,
+  .leader-card__role{
+    line-height:1.5!important;
+  }
+}
+
+
+/* =========================================================
+   LARGE-SCREEN FOOTER NORMALIZATION
+   Preserve the 1440px footer composition instead of vertically
+   stretching it on 4K displays.
+   ========================================================= */
+@media (min-width:1600px){
+
+  .footer{
+    padding-top:clamp(80px,3.2vw,120px)!important;
+    border-radius:clamp(42px,1.8vw,68px) clamp(42px,1.8vw,68px) 0 0!important;
+  }
+
+  .footer__cta{
+    padding-left:var(--lg-gutter)!important;
+    padding-right:var(--lg-gutter)!important;
+    padding-bottom:clamp(42px,2vw,72px)!important;
+  }
+
+  .footer__cta .section-heading{
+    font-size:clamp(60px,2.6vw,92px)!important;
+    line-height:1!important;
+    max-width:clamp(674px,30vw,1080px)!important;
+  }
+
+  .footer__advisor{
+    margin-top:clamp(42px,1.8vw,64px)!important;
+  }
+
+  .city-tickers{
+    margin-top:clamp(42px,1.8vw,64px)!important;
+  }
+
+  .city-tickers .ticker__item{
+    font-size:clamp(16px,.72vw,24px)!important;
+    padding:clamp(20px,.9vw,32px)!important;
+    margin-inline:clamp(11px,.5vw,18px)!important;
+  }
+
+  .footer__main{
+    height:auto!important;
+    min-height:0!important;
+    padding:
+      clamp(80px,3.2vw,120px)
+      var(--lg-gutter)
+      clamp(42px,2vw,72px)!important;
+    grid-template-columns:
+      clamp(330px,18vw,460px)
+      minmax(0,1fr)!important;
+    gap:clamp(90px,5vw,150px)!important;
+    align-items:start!important;
+  }
+
+  .footer__brand-logo{
+    width:clamp(164px,8vw,230px)!important;
+    height:auto!important;
+  }
+
+  .footer__tagline{
+    font-size:clamp(16px,.78vw,24px)!important;
+    line-height:1.35!important;
+  }
+
+  .footer__mini-icons{
+    gap:clamp(18px,.8vw,28px)!important;
+    margin:clamp(28px,1.2vw,40px) 0!important;
+  }
+
+  .footer__mini-icons img{
+    max-width:clamp(92px,4.2vw,132px)!important;
+    max-height:clamp(32px,1.5vw,46px)!important;
+  }
+
+  .footer__contact{
+    font-size:clamp(12px,.62vw,18px)!important;
+    line-height:1.4!important;
+  }
+
+  .footer__social{
+    gap:clamp(22px,1vw,32px)!important;
+    margin-top:clamp(40px,1.6vw,56px)!important;
+    height:auto!important;
+  }
+
+  .footer__social img{
+    width:clamp(46px,2.1vw,64px)!important;
+    height:clamp(46px,2.1vw,64px)!important;
+  }
+
+  .footer__links{
+    grid-template-columns:
+      minmax(0,.95fr)
+      minmax(0,.95fr)
+      minmax(0,1.18fr)
+      minmax(0,.95fr)!important;
+    column-gap:clamp(64px,3.5vw,110px)!important;
+    row-gap:0!important;
+    align-items:start!important;
+  }
+
+  .footer__col h3{
+    font-size:clamp(14px,.68vw,20px)!important;
+    line-height:1.35!important;
+    margin-bottom:clamp(12px,.55vw,18px)!important;
+  }
+
+  .footer__link{
+    font-size:clamp(12px,.62vw,18px)!important;
+    line-height:1.35!important;
+    margin-bottom:clamp(17px,.72vw,24px)!important;
+  }
+
+  .footer__ecosystem-row{
+    height:clamp(64px,2.8vw,88px)!important;
+  }
+
+  .footer__ecosystem-logo{
+    max-width:clamp(136px,6.5vw,190px)!important;
+    height:clamp(24px,1.1vw,34px)!important;
+  }
+
+  .footer__ecosystem-logo--deebug{
+    width:clamp(85px,4vw,120px)!important;
+  }
+
+  .footer__ecosystem-arrow{
+    width:clamp(24px,1.1vw,34px)!important;
+    height:clamp(24px,1.1vw,34px)!important;
+    flex-basis:clamp(24px,1.1vw,34px)!important;
+  }
+
+  .footer__bottom{
+    position:static!important;
+    left:auto!important;
+    right:auto!important;
+    top:auto!important;
+    grid-column:2 / -1!important;
+    width:100%!important;
+    height:auto!important;
+    min-height:0!important;
+    margin:clamp(28px,1.4vw,44px) 0 0!important;
+    padding:0!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:space-between!important;
+    gap:24px!important;
+    background:transparent!important;
+    font-size:clamp(12px,.62vw,18px)!important;
+    line-height:1.35!important;
+  }
+
+  .footer__legal{
+    gap:clamp(20px,1.2vw,36px)!important;
+    flex-wrap:wrap!important;
+  }
+
+  .footer__legal-link{
+    font-size:clamp(12px,.62vw,18px)!important;
+    line-height:1.35!important;
+  }
+
+  .footer__skyline{
+    height:clamp(150px,6.5vw,220px)!important;
+  }
+
+  .footer__skyline img{
+    width:min(100%,3840px)!important;
+    height:100%!important;
+    object-fit:cover!important;
+    object-position:center bottom!important;
+  }
+}
+
+@media (min-width:2200px){
+  .footer__main{
+    grid-template-columns:420px minmax(0,1fr)!important;
+    gap:140px!important;
+  }
+
+  .footer__links{
+    column-gap:96px!important;
+  }
+}
+
+
+/* =========================================================
+   FIGMA FOOTER COPYRIGHT ROW
+   Reference: Footer / Frame 114 at 1440px
+   © 2026 Talentika. + legal links on one horizontal row.
+   ========================================================= */
+@media (min-width:769px){
+  .footer__bottom{
+    grid-column:2 / -1!important;
+    width:100%!important;
+    max-width:none!important;
+    display:flex!important;
+    flex-direction:row!important;
+    align-items:center!important;
+    justify-content:space-between!important;
+    gap:32px!important;
+    white-space:nowrap!important;
+  }
+
+  .footer__bottom > span{
+    display:block!important;
+    flex:0 0 auto!important;
+    white-space:nowrap!important;
+    color:#b3b8bf!important;
+    font-family:"Noto Sans",sans-serif!important;
+    font-weight:400!important;
+  }
+
+  .footer__legal{
+    display:flex!important;
+    flex-direction:row!important;
+    align-items:center!important;
+    justify-content:flex-end!important;
+    flex-wrap:nowrap!important;
+    white-space:nowrap!important;
+  }
+
+  .footer__legal-link{
+    flex:0 0 auto!important;
+    white-space:nowrap!important;
+  }
+}
+
+/* Match the Figma footer row typography and relative spacing on desktop. */
+@media (min-width:769px) and (max-width:1440px){
+  .footer__bottom,
+  .footer__legal-link{
+    font-size:12px!important;
+    line-height:16px!important;
+  }
+
+  .footer__legal{
+    gap:28px!important;
+  }
+}
+
+/* On large screens scale gently, while preserving the exact single-row composition. */
+@media (min-width:1600px){
+  .footer__bottom,
+  .footer__legal-link{
+    font-size:clamp(12px,.62vw,18px)!important;
+    line-height:1.35!important;
+  }
+
+  .footer__legal{
+    gap:clamp(28px,1.2vw,42px)!important;
+  }
+}
+
+
+/* =========================================================
+   FIGMA-EXACT FOOTER LEGAL ROW ALIGNMENT
+   1440 reference:
+   - footer inner content: 1320px, centered
+   - brand column: 330px
+   - gap to link block: 170px
+   - link block: 820px
+   - copyright starts exactly under Services
+   - legal group starts exactly under EcoSystem & Platforms
+   ========================================================= */
+
+/* Standard desktop: preserve the 1440 Figma geometry while centering
+   the 1320px inner footer canvas on slightly wider screens. */
+@media (min-width:1200px) and (max-width:1599px){
+  .footer__main{
+    position:relative!important;
+    width:100%!important;
+    height:506px!important;
+    min-height:506px!important;
+    padding-top:80px!important;
+    padding-bottom:0!important;
+    padding-left:max(60px, calc((100% - 1320px) / 2))!important;
+    padding-right:max(60px, calc((100% - 1320px) / 2))!important;
+    grid-template-columns:330px 820px!important;
+    column-gap:170px!important;
+    row-gap:0!important;
+  }
+
+  .footer__links{
+    width:820px!important;
+    grid-template-columns:124px 124px 178px 124px!important;
+    column-gap:90px!important;
+    row-gap:0!important;
+  }
+
+  .footer__bottom{
+    position:absolute!important;
+    top:472px!important;
+    left:calc(max(60px, (100% - 1320px) / 2) + 500px)!important;
+    right:auto!important;
+    width:820px!important;
+    height:19px!important;
+    margin:0!important;
+    padding:0!important;
+
+    display:grid!important;
+    grid-template-columns:124px 124px 178px 124px!important;
+    column-gap:90px!important;
+    align-items:center!important;
+    justify-content:stretch!important;
+
+    color:#b3b8bf!important;
+    font:400 12px/16px "Noto Sans",sans-serif!important;
+    white-space:nowrap!important;
+  }
+
+  .footer__bottom > span{
+    grid-column:1!important;
+    justify-self:start!important;
+    white-space:nowrap!important;
+  }
+
+  .footer__legal{
+    grid-column:3 / 5!important;
+    justify-self:start!important;
+    width:390px!important;
+    margin:0!important;
+
+    display:flex!important;
+    flex-direction:row!important;
+    align-items:center!important;
+    justify-content:flex-start!important;
+    gap:28px!important;
+    flex-wrap:nowrap!important;
+    white-space:nowrap!important;
+  }
+
+  .footer__legal-link{
+    font:400 12px/16px "Noto Sans",sans-serif!important;
+    white-space:nowrap!important;
+  }
+}
+
+/* Large screens: retain the same column relationships.
+   Copyright stays aligned to Services; legal links stay aligned
+   to the EcoSystem & Platforms column. */
+@media (min-width:1600px){
+  .footer__main{
+    position:relative!important;
+  }
+
+  .footer__bottom{
+    position:absolute!important;
+    left:calc(
+      var(--lg-gutter) +
+      clamp(330px,18vw,460px) +
+      clamp(90px,5vw,150px)
+    )!important;
+    right:var(--lg-gutter)!important;
+    top:auto!important;
+    bottom:clamp(42px,2vw,72px)!important;
+    width:auto!important;
+    height:auto!important;
+    margin:0!important;
+    padding:0!important;
+
+    display:grid!important;
+    grid-template-columns:
+      minmax(0,.95fr)
+      minmax(0,.95fr)
+      minmax(0,1.18fr)
+      minmax(0,.95fr)!important;
+    column-gap:clamp(64px,3.5vw,110px)!important;
+    align-items:center!important;
+    justify-content:stretch!important;
+  }
+
+  .footer__bottom > span{
+    grid-column:1!important;
+    justify-self:start!important;
+    white-space:nowrap!important;
+  }
+
+  .footer__legal{
+    grid-column:3 / 5!important;
+    justify-self:start!important;
+    width:auto!important;
+    margin:0!important;
+    display:flex!important;
+    flex-wrap:nowrap!important;
+    justify-content:flex-start!important;
+    gap:clamp(28px,1.2vw,42px)!important;
+    white-space:nowrap!important;
+  }
+}
+
+
+/* =========================================================
+   FOOTER GRID ALIGNMENT — MATCH FIGMA COLUMN GEOMETRY
+   Reference at 1440:
+   right content block = 820px
+   tracks = 124 / 90 / 124 / 90 / 178 / 90 / 124
+   Copyright aligns to Services.
+   Legal group aligns to EcoSystem & Platforms.
+   ========================================================= */
+@media (min-width:1200px){
+
+  .footer__main{
+    --footer-pad:clamp(60px,4.1667vw,160px);
+
+    position:relative!important;
+    width:100%!important;
+    height:auto!important;
+    min-height:clamp(506px,35.1389vw,760px)!important;
+    padding:
+      clamp(80px,5.5556vw,120px)
+      var(--footer-pad)
+      clamp(15px,1.0417vw,20px)!important;
+
+    display:grid!important;
+    grid-template-columns:
+      25%
+      12.8787879%
+      62.1212121%!important;
+    grid-template-rows:
+      clamp(332px,23.0556vw,500px)
+      clamp(79px,5.4861vw,120px)!important;
+    column-gap:0!important;
+    row-gap:0!important;
+    align-items:start!important;
+  }
+
+  /* Brand column */
+  .footer__main > div:first-child{
+    grid-column:1!important;
+    grid-row:1 / 3!important;
+    width:100%!important;
+    min-width:0!important;
+  }
+
+  /* Use the exact seven-track Figma geometry for the four link columns. */
+  .footer__links{
+    grid-column:3!important;
+    grid-row:1!important;
+
+    width:100%!important;
+    min-width:0!important;
+    display:grid!important;
+    grid-template-columns:
+      124fr 90fr 124fr 90fr 178fr 90fr 124fr!important;
+    column-gap:0!important;
+    row-gap:0!important;
+    align-items:start!important;
+  }
+
+  .footer__links > .footer__col:nth-child(1){grid-column:1!important}
+  .footer__links > .footer__col:nth-child(2){grid-column:3!important}
+  .footer__links > .footer__col:nth-child(3){grid-column:5!important}
+  .footer__links > .footer__col:nth-child(4){grid-column:7!important}
+
+  /* Copyright/legal row belongs to the same 820px block as the links. */
+  .footer__bottom{
+    position:static!important;
+    left:auto!important;
+    right:auto!important;
+    top:auto!important;
+    bottom:auto!important;
+
+    grid-column:3!important;
+    grid-row:2!important;
+    align-self:end!important;
+
+    width:100%!important;
+    height:auto!important;
+    min-height:19px!important;
+    margin:0!important;
+    padding:0!important;
+
+    display:grid!important;
+    grid-template-columns:
+      124fr 90fr 124fr 90fr 178fr 90fr 124fr!important;
+    column-gap:0!important;
+    align-items:center!important;
+    justify-content:stretch!important;
+
+    background:transparent!important;
+    color:#b3b8bf!important;
+    font-family:"Noto Sans",sans-serif!important;
+    font-weight:400!important;
+    white-space:nowrap!important;
+  }
+
+  .footer__bottom > span{
+    grid-column:1!important;
+    justify-self:start!important;
+    align-self:center!important;
+    display:block!important;
+    width:max-content!important;
+    margin:0!important;
+    padding:0!important;
+    white-space:nowrap!important;
+  }
+
+  /* Figma: legal group begins at x=430 inside the 820px block,
+     exactly beneath the EcoSystem & Platforms column. */
+  .footer__legal{
+    grid-column:5 / 8!important;
+    justify-self:stretch!important;
+    align-self:center!important;
+
+    width:100%!important;
+    min-width:0!important;
+    margin:0!important;
+    padding:0!important;
+
+    display:flex!important;
+    flex-direction:row!important;
+    align-items:center!important;
+    justify-content:space-between!important;
+    gap:0!important;
+    flex-wrap:nowrap!important;
+    white-space:nowrap!important;
+  }
+
+  .footer__legal-link{
+    flex:0 0 auto!important;
+    margin:0!important;
+    white-space:nowrap!important;
+  }
+}
+
+/* 1440 Figma typography values and nearby desktop widths. */
+@media (min-width:1200px) and (max-width:1599px){
+  .footer__bottom,
+  .footer__legal-link{
+    font-size:12px!important;
+    line-height:16px!important;
+  }
+}
+
+/* Gentle large-screen scaling without changing alignment relationships. */
+@media (min-width:1600px){
+  .footer__bottom,
+  .footer__legal-link{
+    font-size:clamp(12px,.62vw,18px)!important;
+    line-height:1.35!important;
+  }
+}
+
 </style>
 </head>
 <body class="about-page">
-<div class="hero__media" aria-hidden="true">
-  <video autoplay muted loop playsinline preload="metadata" poster="https://www.figma.com/api/mcp/asset/ae1ff006-6089-4730-a701-88b2394c255f.png" id="heroVideo">
-    <source src="about-hero-video.mp4" type="video/mp4">
-  </video>
-  <img src="https://www.figma.com/api/mcp/asset/ae1ff006-6089-4730-a701-88b2394c255f.png" alt="">
+<div aria-hidden="true" class="hero__media">
+<video autoplay="" id="heroVideo" loop="" muted="" playsinline="" preload="metadata">
+<source src="assets/videos/aboutus-hero-1440x750.mp4" type="video/mp4"/>
+</video>
 </div>
 <header class="site-header">
-  <div class="site-header__inner">
-    <a href="index.html" aria-label="Talentika home"><img class="site-header__logo" src="https://www.figma.com/api/mcp/asset/1ce4e403-b815-478e-98d9-497282565682/a26d6.png" alt="Talentika"></a>
-    <button class="site-header__toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><span></span></button>
-    <nav class="site-header__nav" id="main-nav" aria-label="Primary navigation">
-      <a class="site-header__link" href="gcc.html">GCC services</a>
-      <a class="site-header__link" href="rpo.html">RPO</a>
-      <a class="site-header__link" href="aidigital.html">Digital</a>
-      <a class="site-header__link" href="index.html#work">Case studies</a>
-      <a class="site-header__link is-active" href="aboutus.html" aria-current="page">About</a>
-      <a class="site-header__link" href="contactus.html">Contact</a>
-      <a class="site-header__talk" href="contactus.html">Talk to us</a>
-    </nav>
-  </div>
+<div class="site-header__inner">
+<a aria-label="Talentika home" href="index.html"><img alt="Talentika" class="site-header__logo" src="assets/images/aboutus/T_Logo_Dark 1.png"/></a>
+<button aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation" class="site-header__toggle" type="button"><span></span><span></span><span></span></button>
+<nav aria-label="Primary navigation" class="site-header__nav" id="main-nav">
+<a class="site-header__link" href="gcc.html">GCC services</a>
+<a class="site-header__link" href="rpo.html">RPO</a>
+<a class="site-header__link" href="aidigital.html">Digital</a>
+<a class="site-header__link" href="index.html#work">Case studies</a>
+<a aria-current="page" class="site-header__link is-active" href="aboutus.html">About</a>
+<a class="site-header__link" href="contactus.html">Contact</a>
+<a class="site-header__talk" href="contactus.html">Talk to us</a>
+</nav>
+</div>
 </header>
 <main id="about-overview">
-  <nav class="about-breadcrumb" aria-label="Breadcrumb">
-    <span>Home</span><span>/</span><strong>About Us</strong>
-  </nav>
-
-  <section class="about-hero">
-    <div class="about-hero__copy reveal">
-      <h1 class="about-hero__title"><span class="accent">Building the Digital Workforce</span> Behind Global Enterprise Growth</h1>
-      <p class="about-hero__desc">A global talent management network combining deep advisory intelligence with high-speed operational execution.</p>
-    </div>
-    <div class="about-hero__actions reveal" style="--delay:80ms">
-      <a class="button button--primary" href="#contact">Partner With Us</a>
-      <a class="button button--secondary" href="#leaders">Join Our Team</a>
-    </div>
-  </section>
-
-  <section class="about-timeline">
-    <div class="about-timeline__intro reveal">
-      <h2>Our Journey<br>and Scale</h2>
-      <p>Founded in 2001, Talentika pioneered enterprise-scale RPO and managed services frameworks. Our global delivery network now spans 100+ countries through direct offices and regional partner hubs.<br><br>We maintain long-term advisory partnerships with the world's most innovative product and technology enterprises, delivering excellence with an industry-leading 88% NPS.</p>
-    </div>
-    <div class="about-timeline__giant" aria-hidden="true">20<br>01</div>
-
-    <div class="about-timeline__years reveal" aria-label="Company history milestones">
-      <img class="about-timeline__line" src="https://www.figma.com/api/mcp/asset/bcbd3d4c-ff0c-475c-9473-1cf3a9fcc597/5c47c.svg" alt="">
-      <button class="about-timeline__year about-timeline__year--2001 is-active" type="button" data-history-index="0">2001</button>
-      <button class="about-timeline__year about-timeline__year--2015" type="button" data-history-index="1">2015</button>
-      <button class="about-timeline__year about-timeline__year--2020" type="button" data-history-index="2">2020</button>
-      <button class="about-timeline__year about-timeline__year--today" type="button" data-history-index="3">Today</button>
-    </div>
-
-    <div class="about-timeline__cards" aria-live="polite">
-      <article class="about-timeline__slide is-active" data-history-card="0">
-        <div class="about-timeline__image">
-          <img src="https://www.figma.com/api/mcp/asset/bcbd3d4c-ff0c-475c-9473-1cf3a9fcc597/43b52.png" alt="Talentika early journey">
-        </div>
-        <div><h3>Founded in 2001</h3><p>Built the first advisory-led RPO frameworks for global enterprise clients.</p></div>
-      </article>
-
-      <article class="about-timeline__slide is-next" data-history-card="1">
-        <div class="about-timeline__image">
-          <img src="https://www.figma.com/api/mcp/asset/bcbd3d4c-ff0c-475c-9473-1cf3a9fcc597/d90c9.png" alt="Talentika global expansion">
-        </div>
-        <div><h3>2015 - Global Expansion</h3><p>Expanded delivery into 10+ countries and established regional partner hubs.</p></div>
-      </article>
-
-      <article class="about-timeline__slide" data-history-card="2">
-        <div class="about-timeline__image">
-          <img src="https://www.figma.com/api/mcp/asset/bcbd3d4c-ff0c-475c-9473-1cf3a9fcc597/43b52.png" alt="Talentika enterprise delivery milestone">
-        </div>
-        <div><h3>2020</h3><p>Expanded managed services, GCC advisory, and digital transformation delivery for global enterprise programs.</p></div>
-      </article>
-
-      <article class="about-timeline__slide" data-history-card="3">
-        <div class="about-timeline__image">
-          <img src="https://www.figma.com/api/mcp/asset/bcbd3d4c-ff0c-475c-9473-1cf3a9fcc597/d90c9.png" alt="Talentika global delivery network today">
-        </div>
-        <div><h3>Today</h3><p>A global delivery network spanning 100+ countries through direct offices and regional partner hubs, with an industry-leading 88% NPS.</p></div>
-      </article>
-
-      <button class="about-timeline__arrow-button" type="button" aria-label="Show next milestone">
-        <img src="https://www.figma.com/api/mcp/asset/bcbd3d4c-ff0c-475c-9473-1cf3a9fcc597/a2a6d.svg" alt="">
-      </button>
-    </div>
-  </section>
-
-  <section class="about-metrics" aria-label="Talentika scale metrics">
-  <article class="about-metric reveal">
-    <p class="about-metric__number" data-odometer="13" data-unit="K" data-suffix="+">13K<small>+</small></p>
-    <p class="about-metric__label">FTEs Onboarded</p>
-    <p class="about-metric__desc">Across GCC, RPO, and digital transformation programs globally.</p>
-  </article>
-  <article class="about-metric reveal" style="--delay:80ms">
-    <p class="about-metric__number" data-odometer="40" data-unit="" data-suffix="+">40<small>+</small></p>
-    <p class="about-metric__label">Enterprise Environments</p>
-    <p class="about-metric__desc">Managed services and advisory partnerships at scale.</p>
-  </article>
-  <article class="about-metric reveal" style="--delay:160ms">
-    <p class="about-metric__number" data-odometer="60" data-unit="" data-suffix="+">60<small>+</small></p>
-    <p class="about-metric__label">Global GCC Setups</p>
-    <p class="about-metric__desc">From location strategy to operational ramp-up across India and beyond.</p>
-  </article>
+<nav aria-label="Breadcrumb" class="about-breadcrumb">
+<span>Home</span><span>/</span><strong>About Us</strong>
+</nav>
+<section class="about-hero">
+<div class="about-hero__copy reveal">
+<h1 class="about-hero__title"><span class="accent">Building the Digital Workforce</span> Behind Global Enterprise Growth</h1>
+<p class="about-hero__desc">A global talent management network combining deep advisory intelligence with high-speed operational execution.</p>
+</div>
+<div class="about-hero__actions reveal" style="--delay:80ms">
+<a class="button button--primary" href="#contact">Partner With Us</a>
+<a class="button button--secondary" href="#leaders">Join Our Team</a>
+</div>
 </section>
-
-  <section class="about-leaders" id="leaders">
-    <h2 class="about-leaders__watermark reveal">Meet our Leaders</h2>
-    <div class="about-leaders__inner">
-      <div class="about-leaders__intro reveal">
-        <p class="eyebrow">People</p>
-        <h2>A team of <span class="accent">tech-forward problem solvers</span> dedicated to driving your business into <span class="accent">high-growth future</span>.</h2>
-      </div>
-      <div class="about-leaders__grid">
-        
-      <article class="leader-card reveal" style="--delay:0ms">
-        <div class="leader-card__image"><img src="https://www.figma.com/api/mcp/asset/d781243d-53de-493c-a963-9d5785332379/e7243.png" alt="Lalit J"></div>
-        <div class="leader-card__meta">
-          <div><h3 class="leader-card__name">Lalit J</h3><p class="leader-card__role">Founder & Global Head<br>Talentika</p></div>
-          <div class="leader-card__social">
-            <a href="#" aria-label="Lalit J on LinkedIn"><img src="https://www.figma.com/api/mcp/asset/d781243d-53de-493c-a963-9d5785332379/f25f9.svg" alt=""></a>
-            <a href="#" aria-label="Lalit J on X"><img src="https://www.figma.com/api/mcp/asset/d781243d-53de-493c-a963-9d5785332379/d43b1.svg" alt=""></a>
-          </div>
-        </div>
-      </article>
-
-      <article class="leader-card reveal" style="--delay:80ms">
-        <div class="leader-card__image"><img src="https://www.figma.com/api/mcp/asset/d781243d-53de-493c-a963-9d5785332379/9a163.png" alt="Pranjali Pol"></div>
-        <div class="leader-card__meta">
-          <div><h3 class="leader-card__name">Pranjali Pol</h3><p class="leader-card__role">Co-Founder & Global Delivery Head<br>Ex. RMG Head, WIPRO</p></div>
-          <div class="leader-card__social">
-            <a href="#" aria-label="Pranjali Pol on LinkedIn"><img src="https://www.figma.com/api/mcp/asset/d781243d-53de-493c-a963-9d5785332379/f25f9.svg" alt=""></a>
-            <a href="#" aria-label="Pranjali Pol on X"><img src="https://www.figma.com/api/mcp/asset/d781243d-53de-493c-a963-9d5785332379/d43b1.svg" alt=""></a>
-          </div>
-        </div>
-      </article>
-
-      <article class="leader-card reveal" style="--delay:160ms">
-        <div class="leader-card__image"><img src="https://www.figma.com/api/mcp/asset/d781243d-53de-493c-a963-9d5785332379/31353.png" alt="Stanley George"></div>
-        <div class="leader-card__meta">
-          <div><h3 class="leader-card__name">Stanley George</h3><p class="leader-card__role">COO & Managing Partner India (South)<br>Ex CHRO, Hexaware Technologies</p></div>
-          <div class="leader-card__social">
-            <a href="#" aria-label="Stanley George on LinkedIn"><img src="https://www.figma.com/api/mcp/asset/d781243d-53de-493c-a963-9d5785332379/f25f9.svg" alt=""></a>
-            <a href="#" aria-label="Stanley George on X"><img src="https://www.figma.com/api/mcp/asset/d781243d-53de-493c-a963-9d5785332379/d43b1.svg" alt=""></a>
-          </div>
-        </div>
-      </article>
-
-      <article class="leader-card reveal" style="--delay:0ms">
-        <div class="leader-card__image"><img src="https://www.figma.com/api/mcp/asset/ac19d161-c752-4037-a336-8b9d8831f84d/8faa2.png" alt="Abhishek Jain"></div>
-        <div class="leader-card__meta">
-          <div><h3 class="leader-card__name">Abhishek Jain</h3><p class="leader-card__role">GCC Transformation Leader<br>(Ex SVP, Medline)</p></div>
-          <div class="leader-card__social">
-            <a href="#" aria-label="Abhishek Jain on LinkedIn"><img src="https://www.figma.com/api/mcp/asset/d781243d-53de-493c-a963-9d5785332379/f25f9.svg" alt=""></a>
-            <a href="#" aria-label="Abhishek Jain on X"><img src="https://www.figma.com/api/mcp/asset/d781243d-53de-493c-a963-9d5785332379/d43b1.svg" alt=""></a>
-          </div>
-        </div>
-      </article>
-
-      <article class="leader-card reveal" style="--delay:80ms">
-        <div class="leader-card__image"><img src="https://www.figma.com/api/mcp/asset/ac19d161-c752-4037-a336-8b9d8831f84d/d7847.png" alt="Jayaditya Giri"></div>
-        <div class="leader-card__meta">
-          <div><h3 class="leader-card__name">Jayaditya Giri</h3><p class="leader-card__role">Partner,<br>Eastern Europe</p></div>
-          <div class="leader-card__social">
-            <a href="#" aria-label="Jayaditya Giri on LinkedIn"><img src="https://www.figma.com/api/mcp/asset/d781243d-53de-493c-a963-9d5785332379/f25f9.svg" alt=""></a>
-            <a href="#" aria-label="Jayaditya Giri on X"><img src="https://www.figma.com/api/mcp/asset/d781243d-53de-493c-a963-9d5785332379/d43b1.svg" alt=""></a>
-          </div>
-        </div>
-      </article>
-
-      <article class="leader-card reveal" style="--delay:160ms">
-        <div class="leader-card__image"><img src="https://www.figma.com/api/mcp/asset/ac19d161-c752-4037-a336-8b9d8831f84d/786cb.png" alt="Gaurav Verma"></div>
-        <div class="leader-card__meta">
-          <div><h3 class="leader-card__name">Gaurav Verma</h3><p class="leader-card__role">Technology Leader<br>AI & Data, HCM Platforms</p></div>
-          <div class="leader-card__social">
-            <a href="#" aria-label="Gaurav Verma on LinkedIn"><img src="https://www.figma.com/api/mcp/asset/d781243d-53de-493c-a963-9d5785332379/f25f9.svg" alt=""></a>
-            <a href="#" aria-label="Gaurav Verma on X"><img src="https://www.figma.com/api/mcp/asset/d781243d-53de-493c-a963-9d5785332379/d43b1.svg" alt=""></a>
-          </div>
-        </div>
-      </article>
-
-      <article class="leader-card reveal" style="--delay:0ms">
-        <div class="leader-card__image"><img src="https://www.figma.com/api/mcp/asset/9edb98dc-ae48-477c-b604-bc323d30bcc5/d8b4a.png" alt="Sucheta Joglekar Phatak"></div>
-        <div class="leader-card__meta">
-          <div><h3 class="leader-card__name">Sucheta Joglekar Phatak</h3><p class="leader-card__role">Partner, London</p></div>
-          <div class="leader-card__social">
-            <a href="#" aria-label="Sucheta Joglekar Phatak on LinkedIn"><img src="https://www.figma.com/api/mcp/asset/d781243d-53de-493c-a963-9d5785332379/f25f9.svg" alt=""></a>
-            <a href="#" aria-label="Sucheta Joglekar Phatak on X"><img src="https://www.figma.com/api/mcp/asset/d781243d-53de-493c-a963-9d5785332379/d43b1.svg" alt=""></a>
-          </div>
-        </div>
-      </article>
-
-      <article class="leader-card reveal" style="--delay:80ms">
-        <div class="leader-card__image"><img src="https://www.figma.com/api/mcp/asset/9edb98dc-ae48-477c-b604-bc323d30bcc5/c2f73.png" alt="Akash Surekha"></div>
-        <div class="leader-card__meta">
-          <div><h3 class="leader-card__name">Akash Surekha</h3><p class="leader-card__role">Board Member<br>Ex MD, JPMC</p></div>
-          <div class="leader-card__social">
-            <a href="#" aria-label="Akash Surekha on LinkedIn"><img src="https://www.figma.com/api/mcp/asset/d781243d-53de-493c-a963-9d5785332379/f25f9.svg" alt=""></a>
-            <a href="#" aria-label="Akash Surekha on X"><img src="https://www.figma.com/api/mcp/asset/d781243d-53de-493c-a963-9d5785332379/d43b1.svg" alt=""></a>
-          </div>
-        </div>
-      </article>
-
-      <article class="leader-card reveal" style="--delay:160ms">
-        <div class="leader-card__image"><img src="https://www.figma.com/api/mcp/asset/9edb98dc-ae48-477c-b604-bc323d30bcc5/93e44.png" alt="Rajat Rana"></div>
-        <div class="leader-card__meta">
-          <div><h3 class="leader-card__name">Rajat Rana</h3><p class="leader-card__role">Managing Partner,<br>USA</p></div>
-          <div class="leader-card__social">
-            <a href="#" aria-label="Rajat Rana on LinkedIn"><img src="https://www.figma.com/api/mcp/asset/d781243d-53de-493c-a963-9d5785332379/f25f9.svg" alt=""></a>
-            <a href="#" aria-label="Rajat Rana on X"><img src="https://www.figma.com/api/mcp/asset/d781243d-53de-493c-a963-9d5785332379/d43b1.svg" alt=""></a>
-          </div>
-        </div>
-      </article>
-
-      <article class="leader-card reveal" style="--delay:0ms">
-        <div class="leader-card__image"><img src="https://www.figma.com/api/mcp/asset/3eea078f-3052-4fc8-9432-397384cef11b/e5622.png" alt="Pratyush Nandkeolyaar"></div>
-        <div class="leader-card__meta">
-          <div><h3 class="leader-card__name">Pratyush Nandkeolyaar</h3><p class="leader-card__role">Partner & Head of Design<br>Market Research & Analytics – HCM/RPO Practice</p></div>
-          <div class="leader-card__social">
-            <a href="#" aria-label="Pratyush Nandkeolyaar on LinkedIn"><img src="https://www.figma.com/api/mcp/asset/d781243d-53de-493c-a963-9d5785332379/f25f9.svg" alt=""></a>
-            <a href="#" aria-label="Pratyush Nandkeolyaar on X"><img src="https://www.figma.com/api/mcp/asset/d781243d-53de-493c-a963-9d5785332379/d43b1.svg" alt=""></a>
-          </div>
-        </div>
-      </article>
-
-      <article class="leader-card reveal" style="--delay:80ms">
-        <div class="leader-card__image"><img src="https://www.figma.com/api/mcp/asset/3eea078f-3052-4fc8-9432-397384cef11b/172fd.png" alt="Shashank Bhushan"></div>
-        <div class="leader-card__meta">
-          <div><h3 class="leader-card__name">Shashank Bhushan</h3><p class="leader-card__role">Board Member, USA<br>Ex MD BMC Software</p></div>
-          <div class="leader-card__social">
-            <a href="#" aria-label="Shashank Bhushan on LinkedIn"><img src="https://www.figma.com/api/mcp/asset/d781243d-53de-493c-a963-9d5785332379/f25f9.svg" alt=""></a>
-            <a href="#" aria-label="Shashank Bhushan on X"><img src="https://www.figma.com/api/mcp/asset/d781243d-53de-493c-a963-9d5785332379/d43b1.svg" alt=""></a>
-          </div>
-        </div>
-      </article>
-
-      <article class="leader-card reveal" style="--delay:160ms">
-        <div class="leader-card__image"><img src="https://www.figma.com/api/mcp/asset/3eea078f-3052-4fc8-9432-397384cef11b/33f04.png" alt="Mario Biscocho"></div>
-        <div class="leader-card__meta">
-          <div><h3 class="leader-card__name">Mario Biscocho</h3><p class="leader-card__role">Country Head,<br>Philippines</p></div>
-          <div class="leader-card__social">
-            <a href="#" aria-label="Mario Biscocho on LinkedIn"><img src="https://www.figma.com/api/mcp/asset/d781243d-53de-493c-a963-9d5785332379/f25f9.svg" alt=""></a>
-            <a href="#" aria-label="Mario Biscocho on X"><img src="https://www.figma.com/api/mcp/asset/d781243d-53de-493c-a963-9d5785332379/d43b1.svg" alt=""></a>
-          </div>
-        </div>
-      </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="about-reach">
-    <div class="about-reach__head reveal">
-      <div class="about-reach__copy">
-        <p class="eyebrow">GLOBAL REACH</p>
-        <h2>Delivery <span class="accent">across 10+ countries</span></h2>
-        <p>Deep technical knowledge across the domains that matter most in modern digital transformation programs.</p>
-      </div>
-      <p class="about-reach__number">10+</p>
-    </div>
-
-    <div class="about-reach__ticker-wrap">
-      <div class="about-reach__ticker">
-        <div class="about-reach__track" data-reach-track="forward">
-          <article class="reach-card reach-card--wide">
-            <div class="reach-card__image"><img src="https://www.figma.com/api/mcp/asset/0c2c88b4-17a0-41a6-80d7-4ae786ffcf4d/43b52.png" alt="Pune, India"></div>
-            <div><h3>Pune, India</h3><p>HQ and India Operations</p></div>
-          </article>
-          <article class="reach-card reach-card--square">
-            <div class="reach-card__image"><img src="https://www.figma.com/api/mcp/asset/0c2c88b4-17a0-41a6-80d7-4ae786ffcf4d/1f624.png" alt="California, USA"></div>
-            <div><h3>California, USA</h3><p>USA Operations</p></div>
-          </article>
-          <article class="reach-card reach-card--wide">
-            <div class="reach-card__image"><img src="https://www.figma.com/api/mcp/asset/0c2c88b4-17a0-41a6-80d7-4ae786ffcf4d/b08b8.png" alt="Bratislava, Slovakia"></div>
-            <div><h3>Bratislava, Slovakia</h3><p>Slovakia Operations</p></div>
-          </article>
-        </div>
-      </div>
-
-      <div class="about-reach__ticker about-reach__ticker--reverse">
-        <div class="about-reach__track" data-reach-track="reverse">
-          <article class="reach-card reach-card--square">
-            <div class="reach-card__image"><img src="https://www.figma.com/api/mcp/asset/0c2c88b4-17a0-41a6-80d7-4ae786ffcf4d/d2a6b.png" alt="Dublin, Ireland"></div>
-            <div><h3>Dublin, Ireland</h3><p>USA Operations</p></div>
-          </article>
-          <article class="reach-card reach-card--wide">
-            <div class="reach-card__image"><img src="https://www.figma.com/api/mcp/asset/0c2c88b4-17a0-41a6-80d7-4ae786ffcf4d/fc0a8.png" alt="Manchester, United Kingdom"></div>
-            <div><h3>Manchester, United Kingdom</h3><p>HQ and India Operations</p></div>
-          </article>
-          <article class="reach-card reach-card--wide">
-            <div class="reach-card__image"><img src="https://www.figma.com/api/mcp/asset/0c2c88b4-17a0-41a6-80d7-4ae786ffcf4d/906d5.png" alt="Madrid, Sweden"></div>
-            <div><h3>Madrid, Sweden</h3><p>Slovakia Operations</p></div>
-          </article>
-        </div>
-      </div>
-    </div>
-  </section>
+<section class="about-timeline">
+<div class="about-timeline__intro reveal">
+<h2>Our Journey<br/>and Scale</h2>
+<p>Founded in 2001, Talentika pioneered enterprise-scale RPO and managed services frameworks. Our global delivery network now spans 100+ countries through direct offices and regional partner hubs.<br/><br/>We maintain long-term advisory partnerships with the world's most innovative product and technology enterprises, delivering excellence with an industry-leading 88% NPS.</p>
+</div>
+<div aria-hidden="true" class="about-timeline__giant">20<br/>01</div>
+<div aria-label="Company history milestones" class="about-timeline__years reveal">
+<img alt="" class="about-timeline__line" src="assets/images/aboutus/Frame 162.svg"/>
+<button class="about-timeline__year about-timeline__year--2001 is-active" data-history-index="0" type="button">2001</button>
+<button class="about-timeline__year about-timeline__year--2015" data-history-index="1" type="button">2015</button>
+<button class="about-timeline__year about-timeline__year--2020" data-history-index="2" type="button">2020</button>
+<button class="about-timeline__year about-timeline__year--today" data-history-index="3" type="button">Today</button>
+</div>
+<div aria-live="polite" class="about-timeline__cards">
+<article class="about-timeline__slide is-active" data-history-card="0">
+<div class="about-timeline__image">
+<img alt="Talentika early journey" src="assets/images/aboutus/Rectangle 36-01.png"/>
+</div>
+<div><h3>Founded in 2001</h3><p>Built the first advisory-led RPO frameworks for global enterprise clients.</p></div>
+</article>
+<article class="about-timeline__slide is-next" data-history-card="1">
+<div class="about-timeline__image">
+<img alt="Talentika global expansion" src="assets/images/aboutus/Rectangle 37-01.png"/>
+</div>
+<div><h3>2015 - Global Expansion</h3><p>Expanded delivery into 10+ countries and established regional partner hubs.</p></div>
+</article>
+<article class="about-timeline__slide" data-history-card="2">
+<div class="about-timeline__image">
+<img alt="Talentika enterprise delivery milestone" src="assets/images/aboutus/Rectangle 36-02.png"/>
+</div>
+<div><h3>2020</h3><p>Expanded managed services, GCC advisory, and digital transformation delivery for global enterprise programs.</p></div>
+</article>
+<article class="about-timeline__slide" data-history-card="3">
+<div class="about-timeline__image">
+<img alt="Talentika global delivery network today" src="assets/images/aboutus/Rectangle 37-02.png"/>
+</div>
+<div><h3>Today</h3><p>A global delivery network spanning 100+ countries through direct offices and regional partner hubs, with an industry-leading 88% NPS.</p></div>
+</article>
+<button aria-label="Show next milestone" class="about-timeline__arrow-button" type="button">
+<img alt="" src="assets/images/aboutus/Arrow.svg"/>
+</button>
+</div>
+</section>
+<section aria-label="Talentika scale metrics" class="about-metrics">
+<article class="about-metric reveal">
+<p class="about-metric__number" data-odometer="13" data-suffix="+" data-unit="K">13K<small>+</small></p>
+<p class="about-metric__label">FTEs Onboarded</p>
+<p class="about-metric__desc">Across GCC, RPO, and digital transformation programs globally.</p>
+</article>
+<article class="about-metric reveal" style="--delay:80ms">
+<p class="about-metric__number" data-odometer="40" data-suffix="+" data-unit="">40<small>+</small></p>
+<p class="about-metric__label">Enterprise Environments</p>
+<p class="about-metric__desc">Managed services and advisory partnerships at scale.</p>
+</article>
+<article class="about-metric reveal" style="--delay:160ms">
+<p class="about-metric__number" data-odometer="60" data-suffix="+" data-unit="">60<small>+</small></p>
+<p class="about-metric__label">Global GCC Setups</p>
+<p class="about-metric__desc">From location strategy to operational ramp-up across India and beyond.</p>
+</article>
+</section>
+<section class="about-leaders" id="leaders">
+<h2 class="about-leaders__watermark reveal">Meet our Leaders</h2>
+<div class="about-leaders__inner">
+<div class="about-leaders__intro reveal">
+<p class="eyebrow">People</p>
+<h2>A team of <span class="accent">tech-forward problem solvers</span> dedicated to driving your business into <span class="accent">high-growth future</span>.</h2>
+</div>
+<div class="about-leaders__grid">
+<article class="leader-card reveal" style="--delay:0ms">
+<div class="leader-card__image"><img alt="Lalit J" src="assets/images/aboutus/Rectangle 38.png"/></div>
+<div class="leader-card__meta">
+<div><h3 class="leader-card__name">Lalit J</h3><p class="leader-card__role">Founder &amp; Global Head<br/>Talentika</p></div>
+<div class="leader-card__social">
+<a aria-label="Lalit J on LinkedIn" href="#"><img alt="" src="assets/images/aboutus/LinkedIn-01.svg"/></a>
+<a aria-label="Lalit J on X" href="#"><img alt="" src="assets/images/aboutus/X-01.svg"/></a>
+</div>
+</div>
+</article>
+<article class="leader-card reveal" style="--delay:80ms">
+<div class="leader-card__image"><img alt="Pranjali Pol" src="assets/images/aboutus/Rectangle 39.png"/></div>
+<div class="leader-card__meta">
+<div><h3 class="leader-card__name">Pranjali Pol</h3><p class="leader-card__role">Co-Founder &amp; Global Delivery Head<br/>Ex. RMG Head, WIPRO</p></div>
+<div class="leader-card__social">
+<a aria-label="Pranjali Pol on LinkedIn" href="#"><img alt="" src="assets/images/aboutus/LinkedIn-02.svg"/></a>
+<a aria-label="Pranjali Pol on X" href="#"><img alt="" src="assets/images/aboutus/X-02.svg"/></a>
+</div>
+</div>
+</article>
+<article class="leader-card reveal" style="--delay:160ms">
+<div class="leader-card__image"><img alt="Stanley George" src="assets/images/aboutus/Rectangle 40.png"/></div>
+<div class="leader-card__meta">
+<div><h3 class="leader-card__name">Stanley George</h3><p class="leader-card__role">COO &amp; Managing Partner India (South)<br/>Ex CHRO, Hexaware Technologies</p></div>
+<div class="leader-card__social">
+<a aria-label="Stanley George on LinkedIn" href="#"><img alt="" src="assets/images/aboutus/LinkedIn-03.svg"/></a>
+<a aria-label="Stanley George on X" href="#"><img alt="" src="assets/images/aboutus/X-03.svg"/></a>
+</div>
+</div>
+</article>
+<article class="leader-card reveal" style="--delay:0ms">
+<div class="leader-card__image"><img alt="Abhishek Jain" src="assets/images/aboutus/Rectangle 41.png"/></div>
+<div class="leader-card__meta">
+<div><h3 class="leader-card__name">Abhishek Jain</h3><p class="leader-card__role">GCC Transformation Leader<br/>(Ex SVP, Medline)</p></div>
+<div class="leader-card__social">
+<a aria-label="Abhishek Jain on LinkedIn" href="#"><img alt="" src="assets/images/aboutus/LinkedIn-04.svg"/></a>
+<a aria-label="Abhishek Jain on X" href="#"><img alt="" src="assets/images/aboutus/X-04.svg"/></a>
+</div>
+</div>
+</article>
+<article class="leader-card reveal" style="--delay:80ms">
+<div class="leader-card__image"><img alt="Jayaditya Giri" src="assets/images/aboutus/Rectangle 42.png"/></div>
+<div class="leader-card__meta">
+<div><h3 class="leader-card__name">Jayaditya Giri</h3><p class="leader-card__role">Partner,<br/>Eastern Europe</p></div>
+<div class="leader-card__social">
+<a aria-label="Jayaditya Giri on LinkedIn" href="#"><img alt="" src="assets/images/aboutus/LinkedIn-05.svg"/></a>
+<a aria-label="Jayaditya Giri on X" href="#"><img alt="" src="assets/images/aboutus/X-05.svg"/></a>
+</div>
+</div>
+</article>
+<article class="leader-card reveal" style="--delay:160ms">
+<div class="leader-card__image"><img alt="Gaurav Verma" src="assets/images/aboutus/Rectangle 43.png"/></div>
+<div class="leader-card__meta">
+<div><h3 class="leader-card__name">Gaurav Verma</h3><p class="leader-card__role">Technology Leader<br/>AI &amp; Data, HCM Platforms</p></div>
+<div class="leader-card__social">
+<a aria-label="Gaurav Verma on LinkedIn" href="#"><img alt="" src="assets/images/aboutus/LinkedIn-06.svg"/></a>
+<a aria-label="Gaurav Verma on X" href="#"><img alt="" src="assets/images/aboutus/X-06.svg"/></a>
+</div>
+</div>
+</article>
+<article class="leader-card reveal" style="--delay:0ms">
+<div class="leader-card__image"><img alt="Sucheta Joglekar Phatak" src="assets/images/aboutus/Rectangle 44.png"/></div>
+<div class="leader-card__meta">
+<div><h3 class="leader-card__name">Sucheta Joglekar Phatak</h3><p class="leader-card__role">Partner, London</p></div>
+<div class="leader-card__social">
+<a aria-label="Sucheta Joglekar Phatak on LinkedIn" href="#"><img alt="" src="assets/images/aboutus/LinkedIn-07.svg"/></a>
+<a aria-label="Sucheta Joglekar Phatak on X" href="#"><img alt="" src="assets/images/aboutus/X-07.svg"/></a>
+</div>
+</div>
+</article>
+<article class="leader-card reveal" style="--delay:80ms">
+<div class="leader-card__image"><img alt="Akash Surekha" src="assets/images/aboutus/Rectangle 45.png"/></div>
+<div class="leader-card__meta">
+<div><h3 class="leader-card__name">Akash Surekha</h3><p class="leader-card__role">Board Member<br/>Ex MD, JPMC</p></div>
+<div class="leader-card__social">
+<a aria-label="Akash Surekha on LinkedIn" href="#"><img alt="" src="assets/images/aboutus/LinkedIn-08.svg"/></a>
+<a aria-label="Akash Surekha on X" href="#"><img alt="" src="assets/images/aboutus/X-08.svg"/></a>
+</div>
+</div>
+</article>
+<article class="leader-card reveal" style="--delay:160ms">
+<div class="leader-card__image"><img alt="Rajat Rana" src="assets/images/aboutus/Rectangle 46.png"/></div>
+<div class="leader-card__meta">
+<div><h3 class="leader-card__name">Rajat Rana</h3><p class="leader-card__role">Managing Partner,<br/>USA</p></div>
+<div class="leader-card__social">
+<a aria-label="Rajat Rana on LinkedIn" href="#"><img alt="" src="assets/images/aboutus/LinkedIn-09.svg"/></a>
+<a aria-label="Rajat Rana on X" href="#"><img alt="" src="assets/images/aboutus/X-09.svg"/></a>
+</div>
+</div>
+</article>
+<article class="leader-card reveal" style="--delay:0ms">
+<div class="leader-card__image"><img alt="Pratyush Nandkeolyaar" src="assets/images/aboutus/Rectangle 47.png"/></div>
+<div class="leader-card__meta">
+<div><h3 class="leader-card__name">Pratyush Nandkeolyaar</h3><p class="leader-card__role">Partner &amp; Head of Design<br/>Market Research &amp; Analytics – HCM/RPO Practice</p></div>
+<div class="leader-card__social">
+<a aria-label="Pratyush Nandkeolyaar on LinkedIn" href="#"><img alt="" src="assets/images/aboutus/LinkedIn-10.svg"/></a>
+<a aria-label="Pratyush Nandkeolyaar on X" href="#"><img alt="" src="assets/images/aboutus/X-10.svg"/></a>
+</div>
+</div>
+</article>
+<article class="leader-card reveal" style="--delay:80ms">
+<div class="leader-card__image"><img alt="Shashank Bhushan" src="assets/images/aboutus/Rectangle 48.png"/></div>
+<div class="leader-card__meta">
+<div><h3 class="leader-card__name">Shashank Bhushan</h3><p class="leader-card__role">Board Member, USA<br/>Ex MD BMC Software</p></div>
+<div class="leader-card__social">
+<a aria-label="Shashank Bhushan on LinkedIn" href="#"><img alt="" src="assets/images/aboutus/LinkedIn-11.svg"/></a>
+<a aria-label="Shashank Bhushan on X" href="#"><img alt="" src="assets/images/aboutus/X-11.svg"/></a>
+</div>
+</div>
+</article>
+<article class="leader-card reveal" style="--delay:160ms">
+<div class="leader-card__image"><img alt="Mario Biscocho" src="assets/images/aboutus/Rectangle 49.png"/></div>
+<div class="leader-card__meta">
+<div><h3 class="leader-card__name">Mario Biscocho</h3><p class="leader-card__role">Country Head,<br/>Philippines</p></div>
+<div class="leader-card__social">
+<a aria-label="Mario Biscocho on LinkedIn" href="#"><img alt="" src="assets/images/aboutus/LinkedIn-12.svg"/></a>
+<a aria-label="Mario Biscocho on X" href="#"><img alt="" src="assets/images/aboutus/X-12.svg"/></a>
+</div>
+</div>
+</article>
+</div>
+</div>
+</section>
+<section class="about-reach">
+<div class="about-reach__head reveal">
+<div class="about-reach__copy">
+<p class="eyebrow">GLOBAL REACH</p>
+<h2>Delivery <span class="accent">across 10+ countries</span></h2>
+<p>Deep technical knowledge across the domains that matter most in modern digital transformation programs.</p>
+</div>
+<p class="about-reach__number">10+</p>
+</div>
+<div class="about-reach__ticker-wrap">
+<div class="about-reach__ticker">
+<div class="about-reach__track" data-reach-track="forward">
+<article class="reach-card reach-card--wide">
+<div class="reach-card__image"><img alt="Pune, India" src="assets/images/aboutus/Rectangle 36-03.png"/></div>
+<div><h3>Pune, India</h3><p>HQ and India Operations</p></div>
+</article>
+<article class="reach-card reach-card--square">
+<div class="reach-card__image"><img alt="California, USA" src="assets/images/aboutus/Rectangle 50.png"/></div>
+<div><h3>California, USA</h3><p>USA Operations</p></div>
+</article>
+<article class="reach-card reach-card--wide">
+<div class="reach-card__image"><img alt="Bratislava, Slovakia" src="assets/images/aboutus/Rectangle 51.png"/></div>
+<div><h3>Bratislava, Slovakia</h3><p>Slovakia Operations</p></div>
+</article>
+</div>
+</div>
+<div class="about-reach__ticker about-reach__ticker--reverse">
+<div class="about-reach__track" data-reach-track="reverse">
+<article class="reach-card reach-card--square">
+<div class="reach-card__image"><img alt="Dublin, Ireland" src="assets/images/aboutus/Rectangle 52.png"/></div>
+<div><h3>Dublin, Ireland</h3><p>USA Operations</p></div>
+</article>
+<article class="reach-card reach-card--wide">
+<div class="reach-card__image"><img alt="Manchester, United Kingdom" src="assets/images/aboutus/Rectangle 53.png"/></div>
+<div><h3>Manchester, United Kingdom</h3><p>HQ and India Operations</p></div>
+</article>
+<article class="reach-card reach-card--wide">
+<div class="reach-card__image"><img alt="Madrid, Sweden" src="assets/images/aboutus/Rectangle 54.png"/></div>
+<div><h3>Madrid, Sweden</h3><p>Slovakia Operations</p></div>
+</article>
+</div>
+</div>
+</div>
+</section>
 </main>
 <footer class="footer" id="contact"><div class="footer__cta reveal"><p class="section-label">READY TO BEGIN?</p><h2 class="section-heading">Let’s Build Something Great Together</h2><a class="button footer__advisor" href="#">Speak to an Advisor</a><div class="city-tickers"><div class="ticker"><div class="ticker__track city-track"></div></div><div class="ticker ticker--reverse"><div class="ticker__track city-track"></div></div></div></div>
-<div class="footer__main"><div><img class="footer__brand-logo" src="https://www.figma.com/api/mcp/asset/24509ebf-4027-4fcd-8de3-679f8aecfe58/560ae.png" alt="Talentika"><p class="footer__tagline">Engineering the Workforce<br>Behind Global Innovation.</p><div class="footer__mini-icons"><img src="https://www.figma.com/api/mcp/asset/24509ebf-4027-4fcd-8de3-679f8aecfe58/eabc9.png" alt="GCC"><img src="https://www.figma.com/api/mcp/asset/24509ebf-4027-4fcd-8de3-679f8aecfe58/0788c.png" alt="RPO"><img src="https://www.figma.com/api/mcp/asset/24509ebf-4027-4fcd-8de3-679f8aecfe58/ac0ad.png" alt="AI"></div><div class="footer__contact"><strong>Contact</strong><p>hello@talentika.in &nbsp;&nbsp; +91 123 456 7890</p></div><div class="footer__social"><img src="https://www.figma.com/api/mcp/asset/24509ebf-4027-4fcd-8de3-679f8aecfe58/33153.png" alt="Instagram"><img src="https://www.figma.com/api/mcp/asset/24509ebf-4027-4fcd-8de3-679f8aecfe58/5235e.png" alt="LinkedIn"><img src="https://www.figma.com/api/mcp/asset/24509ebf-4027-4fcd-8de3-679f8aecfe58/511ec.png" alt="Facebook"><img src="https://www.figma.com/api/mcp/asset/24509ebf-4027-4fcd-8de3-679f8aecfe58/5b93a.png" alt="X"></div></div>
+<div class="footer__main"><div><img alt="Talentika" class="footer__brand-logo" src="assets/images/aboutus/T_Logo_Light 1.png"/><p class="footer__tagline">Engineering the Workforce<br/>Behind Global Innovation.</p><div class="footer__mini-icons"><img alt="GCC" src="assets/images/aboutus/GCC_Icon_1 1.png"/><img alt="RPO" src="assets/images/aboutus/RPO_Icon_1 1.png"/><img alt="AI" src="assets/images/aboutus/AI_Icon_1 1.png"/></div><div class="footer__contact"><strong>Contact</strong><p>hello@talentika.in    +91 123 456 7890</p></div><div class="footer__social"><img alt="Instagram" src="assets/images/aboutus/instagram 1.png"/><img alt="LinkedIn" src="assets/images/aboutus/LinkedIn 1.png"/><img alt="Facebook" src="assets/images/aboutus/Facebook 1.png"/><img alt="X" src="assets/images/aboutus/X 1.png"/></div></div>
 <div class="footer__links">
 <div class="footer__col"><h3>Services</h3><a class="footer__link" href="#">GCC Setup &amp; Advisory</a><a class="footer__link" href="#">Location Strategy</a><a class="footer__link" href="#">Entity &amp; Compliance</a><a class="footer__link" href="#">Tech &amp; Infrastructure</a><a class="footer__link" href="#">Tech RPO</a><a class="footer__link" href="#">Healthcare RPO</a><a class="footer__link" href="#">Executive Search</a><a class="footer__link" href="#">Platform Integration</a></div>
 <div class="footer__col"><h3>Company</h3><a class="footer__link" href="#">About Talentika</a><a class="footer__link" href="#">Careers/Hiring</a><a class="footer__link" href="#">Case Studies</a><a class="footer__link" href="#">Contact</a><a class="footer__link" href="#">Insights &amp; Resources</a></div>
 <div class="footer__col"><h3>EcoSystem &amp; Platforms</h3><div class="footer__ecosystem">
-<a class="footer__ecosystem-row" href="#"><img class="footer__ecosystem-logo footer__ecosystem-logo--deebug" src="https://www.figma.com/api/mcp/asset/24509ebf-4027-4fcd-8de3-679f8aecfe58/fcd1c.png" alt="Deebug"><span class="footer__ecosystem-arrow" aria-hidden="true">
-<svg class="footer__arrow--out" viewBox="0 0 24 24" fill="none"><path d="M6.4 18 5 16.6 14.6 7H6V5h12v12h-2V8.4L6.4 18Z" fill="currentColor"/></svg>
-<svg class="footer__arrow--in" viewBox="0 0 24 24" fill="none"><path d="M6.4 18 5 16.6 14.6 7H6V5h12v12h-2V8.4L6.4 18Z" fill="currentColor"/></svg>
+<a class="footer__ecosystem-row" href="#"><img alt="Deebug" class="footer__ecosystem-logo footer__ecosystem-logo--deebug" src="assets/images/aboutus/Deebug_Logo 1.png"/><span aria-hidden="true" class="footer__ecosystem-arrow">
+<svg class="footer__arrow--out" fill="none" viewbox="0 0 24 24"><path d="M6.4 18 5 16.6 14.6 7H6V5h12v12h-2V8.4L6.4 18Z" fill="currentColor"></path></svg>
+<svg class="footer__arrow--in" fill="none" viewbox="0 0 24 24"><path d="M6.4 18 5 16.6 14.6 7H6V5h12v12h-2V8.4L6.4 18Z" fill="currentColor"></path></svg>
 </span></a>
-<a class="footer__ecosystem-row" href="#"><img class="footer__ecosystem-logo" src="https://www.figma.com/api/mcp/asset/24509ebf-4027-4fcd-8de3-679f8aecfe58/ff2fa.png" alt="GCC Mixer"><span class="footer__ecosystem-arrow" aria-hidden="true">
-<svg class="footer__arrow--out" viewBox="0 0 24 24" fill="none"><path d="M6.4 18 5 16.6 14.6 7H6V5h12v12h-2V8.4L6.4 18Z" fill="currentColor"/></svg>
-<svg class="footer__arrow--in" viewBox="0 0 24 24" fill="none"><path d="M6.4 18 5 16.6 14.6 7H6V5h12v12h-2V8.4L6.4 18Z" fill="currentColor"/></svg>
+<a class="footer__ecosystem-row" href="#"><img alt="GCC Mixer" class="footer__ecosystem-logo" src="assets/images/aboutus/GCC_Mixer_Logo 2.png"/><span aria-hidden="true" class="footer__ecosystem-arrow">
+<svg class="footer__arrow--out" fill="none" viewbox="0 0 24 24"><path d="M6.4 18 5 16.6 14.6 7H6V5h12v12h-2V8.4L6.4 18Z" fill="currentColor"></path></svg>
+<svg class="footer__arrow--in" fill="none" viewbox="0 0 24 24"><path d="M6.4 18 5 16.6 14.6 7H6V5h12v12h-2V8.4L6.4 18Z" fill="currentColor"></path></svg>
 </span></a>
-<a class="footer__ecosystem-row" href="#"><img class="footer__ecosystem-logo" src="https://www.figma.com/api/mcp/asset/24509ebf-4027-4fcd-8de3-679f8aecfe58/181f2.png" alt="AI Basecamp"><span class="footer__ecosystem-arrow" aria-hidden="true">
-<svg class="footer__arrow--out" viewBox="0 0 24 24" fill="none"><path d="M6.4 18 5 16.6 14.6 7H6V5h12v12h-2V8.4L6.4 18Z" fill="currentColor"/></svg>
-<svg class="footer__arrow--in" viewBox="0 0 24 24" fill="none"><path d="M6.4 18 5 16.6 14.6 7H6V5h12v12h-2V8.4L6.4 18Z" fill="currentColor"/></svg>
+<a class="footer__ecosystem-row" href="#"><img alt="AI Basecamp" class="footer__ecosystem-logo" src="assets/images/aboutus/AI_Base_Camp_Logo 2.png"/><span aria-hidden="true" class="footer__ecosystem-arrow">
+<svg class="footer__arrow--out" fill="none" viewbox="0 0 24 24"><path d="M6.4 18 5 16.6 14.6 7H6V5h12v12h-2V8.4L6.4 18Z" fill="currentColor"></path></svg>
+<svg class="footer__arrow--in" fill="none" viewbox="0 0 24 24"><path d="M6.4 18 5 16.6 14.6 7H6V5h12v12h-2V8.4L6.4 18Z" fill="currentColor"></path></svg>
 </span></a>
 </div></div>
 <div class="footer__col"><h3>Cities We Work in</h3><a class="footer__link" href="#">Pune</a><a class="footer__link" href="#">London</a><a class="footer__link" href="#">Dublin</a><a class="footer__link" href="#">Madrid</a><a class="footer__link" href="#">Sydney</a></div>
 </div>
 <div class="footer__bottom">
 <span>© 2026 Talentika.</span>
-<nav class="footer__legal" aria-label="Legal">
+<nav aria-label="Legal" class="footer__legal">
 <a class="footer__legal-link" href="#">Privacy Policy</a>
 <a class="footer__legal-link" href="#">Terms of Use</a>
 <a class="footer__legal-link" href="#">Cookie Preferences</a>
 <a class="footer__legal-link" href="#">Sitemap</a>
 </nav>
 </div>
-</div></div>
-<div class="footer__skyline" aria-hidden="true"><img src="https://www.figma.com/api/mcp/asset/0af92dde-8c8e-4909-8571-75b9240046a2/1010b.svg" alt=""></div></footer>
+</div>
+<div aria-hidden="true" class="footer__skyline"><img alt="" src="assets/images/aboutus/Layer_3.svg"/></div></footer>
 <script>
 (() => {
  const toggle=document.querySelector('.site-header__toggle'),nav=document.querySelector('.site-header__nav');
