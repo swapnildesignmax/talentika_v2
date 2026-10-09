@@ -15,7 +15,7 @@
   --h1:60px;--h2:42px;--body:16px;--small:14px;--radius:20px;--radius-lg:42px;
   --ease:cubic-bezier(.16,1,.3,1);
 }
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--navy);background:#fff;font-family:"Noto Sans",sans-serif;overflow-x:hidden}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--navy);background:#edf1ff;font-family:"Noto Sans",sans-serif;overflow-x:hidden}
 img{display:block;max-width:100%}a{color:inherit;text-decoration:none}button{font:inherit}
 .site-header{height:105px;padding:14px 16px 0;position:relative;z-index:20;background:transparent}
 .site-header__inner{height:91px;border-radius:16px;background:#fff;padding:25px 48px 25px 44px;display:flex;align-items:center;justify-content:space-between}
@@ -1693,6 +1693,7 @@ html.preloader-lock,
 html.preloader-lock body{overflow:hidden!important;}
 
 .talentika-preloader__stage{
+  --loader-exit-x:calc(50vw + 95px);
   position:relative;
   width:109.424px;
   height:164.004px;
@@ -1732,53 +1733,57 @@ html.preloader-lock body{overflow:hidden!important;}
             talentika-rise-ai-y 5s linear infinite;
 }
 
+
 @keyframes talentika-rise-gcc-opacity{
   0%{opacity:0;animation-timing-function:ease-out}
   15.6%{opacity:1}
-  73%{opacity:1;animation-timing-function:ease-in-out}
-  86%{opacity:0}
-  100%{opacity:0}
+  76%{opacity:1;animation-timing-function:step-end}
+  76.8%,100%{opacity:0}
 }
 @keyframes talentika-rise-gcc-y{
-  0%{transform:translateY(22px);animation-timing-function:ease-out}
-  18%{transform:translateY(0)}
-  73%{transform:translateY(0);animation-timing-function:ease-in-out}
-  86%{transform:translateY(-8px);animation-timing-function:step-end}
-  93%,100%{transform:translateY(22px)}
+  0%{transform:translate(0,22px);animation-timing-function:ease-out}
+  18%{transform:translate(0,0)}
+  60%{transform:translate(0,0);animation-timing-function:ease-in-out}
+  76%{transform:translate(var(--loader-exit-x),0)}
+  92%{transform:translate(var(--loader-exit-x),0);animation-timing-function:step-end}
+  93%{transform:translate(var(--loader-exit-x),22px);animation-timing-function:step-end}
+  94%,100%{transform:translate(0,22px)}
 }
 
 @keyframes talentika-rise-rpo-opacity{
   0%,2.4%{opacity:0}
   2.4%{animation-timing-function:ease-out}
   18%{opacity:1}
-  75.4%{opacity:1;animation-timing-function:ease-in-out}
-  88.4%{opacity:0}
-  100%{opacity:0}
+  82.4%{opacity:1;animation-timing-function:step-end}
+  83.2%,100%{opacity:0}
 }
 @keyframes talentika-rise-rpo-y{
-  0%,2.4%{transform:translateY(22px)}
+  0%,2.4%{transform:translate(0,22px)}
   2.4%{animation-timing-function:ease-out}
-  20.4%{transform:translateY(0)}
-  75.4%{transform:translateY(0);animation-timing-function:ease-in-out}
-  88.4%{transform:translateY(-8px);animation-timing-function:step-end}
-  93%,100%{transform:translateY(22px)}
+  20.4%{transform:translate(0,0)}
+  66.4%{transform:translate(0,0);animation-timing-function:ease-in-out}
+  82.4%{transform:translate(var(--loader-exit-x),0)}
+  92%{transform:translate(var(--loader-exit-x),0);animation-timing-function:step-end}
+  93%{transform:translate(var(--loader-exit-x),22px);animation-timing-function:step-end}
+  94%,100%{transform:translate(0,22px)}
 }
 
 @keyframes talentika-rise-ai-opacity{
   0%,4.8%{opacity:0}
   4.8%{animation-timing-function:ease-out}
   20.4%{opacity:1}
-  77.8%{opacity:1;animation-timing-function:ease-in-out}
-  90.8%{opacity:0}
-  100%{opacity:0}
+  88.8%{opacity:1;animation-timing-function:step-end}
+  89.6%,100%{opacity:0}
 }
 @keyframes talentika-rise-ai-y{
-  0%,4.8%{transform:translateY(22px)}
+  0%,4.8%{transform:translate(0,22px)}
   4.8%{animation-timing-function:ease-out}
-  22.8%{transform:translateY(0)}
-  77.8%{transform:translateY(0);animation-timing-function:ease-in-out}
-  90.8%{transform:translateY(-8px);animation-timing-function:step-end}
-  93%,100%{transform:translateY(22px)}
+  22.8%{transform:translate(0,0)}
+  72.8%{transform:translate(0,0);animation-timing-function:ease-in-out}
+  88.8%{transform:translate(var(--loader-exit-x),0)}
+  92%{transform:translate(var(--loader-exit-x),0);animation-timing-function:step-end}
+  93%{transform:translate(var(--loader-exit-x),22px);animation-timing-function:step-end}
+  94%,100%{transform:translate(0,22px)}
 }
 
 @media (max-width:768px){
