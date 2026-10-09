@@ -1662,9 +1662,8 @@ main,
 
 
 /* =========================================================
-   TALENTIKA FIGMA MOTION PRELOADER — v2
-   Figma node: 1097:3361
-   5s looping motion with three circular brand elements.
+   TALENTIKA FIGMA MOTION PRELOADER — Rise_up_Shimmer
+   Figma node: 1101:3532
    ========================================================= */
 .talentika-preloader{
   position:fixed;
@@ -1691,211 +1690,113 @@ main,
   transition:opacity .42s cubic-bezier(.16,1,.3,1);
 }
 html.preloader-lock,
-html.preloader-lock body{overflow:hidden!important}
+html.preloader-lock body{overflow:hidden!important;}
 
 .talentika-preloader__stage{
   position:relative;
-  width:340px;
-  height:300px;
+  width:109.424px;
+  height:164.004px;
+  transform-origin:center center;
   transform:translateZ(0);
 }
+
 .talentika-preloader__orb{
   position:absolute;
   width:55.024px;
   height:55.024px;
   border-radius:50%;
-  transform-origin:center;
+  transform-origin:center center;
   will-change:transform,opacity;
 }
+
 .talentika-preloader__orb--gcc{
-  left:92px;
-  top:68px;
+  left:0;
+  top:0;
   background:#00D4AA;
-  animation:talentika-v2-gcc 5s linear infinite;
+  animation:talentika-rise-gcc-opacity 5s linear infinite,
+            talentika-rise-gcc-y 5s linear infinite;
 }
 .talentika-preloader__orb--rpo{
-  left:146.4px;
-  top:122.41px;
+  left:54.4px;
+  top:54.41px;
   background:#31C0FF;
-  animation:talentika-v2-rpo 5s linear infinite;
+  animation:talentika-rise-rpo-opacity 5s linear infinite,
+            talentika-rise-rpo-y 5s linear infinite;
 }
 .talentika-preloader__orb--ai{
-  left:92.07px;
-  top:176.98px;
+  left:.07px;
+  top:108.98px;
   width:54.558px;
   background:#FF6080;
-  animation:talentika-v2-ai 5s linear infinite;
+  animation:talentika-rise-ai-opacity 5s linear infinite,
+            talentika-rise-ai-y 5s linear infinite;
 }
 
-
-@keyframes talentika-v2-gcc{
-  0%{transform:translate(0px,0px) scale(1);opacity:1;animation-timing-function:ease-in-out}
-  11%{transform:translate(17.925px,23.815px) scale(.66);opacity:.54}
-  12.229%{transform:translate(37.847px,27.645px) scale(.669);opacity:.548}
-  13.458%{transform:translate(57.025px,33.072px) scale(.695);opacity:.571}
-  14.688%{transform:translate(74.814px,39.981px) scale(.736);opacity:.608}
-  15.917%{transform:translate(90.461px,48.23px) scale(.789);opacity:.654}
-  17.146%{transform:translate(103.062px,57.609px) scale(.851);opacity:.709}
-  18.375%{transform:translate(111.549px,67.793px) scale(.916);opacity:.766}
-  19.604%{transform:translate(114.752px,78.285px) scale(.981);opacity:.824}
-  20.833%{transform:translate(111.547px,88.375px) scale(1.041);opacity:.877}
-  22.063%{transform:translate(101.14px,97.149px) scale(1.094);opacity:.924}
-  23.292%{transform:translate(83.449px,103.585px) scale(1.136);opacity:.961}
-  24.521%{transform:translate(59.448px,106.749px) scale(1.164);opacity:.986}
-  25.75%{transform:translate(31.272px,106.063px) scale(1.178);opacity:.999}
-  26.979%{transform:translate(1.912px,101.52px) scale(1.178);opacity:.998}
-  28.208%{transform:translate(-25.467px,93.722px) scale(1.163);opacity:.985}
-  29.438%{transform:translate(-48.265px,83.711px) scale(1.135);opacity:.96}
-  30.667%{transform:translate(-64.922px,72.672px) scale(1.095);opacity:.925}
-  31.896%{transform:translate(-74.977px,61.67px) scale(1.047);opacity:.882}
-  33.125%{transform:translate(-78.813px,51.493px) scale(.993);opacity:.835}
-  34.354%{transform:translate(-77.295px,42.632px) scale(.936);opacity:.784}
-  35.583%{transform:translate(-71.464px,35.323px) scale(.879);opacity:.733}
-  36.813%{transform:translate(-62.335px,29.626px) scale(.824);opacity:.685}
-  38.042%{transform:translate(-50.795px,25.495px) scale(.775);opacity:.641}
-  39.271%{transform:translate(-37.576px,22.83px) scale(.732);opacity:.604}
-  40.5%{transform:translate(-23.264px,21.511px) scale(.699);opacity:.575}
-  41.729%{transform:translate(-8.321px,21.416px) scale(.676);opacity:.554}
-  42.958%{transform:translate(6.88px,22.434px) scale(.663);opacity:.542}
-  44.188%{transform:translate(22.033px,24.463px) scale(.66);opacity:.54}
-  45.417%{transform:translate(36.868px,27.416px) scale(.668);opacity:.547}
-  46.646%{transform:translate(51.139px,31.209px) scale(.685);opacity:.562}
-  47.875%{transform:translate(64.603px,35.762px) scale(.711);opacity:.585}
-  49.104%{transform:translate(77.012px,40.993px) scale(.743);opacity:.613}
-  50.333%{transform:translate(88.107px,46.81px) scale(.78);opacity:.646}
-  51.563%{transform:translate(97.622px,53.106px) scale(.821);opacity:.683}
-  52.792%{transform:translate(105.281px,59.754px) scale(.864);opacity:.721}
-  54.021%{transform:translate(110.823px,66.601px) scale(.908);opacity:.76}
-  55.25%{transform:translate(114.014px,73.471px) scale(.951);opacity:.798}
-  56.479%{transform:translate(114.677px,80.165px) scale(.992);opacity:.834}
-  57.708%{transform:translate(112.723px,86.473px) scale(1.03);opacity:.867}
-  58.938%{transform:translate(108.181px,92.184px) scale(1.064);opacity:.897}
-  60.167%{transform:translate(101.216px,97.107px) scale(1.094);opacity:.924}
-  61.396%{transform:translate(92.141px,101.09px) scale(1.119);opacity:.946}
-  62.625%{transform:translate(81.404px,104.041px) scale(1.139);opacity:.964}
-  63.854%{transform:translate(69.561px,105.939px) scale(1.155);opacity:.978}
-  65.083%{transform:translate(57.236px,106.843px) scale(1.166);opacity:.988}
-  66.313%{transform:translate(45.09px,106.887px) scale(1.174);opacity:.994}
-  67.542%{transform:translate(33.808px,106.28px) scale(1.178);opacity:.998}
-  68.771%{transform:translate(24.184px,105.308px) scale(1.18);opacity:1}
-  70%{transform:translate(17.925px,104.46px) scale(1.18);opacity:1;animation-timing-function:ease-in-out}
-  84%{transform:translate(0px,0px) scale(1);opacity:1}
-  100%{transform:translate(0px,0px) scale(1);opacity:1}
+@keyframes talentika-rise-gcc-opacity{
+  0%{opacity:0;animation-timing-function:ease-out}
+  15.6%{opacity:1}
+  73%{opacity:1;animation-timing-function:ease-in-out}
+  86%{opacity:0}
+  100%{opacity:0}
+}
+@keyframes talentika-rise-gcc-y{
+  0%{transform:translateY(22px);animation-timing-function:ease-out}
+  18%{transform:translateY(0)}
+  73%{transform:translateY(0);animation-timing-function:ease-in-out}
+  86%{transform:translateY(-8px);animation-timing-function:step-end}
+  93%,100%{transform:translateY(22px)}
 }
 
-@keyframes talentika-v2-rpo{
-  0%{transform:translate(0px,0px) scale(1);opacity:1;animation-timing-function:ease-in-out}
-  11%{transform:translate(56.027px,35.423px) scale(1.05);opacity:.885}
-  12.229%{transform:translate(43.427px,44.408px) scale(1.104);opacity:.933}
-  13.458%{transform:translate(22.604px,50.478px) scale(1.146);opacity:.969}
-  14.688%{transform:translate(-4.925px,52.553px) scale(1.171);opacity:.992}
-  15.917%{transform:translate(-36.151px,50.104px) scale(1.18);opacity:1}
-  17.146%{transform:translate(-67.181px,43.402px) scale(1.172);opacity:.993}
-  18.375%{transform:translate(-94.284px,33.473px) scale(1.147);opacity:.971}
-  19.604%{transform:translate(-114.834px,21.754px) scale(1.109);opacity:.937}
-  20.833%{transform:translate(-127.698px,9.674px) scale(1.058);opacity:.892}
-  22.063%{transform:translate(-133.041px,-1.647px) scale(1);opacity:.841}
-  23.292%{transform:translate(-131.829px,-11.494px) scale(.938);opacity:.786}
-  24.521%{transform:translate(-125.352px,-19.513px) scale(.875);opacity:.73}
-  25.75%{transform:translate(-114.898px,-25.602px) scale(.815);opacity:.677}
-  26.979%{transform:translate(-101.592px,-29.81px) scale(.762);opacity:.63}
-  28.208%{transform:translate(-86.351px,-32.259px) scale(.718);opacity:.591}
-  29.438%{transform:translate(-69.895px,-33.09px) scale(.686);opacity:.563}
-  30.667%{transform:translate(-52.794px,-32.444px) scale(.666);opacity:.545}
-  31.896%{transform:translate(-35.508px,-30.444px) scale(.66);opacity:.54}
-  33.125%{transform:translate(-18.436px,-27.197px) scale(.667);opacity:.547}
-  34.354%{transform:translate(-1.952px,-22.797px) scale(.687);opacity:.564}
-  35.583%{transform:translate(13.561px,-17.335px) scale(.718);opacity:.592}
-  36.813%{transform:translate(27.686px,-10.909px) scale(.759);opacity:.627}
-  38.042%{transform:translate(39.954px,-3.639px) scale(.806);opacity:.669}
-  39.271%{transform:translate(49.836px,4.314px) scale(.858);opacity:.715}
-  40.5%{transform:translate(56.754px,12.731px) scale(.912);opacity:.763}
-  41.729%{transform:translate(60.117px,21.32px) scale(.965);opacity:.81}
-  42.958%{transform:translate(59.379px,29.706px) scale(1.016);opacity:.855}
-  44.188%{transform:translate(54.139px,37.437px) scale(1.062);opacity:.896}
-  45.417%{transform:translate(44.254px,44.019px) scale(1.102);opacity:.931}
-  46.646%{transform:translate(29.946px,48.964px) scale(1.134);opacity:.959}
-  47.875%{transform:translate(11.872px,51.869px) scale(1.158);opacity:.981}
-  49.104%{transform:translate(-8.898px,52.492px) scale(1.173);opacity:.994}
-  50.333%{transform:translate(-30.999px,50.806px) scale(1.18);opacity:1}
-  51.563%{transform:translate(-52.971px,47.01px) scale(1.178);opacity:.998}
-  52.792%{transform:translate(-73.477px,41.485px) scale(1.168);opacity:.989}
-  54.021%{transform:translate(-91.477px,34.728px) scale(1.151);opacity:.974}
-  55.25%{transform:translate(-106.321px,27.26px) scale(1.128);opacity:.954}
-  56.479%{transform:translate(-117.742px,19.556px) scale(1.1);opacity:.929}
-  57.708%{transform:translate(-125.794px,12.007px) scale(1.069);opacity:.902}
-  58.938%{transform:translate(-130.753px,4.896px) scale(1.035);opacity:.872}
-  60.167%{transform:translate(-133.031px,-1.589px) scale(1.001);opacity:.841}
-  61.396%{transform:translate(-133.094px,-7.348px) scale(.966);opacity:.811}
-  62.625%{transform:translate(-131.417px,-12.342px) scale(.932);opacity:.78}
-  63.854%{transform:translate(-128.452px,-16.577px) scale(.9);opacity:.752}
-  65.083%{transform:translate(-124.621px,-20.09px) scale(.87);opacity:.726}
-  66.313%{transform:translate(-120.317px,-22.93px) scale(.843);opacity:.702}
-  67.542%{transform:translate(-115.932px,-25.15px) scale(.82);opacity:.682}
-  68.771%{transform:translate(-111.915px,-26.784px) scale(.802);opacity:.665}
-  70%{transform:translate(-109.164px,-27.735px) scale(.79);opacity:.655;animation-timing-function:ease-in-out}
-  84%{transform:translate(0px,0px) scale(1);opacity:1}
-  100%{transform:translate(0px,0px) scale(1);opacity:1}
+@keyframes talentika-rise-rpo-opacity{
+  0%,2.4%{opacity:0}
+  2.4%{animation-timing-function:ease-out}
+  18%{opacity:1}
+  75.4%{opacity:1;animation-timing-function:ease-in-out}
+  88.4%{opacity:0}
+  100%{opacity:0}
+}
+@keyframes talentika-rise-rpo-y{
+  0%,2.4%{transform:translateY(22px)}
+  2.4%{animation-timing-function:ease-out}
+  20.4%{transform:translateY(0)}
+  75.4%{transform:translateY(0);animation-timing-function:ease-in-out}
+  88.4%{transform:translateY(-8px);animation-timing-function:step-end}
+  93%,100%{transform:translateY(22px)}
 }
 
-@keyframes talentika-v2-ai{
-  0%{transform:translate(0px,0px) scale(1);opacity:1;animation-timing-function:ease-in-out}
-  11%{transform:translate(-73.952px,-46.702px) scale(1.05);opacity:.885}
-  12.229%{transform:translate(-78.259px,-58.544px) scale(.987);opacity:.829}
-  13.458%{transform:translate(-75.385px,-68.607px) scale(.919);opacity:.769}
-  14.688%{transform:translate(-66.89px,-76.534px) scale(.852);opacity:.71}
-  15.917%{transform:translate(-54.276px,-82.257px) scale(.791);opacity:.656}
-  17.146%{transform:translate(-38.813px,-85.866px) scale(.738);opacity:.609}
-  18.375%{transform:translate(-21.505px,-87.514px) scale(.697);opacity:.573}
-  19.604%{transform:translate(-3.137px,-87.366px) scale(.671);opacity:.549}
-  20.833%{transform:translate(15.67px,-85.572px) scale(.66);opacity:.54}
-  22.063%{transform:translate(34.389px,-82.259px) scale(.666);opacity:.545}
-  23.292%{transform:translate(52.531px,-77.536px) scale(.686);opacity:.563}
-  24.521%{transform:translate(69.587px,-71.506px) scale(.721);opacity:.594}
-  25.75%{transform:translate(84.985px,-64.281px) scale(.766);opacity:.634}
-  26.979%{transform:translate(98.059px,-56.014px) scale(.82);opacity:.682}
-  28.208%{transform:translate(108.032px,-46.925px) scale(.879);opacity:.734}
-  29.438%{transform:translate(114.031px,-37.34px) scale(.94);opacity:.788}
-  30.667%{transform:translate(115.163px,-27.716px) scale(.999);opacity:.84}
-  31.896%{transform:translate(110.648px,-18.664px) scale(1.053);opacity:.888}
-  33.125%{transform:translate(100.03px,-10.914px) scale(1.1);opacity:.929}
-  34.354%{transform:translate(83.417px,-5.238px) scale(1.137);opacity:.962}
-  35.583%{transform:translate(61.675px,-2.312px) scale(1.163);opacity:.985}
-  36.813%{transform:translate(36.451px,-2.545px) scale(1.177);opacity:.998}
-  38.042%{transform:translate(9.958px,-5.955px) scale(1.179);opacity:.999}
-  39.271%{transform:translate(-15.445px,-12.147px) scale(1.17);opacity:.991}
-  40.5%{transform:translate(-37.716px,-20.404px) scale(1.149);opacity:.973}
-  41.729%{transform:translate(-55.465px,-29.866px) scale(1.119);opacity:.946}
-  42.958%{transform:translate(-68.052px,-39.704px) scale(1.081);opacity:.913}
-  44.188%{transform:translate(-75.487px,-49.239px) scale(1.038);opacity:.874}
-  45.417%{transform:translate(-78.227px,-57.992px) scale(.99);opacity:.832}
-  46.646%{transform:translate(-76.964px,-65.677px) scale(.941);opacity:.788}
-  47.875%{transform:translate(-72.458px,-72.158px) scale(.891);opacity:.745}
-  49.104%{transform:translate(-65.437px,-77.411px) scale(.844);opacity:.703}
-  50.333%{transform:translate(-56.543px,-81.477px) scale(.8);opacity:.664}
-  51.563%{transform:translate(-46.318px,-84.435px) scale(.761);opacity:.629}
-  52.792%{transform:translate(-35.202px,-86.382px) scale(.728);opacity:.6}
-  54.021%{transform:translate(-23.553px,-87.42px) scale(.701);opacity:.576}
-  55.25%{transform:translate(-11.658px,-87.647px) scale(.681);opacity:.558}
-  56.479%{transform:translate(.251px,-87.16px) scale(.668);opacity:.547}
-  57.708%{transform:translate(11.982px,-86.046px) scale(.661);opacity:.541}
-  58.938%{transform:translate(23.374px,-84.393px) scale(.661);opacity:.54}
-  60.167%{transform:translate(34.289px,-82.281px) scale(.666);opacity:.545}
-  61.396%{transform:translate(44.606px,-79.794px) scale(.675);opacity:.554}
-  62.625%{transform:translate(54.215px,-77.015px) scale(.689);opacity:.566}
-  63.854%{transform:translate(63.021px,-74.035px) scale(.706);opacity:.58}
-  65.083%{transform:translate(70.934px,-70.951px) scale(.724);opacity:.597}
-  66.313%{transform:translate(77.869px,-67.876px) scale(.743);opacity:.614}
-  67.542%{transform:translate(83.732px,-64.951px) scale(.762);opacity:.63}
-  68.771%{transform:translate(88.375px,-62.378px) scale(.779);opacity:.645}
-  70%{transform:translate(91.24px,-60.654px) scale(.79);opacity:.655;animation-timing-function:ease-in-out}
-  84%{transform:translate(0px,0px) scale(1);opacity:1}
-  100%{transform:translate(0px,0px) scale(1);opacity:1}
+@keyframes talentika-rise-ai-opacity{
+  0%,4.8%{opacity:0}
+  4.8%{animation-timing-function:ease-out}
+  20.4%{opacity:1}
+  77.8%{opacity:1;animation-timing-function:ease-in-out}
+  90.8%{opacity:0}
+  100%{opacity:0}
+}
+@keyframes talentika-rise-ai-y{
+  0%,4.8%{transform:translateY(22px)}
+  4.8%{animation-timing-function:ease-out}
+  22.8%{transform:translateY(0)}
+  77.8%{transform:translateY(0);animation-timing-function:ease-in-out}
+  90.8%{transform:translateY(-8px);animation-timing-function:step-end}
+  93%,100%{transform:translateY(22px)}
 }
 
 @media (max-width:768px){
-  .talentika-preloader__stage{transform:scale(.78)}
+  .talentika-preloader__stage{transform:scale(.82);}
 }
+@media (max-width:420px){
+  .talentika-preloader__stage{transform:scale(.72);}
+}
+@media (min-width:1800px){
+  .talentika-preloader__stage{transform:scale(1.15);}
+}
+@media (min-width:2560px){
+  .talentika-preloader__stage{transform:scale(1.35);}
+}
+@media (min-width:3840px){
+  .talentika-preloader__stage{transform:scale(1.5);}
+}
+
 @media (prefers-reduced-motion:reduce){
   .talentika-preloader__orb{
     animation:none!important;
