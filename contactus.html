@@ -15,7 +15,7 @@
   --h1:60px;--h2:42px;--body:16px;--small:14px;--radius:20px;--radius-lg:42px;
   --ease:cubic-bezier(.16,1,.3,1);
 }
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--navy);background:#fff;font-family:"Noto Sans",sans-serif;overflow-x:hidden}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--navy);background:#edf1ff;font-family:"Noto Sans",sans-serif;overflow-x:hidden}
 img{display:block;max-width:100%}a{color:inherit;text-decoration:none}button{font:inherit}
 .site-header{height:105px;padding:14px 16px 0;position:relative;z-index:20;background:transparent}
 .site-header__inner{height:91px;border-radius:16px;background:#fff;padding:25px 48px 25px 44px;display:flex;align-items:center;justify-content:space-between}
@@ -1555,7 +1555,7 @@ main,
     white-space:nowrap!important;
     color:#b3b8bf!important;
     font-family:"Noto Sans",sans-serif!important;
-    font-weight:400!important;
+    font-weight:200!important;
   }
 
   .footer__legal{
@@ -1828,7 +1828,7 @@ main,
     background:transparent!important;
     color:#b3b8bf!important;
     font-family:"Noto Sans",sans-serif!important;
-    font-weight:400!important;
+    font-weight:200!important;
     white-space:nowrap!important;
   }
 
@@ -1889,9 +1889,252 @@ main,
   }
 }
 
+
+/* =========================================================
+   TALENTIKA FIGMA MOTION PRELOADER — Rise_up_Shimmer
+   Figma node: 1101:3532
+   ========================================================= */
+.talentika-preloader{
+  position:fixed;
+  inset:0;
+  z-index:2147483000;
+  display:grid;
+  place-items:center;
+  background:#fff;
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+  transition:opacity .42s cubic-bezier(.16,1,.3,1),visibility 0s linear .42s;
+}
+.talentika-preloader.is-visible{
+  opacity:1;
+  visibility:visible;
+  pointer-events:auto;
+  transition:opacity .18s ease,visibility 0s;
+}
+.talentika-preloader.is-leaving{
+  opacity:0;
+  visibility:visible;
+  pointer-events:none;
+  transition:opacity .42s cubic-bezier(.16,1,.3,1);
+}
+html.preloader-lock,
+html.preloader-lock body{overflow:hidden!important;}
+
+.talentika-preloader__stage{
+  --loader-exit-x:calc(50vw + 95px);
+  position:relative;
+  width:109.424px;
+  height:164.004px;
+  transform-origin:center center;
+  transform:translateZ(0);
+}
+
+.talentika-preloader__orb{
+  position:absolute;
+  width:55.024px;
+  height:55.024px;
+  border-radius:50%;
+  transform-origin:center center;
+  will-change:transform,opacity;
+}
+
+.talentika-preloader__orb--gcc{
+  left:0;
+  top:0;
+  background:#00D4AA;
+  animation:talentika-rise-gcc-opacity 5s linear infinite,
+            talentika-rise-gcc-y 5s linear infinite;
+}
+.talentika-preloader__orb--rpo{
+  left:54.4px;
+  top:54.41px;
+  background:#31C0FF;
+  animation:talentika-rise-rpo-opacity 5s linear infinite,
+            talentika-rise-rpo-y 5s linear infinite;
+}
+.talentika-preloader__orb--ai{
+  left:.07px;
+  top:108.98px;
+  width:54.558px;
+  background:#FF6080;
+  animation:talentika-rise-ai-opacity 5s linear infinite,
+            talentika-rise-ai-y 5s linear infinite;
+}
+
+
+@keyframes talentika-rise-gcc-opacity{
+  0%{opacity:0;animation-timing-function:ease-out}
+  15.6%{opacity:1}
+  76%{opacity:1;animation-timing-function:step-end}
+  76.8%,100%{opacity:0}
+}
+@keyframes talentika-rise-gcc-y{
+  0%{transform:translate(0,22px);animation-timing-function:ease-out}
+  18%{transform:translate(0,0)}
+  60%{transform:translate(0,0);animation-timing-function:ease-in-out}
+  76%{transform:translate(var(--loader-exit-x),0)}
+  92%{transform:translate(var(--loader-exit-x),0);animation-timing-function:step-end}
+  93%{transform:translate(var(--loader-exit-x),22px);animation-timing-function:step-end}
+  94%,100%{transform:translate(0,22px)}
+}
+
+@keyframes talentika-rise-rpo-opacity{
+  0%,2.4%{opacity:0}
+  2.4%{animation-timing-function:ease-out}
+  18%{opacity:1}
+  82.4%{opacity:1;animation-timing-function:step-end}
+  83.2%,100%{opacity:0}
+}
+@keyframes talentika-rise-rpo-y{
+  0%,2.4%{transform:translate(0,22px)}
+  2.4%{animation-timing-function:ease-out}
+  20.4%{transform:translate(0,0)}
+  66.4%{transform:translate(0,0);animation-timing-function:ease-in-out}
+  82.4%{transform:translate(var(--loader-exit-x),0)}
+  92%{transform:translate(var(--loader-exit-x),0);animation-timing-function:step-end}
+  93%{transform:translate(var(--loader-exit-x),22px);animation-timing-function:step-end}
+  94%,100%{transform:translate(0,22px)}
+}
+
+@keyframes talentika-rise-ai-opacity{
+  0%,4.8%{opacity:0}
+  4.8%{animation-timing-function:ease-out}
+  20.4%{opacity:1}
+  88.8%{opacity:1;animation-timing-function:step-end}
+  89.6%,100%{opacity:0}
+}
+@keyframes talentika-rise-ai-y{
+  0%,4.8%{transform:translate(0,22px)}
+  4.8%{animation-timing-function:ease-out}
+  22.8%{transform:translate(0,0)}
+  72.8%{transform:translate(0,0);animation-timing-function:ease-in-out}
+  88.8%{transform:translate(var(--loader-exit-x),0)}
+  92%{transform:translate(var(--loader-exit-x),0);animation-timing-function:step-end}
+  93%{transform:translate(var(--loader-exit-x),22px);animation-timing-function:step-end}
+  94%,100%{transform:translate(0,22px)}
+}
+
+@media (max-width:768px){
+  .talentika-preloader__stage{transform:scale(.82);}
+}
+@media (max-width:420px){
+  .talentika-preloader__stage{transform:scale(.72);}
+}
+@media (min-width:1800px){
+  .talentika-preloader__stage{transform:scale(1.15);}
+}
+@media (min-width:2560px){
+  .talentika-preloader__stage{transform:scale(1.35);}
+}
+@media (min-width:3840px){
+  .talentika-preloader__stage{transform:scale(1.5);}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .talentika-preloader__orb{
+    animation:none!important;
+    transform:none!important;
+    opacity:1!important;
+  }
+  .talentika-preloader{
+    transition:opacity .18s ease,visibility 0s linear .18s;
+  }
+}
+
+
+/* PAGE BACKGROUND */
+html,body{
+  background:#FFFFFF!important;
+}
+
+/* Loader keeps its own Figma background */
+.talentika-preloader{
+  background:#EDF1FF!important;
+}
+
+
+
+/* LIGHT EYEBROW TYPOGRAPHY — all page/section eyebrow labels */
+.section-label,
+[class*="eyebrow"]{
+  font-style:normal!important;
+  font-weight:300!important;
+}
+
 </style>
 </head>
 <body class="contact-page">
+
+<div class="talentika-preloader" id="talentikaPreloader" aria-hidden="true">
+  <div class="talentika-preloader__stage" role="status" aria-label="Loading Talentika">
+    <span class="talentika-preloader__orb talentika-preloader__orb--gcc"></span>
+    <span class="talentika-preloader__orb talentika-preloader__orb--rpo"></span>
+    <span class="talentika-preloader__orb talentika-preloader__orb--ai"></span>
+  </div>
+</div>
+<script>
+(function(){
+  const loader=document.getElementById('talentikaPreloader');
+  if(!loader) return;
+
+  const root=document.documentElement;
+  const revealDelay=350;
+  const minVisible=700;
+  const fadeMs=420;
+  let shownAt=0;
+  let revealed=false;
+  let finished=false;
+
+  function show(){
+    if(finished || document.readyState==='complete') return;
+    revealed=true;
+    shownAt=performance.now();
+    loader.classList.add('is-visible');
+    loader.setAttribute('aria-hidden','false');
+    root.classList.add('preloader-lock');
+  }
+
+  function hide(){
+    if(finished) return;
+    finished=true;
+    clearTimeout(revealTimer);
+
+    if(!revealed){
+      loader.style.display='none';
+      return;
+    }
+
+    const elapsed=performance.now()-shownAt;
+    const wait=Math.max(0,minVisible-elapsed);
+    setTimeout(()=>{
+      loader.classList.add('is-leaving');
+      root.classList.remove('preloader-lock');
+      loader.setAttribute('aria-hidden','true');
+      setTimeout(()=>{
+        loader.classList.remove('is-visible','is-leaving');
+        loader.style.display='none';
+      },fadeMs+40);
+    },wait);
+  }
+
+  const revealTimer=setTimeout(show,revealDelay);
+
+  if(document.readyState==='complete') hide();
+  else window.addEventListener('load',hide,{once:true});
+
+  /* Safety fallback for unusually slow or failed resources. */
+  setTimeout(hide,8000);
+
+  window.addEventListener('pageshow',e=>{
+    if(e.persisted){
+      root.classList.remove('preloader-lock');
+      loader.style.display='none';
+    }
+  });
+})();
+</script>
+
 <div aria-hidden="true" class="hero__media">
 <video autoplay="" id="heroVideo" loop="" muted="" playsinline="" preload="metadata">
 <source src="assets/videos/contactus-hero-1440x750.mp4" type="video/mp4"/>
@@ -1899,13 +2142,13 @@ main,
 </div>
 <header class="site-header">
 <div class="site-header__inner">
-<a aria-label="Talentika home" href="index.html"><img alt="Talentika" class="site-header__logo" src="assets/images/contactus/T_Logo_Dark 1.png"/></a>
+<a aria-label="Talentika home" href="index.html"><img alt="Talentika" class="site-header__logo" src="assets/images/index/T_Logo_Dark 1.svg"/></a>
 <button aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation" class="site-header__toggle" type="button"><span></span><span></span><span></span></button>
 <nav aria-label="Primary navigation" class="site-header__nav" id="main-nav">
 <a class="site-header__link" href="gcc.html">GCC services</a>
 <a class="site-header__link" href="rpo.html">RPO</a>
 <a class="site-header__link" href="aidigital.html">Digital</a>
-<a class="site-header__link" href="index.html#work">Case studies</a>
+<a class="site-header__link" href="casestudies.html">Case studies</a>
 <a class="site-header__link" href="aboutus.html">About</a>
 <a aria-current="page" class="site-header__link is-active" href="contactus.html">Contact</a>
 <a class="site-header__talk" href="contactus.html">Talk to us</a>
@@ -2068,20 +2311,20 @@ main,
 </section>
 </main>
 <footer class="footer" id="contact"><div class="footer__cta reveal"><p class="section-label">READY TO BEGIN?</p><h2 class="section-heading">Let’s Build Something Great Together</h2><a class="button footer__advisor" href="#">Speak to an Advisor</a><div class="city-tickers"><div class="ticker"><div class="ticker__track city-track"></div></div><div class="ticker ticker--reverse"><div class="ticker__track city-track"></div></div></div></div>
-<div class="footer__main"><div><img alt="Talentika" class="footer__brand-logo" src="assets/images/contactus/T_Logo_Light 1.png"/><p class="footer__tagline">Engineering the Workforce<br/>Behind Global Innovation.</p><div class="footer__mini-icons"><img alt="GCC" src="assets/images/contactus/GCC_Icon_1 1.png"/><img alt="RPO" src="assets/images/contactus/RPO_Icon_1 1.png"/><img alt="AI" src="assets/images/contactus/AI_Icon_1 1.png"/></div><div class="footer__contact"><strong>Contact</strong><p>hello@talentika.in    +91 123 456 7890</p></div><div class="footer__social"><img alt="Instagram" src="assets/images/contactus/instagram 1.png"/><img alt="LinkedIn" src="assets/images/contactus/LinkedIn 1.png"/><img alt="Facebook" src="assets/images/contactus/Facebook 1.png"/><img alt="X" src="assets/images/contactus/X 1.png"/></div></div>
+<div class="footer__main"><div><img alt="Talentika" class="footer__brand-logo" src="assets/images/index/T_Logo_Light 1.svg"/><p class="footer__tagline">Engineering the Workforce<br/>Behind Global Innovation.</p><div class="footer__mini-icons"><img alt="GCC" src="assets/images/index/GCC_Icon_1 1.svg"/><img alt="RPO" src="assets/images/index/RPO_Icon_1 1.svg"/><img alt="AI" src="assets/images/index/AI_Icon_1 1.svg"/></div><div class="footer__contact"><strong>Contact</strong><p>hello@talentika.in    +91 123 456 7890</p></div><div class="footer__social"><img alt="Instagram" src="assets/images/index/instagram 1.svg"/><img alt="LinkedIn" src="assets/images/index/LinkedIn 1.svg"/><img alt="Facebook" src="assets/images/index/Facebook 1.svg"/><img alt="X" src="assets/images/index/X 1.svg"/></div></div>
 <div class="footer__links">
 <div class="footer__col"><h3>Services</h3><a class="footer__link" href="#">GCC Setup &amp; Advisory</a><a class="footer__link" href="#">Location Strategy</a><a class="footer__link" href="#">Entity &amp; Compliance</a><a class="footer__link" href="#">Tech &amp; Infrastructure</a><a class="footer__link" href="#">Tech RPO</a><a class="footer__link" href="#">Healthcare RPO</a><a class="footer__link" href="#">Executive Search</a><a class="footer__link" href="#">Platform Integration</a></div>
-<div class="footer__col"><h3>Company</h3><a class="footer__link" href="#">About Talentika</a><a class="footer__link" href="#">Careers/Hiring</a><a class="footer__link" href="#">Case Studies</a><a class="footer__link" href="#">Contact</a><a class="footer__link" href="#">Insights &amp; Resources</a></div>
+<div class="footer__col"><h3>Company</h3><a class="footer__link" href="#">About Talentika</a><a class="footer__link" href="#">Careers/Hiring</a><a class="footer__link" href="casestudies.html">Case Studies</a><a class="footer__link" href="#">Contact</a><a class="footer__link" href="#">Insights &amp; Resources</a></div>
 <div class="footer__col"><h3>EcoSystem &amp; Platforms</h3><div class="footer__ecosystem">
-<a class="footer__ecosystem-row" href="#"><img alt="Deebug" class="footer__ecosystem-logo footer__ecosystem-logo--deebug" src="assets/images/contactus/Deebug_Logo 1.png"/><span aria-hidden="true" class="footer__ecosystem-arrow">
+<a class="footer__ecosystem-row" href="#"><img alt="Deebug" class="footer__ecosystem-logo footer__ecosystem-logo--deebug" src="assets/images/index/Deebug_Logo 1.svg"/><span aria-hidden="true" class="footer__ecosystem-arrow">
 <svg class="footer__arrow--out" fill="none" viewbox="0 0 24 24"><path d="M6.4 18 5 16.6 14.6 7H6V5h12v12h-2V8.4L6.4 18Z" fill="currentColor"></path></svg>
 <svg class="footer__arrow--in" fill="none" viewbox="0 0 24 24"><path d="M6.4 18 5 16.6 14.6 7H6V5h12v12h-2V8.4L6.4 18Z" fill="currentColor"></path></svg>
 </span></a>
-<a class="footer__ecosystem-row" href="#"><img alt="GCC Mixer" class="footer__ecosystem-logo" src="assets/images/contactus/GCC_Mixer_Logo 2.png"/><span aria-hidden="true" class="footer__ecosystem-arrow">
+<a class="footer__ecosystem-row" href="#"><img alt="GCC Mixer" class="footer__ecosystem-logo" src="assets/images/index/GCC_Mixer_Logo 2.svg"/><span aria-hidden="true" class="footer__ecosystem-arrow">
 <svg class="footer__arrow--out" fill="none" viewbox="0 0 24 24"><path d="M6.4 18 5 16.6 14.6 7H6V5h12v12h-2V8.4L6.4 18Z" fill="currentColor"></path></svg>
 <svg class="footer__arrow--in" fill="none" viewbox="0 0 24 24"><path d="M6.4 18 5 16.6 14.6 7H6V5h12v12h-2V8.4L6.4 18Z" fill="currentColor"></path></svg>
 </span></a>
-<a class="footer__ecosystem-row" href="#"><img alt="AI Basecamp" class="footer__ecosystem-logo" src="assets/images/contactus/AI_Base_Camp_Logo 2.png"/><span aria-hidden="true" class="footer__ecosystem-arrow">
+<a class="footer__ecosystem-row" href="#"><img alt="AI Basecamp" class="footer__ecosystem-logo" src="assets/images/index/AI_Base_Camp_Logo 2.svg"/><span aria-hidden="true" class="footer__ecosystem-arrow">
 <svg class="footer__arrow--out" fill="none" viewbox="0 0 24 24"><path d="M6.4 18 5 16.6 14.6 7H6V5h12v12h-2V8.4L6.4 18Z" fill="currentColor"></path></svg>
 <svg class="footer__arrow--in" fill="none" viewbox="0 0 24 24"><path d="M6.4 18 5 16.6 14.6 7H6V5h12v12h-2V8.4L6.4 18Z" fill="currentColor"></path></svg>
 </span></a>
@@ -2098,7 +2341,7 @@ main,
 </nav>
 </div>
 </div>
-<div aria-hidden="true" class="footer__skyline"><img alt="" src="assets/images/contactus/Layer_3.svg"/></div></footer>
+<div aria-hidden="true" class="footer__skyline"><img alt="" src="assets/images/index/Layer_3.svg"/></div></footer>
 <script>
 (() => {
  const toggle=document.querySelector('.site-header__toggle'),nav=document.querySelector('.site-header__nav');
