@@ -2832,10 +2832,7 @@ html,body{
   display:flex;align-items:center;justify-content:space-between;color:var(--text);
   font:400 16px/1.4 "Noto Sans",sans-serif
 }
-.cs-filter-search__icon{
-  width:24px;height:24px;display:grid;place-items:center;border-radius:50%;
-  border:1px solid #dadde0;font:400 12px/1 "Noto Sans",sans-serif
-}
+.cs-filter-search__icon{width:24px;height:24px;display:block;object-fit:contain;flex:none}
 .cs-filter-title{margin:16px 0;font:700 14px/20px "Noto Sans",sans-serif}
 .cs-filter-row{padding:12px 0;border-top:.5px solid #dadde0}
 .cs-filter-row:last-child{border-bottom:.5px solid #dadde0}
@@ -3090,7 +3087,7 @@ body,
 <section class="cs-landing-framework">
   <div class="cs-landing-layout">
     <aside class="cs-sidebar reveal" aria-label="Case study filters">
-      <div class="cs-filter-search"><span>Search by Keyword</span><span class="cs-filter-search__icon">↵</span></div>
+      <div class="cs-filter-search"><span>Search by Keyword</span><img class="cs-filter-search__icon" src="assets/images/casestudies/action_key.png" alt=""></div>
       <p class="cs-filter-title">Filter by</p>
       <div class="cs-filter-row">
         <div class="cs-filter-row__label">Topics</div>
@@ -3153,7 +3150,7 @@ body,
 </section>
 </main>
 <footer class="footer" id="contact"><div class="footer__cta reveal"><p class="section-label">READY TO BEGIN?</p><h2 class="section-heading">Let’s Build Something Great Together</h2><a class="button footer__advisor" href="#">Speak to an Advisor</a><div class="city-tickers"><div class="ticker"><div class="ticker__track city-track"></div></div><div class="ticker ticker--reverse"><div class="ticker__track city-track"></div></div></div></div>
-<div class="footer__main"><div><img alt="Talentika" class="footer__brand-logo" src="assets/images/index/T_Logo_Light 1.svg"/><p class="footer__tagline">Engineering the Workforce<br/>Behind Global Innovation.</p><div class="footer__mini-icons"><img alt="GCC" src="assets/images/index/GCC_Icon_1 1.svg"/><img alt="RPO" src="assets/images/index/RPO_Icon_1 1.svg"/><img alt="AI" src="assets/images/index/AI_Icon_1 1.svg"/></div><div class="footer__contact"><strong>Contact</strong><p>hello@talentika.in    +91 123 456 7890</p></div><div class="footer__social"><img alt="Instagram" src="assets/images/index/instagram 1.svg"/><img alt="LinkedIn" src="assets/images/index/LinkedIn 1.svg"/><img alt="Facebook" src="assets/images/index/Facebook 1.svg"/><img alt="X" src="assets/images/index/X 1.svg"/></div></div>
+<div class="footer__main"><div><img alt="Talentika" class="footer__brand-logo" src="assets/images/index/T_Logo_Light 1.svg"/><p class="footer__tagline">Engineering the Workforce<br/>Behind Global Innovation.</p><div class="footer__mini-icons"><img alt="GCC" src="assets/images/index/GCC_Icon_1 1.svg"/><img alt="RPO" src="assets/images/index/RPO_Icon_1 1.svg"/><img alt="AI" src="assets/images/index/AI_Icon_1 1.svg"/></div><div class="footer__contact"><strong>Contact</strong><p>hello@talentika.in    +91 123 456 7890</p></div><div class="footer__social"><img alt="Instagram" src="assets/images/index/instagram 1.svg"/><img alt="LinkedIn" src="assets/images/index/LinkedIn 1.svg"/><img alt="Facebook" src="assets/images/index/Facebook 1.svg"/><img alt="X" src="assets/images/index/X 1.svg"/></div></div>
 <div class="footer__links">
 <div class="footer__col"><h3>Services</h3><a class="footer__link" href="#">GCC Setup &amp; Advisory</a><a class="footer__link" href="#">Location Strategy</a><a class="footer__link" href="#">Entity &amp; Compliance</a><a class="footer__link" href="#">Tech &amp; Infrastructure</a><a class="footer__link" href="#">Tech RPO</a><a class="footer__link" href="#">Healthcare RPO</a><a class="footer__link" href="#">Executive Search</a><a class="footer__link" href="#">Platform Integration</a></div>
 <div class="footer__col"><h3>Company</h3><a class="footer__link" href="#">About Talentika</a><a class="footer__link" href="#">Careers/Hiring</a><a class="footer__link" href="casestudies.html">Case Studies</a><a class="footer__link" href="#">Contact</a><a class="footer__link" href="#">Insights &amp; Resources</a></div>
