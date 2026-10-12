@@ -4,6 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta name="description" content="Contact Talentika to discuss GCC setup, specialist hiring, RPO, AI, and digital transformation programs with its global delivery team."/>
 <title>Talentika — Contact Us</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Geist:wght@600;700&family=Noto+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
@@ -2452,6 +2453,313 @@ html,body{
   }
 }
 
+
+/* =========================================================
+   4K / ULTRA-WIDE QA PASS
+   - Fluid through 3840px
+   - Centered canvas above 3840px
+   - Restores proportional large-screen footer sizing
+   ========================================================= */
+
+html{
+  background:#FFFFFF!important;
+}
+
+body{
+  width:100%!important;
+  max-width:3840px!important;
+  margin-inline:auto!important;
+  position:relative!important;
+}
+
+/* Keep full-page shell centered on displays wider than 4K. */
+@media (min-width:3841px){
+  body{
+    box-shadow:0 0 0 1px rgba(10,25,47,.025);
+  }
+}
+
+/* Header should scale with the page up to 4K rather than stopping at 1920. */
+@media (min-width:1600px){
+  .site-header__inner{
+    max-width:none!important;
+    padding-left:clamp(48px,3.0556vw,117px)!important;
+    padding-right:clamp(48px,3.3333vw,128px)!important;
+  }
+
+  .site-header__logo{
+    width:clamp(126px,8.75vw,336px)!important;
+    height:auto!important;
+  }
+
+  .site-header__nav{
+    gap:clamp(60px,4.1667vw,160px)!important;
+  }
+
+  .site-header__link{
+    font-size:clamp(14px,.9722vw,37px)!important;
+    line-height:1.4!important;
+  }
+
+  .site-header__talk{
+    width:clamp(138px,9.5833vw,368px)!important;
+    height:clamp(54px,3.75vw,144px)!important;
+    font-size:clamp(14px,.9722vw,37px)!important;
+  }
+}
+
+/* Footer: use the original 1440 geometry proportionally all the way to 3840.
+   Avoid the tiny 1920px-capped layout seen in ultra-wide QA. */
+@media (min-width:1600px){
+  .footer__main{
+    max-width:3840px!important;
+    margin-inline:auto!important;
+    min-height:clamp(506px,35.1389vw,1349px)!important;
+    padding:
+      clamp(80px,5.5556vw,213px)
+      clamp(60px,4.1667vw,160px)
+      clamp(30px,2.0833vw,80px)!important;
+
+    display:grid!important;
+    grid-template-columns:
+      clamp(330px,22.9167vw,880px)
+      minmax(0,1fr)!important;
+    grid-template-rows:auto auto!important;
+    column-gap:clamp(170px,11.8056vw,453px)!important;
+    row-gap:clamp(32px,2.2222vw,85px)!important;
+  }
+
+  .footer__main > div:first-child{
+    grid-column:1!important;
+    grid-row:1 / 3!important;
+  }
+
+  .footer__links{
+    grid-column:2!important;
+    grid-row:1!important;
+    display:grid!important;
+    grid-template-columns:
+      minmax(0,1.05fr)
+      minmax(0,.95fr)
+      minmax(0,1.25fr)
+      minmax(0,.85fr)!important;
+    column-gap:clamp(54px,3.75vw,144px)!important;
+    width:100%!important;
+  }
+
+  .footer__bottom{
+    grid-column:2!important;
+    grid-row:2!important;
+    position:static!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:space-between!important;
+    gap:clamp(28px,2vw,76px)!important;
+    padding-top:clamp(18px,1.25vw,48px)!important;
+    width:100%!important;
+  }
+
+  .footer__legal{
+    display:flex!important;
+    flex-wrap:wrap!important;
+    justify-content:flex-end!important;
+    gap:
+      clamp(12px,.8333vw,32px)
+      clamp(20px,1.6667vw,64px)!important;
+    max-width:72%!important;
+  }
+
+  .footer__brand-logo{
+    width:clamp(164px,11.3889vw,437px)!important;
+    height:auto!important;
+  }
+
+  .footer__tagline{
+    font-size:clamp(20px,1.3889vw,53px)!important;
+    line-height:1.35!important;
+    max-width:clamp(250px,20.8333vw,800px)!important;
+  }
+
+  .footer__service{
+    font-size:clamp(12px,.8333vw,32px)!important;
+    line-height:1.25!important;
+  }
+
+  .footer__service img{
+    width:clamp(46px,3.1944vw,123px)!important;
+    height:clamp(46px,3.1944vw,123px)!important;
+  }
+
+  .footer__contact,
+  .footer__bottom,
+  .footer__legal-link{
+    font-size:clamp(12px,.8333vw,32px)!important;
+    line-height:1.4!important;
+  }
+
+  .footer__social{
+    gap:clamp(22px,1.5278vw,59px)!important;
+    margin-top:clamp(40px,2.7778vw,107px)!important;
+  }
+
+  .footer__social img{
+    width:clamp(46px,3.1944vw,123px)!important;
+    height:clamp(46px,3.1944vw,123px)!important;
+  }
+
+  .footer__col h3{
+    font-size:clamp(14px,.9722vw,37px)!important;
+    line-height:1.35!important;
+  }
+
+  .footer__link{
+    font-size:clamp(12px,.8333vw,32px)!important;
+    line-height:1.35!important;
+  }
+
+  .footer__ecosystem-row{
+    height:clamp(64px,4.4444vw,171px)!important;
+  }
+
+  .footer__ecosystem-logo{
+    max-width:none!important;
+    width:clamp(110px,9.4444vw,363px)!important;
+    height:auto!important;
+  }
+
+  .footer__skyline{
+    height:clamp(150px,10.4167vw,400px)!important;
+  }
+
+  .footer__skyline img{
+    width:min(100%,3840px)!important;
+    height:100%!important;
+    object-fit:cover!important;
+    object-position:center bottom!important;
+  }
+}
+
+
+/* Contact — 4K Global Presence reconstruction from the 1440 reference */
+@media (min-width:1600px){
+  .contact-network{
+    height:clamp(1063px,73.8194vw,2835px)!important;
+    padding:
+      clamp(90px,6.25vw,240px)
+      clamp(60px,4.1667vw,160px)
+      0!important;
+  }
+
+  .contact-network__intro{
+    width:clamp(579px,40.2083vw,1544px)!important;
+    gap:clamp(18px,1.25vw,48px)!important;
+  }
+
+  .contact-network__eyebrow{
+    font-size:clamp(16px,1.1111vw,43px)!important;
+  }
+
+  .contact-network__title{
+    font-size:clamp(60px,4.1667vw,160px)!important;
+    line-height:1!important;
+  }
+
+  .contact-network__desc{
+    font-size:clamp(16px,1.1111vw,43px)!important;
+  }
+
+  .contact-network__number{
+    left:clamp(689px,47.8472vw,1837px)!important;
+    top:0!important;
+    right:auto!important;
+    font-size:clamp(542px,37.6936vw,1448px)!important;
+    line-height:1!important;
+  }
+
+  .contact-network__viewport{
+    left:clamp(60px,4.1667vw,160px)!important;
+    top:clamp(240px,16.6667vw,640px)!important;
+    width:clamp(1303px,90.4861vw,3475px)!important;
+    height:clamp(863px,59.9306vw,2301px)!important;
+    overflow:visible!important;
+  }
+
+  .contact-network__stage{
+    width:clamp(1381px,95.9028vw,3684px)!important;
+    height:clamp(801px,55.6542vw,2137px)!important;
+  }
+
+  .contact-network__canvas{
+    left:clamp(-358px,-9.334vw,-134px)!important;
+    top:clamp(-43px,-1.1111vw,-16px)!important;
+    width:clamp(1515px,105.237vw,4041px)!important;
+    height:clamp(879px,61.0706vw,2345px)!important;
+    transform:none!important;
+  }
+
+  .contact-network__world{
+    width:100%!important;
+    height:100%!important;
+  }
+
+  .contact-network .map-country{
+    transform-origin:top left!important;
+  }
+}
+
+
+/* Above 4K, keep every page centered in a 3840px design canvas. */
+@media (min-width:3841px){
+  body > .hero__media,
+  body > .case-studies-hero__media{
+    left:50%!important;
+    transform:translateX(-50%)!important;
+    width:3840px!important;
+  }
+
+  .site-header,
+  main,
+  .footer{
+    width:3840px!important;
+    margin-left:auto!important;
+    margin-right:auto!important;
+  }
+}
+
+
+/* QA FINDINGS FIXES */
+.is-disabled{
+  cursor:default!important;
+  pointer-events:none!important;
+}
+a[aria-disabled="true"]{
+  cursor:default!important;
+  pointer-events:none!important;
+}
+
+
+/* Contact form validation */
+.form-error{
+  min-height:18px;
+  margin:6px 0 0;
+  font:400 12px/18px "Noto Sans",sans-serif;
+  color:#b42318;
+}
+.form-status{
+  min-height:20px;
+  margin:10px 0 0;
+  font:600 13px/20px "Noto Sans",sans-serif;
+  color:var(--navy);
+}
+.form-control[aria-invalid="true"]{
+  border-color:#b42318!important;
+  outline-color:#b42318!important;
+}
+.contact-submit[disabled]{
+  opacity:.65;
+  cursor:not-allowed;
+}
+
 </style>
 </head>
 <body class="contact-page">
@@ -2580,24 +2888,29 @@ html,body{
 <section class="contact-form-section">
 <div class="contact-form__left">
 <h2 class="contact-form__heading reveal">Schedule a session with our principal architects to <span>blueprint your next-gen engineering center.</span></h2>
-<form action="#" class="contact-form reveal" method="post">
+<form action="mailto:contact@talentika.in" class="contact-form reveal" method="post" enctype="text/plain" novalidate>
 <div class="form-field">
 <label for="full-name">Full Name</label>
-<input class="form-control" id="full-name" name="full-name" placeholder="Your Name" type="text"/>
+<input aria-describedby="full-name-error" autocomplete="name" class="form-control" id="full-name" maxlength="100" minlength="2" name="full-name" placeholder="Your Name" required type="text"/>
+<p class="form-error" id="full-name-error" role="alert"></p>
 </div>
 <div class="form-field">
 <label for="work-email">Work Email</label>
-<input class="form-control" id="work-email" name="work-email" placeholder="email@companyname.com" type="email"/>
+<input aria-describedby="work-email-error" autocomplete="email" class="form-control" id="work-email" maxlength="160" name="work-email" placeholder="email@companyname.com" required type="email"/>
+<p class="form-error" id="work-email-error" role="alert"></p>
 </div>
 <div class="form-field">
 <label for="company-name">Company Name</label>
-<input class="form-control" id="company-name" name="company-name" placeholder="Company Name" type="text"/>
+<input aria-describedby="company-name-error" autocomplete="organization" class="form-control" id="company-name" maxlength="120" minlength="2" name="company-name" placeholder="Company Name" required type="text"/>
+<p class="form-error" id="company-name-error" role="alert"></p>
 </div>
 <div class="form-field">
 <label for="brief-message">Brief Message</label>
-<textarea class="form-control" id="brief-message" name="brief-message" placeholder="Write here"></textarea>
+<textarea aria-describedby="brief-message-error" class="form-control" id="brief-message" maxlength="2000" minlength="10" name="brief-message" placeholder="Write here" required></textarea>
+<p class="form-error" id="brief-message-error" role="alert"></p>
 </div>
 <button class="contact-submit" type="submit">Submit Enquiry</button>
+<p aria-live="polite" class="form-status" id="contact-form-status"></p>
 </form>
 </div>
 <aside class="contact-form__aside reveal" style="--delay:80ms">
@@ -2700,34 +3013,34 @@ html,body{
 </div>
 </section>
 </main>
-<footer class="footer" id="contact"><div class="footer__cta reveal"><p class="section-label">READY TO BEGIN?</p><h2 class="section-heading">Let’s Build Something Great Together</h2><a class="button footer__advisor" href="#">Speak to an Advisor</a><div class="city-tickers"><div class="ticker"><div class="ticker__track city-track"></div></div><div class="ticker ticker--reverse"><div class="ticker__track city-track"></div></div></div></div>
+<footer class="footer" id="contact"><div class="footer__cta reveal"><p class="section-label">READY TO BEGIN?</p><h2 class="section-heading">Let’s Build Something Great Together</h2><a class="button footer__advisor" href="contactus.html">Speak to an Advisor</a><div class="city-tickers"><div class="ticker"><div class="ticker__track city-track"></div></div><div class="ticker ticker--reverse"><div class="ticker__track city-track"></div></div></div></div>
 <div class="footer__main"><div><img alt="Talentika" class="footer__brand-logo" src="assets/images/index/T_Logo_Light 1.svg"/><p class="footer__tagline">Engineering the Workforce<br/>Behind Global Innovation.</p><div class="footer__mini-icons"><img alt="GCC" src="assets/images/index/GCC_Icon_1 1.svg"/><img alt="RPO" src="assets/images/index/RPO_Icon_1 1.svg"/><img alt="AI" src="assets/images/index/AI_Icon_1 1.svg"/></div><div class="footer__contact"><strong>Contact</strong><p>hello@talentika.in    +91 123 456 7890</p></div><div class="footer__social"><img alt="Instagram" src="assets/images/index/instagram 1.svg"/><img alt="LinkedIn" src="assets/images/index/LinkedIn 1.svg"/><img alt="Facebook" src="assets/images/index/Facebook 1.svg"/><img alt="X" src="assets/images/index/X 1.svg"/></div></div>
 <div class="footer__links">
-<div class="footer__col"><h3>Services</h3><a class="footer__link" href="#">GCC Setup &amp; Advisory</a><a class="footer__link" href="#">Location Strategy</a><a class="footer__link" href="#">Entity &amp; Compliance</a><a class="footer__link" href="#">Tech &amp; Infrastructure</a><a class="footer__link" href="#">Tech RPO</a><a class="footer__link" href="#">Healthcare RPO</a><a class="footer__link" href="#">Executive Search</a><a class="footer__link" href="#">Platform Integration</a></div>
-<div class="footer__col"><h3>Company</h3><a class="footer__link" href="#">About Talentika</a><a class="footer__link" href="#">Careers/Hiring</a><a class="footer__link" href="casestudies.html">Case Studies</a><a class="footer__link" href="#">Contact</a><a class="footer__link" href="#">Insights &amp; Resources</a></div>
+<div class="footer__col"><h3>Services</h3><a class="footer__link" href="gcc.html">GCC Setup &amp; Advisory</a><a class="footer__link" href="gcc.html">Location Strategy</a><a class="footer__link" href="gcc.html">Entity &amp; Compliance</a><a class="footer__link" href="gcc.html">Tech &amp; Infrastructure</a><a class="footer__link" href="rpo.html">Tech RPO</a><a class="footer__link" href="rpo.html">Healthcare RPO</a><a class="footer__link" href="rpo.html">Executive Search</a><a class="footer__link" href="aidigital.html">Platform Integration</a></div>
+<div class="footer__col"><h3>Company</h3><a class="footer__link" href="aboutus.html">About Talentika</a><span class="footer__link is-disabled" aria-disabled="true">Careers/Hiring</span><a class="footer__link" href="casestudies.html">Case Studies</a><a class="footer__link" href="contactus.html">Contact</a><span class="footer__link is-disabled" aria-disabled="true">Insights &amp; Resources</span></div>
 <div class="footer__col"><h3>EcoSystem &amp; Platforms</h3><div class="footer__ecosystem">
-<a class="footer__ecosystem-row" href="#"><img alt="Deebug" class="footer__ecosystem-logo footer__ecosystem-logo--deebug" src="assets/images/index/Deebug_Logo 1.svg"/><span aria-hidden="true" class="footer__ecosystem-arrow">
+<span class="footer__ecosystem-row is-disabled" aria-disabled="true"><img alt="Deebug" class="footer__ecosystem-logo footer__ecosystem-logo--deebug" src="assets/images/index/Deebug_Logo 1.svg"/><span aria-hidden="true" class="footer__ecosystem-arrow">
 <svg class="footer__arrow--out" fill="none" viewbox="0 0 24 24"><path d="M6.4 18 5 16.6 14.6 7H6V5h12v12h-2V8.4L6.4 18Z" fill="currentColor"></path></svg>
 <svg class="footer__arrow--in" fill="none" viewbox="0 0 24 24"><path d="M6.4 18 5 16.6 14.6 7H6V5h12v12h-2V8.4L6.4 18Z" fill="currentColor"></path></svg>
-</span></a>
-<a class="footer__ecosystem-row" href="#"><img alt="GCC Mixer" class="footer__ecosystem-logo" src="assets/images/index/GCC_Mixer_Logo 2.svg"/><span aria-hidden="true" class="footer__ecosystem-arrow">
+</span></span>
+<span class="footer__ecosystem-row is-disabled" aria-disabled="true"><img alt="GCC Mixer" class="footer__ecosystem-logo" src="assets/images/index/GCC_Mixer_Logo 2.svg"/><span aria-hidden="true" class="footer__ecosystem-arrow">
 <svg class="footer__arrow--out" fill="none" viewbox="0 0 24 24"><path d="M6.4 18 5 16.6 14.6 7H6V5h12v12h-2V8.4L6.4 18Z" fill="currentColor"></path></svg>
 <svg class="footer__arrow--in" fill="none" viewbox="0 0 24 24"><path d="M6.4 18 5 16.6 14.6 7H6V5h12v12h-2V8.4L6.4 18Z" fill="currentColor"></path></svg>
-</span></a>
-<a class="footer__ecosystem-row" href="#"><img alt="AI Basecamp" class="footer__ecosystem-logo" src="assets/images/index/AI_Base_Camp_Logo 2.svg"/><span aria-hidden="true" class="footer__ecosystem-arrow">
+</span></span>
+<span class="footer__ecosystem-row is-disabled" aria-disabled="true"><img alt="AI Basecamp" class="footer__ecosystem-logo" src="assets/images/index/AI_Base_Camp_Logo 2.svg"/><span aria-hidden="true" class="footer__ecosystem-arrow">
 <svg class="footer__arrow--out" fill="none" viewbox="0 0 24 24"><path d="M6.4 18 5 16.6 14.6 7H6V5h12v12h-2V8.4L6.4 18Z" fill="currentColor"></path></svg>
 <svg class="footer__arrow--in" fill="none" viewbox="0 0 24 24"><path d="M6.4 18 5 16.6 14.6 7H6V5h12v12h-2V8.4L6.4 18Z" fill="currentColor"></path></svg>
-</span></a>
+</span></span>
 </div></div>
-<div class="footer__col"><h3>Cities We Work in</h3><a class="footer__link" href="#">Pune</a><a class="footer__link" href="#">London</a><a class="footer__link" href="#">Dublin</a><a class="footer__link" href="#">Madrid</a><a class="footer__link" href="#">Sydney</a></div>
+<div class="footer__col"><h3>Cities We Work in</h3><span class="footer__link is-disabled" aria-disabled="true">Pune</span><span class="footer__link is-disabled" aria-disabled="true">London</span><span class="footer__link is-disabled" aria-disabled="true">Dublin</span><span class="footer__link is-disabled" aria-disabled="true">Madrid</span><span class="footer__link is-disabled" aria-disabled="true">Sydney</span></div>
 </div>
 <div class="footer__bottom">
 <span>© 2026 Talentika.</span>
 <nav aria-label="Legal" class="footer__legal">
-<a class="footer__legal-link" href="#">Privacy Policy</a>
-<a class="footer__legal-link" href="#">Terms of Use</a>
-<a class="footer__legal-link" href="#">Cookie Preferences</a>
-<a class="footer__legal-link" href="#">Sitemap</a>
+<span class="footer__legal-link is-disabled" aria-disabled="true">Privacy Policy</span>
+<span class="footer__legal-link is-disabled" aria-disabled="true">Terms of Use</span>
+<span class="footer__legal-link is-disabled" aria-disabled="true">Cookie Preferences</span>
+<span class="footer__legal-link is-disabled" aria-disabled="true">Sitemap</span>
 </nav>
 </div>
 </div>
@@ -2816,7 +3129,61 @@ if(heroVideo){
 
     const contactForm=document.querySelector('.contact-form');
   if(contactForm){
-    contactForm.addEventListener('submit',e=>e.preventDefault());
+    const status=document.getElementById('contact-form-status');
+    const submitButton=contactForm.querySelector('.contact-submit');
+    const fields=[...contactForm.querySelectorAll('.form-control')];
+
+    const messageFor=(field)=>{
+      const value=field.value.trim();
+      if(!value) return 'This field is required.';
+      if(field.type==='email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) return 'Enter a valid work email address.';
+      if(field.minLength>0 && value.length<field.minLength) return `Please enter at least ${field.minLength} characters.`;
+      return '';
+    };
+
+    const validateField=(field)=>{
+      const error=document.getElementById(field.getAttribute('aria-describedby'));
+      const message=messageFor(field);
+      field.setAttribute('aria-invalid',message?'true':'false');
+      if(error) error.textContent=message;
+      return !message;
+    };
+
+    fields.forEach(field=>{
+      field.addEventListener('blur',()=>validateField(field));
+      field.addEventListener('input',()=>{
+        if(field.getAttribute('aria-invalid')==='true') validateField(field);
+      });
+    });
+
+    contactForm.addEventListener('submit',e=>{
+      e.preventDefault();
+      const valid=fields.map(validateField).every(Boolean);
+      if(!valid){
+        const firstInvalid=fields.find(field=>field.getAttribute('aria-invalid')==='true');
+        if(firstInvalid) firstInvalid.focus();
+        if(status) status.textContent='Please review the highlighted fields.';
+        return;
+      }
+
+      submitButton.disabled=true;
+      if(status) status.textContent='Opening your email app with the enquiry details…';
+
+      const data=new FormData(contactForm);
+      const subject=encodeURIComponent(`Talentika enquiry from ${data.get('full-name')}`);
+      const body=encodeURIComponent(
+        `Full Name: ${data.get('full-name')}\n`+
+        `Work Email: ${data.get('work-email')}\n`+
+        `Company Name: ${data.get('company-name')}\n\n`+
+        `Brief Message:\n${data.get('brief-message')}`
+      );
+
+      window.location.href=`mailto:contact@talentika.in?subject=${subject}&body=${body}`;
+      setTimeout(()=>{
+        submitButton.disabled=false;
+        if(status) status.innerHTML='If your email app did not open, email us directly at <a href="mailto:contact@talentika.in">contact@talentika.in</a>.';
+      },1200);
+    });
   }
 
 </script>
