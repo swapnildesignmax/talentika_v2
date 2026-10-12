@@ -4,6 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta name="description" content="Explore Talentika AI and digital transformation capabilities across cloud, platforms, automation, enterprise technology, and modern engineering delivery."/>
 <title>Talentika — AI &amp; Digital</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Geist:wght@600;700&family=Noto+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
@@ -3109,6 +3110,222 @@ html,body{
   }
 }
 
+
+/* =========================================================
+   4K / ULTRA-WIDE QA PASS
+   - Fluid through 3840px
+   - Centered canvas above 3840px
+   - Restores proportional large-screen footer sizing
+   ========================================================= */
+
+html{
+  background:#FFFFFF!important;
+}
+
+body{
+  width:100%!important;
+  max-width:3840px!important;
+  margin-inline:auto!important;
+  position:relative!important;
+}
+
+/* Keep full-page shell centered on displays wider than 4K. */
+@media (min-width:3841px){
+  body{
+    box-shadow:0 0 0 1px rgba(10,25,47,.025);
+  }
+}
+
+/* Header should scale with the page up to 4K rather than stopping at 1920. */
+@media (min-width:1600px){
+  .site-header__inner{
+    max-width:none!important;
+    padding-left:clamp(48px,3.0556vw,117px)!important;
+    padding-right:clamp(48px,3.3333vw,128px)!important;
+  }
+
+  .site-header__logo{
+    width:clamp(126px,8.75vw,336px)!important;
+    height:auto!important;
+  }
+
+  .site-header__nav{
+    gap:clamp(60px,4.1667vw,160px)!important;
+  }
+
+  .site-header__link{
+    font-size:clamp(14px,.9722vw,37px)!important;
+    line-height:1.4!important;
+  }
+
+  .site-header__talk{
+    width:clamp(138px,9.5833vw,368px)!important;
+    height:clamp(54px,3.75vw,144px)!important;
+    font-size:clamp(14px,.9722vw,37px)!important;
+  }
+}
+
+/* Footer: use the original 1440 geometry proportionally all the way to 3840.
+   Avoid the tiny 1920px-capped layout seen in ultra-wide QA. */
+@media (min-width:1600px){
+  .footer__main{
+    max-width:3840px!important;
+    margin-inline:auto!important;
+    min-height:clamp(506px,35.1389vw,1349px)!important;
+    padding:
+      clamp(80px,5.5556vw,213px)
+      clamp(60px,4.1667vw,160px)
+      clamp(30px,2.0833vw,80px)!important;
+
+    display:grid!important;
+    grid-template-columns:
+      clamp(330px,22.9167vw,880px)
+      minmax(0,1fr)!important;
+    grid-template-rows:auto auto!important;
+    column-gap:clamp(170px,11.8056vw,453px)!important;
+    row-gap:clamp(32px,2.2222vw,85px)!important;
+  }
+
+  .footer__main > div:first-child{
+    grid-column:1!important;
+    grid-row:1 / 3!important;
+  }
+
+  .footer__links{
+    grid-column:2!important;
+    grid-row:1!important;
+    display:grid!important;
+    grid-template-columns:
+      minmax(0,1.05fr)
+      minmax(0,.95fr)
+      minmax(0,1.25fr)
+      minmax(0,.85fr)!important;
+    column-gap:clamp(54px,3.75vw,144px)!important;
+    width:100%!important;
+  }
+
+  .footer__bottom{
+    grid-column:2!important;
+    grid-row:2!important;
+    position:static!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:space-between!important;
+    gap:clamp(28px,2vw,76px)!important;
+    padding-top:clamp(18px,1.25vw,48px)!important;
+    width:100%!important;
+  }
+
+  .footer__legal{
+    display:flex!important;
+    flex-wrap:wrap!important;
+    justify-content:flex-end!important;
+    gap:
+      clamp(12px,.8333vw,32px)
+      clamp(20px,1.6667vw,64px)!important;
+    max-width:72%!important;
+  }
+
+  .footer__brand-logo{
+    width:clamp(164px,11.3889vw,437px)!important;
+    height:auto!important;
+  }
+
+  .footer__tagline{
+    font-size:clamp(20px,1.3889vw,53px)!important;
+    line-height:1.35!important;
+    max-width:clamp(250px,20.8333vw,800px)!important;
+  }
+
+  .footer__service{
+    font-size:clamp(12px,.8333vw,32px)!important;
+    line-height:1.25!important;
+  }
+
+  .footer__service img{
+    width:clamp(46px,3.1944vw,123px)!important;
+    height:clamp(46px,3.1944vw,123px)!important;
+  }
+
+  .footer__contact,
+  .footer__bottom,
+  .footer__legal-link{
+    font-size:clamp(12px,.8333vw,32px)!important;
+    line-height:1.4!important;
+  }
+
+  .footer__social{
+    gap:clamp(22px,1.5278vw,59px)!important;
+    margin-top:clamp(40px,2.7778vw,107px)!important;
+  }
+
+  .footer__social img{
+    width:clamp(46px,3.1944vw,123px)!important;
+    height:clamp(46px,3.1944vw,123px)!important;
+  }
+
+  .footer__col h3{
+    font-size:clamp(14px,.9722vw,37px)!important;
+    line-height:1.35!important;
+  }
+
+  .footer__link{
+    font-size:clamp(12px,.8333vw,32px)!important;
+    line-height:1.35!important;
+  }
+
+  .footer__ecosystem-row{
+    height:clamp(64px,4.4444vw,171px)!important;
+  }
+
+  .footer__ecosystem-logo{
+    max-width:none!important;
+    width:clamp(110px,9.4444vw,363px)!important;
+    height:auto!important;
+  }
+
+  .footer__skyline{
+    height:clamp(150px,10.4167vw,400px)!important;
+  }
+
+  .footer__skyline img{
+    width:min(100%,3840px)!important;
+    height:100%!important;
+    object-fit:cover!important;
+    object-position:center bottom!important;
+  }
+}
+
+
+/* Above 4K, keep every page centered in a 3840px design canvas. */
+@media (min-width:3841px){
+  body > .hero__media,
+  body > .case-studies-hero__media{
+    left:50%!important;
+    transform:translateX(-50%)!important;
+    width:3840px!important;
+  }
+
+  .site-header,
+  main,
+  .footer{
+    width:3840px!important;
+    margin-left:auto!important;
+    margin-right:auto!important;
+  }
+}
+
+
+/* QA FINDINGS FIXES */
+.is-disabled{
+  cursor:default!important;
+  pointer-events:none!important;
+}
+a[aria-disabled="true"]{
+  cursor:default!important;
+  pointer-events:none!important;
+}
+
 </style>
 </head>
 <body class="ai-page">
@@ -3348,34 +3565,34 @@ html,body{
 </div>
 </section>
 </main>
-<footer class="footer" id="contact"><div class="footer__cta reveal"><p class="section-label">READY TO BEGIN?</p><h2 class="section-heading">Let’s Build Something Great Together</h2><a class="button footer__advisor" href="#">Speak to an Advisor</a><div class="city-tickers"><div class="ticker"><div class="ticker__track city-track"></div></div><div class="ticker ticker--reverse"><div class="ticker__track city-track"></div></div></div></div>
+<footer class="footer" id="contact"><div class="footer__cta reveal"><p class="section-label">READY TO BEGIN?</p><h2 class="section-heading">Let’s Build Something Great Together</h2><a class="button footer__advisor" href="contactus.html">Speak to an Advisor</a><div class="city-tickers"><div class="ticker"><div class="ticker__track city-track"></div></div><div class="ticker ticker--reverse"><div class="ticker__track city-track"></div></div></div></div>
 <div class="footer__main"><div><img alt="Talentika" class="footer__brand-logo" src="assets/images/index/T_Logo_Light 1.svg"/><p class="footer__tagline">Engineering the Workforce<br/>Behind Global Innovation.</p><div class="footer__mini-icons"><img alt="GCC" src="assets/images/index/GCC_Icon_1 1.svg"/><img alt="RPO" src="assets/images/index/RPO_Icon_1 1.svg"/><img alt="AI" src="assets/images/index/AI_Icon_1 1.svg"/></div><div class="footer__contact"><strong>Contact</strong><p>hello@talentika.in    +91 123 456 7890</p></div><div class="footer__social"><img alt="Instagram" src="assets/images/index/instagram 1.svg"/><img alt="LinkedIn" src="assets/images/index/LinkedIn 1.svg"/><img alt="Facebook" src="assets/images/index/Facebook 1.svg"/><img alt="X" src="assets/images/index/X 1.svg"/></div></div>
 <div class="footer__links">
-<div class="footer__col"><h3>Services</h3><a class="footer__link" href="#">GCC Setup &amp; Advisory</a><a class="footer__link" href="#">Location Strategy</a><a class="footer__link" href="#">Entity &amp; Compliance</a><a class="footer__link" href="#">Tech &amp; Infrastructure</a><a class="footer__link" href="#">Tech RPO</a><a class="footer__link" href="#">Healthcare RPO</a><a class="footer__link" href="#">Executive Search</a><a class="footer__link" href="#">Platform Integration</a></div>
-<div class="footer__col"><h3>Company</h3><a class="footer__link" href="#">About Talentika</a><a class="footer__link" href="#">Careers/Hiring</a><a class="footer__link" href="casestudies.html">Case Studies</a><a class="footer__link" href="#">Contact</a><a class="footer__link" href="#">Insights &amp; Resources</a></div>
+<div class="footer__col"><h3>Services</h3><a class="footer__link" href="gcc.html">GCC Setup &amp; Advisory</a><a class="footer__link" href="gcc.html">Location Strategy</a><a class="footer__link" href="gcc.html">Entity &amp; Compliance</a><a class="footer__link" href="gcc.html">Tech &amp; Infrastructure</a><a class="footer__link" href="rpo.html">Tech RPO</a><a class="footer__link" href="rpo.html">Healthcare RPO</a><a class="footer__link" href="rpo.html">Executive Search</a><a class="footer__link" href="aidigital.html">Platform Integration</a></div>
+<div class="footer__col"><h3>Company</h3><a class="footer__link" href="aboutus.html">About Talentika</a><span class="footer__link is-disabled" aria-disabled="true">Careers/Hiring</span><a class="footer__link" href="casestudies.html">Case Studies</a><a class="footer__link" href="contactus.html">Contact</a><span class="footer__link is-disabled" aria-disabled="true">Insights &amp; Resources</span></div>
 <div class="footer__col"><h3>EcoSystem &amp; Platforms</h3><div class="footer__ecosystem">
-<a class="footer__ecosystem-row" href="#"><img alt="Deebug" class="footer__ecosystem-logo footer__ecosystem-logo--deebug" src="assets/images/index/Deebug_Logo 1.svg"/><span aria-hidden="true" class="footer__ecosystem-arrow">
+<span class="footer__ecosystem-row is-disabled" aria-disabled="true"><img alt="Deebug" class="footer__ecosystem-logo footer__ecosystem-logo--deebug" src="assets/images/index/Deebug_Logo 1.svg"/><span aria-hidden="true" class="footer__ecosystem-arrow">
 <svg class="footer__arrow--out" fill="none" viewbox="0 0 24 24"><path d="M6.4 18 5 16.6 14.6 7H6V5h12v12h-2V8.4L6.4 18Z" fill="currentColor"></path></svg>
 <svg class="footer__arrow--in" fill="none" viewbox="0 0 24 24"><path d="M6.4 18 5 16.6 14.6 7H6V5h12v12h-2V8.4L6.4 18Z" fill="currentColor"></path></svg>
-</span></a>
-<a class="footer__ecosystem-row" href="#"><img alt="GCC Mixer" class="footer__ecosystem-logo" src="assets/images/index/GCC_Mixer_Logo 2.svg"/><span aria-hidden="true" class="footer__ecosystem-arrow">
+</span></span>
+<span class="footer__ecosystem-row is-disabled" aria-disabled="true"><img alt="GCC Mixer" class="footer__ecosystem-logo" src="assets/images/index/GCC_Mixer_Logo 2.svg"/><span aria-hidden="true" class="footer__ecosystem-arrow">
 <svg class="footer__arrow--out" fill="none" viewbox="0 0 24 24"><path d="M6.4 18 5 16.6 14.6 7H6V5h12v12h-2V8.4L6.4 18Z" fill="currentColor"></path></svg>
 <svg class="footer__arrow--in" fill="none" viewbox="0 0 24 24"><path d="M6.4 18 5 16.6 14.6 7H6V5h12v12h-2V8.4L6.4 18Z" fill="currentColor"></path></svg>
-</span></a>
-<a class="footer__ecosystem-row" href="#"><img alt="AI Basecamp" class="footer__ecosystem-logo" src="assets/images/index/AI_Base_Camp_Logo 2.svg"/><span aria-hidden="true" class="footer__ecosystem-arrow">
+</span></span>
+<span class="footer__ecosystem-row is-disabled" aria-disabled="true"><img alt="AI Basecamp" class="footer__ecosystem-logo" src="assets/images/index/AI_Base_Camp_Logo 2.svg"/><span aria-hidden="true" class="footer__ecosystem-arrow">
 <svg class="footer__arrow--out" fill="none" viewbox="0 0 24 24"><path d="M6.4 18 5 16.6 14.6 7H6V5h12v12h-2V8.4L6.4 18Z" fill="currentColor"></path></svg>
 <svg class="footer__arrow--in" fill="none" viewbox="0 0 24 24"><path d="M6.4 18 5 16.6 14.6 7H6V5h12v12h-2V8.4L6.4 18Z" fill="currentColor"></path></svg>
-</span></a>
+</span></span>
 </div></div>
-<div class="footer__col"><h3>Cities We Work in</h3><a class="footer__link" href="#">Pune</a><a class="footer__link" href="#">London</a><a class="footer__link" href="#">Dublin</a><a class="footer__link" href="#">Madrid</a><a class="footer__link" href="#">Sydney</a></div>
+<div class="footer__col"><h3>Cities We Work in</h3><span class="footer__link is-disabled" aria-disabled="true">Pune</span><span class="footer__link is-disabled" aria-disabled="true">London</span><span class="footer__link is-disabled" aria-disabled="true">Dublin</span><span class="footer__link is-disabled" aria-disabled="true">Madrid</span><span class="footer__link is-disabled" aria-disabled="true">Sydney</span></div>
 </div>
 <div class="footer__bottom">
 <span>© 2026 Talentika.</span>
 <nav aria-label="Legal" class="footer__legal">
-<a class="footer__legal-link" href="#">Privacy Policy</a>
-<a class="footer__legal-link" href="#">Terms of Use</a>
-<a class="footer__legal-link" href="#">Cookie Preferences</a>
-<a class="footer__legal-link" href="#">Sitemap</a>
+<span class="footer__legal-link is-disabled" aria-disabled="true">Privacy Policy</span>
+<span class="footer__legal-link is-disabled" aria-disabled="true">Terms of Use</span>
+<span class="footer__legal-link is-disabled" aria-disabled="true">Cookie Preferences</span>
+<span class="footer__legal-link is-disabled" aria-disabled="true">Sitemap</span>
 </nav>
 </div>
 </div>
