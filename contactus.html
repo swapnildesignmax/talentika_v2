@@ -2777,6 +2777,42 @@ a[aria-disabled="true"]{
   }
 }
 
+
+/* SHARED HEADER ALIGNMENT
+   Align header logo + right CTA with the same page gutter used by sections:
+   60px at 1440, fluid to 160px at 3840, capped beyond 4K. */
+@media (min-width:769px){
+  :root{
+    --page-gutter:clamp(60px,4.1667vw,160px);
+    --header-shell-gap:clamp(16px,1.1111vw,43px);
+  }
+
+  .site-header{
+    padding-left:var(--header-shell-gap)!important;
+    padding-right:var(--header-shell-gap)!important;
+  }
+
+  .site-header__inner{
+    width:100%!important;
+    max-width:none!important;
+    margin-inline:auto!important;
+    padding-left:calc(var(--page-gutter) - var(--header-shell-gap))!important;
+    padding-right:calc(var(--page-gutter) - var(--header-shell-gap))!important;
+  }
+}
+
+/* Keep compact mobile header behavior unchanged. */
+@media (max-width:768px){
+  .site-header{
+    padding-left:10px!important;
+    padding-right:10px!important;
+  }
+  .site-header__inner{
+    padding-left:14px!important;
+    padding-right:14px!important;
+  }
+}
+
 </style>
 </head>
 <body class="contact-page">
