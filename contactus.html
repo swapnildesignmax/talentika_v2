@@ -2813,6 +2813,27 @@ a[aria-disabled="true"]{
   }
 }
 
+
+/* CONTACT MAP TYPOGRAPHY — reduce location labels by 30% */
+.contact-network .map-country{
+  font-size:16px!important;
+}
+.contact-network .map-country strong{
+  font-size:20px!important;
+  line-height:27px!important;
+}
+
+/* Keep the same 30% reduction on large-display scaling rules. */
+@media (min-width:1600px){
+  .contact-network .map-country{
+    font-size:clamp(16px,1.1111vw,42.67px)!important;
+  }
+  .contact-network .map-country strong{
+    font-size:clamp(20px,1.3889vw,53.33px)!important;
+    line-height:1.37!important;
+  }
+}
+
 </style>
 </head>
 <body class="contact-page">
