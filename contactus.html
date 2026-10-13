@@ -2834,6 +2834,113 @@ a[aria-disabled="true"]{
   }
 }
 
+
+/* =========================================================
+   CONTACT GLOBAL PRESENCE — ULTRA-WIDE MARKER ALIGNMENT
+   The map itself scales on large displays, so marker coordinates
+   must scale with it too. These percentages are derived from the
+   original 1515.412 × 879.416 Figma map canvas.
+   ========================================================= */
+@media (min-width:1600px){
+  .contact-network__canvas{
+    position:absolute!important;
+    left:clamp(-358px,-9.334vw,-134px)!important;
+    top:clamp(-43px,-1.1111vw,-16px)!important;
+    width:clamp(1515.412px,105.237vw,4041.1px)!important;
+    height:clamp(879.416px,61.0706vw,2345.1px)!important;
+    transform:none!important;
+  }
+
+  .contact-network__world{
+    width:100%!important;
+    height:100%!important;
+    object-fit:fill!important;
+  }
+
+  .contact-network .map-country{
+    position:absolute!important;
+    transform:none!important;
+  }
+
+  .contact-network .map-country--usa{left:21.606%!important;top:37.305%!important}
+  .contact-network .map-country--ireland{left:39.229%!important;top:32.594%!important}
+  .contact-network .map-country--uk{left:36.113%!important;top:20.571%!important}
+  .contact-network .map-country--india{left:70.173%!important;top:54.336%!important}
+  .contact-network .map-country--singapore{left:78.580%!important;top:64.677%!important}
+  .contact-network .map-country--australia{left:87.423%!important;top:72.929%!important}
+  .contact-network .map-country--denmark{left:50.996%!important;top:30.181%!important}
+  .contact-network .map-country--slovakia{left:54.547%!important;top:36.245%!important}
+  .contact-network .map-country--spain{left:48.381%!important;top:40.641%!important}
+  .contact-network .map-country--sweden{left:51.307%!important;top:19.452%!important}
+
+  /* Requested large-display typography preserved */
+  .contact-network .map-country{
+    font-size:clamp(16px,1.1111vw,42.67px)!important;
+    line-height:1.38!important;
+  }
+  .contact-network .map-country strong{
+    font-size:clamp(20px,1.3889vw,53.33px)!important;
+    line-height:1.35!important;
+  }
+}
+
+/* Above 4K the 3840px design canvas stays centered. */
+@media (min-width:3841px){
+  .contact-network{
+    width:3840px!important;
+    margin-inline:auto!important;
+  }
+}
+
+
+/* =========================================================
+   LARGE-DISPLAY QA GUARDS
+   Prevent fixed-width child elements from drifting, clipping,
+   or escaping their section on 1600–3840px displays.
+   ========================================================= */
+@media (min-width:1600px){
+  main,
+  main > section,
+  .footer,
+  .site-header{
+    min-width:0!important;
+    max-width:100%!important;
+  }
+
+  main img,
+  main video{
+    max-width:100%;
+  }
+
+  /* Grid/flex children are allowed to shrink instead of forcing overflow. */
+  main section > *,
+  main [class*="grid"] > *,
+  main [class*="row"] > *,
+  main [class*="cards"] > *,
+  .footer__links > *{
+    min-width:0;
+  }
+
+  /* Keep standard content edges aligned to the shared large-display gutter. */
+  :root{
+    --qa-wide-gutter:clamp(60px,4.1667vw,160px);
+  }
+
+  /* Prevent accidental viewport-wide overflow from decorative content. */
+  main{
+    overflow-x:clip;
+  }
+}
+
+@media (min-width:3841px){
+  body{
+    width:3840px!important;
+    max-width:3840px!important;
+    margin-left:auto!important;
+    margin-right:auto!important;
+  }
+}
+
 </style>
 </head>
 <body class="contact-page">
