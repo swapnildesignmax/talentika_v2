@@ -3362,6 +3362,55 @@ a[aria-disabled="true"]{
   }
 }
 
+
+/* =========================================================
+   LARGE-DISPLAY QA GUARDS
+   Prevent fixed-width child elements from drifting, clipping,
+   or escaping their section on 1600–3840px displays.
+   ========================================================= */
+@media (min-width:1600px){
+  main,
+  main > section,
+  .footer,
+  .site-header{
+    min-width:0!important;
+    max-width:100%!important;
+  }
+
+  main img,
+  main video{
+    max-width:100%;
+  }
+
+  /* Grid/flex children are allowed to shrink instead of forcing overflow. */
+  main section > *,
+  main [class*="grid"] > *,
+  main [class*="row"] > *,
+  main [class*="cards"] > *,
+  .footer__links > *{
+    min-width:0;
+  }
+
+  /* Keep standard content edges aligned to the shared large-display gutter. */
+  :root{
+    --qa-wide-gutter:clamp(60px,4.1667vw,160px);
+  }
+
+  /* Prevent accidental viewport-wide overflow from decorative content. */
+  main{
+    overflow-x:clip;
+  }
+}
+
+@media (min-width:3841px){
+  body{
+    width:3840px!important;
+    max-width:3840px!important;
+    margin-left:auto!important;
+    margin-right:auto!important;
+  }
+}
+
 </style>
 </head>
 <body class="ai-page">
