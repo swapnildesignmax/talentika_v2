@@ -3634,6 +3634,230 @@ a[aria-disabled="true"]{
   }
 }
 
+
+/* =========================================================
+   CASE STUDIES — LARGE / 4K DISPLAY REPAIR
+   Scale the 1440px Figma landing composition proportionally
+   through 3840px, then keep it centered above 4K.
+   ========================================================= */
+@media (min-width:1600px){
+  .cs-page--landing{
+    width:100%!important;
+    max-width:3840px!important;
+    margin-inline:auto!important;
+  }
+
+  .cs-page--landing .cs-breadcrumb{
+    min-height:clamp(36px,2.5vw,96px)!important;
+    padding:
+      clamp(10px,.6944vw,27px)
+      clamp(60px,4.1667vw,160px)!important;
+    gap:clamp(6px,.4167vw,16px)!important;
+    font-size:clamp(12px,.8333vw,32px)!important;
+    line-height:1.35!important;
+  }
+
+  .cs-page--landing .cs-hero--landing{
+    min-height:clamp(412px,28.6111vw,1099px)!important;
+    padding:
+      clamp(60px,4.1667vw,160px)!important;
+    display:flex!important;
+    align-items:flex-end!important;
+  }
+
+  .cs-page--landing .cs-hero__copy{
+    max-width:clamp(736px,51.1111vw,1963px)!important;
+  }
+
+  .cs-page--landing .cs-hero__title{
+    font-size:clamp(60px,4.1667vw,160px)!important;
+    line-height:1!important;
+    letter-spacing:-.03em!important;
+  }
+
+  .cs-page--landing .cs-hero__desc{
+    margin-top:clamp(16px,1.1111vw,43px)!important;
+    max-width:clamp(736px,51.1111vw,1963px)!important;
+    font-size:clamp(16px,1.1111vw,43px)!important;
+    line-height:1.4!important;
+  }
+
+  .case-studies-hero__media,
+  .hero__media.case-studies-hero__media{
+    height:clamp(560px,38.8889vw,1493px)!important;
+  }
+
+  .cs-page--landing .cs-landing-framework{
+    padding:
+      clamp(60px,4.1667vw,160px)
+      clamp(80px,5.5556vw,213px)
+      clamp(90px,6.25vw,240px)!important;
+  }
+
+  .cs-page--landing .cs-landing-layout{
+    width:100%!important;
+    max-width:clamp(1280px,88.8889vw,3413px)!important;
+    grid-template-columns:
+      clamp(300px,20.8333vw,800px)
+      minmax(0,clamp(890px,61.8056vw,2373px))!important;
+    gap:clamp(90px,6.25vw,240px)!important;
+    align-items:start!important;
+  }
+
+  .cs-page--landing .cs-sidebar{
+    width:100%!important;
+  }
+
+  .cs-page--landing .cs-filter-search{
+    height:clamp(56px,3.8889vw,149px)!important;
+    padding-inline:clamp(16px,1.1111vw,43px)!important;
+    border-radius:clamp(12px,.8333vw,32px)!important;
+    font-size:clamp(16px,1.1111vw,43px)!important;
+  }
+
+  .cs-page--landing .cs-filter-search__icon{
+    width:clamp(24px,1.6667vw,64px)!important;
+    height:clamp(24px,1.6667vw,64px)!important;
+  }
+
+  .cs-page--landing .cs-filter-title{
+    margin:
+      clamp(16px,1.1111vw,43px)
+      0!important;
+    font-size:clamp(14px,.9722vw,37px)!important;
+    line-height:1.4!important;
+  }
+
+  .cs-page--landing .cs-filter-row{
+    padding:
+      clamp(12px,.8333vw,32px)
+      0!important;
+  }
+
+  .cs-page--landing .cs-filter-row__label{
+    font-size:clamp(12px,.8333vw,32px)!important;
+    line-height:1.35!important;
+  }
+
+  .cs-page--landing .cs-filter-row__value{
+    margin-top:clamp(4px,.2778vw,11px)!important;
+    font-size:clamp(14px,.9722vw,37px)!important;
+    line-height:1.4!important;
+  }
+
+  .cs-page--landing .cs-filter-row__value select{
+    font-size:clamp(14px,.9722vw,37px)!important;
+    line-height:1.4!important;
+  }
+
+  .cs-page--landing .cs-filter-plus{
+    width:clamp(20px,1.3889vw,53px)!important;
+    height:clamp(20px,1.3889vw,53px)!important;
+    font-size:clamp(20px,1.3889vw,53px)!important;
+    line-height:1!important;
+  }
+
+  .cs-page--landing .cs-filter-reset{
+    margin-top:clamp(16px,1.1111vw,43px)!important;
+    font-size:clamp(12px,.8333vw,32px)!important;
+    line-height:1.4!important;
+  }
+
+  .cs-page--landing .cs-list{
+    gap:clamp(42px,2.9167vw,112px)!important;
+  }
+
+  .cs-page--landing .cs-list__row{
+    gap:clamp(42px,2.9167vw,112px)!important;
+  }
+
+  .cs-page--landing .story-card{
+    min-height:clamp(463px,32.1528vw,1235px)!important;
+    border-radius:clamp(42px,2.9167vw,112px)!important;
+    padding:clamp(24px,1.6667vw,64px)!important;
+    gap:clamp(52px,3.6111vw,139px)!important;
+  }
+
+  .cs-page--landing .story-card--wide{
+    min-height:clamp(427px,29.6528vw,1139px)!important;
+  }
+
+  .cs-page--landing .story-card__tag{
+    border-radius:clamp(10px,.6944vw,27px)!important;
+    padding:clamp(10px,.6944vw,27px)!important;
+    font-size:clamp(14px,.9722vw,37px)!important;
+  }
+
+  .cs-page--landing .story-card__logo{
+    width:clamp(109px,7.5694vw,291px)!important;
+    height:clamp(24px,1.6667vw,64px)!important;
+  }
+
+  .cs-page--landing .story-card__content{
+    gap:clamp(36px,2.5vw,96px)!important;
+  }
+
+  .cs-page--landing .story-card__metric{
+    font-size:clamp(60px,4.1667vw,160px)!important;
+    line-height:1!important;
+  }
+
+  .cs-page--landing .story-card__metric-sub{
+    margin-top:clamp(5px,.3472vw,13px)!important;
+    font-size:clamp(14px,.9722vw,37px)!important;
+  }
+
+  .cs-page--landing .story-card__title{
+    font-size:clamp(28px,1.9444vw,75px)!important;
+    line-height:1.08!important;
+  }
+
+  .cs-page--landing .story-card__desc{
+    margin-top:clamp(14px,.9722vw,37px)!important;
+    max-width:clamp(291px,20.2083vw,776px)!important;
+    font-size:clamp(14px,.9722vw,37px)!important;
+    line-height:1.35!important;
+  }
+
+  .cs-page--landing .cs-list__more{
+    min-height:clamp(62px,4.3056vw,165px)!important;
+    padding:clamp(20px,1.3889vw,53px)!important;
+    border-radius:clamp(10px,.6944vw,27px)!important;
+    gap:clamp(10px,.6944vw,27px)!important;
+    font-size:clamp(16px,1.1111vw,43px)!important;
+    line-height:1.25!important;
+  }
+
+  .cs-page--landing .cs-list__more span:last-child{
+    width:clamp(20px,1.3889vw,53px)!important;
+    height:clamp(20px,1.3889vw,53px)!important;
+    font-size:clamp(20px,1.3889vw,53px)!important;
+  }
+
+  .cs-page--landing .cs-list__empty{
+    padding:
+      clamp(24px,1.6667vw,64px)
+      0!important;
+    font-size:clamp(14px,.9722vw,37px)!important;
+  }
+}
+
+/* Above 4K: fixed 3840px design canvas, centered with equal side margins. */
+@media (min-width:3841px){
+  .cs-page--landing{
+    width:3840px!important;
+    max-width:3840px!important;
+    margin-inline:auto!important;
+  }
+
+  .case-studies-hero__media,
+  .hero__media.case-studies-hero__media{
+    width:3840px!important;
+    left:50%!important;
+    transform:translateX(-50%)!important;
+  }
+}
+
 </style>
 </head>
 <body class="about-page">
@@ -3747,7 +3971,7 @@ a[aria-disabled="true"]{
       <label class="sr-only" for="case-study-search">Search case studies by keyword</label>
       <div class="cs-filter-search">
         <input autocomplete="off" id="case-study-search" placeholder="Search by Keyword" type="search"/>
-        <img class="cs-filter-search__icon" src="assets/images/casestudies/action_key.png" alt="">
+        <img class="cs-filter-search__icon" src="assets/images/casestudies/action_key.svg" alt="">
       </div>
       <p class="cs-filter-title">Filter by</p>
       <div class="cs-filter-row">
